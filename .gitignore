@@ -1,0 +1,11 @@
+# 编译产物
+src/cfast/kayles
+
+# 运行期标记与日志
+logs/
+data/raw/*.pid
+data/raw/*.done
+
+# Python
+__pycache__/
+*.pyc
