@@ -722,6 +722,8 @@ def sweep(args):
         env["STRIP3_HT_PREALLOC"] = "1"
     if args.progress:
         env["STRIP3_PROGRESS"] = str(args.progress)
+    if args.threads:
+        env["STRIP3_THREADS"] = str(args.threads)
     started = time.monotonic()
     status = "ok"
     stderr = ""
@@ -754,7 +756,8 @@ def sweep(args):
                         "value": value})
     out = {"version": VERSION, "kind": "strip3_sweep", "n": n,
            "columns": columns, "ht_bits": env_bits, "load": args.load,
-           "prealloc": args.prealloc, "timeout_s": args.timeout,
+           "prealloc": args.prealloc, "threads": args.threads,
+           "timeout_s": args.timeout,
            "status": status, "returncode": code,
            "elapsed_s": round(elapsed, 1), "union_memo": union_memo,
            "memo_at_exit": memo_at_exit,
@@ -850,6 +853,8 @@ def main():
                    help="allocate the full table upfront (no doubling)")
     p.add_argument("--progress", type=int, default=0,
                    help="print a progress line to stderr every N calls")
+    p.add_argument("--threads", type=int, default=1,
+                   help="worker threads in one shared-memo process (needs --prealloc)")
     p.add_argument("--timeout", type=float, default=7200)
     p.add_argument("--output", type=Path, required=True)
     p.set_defaults(func=sweep)

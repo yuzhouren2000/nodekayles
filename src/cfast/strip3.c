@@ -1,6 +1,9 @@
 /* Exact Node Kayles on induced subgraphs of the three-row strip.
  * Column-major bits: vertex (r,c) = 3*c+r, 0 <= r < 3.
- * Up to 42 columns / 126 cells fit in unsigned __int128.
+ * Up to 40 columns / 120 cells fit in the low 120 bits of unsigned __int128;
+ * the top 8 bits of each hash-table word hold the nimber (0..255), so one
+ * 16-byte word is both the key and the value: a memo hit touches a single
+ * cache line and the table needs no separate value array.
  *
  * Structural reductions (each preserves the exact nimber):
  * - any connected path, including bent embeddings, uses the path recurrence;
@@ -23,6 +26,8 @@
  * The bounded table exits with code 3 when the load limit is reached.
  */
 
+#include <pthread.h>
+#include <sched.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,14 +36,36 @@
 
 typedef unsigned __int128 Mask;
 enum { MAXCOLS = 42, MAXCELLS = 126 };
+static const Mask KEYMASK = (((Mask)1 << 120) - 1);
 static Mask rowmask[3];
-static Mask *keys;
-static uint8_t *values;
-static size_t capacity, entries, maxbits = 26, load_pct = 70;
+static Mask *slots;                 /* packed key (low 120 bits) + value (top 8) */
+static size_t capacity, maxbits = 26, load_pct = 70;
+static _Atomic size_t entries;      /* global count, atomic: many threads insert */
 static int reductions = 7, path_g[MAXCELLS + 1];
-static uint64_t calls, moves, path_hits, cycle_hits, rotation_hits, cancelled;
 static uint64_t progress_every;
 static double started;
+
+/* Sharded memo: the table is split into lane_count lanes of lane_size slots.
+ * A key stays inside its lane (lane = low hash bits, local probe from the
+ * remaining bits); each lane has a spinlock, so lookups and inserts by
+ * different threads only serialise when they touch the same lane. */
+static size_t lane_count = 1, lane_size = 1, lane_shift = 0;
+static unsigned char *lane_lock;
+static int nthreads = 1;
+
+/* Keys of 121..126 bits (n = 41, 42; exercised by the sparse regression
+ * tests, never by production runs up to n = 36) do not fit in the packed
+ * 16-byte word, so they live in a separate small table with a value array. */
+static Mask *wide_keys;
+static uint8_t *wide_values;
+static size_t wide_cap, wide_entries;
+
+/* per-thread statistics, summed at exit */
+struct tstat { uint64_t calls, moves, path_hits, cycle_hits, rotation_hits, cancelled; };
+static __thread struct tstat tst;
+enum { TMAX = 64 };
+static struct tstat stats_out[TMAX];   /* copied by each thread before it exits */
+static int nregistered;
 
 static double seconds(void) {
     struct timespec ts;
@@ -119,39 +146,109 @@ static uint64_t hash(Mask m) {
     return x ^ (x >> 31);
 }
 
+static inline void lane_acquire(size_t lane) {
+    if (lane_count == 1) return;
+    unsigned char *l = &lane_lock[lane];
+    while (__atomic_test_and_set(l, __ATOMIC_ACQUIRE)) {
+        while (__atomic_load_n(l, __ATOMIC_RELAXED)) __asm__ volatile("pause");
+    }
+}
+static inline void lane_release(size_t lane) {
+    if (lane_count == 1) return;
+    __atomic_clear(&lane_lock[lane], __ATOMIC_RELEASE);
+}
+
 static void allocate(size_t bits) {
     capacity = (size_t)1 << bits;
-    keys = calloc(capacity, sizeof *keys);
-    values = calloc(capacity, sizeof *values);
-    if (!keys || !values) {
+    while (lane_count > 1 && capacity / lane_count < 1024) lane_count >>= 1;
+    lane_size = capacity / lane_count;
+    lane_shift = 0;
+    for (size_t c = lane_count; c > 1; c >>= 1) lane_shift++;
+    slots = calloc(capacity, sizeof *slots);
+    if (!slots) {
         fprintf(stderr, "strip3: allocation failed (%zu slots)\n", capacity);
         exit(3);
     }
+    if (lane_count > 1) {
+        lane_lock = calloc(lane_count, 1);
+        if (!lane_lock) { fprintf(stderr, "strip3: lock allocation failed\n"); exit(3); }
+    }
+    if (!wide_keys) {
+        wide_cap = (size_t)1 << 22;
+        wide_keys = calloc(wide_cap, sizeof *wide_keys);
+        wide_values = calloc(wide_cap, sizeof *wide_values);
+        if (!wide_keys || !wide_values) { fprintf(stderr, "strip3: wide table allocation failed\n"); exit(3); }
+        wide_entries = 0;
+    }
+}
+
+/* wide-key memo: same lane locks, separate table */
+static int wide_get(Mask m) {
+    size_t hh = hash(m);
+    size_t lane = lane_count == 1 ? 0 : hh & (lane_count - 1);
+    lane_acquire(lane);
+    size_t slot = hh & (wide_cap - 1);
+    for (;;) {
+        if (!wide_keys[slot]) { lane_release(lane); return -1; }
+        if (wide_keys[slot] == m) { int g = wide_values[slot]; lane_release(lane); return g; }
+        slot = (slot + 1) & (wide_cap - 1);
+    }
+}
+static void wide_put(Mask m, int g) {
+    size_t hh = hash(m);
+    size_t lane = lane_count == 1 ? 0 : hh & (lane_count - 1);
+    lane_acquire(lane);
+    size_t slot = hh & (wide_cap - 1);
+    while (wide_keys[slot] && wide_keys[slot] != m) slot = (slot + 1) & (wide_cap - 1);
+    if (!wide_keys[slot]) {
+        if ((wide_entries + 1) * 10 >= wide_cap * 7) { lane_release(lane); fprintf(stderr, "strip3: wide memo full\n"); exit(3); }
+        wide_keys[slot] = m; wide_values[slot] = (uint8_t)g;
+        __atomic_fetch_add(&wide_entries, 1, __ATOMIC_RELAXED);
+    }
+    lane_release(lane);
 }
 
 static void insert(Mask m, int g) {
-    size_t slot = hash(m) & (capacity - 1);
-    while (keys[slot]) slot = (slot + 1) & (capacity - 1);
-    keys[slot] = m;
-    values[slot] = (uint8_t)g;
+    size_t h = hash(m);
+    size_t lane = lane_count == 1 ? 0 : h & (lane_count - 1);
+    size_t base = lane * lane_size;
+    size_t local = lane_count == 1 ? (h & (lane_size - 1))
+                                   : ((h >> lane_shift) & (lane_size - 1));
+    Mask entry = m | ((Mask)(uint8_t)g << 120);
+    lane_acquire(lane);
+    size_t step = 0;
+    for (;;) {
+        Mask cur = slots[base + local];
+        if (!(cur & KEYMASK)) { slots[base + local] = entry; __atomic_fetch_add(&entries, 1, __ATOMIC_RELAXED); break; }
+        if ((cur & KEYMASK) == m) break;          /* raced insert: value is identical */
+        local = (local + 1) & (lane_size - 1);
+        if (++step > lane_size) { lane_release(lane); fprintf(stderr, "strip3: lane overflow\n"); exit(3); }
+    }
+    lane_release(lane);
 }
 
 static void store(Mask m, int g) {
-    if ((entries + 1) * 100 >= capacity * load_pct) {
+    size_t count = __atomic_load_n(&entries, __ATOMIC_RELAXED);
+    if ((count + 1) * 100 >= capacity * load_pct) {
         if (capacity == (size_t)1 << maxbits) {
-            fprintf(stderr, "strip3: memo budget reached at %zu states; incomplete, no value emitted for current board\n", entries);
+            fprintf(stderr, "strip3: memo budget reached at %zu states; incomplete, no value emitted for current board\n", count);
             exit(3);
         }
-        Mask *oldkeys = keys;
-        uint8_t *oldvalues = values;
+        if (nthreads > 1) { fprintf(stderr, "strip3: growth forbidden with threads>1 (use STRIP3_HT_PREALLOC=1)\n"); exit(3); }
+        Mask *oldslots = slots;
         size_t oldcap = capacity, bits = 0;
         for (size_t c = oldcap; c; c >>= 1) bits++;
         allocate(bits);
-        for (size_t i = 0; i < oldcap; i++) if (oldkeys[i]) insert(oldkeys[i], oldvalues[i]);
-        free(oldkeys); free(oldvalues);
+        __atomic_store_n(&entries, (size_t)0, __ATOMIC_RELAXED);
+        for (size_t i = 0; i < oldcap; i++) if (oldslots[i] & KEYMASK) {
+            Mask m2 = oldslots[i] & KEYMASK;
+            int g2 = (int)(oldslots[i] >> 120);
+            insert(m2, g2);
+        }
+        free(oldslots);
     }
+    if (m >> 120) { wide_put(m, g); return; }
     insert(m, g);
-    entries++;
 }
 
 static int value(Mask m);
@@ -173,7 +270,7 @@ static int value(Mask m) {
             for (int i = 0; i < count; i++) if (components[i] == key) { duplicate = i; break; }
         if (duplicate >= 0) {
             components[duplicate] = components[--count];
-            cancelled++;
+            tst.cancelled++;
         } else components[count++] = key;
     }
     int g = 0;
@@ -182,15 +279,28 @@ static int value(Mask m) {
 }
 
 static int component_value(Mask m) {
-    calls++;
-    if (progress_every && calls % progress_every == 0)
+    tst.calls++;
+    if (progress_every && tst.calls % progress_every == 0)
         fprintf(stderr, "progress calls=%llu entries=%zu %.1fs\n",
-                (unsigned long long)calls, entries, seconds() - started);
-    size_t slot = hash(m) & (capacity - 1);
-    while (keys[slot]) {
-        if (keys[slot] == m) return values[slot];
-        slot = (slot + 1) & (capacity - 1);
+                (unsigned long long)tst.calls, __atomic_load_n(&entries, __ATOMIC_RELAXED),
+                seconds() - started);
+    if (m >> 120) {
+        int g = wide_get(m);
+        if (g >= 0) return g;
     }
+    size_t hh = hash(m);
+    size_t lane = lane_count == 1 ? 0 : hh & (lane_count - 1);
+    size_t base = lane * lane_size;
+    size_t local = lane_count == 1 ? (hh & (lane_size - 1))
+                                   : ((hh >> lane_shift) & (lane_size - 1));
+    lane_acquire(lane);
+    for (;;) {
+        Mask entry = slots[base + local];
+        if (!(entry & KEYMASK)) break;
+        if ((entry & KEYMASK) == m) { int g = (int)(entry >> 120); lane_release(lane); return g; }
+        local = (local + 1) & (lane_size - 1);
+    }
+    lane_release(lane);
     int n = width(m), h = (m & rowmask[2]) ? 3 : ((m & rowmask[1]) ? 2 : 1);
     Mask vertical = flip_rows(m) >> (3 - h);
     Mask both = reverse_bits(m, 3 * n) >> (3 - h);
@@ -203,7 +313,7 @@ static int component_value(Mask m) {
                 Mask b = (Mask)1 << v;
                 if (partner == v || (neighbours(b) & ((Mask)1 << partner))) safe = 0;
             }
-            if (safe) { rotation_hits++; store(m, 0); return 0; }
+            if (safe) { tst.rotation_hits++; store(m, 0); return 0; }
         }
         int maxdegree = 0, endpoints = 0, nodes = order(m);
         for (Mask x = (reductions & 1) ? m : 0; x; x &= x - 1) {
@@ -214,8 +324,8 @@ static int component_value(Mask m) {
         }
         if ((reductions & 1) && maxdegree <= 2) {
             int g;
-            if (endpoints || nodes == 1) { path_hits++; g = path_g[nodes]; }
-            else { cycle_hits++; g = path_g[nodes - 3] == 0 ? 1 : 0; }
+            if (endpoints || nodes == 1) { tst.path_hits++; g = path_g[nodes]; }
+            else { tst.cycle_hits++; g = path_g[nodes - 3] == 0 ? 1 : 0; }
             store(m, g);
             return g;
         }
@@ -228,9 +338,13 @@ static int component_value(Mask m) {
         if (m == vertical && 3 * col + h - 1 - row < v) continue;
         if (m == horizontal && 3 * (n - 1 - col) + row < v) continue;
         if (m == both && 3 * (n - 1 - col) + h - 1 - row < v) continue;
-        Mask b = (Mask)1 << v;
-        moves++;
-        int s = value(m & ~(b | neighbours(b)));
+        tst.moves++;
+        Mask kill = (Mask)1 << v;
+        if (v >= 3) kill |= (Mask)1 << (v - 3);
+        if (v + 3 < 3 * n) kill |= (Mask)1 << (v + 3);
+        if (row > 0) kill |= (Mask)1 << (v - 1);
+        if (row < 2) kill |= (Mask)1 << (v + 1);
+        int s = value(m & ~kill);
         if (s < 128) seen[s >> 6] |= 1ULL << (s & 63);
     }
     int g = 0;
@@ -240,13 +354,45 @@ static int component_value(Mask m) {
     return g;
 }
 
+static Mask *job_mask;
+static int *job_result;
+static unsigned char *job_done;
+static int job_count, job_cap;
+static _Atomic int job_next;
+static _Atomic int job_printed;
+static unsigned char print_lock;
+
+static void *worker_main(void *arg) {
+    int worker = (int)(intptr_t)arg;
+    for (;;) {
+        int i = __atomic_fetch_add(&job_next, 1, __ATOMIC_RELAXED);
+        if (i >= job_count) break;
+        job_result[i] = value(job_mask[i]);
+        __atomic_store_n(&job_done[i], 1, __ATOMIC_RELEASE);
+        /* flush the longest completed prefix, in order */
+        while (__atomic_test_and_set(&print_lock, __ATOMIC_ACQUIRE))
+            __asm__ volatile("pause");
+        for (;;) {
+            int k = __atomic_load_n(&job_printed, __ATOMIC_RELAXED);
+            if (k >= job_count || !__atomic_load_n(&job_done[k], __ATOMIC_ACQUIRE)) break;
+            printf("%d\n", job_result[k]);
+            fflush(stdout);
+            __atomic_store_n(&job_printed, k + 1, __ATOMIC_RELAXED);
+        }
+        __atomic_clear(&print_lock, __ATOMIC_RELEASE);
+    }
+    stats_out[worker] = tst;   /* copy before the thread's TLS disappears */
+    return NULL;
+}
+
 static Mask full_board(int n) { return ((Mask)1 << (3 * n)) - 1; }
 
 static void stats(int n, int g, double t) {
     fprintf(stderr, "[3x%d] G=%d time=%.3f memo=%zu calls=%llu moves=%llu path=%llu cycle=%llu rotation=%llu cancelled=%llu\n",
-        n, g, seconds() - t, entries, (unsigned long long)calls, (unsigned long long)moves,
-        (unsigned long long)path_hits, (unsigned long long)cycle_hits,
-        (unsigned long long)rotation_hits, (unsigned long long)cancelled);
+        n, g, seconds() - t, __atomic_load_n(&entries, __ATOMIC_RELAXED),
+        (unsigned long long)tst.calls, (unsigned long long)tst.moves,
+        (unsigned long long)tst.path_hits, (unsigned long long)tst.cycle_hits,
+        (unsigned long long)tst.rotation_hits, (unsigned long long)tst.cancelled);
 }
 
 static void initialise(void) {
@@ -277,6 +423,18 @@ static void initialise(void) {
     }
     env = getenv("STRIP3_HT_PREALLOC");
     int prealloc = env && strcmp(env, "0") != 0;
+    env = getenv("STRIP3_THREADS");
+    if (env) {
+        char *end;
+        long n = strtol(env, &end, 10);
+        if (!*env || *end || n < 1 || n > TMAX) { fprintf(stderr, "invalid STRIP3_THREADS (1..%d)\n", TMAX); exit(2); }
+        nthreads = (int)n;
+    }
+    if (nthreads > 1 && !prealloc) {
+        fprintf(stderr, "strip3: STRIP3_THREADS>1 requires STRIP3_HT_PREALLOC=1\n");
+        exit(2);
+    }
+    if (nthreads > 1) lane_count = 1 << 16;
     env = getenv("STRIP3_HT_LOAD");
     if (env) {
         char *end;
@@ -301,6 +459,7 @@ int main(int argc, char **argv) {
         initialise();
         int n;
         char hex[40], line[128], extra;
+        int njobs = 0;
         while (fgets(line, sizeof line, stdin)) {
             if (sscanf(line, "%d %39s %c", &n, hex, &extra) != 2) goto usage;
             if (n < 1 || n > MAXCOLS || strlen(hex) > 32) goto usage;
@@ -313,8 +472,38 @@ int main(int argc, char **argv) {
                 m = (m << 4) | digit;
             }
             if (m & ~full_board(n)) goto usage;
-            printf("%d\n", value(m));
-            fflush(stdout);   /* keep completed lines on timeout kills */
+            if (njobs == job_cap) {
+                int cap = job_cap ? job_cap * 2 : 1024;
+                Mask *nm = realloc(job_mask, (size_t)cap * sizeof *nm);
+                int *nr = realloc(job_result, (size_t)cap * sizeof *nr);
+                unsigned char *nd = realloc(job_done, (size_t)cap * sizeof *nd);
+                if (!nm || !nr || !nd) { fprintf(stderr, "strip3: input too large\n"); return 2; }
+                job_mask = nm; job_result = nr; job_done = nd;
+                job_cap = cap;
+                memset(job_done + njobs, 0, (size_t)(cap - njobs));
+            }
+            job_mask[njobs++] = m;
+        }
+        if (nthreads <= 1 || njobs <= 1) {
+            nregistered = 1;
+            for (int i = 0; i < njobs; i++) {
+                printf("%d\n", value(job_mask[i]));
+                fflush(stdout);
+            }
+            stats_out[0] = tst;
+        } else {
+            int nw = njobs < nthreads ? njobs : nthreads;
+            nregistered = nw;
+            job_count = njobs;
+            __atomic_store_n(&job_next, 0, __ATOMIC_RELAXED);
+            __atomic_store_n(&job_printed, 0, __ATOMIC_RELAXED);
+            pthread_t th[TMAX];
+            for (int w = 1; w < nw; w++)
+                pthread_create(&th[w], NULL, worker_main, (void *)(intptr_t)w);
+            worker_main((void *)(intptr_t)0);
+            for (int w = 1; w < nw; w++) pthread_join(th[w], NULL);
+            /* anything the print gate has not flushed (cannot happen, but be safe) */
+            for (int i = 0; i < njobs; i++) if (!job_done[i]) printf("%d\n", job_result[i]);
         }
     } else if (argc == 3 && (!strcmp(argv[1], "strip") || !strcmp(argv[1], "survey") || !strcmp(argv[1], "board"))) {
         char *end;
@@ -343,8 +532,22 @@ int main(int argc, char **argv) {
             stats(n, g, t);
         }
     } else goto usage;
-    fprintf(stderr, "done %.3fs memo=%zu capacity=%zu bytes_per_slot=17 reductions=%d\n", seconds() - started, entries, capacity, reductions);
-    free(keys); free(values);
+    {
+        uint64_t tc = 0, tm = 0, tp = 0, tcy = 0, tr = 0, tcn = 0;
+        int reg = nregistered ? nregistered : 0;
+        if (!reg) { stats_out[0] = tst; reg = 1; }   /* survey/strip/board modes */
+        for (int i = 0; i < reg && i < TMAX; i++) {
+            tc += stats_out[i].calls; tm += stats_out[i].moves;
+            tp += stats_out[i].path_hits; tcy += stats_out[i].cycle_hits;
+            tr += stats_out[i].rotation_hits; tcn += stats_out[i].cancelled;
+        }
+        fprintf(stderr, "done %.3fs memo=%zu capacity=%zu bytes_per_slot=16 reductions=%d threads=%d lanes=%zu\n",
+                seconds() - started, __atomic_load_n(&entries, __ATOMIC_RELAXED), capacity, reductions, nthreads, lane_count);
+        fprintf(stderr, "stats calls=%llu moves=%llu path=%llu cycle=%llu rotation=%llu cancelled=%llu\n",
+                (unsigned long long)tc, (unsigned long long)tm, (unsigned long long)tp,
+                (unsigned long long)tcy, (unsigned long long)tr, (unsigned long long)tcn);
+    }
+    free(slots);
     return 0;
 usage:
     fprintf(stderr, "usage: strip3 strip N | survey N | board N | masks (N=1..42)\n");
