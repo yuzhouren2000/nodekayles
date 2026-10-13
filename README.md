@@ -36,7 +36,7 @@ notes/
   18_boundary_replacement_algebra.md 任意环境的四环—树恒等式与完整端口证书
   19_exact_column_transfer.md 单块生成完整三行图类，接口模 Nim 偏移仍无限
   20_guarded_symmetry.md      固定叶子补偿定理、两手后的密集三行局面 SG 恒为 1
-  21_neutral_core_absorption.md 删除中性核心吸收、任意前缀两点尾巴异或恒等式
+  21_neutral_core_absorption.md 删除中性核心吸收、受保护孪生与三行尾端改写
 src/nodekayles/solver.py       参考求解器（纯 Python，易读）
 src/cfast/kayles.c             快速求解器（C，位棋盘 + 记忆化）
 src/cfast/strip3.c             三行专用求解器（126 位状态 + 严格归约）
@@ -248,6 +248,9 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
 [notes/20](notes/20_guarded_symmetry.md)；空盘如何进入这些已解结构仍待研究。
 更一般的核心吸收与任意前缀尾巴恒等式见
 [notes/21](notes/21_neutral_core_absorption.md)。
+其中受保护孪生规则把“奇数叶子 + 假孪生邻接集”直接化为一个异或 1 偏移；
+二分图颜色类历史还证明完整 `3×n` 厚块没有删除中性端口。这排除了把厚块
+直接塞进 N30 核心吸收定理的路线，但没有给出厚块自身的 SG 闭式。
 任意三行有限缺陷与混合周期尾巴见 [notes/16](notes/16_clique_column_strips.md)。
 任意固定核心接交错尾巴的无条件稳定性
 见 [notes/15](notes/15_comb_stabilization.md)。

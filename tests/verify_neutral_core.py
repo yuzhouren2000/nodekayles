@@ -7,6 +7,8 @@ import sys
 
 
 def verify(proof):
+    if proof.get("format") == "node-kayles-neutral-obstruction-v1":
+        return verify_obstruction(proof)
     if proof.get("format") == "node-kayles-paired-neutral-core-v1":
         return verify_paired(proof)
     if proof.get("format") != "node-kayles-neutral-core-v1":
@@ -63,6 +65,49 @@ def verify(proof):
     return proof["grundy"]
 
 
+def verify_obstruction(proof):
+    """Replay an actual history and check a star counterexample, without SG search."""
+    graph, witness = proof["adjacency"], proof["witness"]
+    n = len(graph)
+    full = (1 << n) - 1
+    if any(type(row) is not int or not 0 <= row <= full for row in graph):
+        raise ValueError("invalid graph")
+    for v, row in enumerate(graph):
+        if row >> v & 1 or any(bool(row >> u & 1) != bool(graph[u] >> v & 1)
+                               for u in range(n)):
+            raise ValueError("invalid simple graph")
+    port = witness["port"]
+    if type(port) is not int or not 0 <= port < n:
+        raise ValueError("invalid port")
+    mask = full
+    for v in witness["legal_history"]:
+        if type(v) is not int or not 0 <= v < n or not mask >> v & 1:
+            raise ValueError("illegal history")
+        mask &= ~(graph[v] | 1 << v)
+        if not mask >> port & 1:
+            raise ValueError("history deletes the port")
+    if type(witness["terminal_mask"]) is not int or mask != witness["terminal_mask"]:
+        raise ValueError("incorrect terminal state")
+    leaves = [v for v in range(n) if graph[v] == 1 << port]
+    if list(witness["original_leaves"]) != leaves or len(leaves) % 2:
+        raise ValueError("expected an even original pendant set")
+    leaf_mask = sum(1 << v for v in leaves)
+    if graph[port] & mask != leaf_mask or leaf_mask & ~mask:
+        raise ValueError("terminal port component is not the claimed star")
+    others = mask & ~(leaf_mask | 1 << port)
+    if any(graph[v] & mask for v in range(n) if others >> v & 1):
+        raise ValueError("remaining vertices are not isolates")
+    offset = others.bit_count() % 2
+    before = (2 if leaves else 1) ^ offset
+    after = offset
+    if (type(witness["terminal_grundy"]) is not int
+            or type(witness["deleted_port_grundy"]) is not int
+            or witness["terminal_grundy"] != before
+            or witness["deleted_port_grundy"] != after):
+        raise ValueError("incorrect star values")
+    return {"terminal_grundy": before, "deleted_port_grundy": after}
+
+
 def verify_paired(proof):
     """Check the exterior geometry and extract its core independently."""
     graph, sigma = proof["adjacency"], proof["involution"]
@@ -109,4 +154,4 @@ def verify_paired(proof):
 
 
 if __name__ == "__main__":
-    print(verify(json.loads(Path(sys.argv[1]).read_text())))
+    print(json.dumps(verify(json.loads(Path(sys.argv[1]).read_text()))))

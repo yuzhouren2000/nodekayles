@@ -95,6 +95,7 @@ test-neutral-core:
 	$(PY) tests/test_neutral_core.py
 	$(PY) tests/verify_neutral_core.py data/proofs/neutral_core_sg5.json
 	$(PY) tests/verify_neutral_core.py data/proofs/paired_neutral_core_9.json
+	$(PY) tests/verify_neutral_core.py data/proofs/bipartite_neutral_obstruction_12.json
 
 analyze-strip3:
 	$(PY) scripts/analyze_strip3.py

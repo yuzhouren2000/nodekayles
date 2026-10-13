@@ -6,6 +6,8 @@
   "random_extensions": 200,
   "two_path_identities": 150,
   "nonautomorphic_extensions": 92,
+  "bipartite_obstruction_witnesses": 130,
+  "guarded_twin_identities": 570,
   "unbounded_family": [
     {
       "ladder_width": 2,
@@ -181,6 +183,7 @@
     }
   ],
   "arbitrary_three_row_tail_rewrites": 585,
+  "arbitrary_three_row_square_rewrites": 585,
   "dense_three_move_histories": [
     {
       "width": 7,
@@ -381,6 +384,190 @@
       "playable_cells": 39
     }
   ],
+  "dense_two_move_square_histories": [
+    {
+      "width": 5,
+      "history": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "playable_cells": 8
+    },
+    {
+      "width": 6,
+      "history": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "playable_cells": 11
+    },
+    {
+      "width": 7,
+      "history": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ]
+      ],
+      "playable_cells": 14
+    },
+    {
+      "width": 8,
+      "history": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "playable_cells": 17
+    },
+    {
+      "width": 9,
+      "history": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          9
+        ]
+      ],
+      "playable_cells": 20
+    },
+    {
+      "width": 10,
+      "history": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          10
+        ]
+      ],
+      "playable_cells": 23
+    },
+    {
+      "width": 11,
+      "history": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "playable_cells": 26
+    },
+    {
+      "width": 12,
+      "history": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "playable_cells": 29
+    },
+    {
+      "width": 13,
+      "history": [
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          13
+        ]
+      ],
+      "playable_cells": 32
+    },
+    {
+      "width": 14,
+      "history": [
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          14
+        ]
+      ],
+      "playable_cells": 35
+    },
+    {
+      "width": 15,
+      "history": [
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          15
+        ]
+      ],
+      "playable_cells": 38
+    },
+    {
+      "width": 16,
+      "history": [
+        [
+          1,
+          13
+        ],
+        [
+          1,
+          16
+        ]
+      ],
+      "playable_cells": 41
+    },
+    {
+      "width": 17,
+      "history": [
+        [
+          1,
+          14
+        ],
+        [
+          1,
+          17
+        ]
+      ],
+      "playable_cells": 44
+    }
+  ],
   "one_time_equality_counterexample": {
     "core": [
       6,
@@ -408,5 +595,104 @@
   },
   "empty_strip_rejections": 6,
   "tamper_rejections": 5,
-  "paired_tamper_rejections": 5
+  "paired_tamper_rejections": 5,
+  "obstruction_tamper_rejections": 3,
+  "full_strip_neutral_port_obstructions": [
+    {
+      "width": 1,
+      "rejected_ports": 3
+    },
+    {
+      "width": 2,
+      "rejected_ports": 6
+    },
+    {
+      "width": 3,
+      "rejected_ports": 9
+    },
+    {
+      "width": 4,
+      "rejected_ports": 12
+    },
+    {
+      "width": 5,
+      "rejected_ports": 15
+    },
+    {
+      "width": 6,
+      "rejected_ports": 18
+    },
+    {
+      "width": 7,
+      "rejected_ports": 21
+    },
+    {
+      "width": 8,
+      "rejected_ports": 24
+    },
+    {
+      "width": 9,
+      "rejected_ports": 27
+    },
+    {
+      "width": 10,
+      "rejected_ports": 30
+    },
+    {
+      "width": 11,
+      "rejected_ports": 33
+    },
+    {
+      "width": 12,
+      "rejected_ports": 36
+    },
+    {
+      "width": 13,
+      "rejected_ports": 39
+    },
+    {
+      "width": 14,
+      "rejected_ports": 42
+    },
+    {
+      "width": 15,
+      "rejected_ports": 45
+    },
+    {
+      "width": 16,
+      "rejected_ports": 48
+    },
+    {
+      "width": 17,
+      "rejected_ports": 51
+    },
+    {
+      "width": 18,
+      "rejected_ports": 54
+    },
+    {
+      "width": 19,
+      "rejected_ports": 57
+    },
+    {
+      "width": 20,
+      "rejected_ports": 60
+    },
+    {
+      "width": 21,
+      "rejected_ports": 63
+    },
+    {
+      "width": 22,
+      "rejected_ports": 66
+    },
+    {
+      "width": 23,
+      "rejected_ports": 69
+    },
+    {
+      "width": 24,
+      "rejected_ports": 72
+    }
+  ]
 }

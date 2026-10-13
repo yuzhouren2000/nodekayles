@@ -25,6 +25,51 @@ def _graph(adjacency):
     return graph
 
 
+def bipartite_port_obstruction(adjacency, port):
+    """Return a legal neutrality counterexample when a bipartite port fails.
+
+    A hereditary neutral vertex in a bipartite graph must have an odd
+    positive number of original pendant neighbours. Play every other vertex
+    in its colour class: its component becomes its original pendant star.
+    This necessary condition is not asserted sufficient.
+    """
+    graph = _graph(adjacency)
+    n = len(graph)
+    if type(port) is not int or not 0 <= port < n:
+        raise ValueError("port must be a graph vertex")
+    colours = [None] * n
+    for start in range(n):
+        if colours[start] is not None:
+            continue
+        colours[start] = 0
+        pending = [start]
+        while pending:
+            v = pending.pop()
+            neighbours = graph[v]
+            while neighbours:
+                bit = neighbours & -neighbours
+                neighbours ^= bit
+                u = bit.bit_length() - 1
+                if colours[u] is None:
+                    colours[u] = 1 - colours[v]
+                    pending.append(u)
+                elif colours[u] == colours[v]:
+                    return None
+    leaves = tuple(v for v in range(n) if graph[v] == 1 << port)
+    if len(leaves) % 2:
+        return None
+    history = tuple(v for v in range(n) if v != port and colours[v] == colours[port])
+    mask = (1 << n) - 1
+    for v in history:
+        mask &= ~(graph[v] | 1 << v)
+    isolates = mask.bit_count() - len(leaves) - 1
+    extra = isolates % 2
+    return {"port": port, "original_leaves": leaves, "legal_history": history,
+            "terminal_mask": mask,
+            "terminal_grundy": (2 if leaves else 1) ^ extra,
+            "deleted_port_grundy": extra}
+
+
 def neutral_core_certificate(adjacency, ports):
     """Return a complete finite certificate, or None if neutrality fails.
 
@@ -37,6 +82,8 @@ def neutral_core_certificate(adjacency, ports):
     if (any(type(v) is not int or not 0 <= v < n for v in ports)
             or len(set(ports)) != len(ports)):
         raise ValueError("ports must be distinct graph vertices")
+    if any(bipartite_port_obstruction(graph, v) is not None for v in ports):
+        return None
     port_mask = sum(1 << v for v in ports)
     closed = tuple(neighbours | 1 << v for v, neighbours in enumerate(graph))
 
@@ -126,6 +173,30 @@ def leaf_support_reduction(adjacency):
             continue
         support = attachments.bit_length() - 1
         if not any(v != root and graph[v] == 1 << support for v in range(len(graph))):
+            continue
+        deleted = (root,) + leaves
+        keep = tuple(v for v in range(len(graph)) if v not in deleted)
+        reduced = tuple(sum(1 << j for j, u in enumerate(keep) if graph[v] >> u & 1)
+                        for v in keep)
+        return reduced, 1, deleted
+    return None
+
+
+def guarded_twin_reduction(adjacency):
+    """Delete an odd-leaf vertex duplicating another vertex's neighbourhood.
+
+    Ignore the root's pendant leaves: its remaining neighbours must be
+    exactly those of a distinct nonadjacent vertex. The graph remaining
+    after deleting root and its leaves has SG offset xor 1. No SG is used.
+    This includes two-point tails and square-with-leaf cycle reductions.
+    """
+    graph = _graph(adjacency)
+    for root, neighbours in enumerate(graph):
+        leaves = tuple(v for v in range(len(graph)) if graph[v] == 1 << root)
+        if not leaves or len(leaves) % 2 == 0:
+            continue
+        common = neighbours & ~sum(1 << v for v in leaves)
+        if not any(v != root and graph[v] == common for v in range(len(graph))):
             continue
         deleted = (root,) + leaves
         keep = tuple(v for v in range(len(graph)) if v not in deleted)
