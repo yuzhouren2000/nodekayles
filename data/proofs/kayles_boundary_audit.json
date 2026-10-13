@@ -1,0 +1,33 @@
+{
+  "certificate": {
+    "nodes": 8,
+    "induced_states_checked": 40,
+    "common_state": [
+      7,
+      0
+    ]
+  },
+  "exhaustive_products": 16285,
+  "random_products": 1200,
+  "replacement_contexts": 1098,
+  "actual_reachable_examples": 2,
+  "distant_port_counterexample": {
+    "context": [
+      2,
+      1
+    ],
+    "labels": [
+      1,
+      2
+    ],
+    "values": [
+      1,
+      3
+    ]
+  },
+  "notes13_extension_values": [
+    0,
+    4
+  ],
+  "invalid_inputs_rejected": 6
+}
