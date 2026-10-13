@@ -1,0 +1,62 @@
+{
+  "format": "nodekayles-rooted-comb-audit-v1",
+  "certificate_sha256": "0823aab1a94ae7431747c358c581213364732766ce87a8ead925c9feea241758",
+  "verifier_sha256": "e7b6c2f58b09678282490ded616d4de92cb307433c344f90db200f937add2a35",
+  "original_c": {
+    "solver": "original multiword C",
+    "positions": 50407,
+    "source_sha256": "7adef5c41057e9d7159ca87bc25606ea8aaed90fcb25ba957618289134089348",
+    "elapsed_s": 0.109
+  },
+  "examples": [
+    {
+      "name": "head-2",
+      "states": 3,
+      "start": 2,
+      "P_residues": [
+        1,
+        3
+      ]
+    },
+    {
+      "name": "head-3",
+      "states": 12,
+      "start": 5,
+      "P_residues": []
+    },
+    {
+      "name": "head-4",
+      "states": 38,
+      "start": 5,
+      "P_residues": [
+        2
+      ]
+    },
+    {
+      "name": "head-6",
+      "states": 448,
+      "start": 5,
+      "P_residues": [
+        1,
+        3
+      ]
+    },
+    {
+      "name": "obstruction-H",
+      "states": 1891,
+      "start": 5,
+      "P_residues": [
+        2
+      ]
+    },
+    {
+      "name": "obstruction-J",
+      "states": 1849,
+      "start": 5,
+      "P_residues": [
+        2
+      ]
+    }
+  ],
+  "conclusion": "finite premises of the period-4 lifting theorem independently checked"
+}

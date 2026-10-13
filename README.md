@@ -124,8 +124,18 @@ G :  2  1  1  0  3  3  2  2  2  3  3  5  2  4  1  3  2  2  1  1  5  0  1  1  3  
 [接口摘要审计](notes/13_interface_obstruction.md)进一步发现两个真实可达的
 `3×9` 连通 P 局面：末三列及全部 64 项接口删除 SG 表相同，接上一列却分别
 得到 SG 0、4。这排除了该摘要作为精确递推状态，未排除更丰富的接口方法。
-运行 `make test-strip3-interface` 可独立复算。后续理论目标转向能保留全部
-合法后继的接口等价、任意长度替换或空盘的无限胜负族；这些目标尚未完成。
+运行 `make test-strip3-interface` 可独立复算。
+
+新增[外行缺口代数](notes/14_outer_defect_algebra.md)给出正面结果：第三行消失后，
+任意两行诱导局面的全部着法落入 `O(n³)` 时间的精确区间递推。交替缺口尾巴
+有闭式周期 4；以单条边连接任意固定头部时，对全部保根后继核验连续六处
+周期比较，便可严格归纳到无限长度。6 个可达三行实例的全部 50,407 项不同
+SG 前提已由原 C 求解器重算。特别地，在空 `3×(4k+6)` 上下出上行
+`(1,5),(1,7),…,(1,4k+5)`，所得连通局面为 P，对一切 `k≥0` 成立。
+周期证书还将任意长尾巴的制胜着搜索缩到有限代表；运行
+`python3 scripts/strip3_defect_algebra.py --head 4 --tail 1000000` 得到 SG 2
+与制胜着 `(3,1000004)`，只需 26 个候选。`make test-strip3-defect` 独立复现。
+这些是缺口局面的无限规律，空三行棋盘的完整分类仍未得到。
 
 定向求边行后继/整盘值的入口（同一进程内共享记忆，避免逐列重复计算）：
 
@@ -158,8 +168,9 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
   Brown et al. 2020 表 1 的全部可读格，以及三条结构性定理。
 * 全部文档为中文；代码注释保留英文。
 
-目前理论优先级见 [notes/13](notes/13_interface_obstruction.md)：检验连接上下文
-中的局面等价，防止把有限分割证书当作空盘规律。既有三行分割工具见
+目前正面结构与下一道边界见 [notes/14](notes/14_outer_defect_algebra.md)：缺口
+尾巴已有闭合代数及连接周期提升，第三行尚存时的闭合表示仍待研究。
+接口设计的反例基准见 [notes/13](notes/13_interface_obstruction.md)。既有三行分割工具见
 [notes/08](notes/08_strip3_reductions.md)。更一般棋盘的配对研究见
 [`notes/06_structural_pairing.md`](notes/06_structural_pairing.md)：乘积型固定
 配对存在当且仅当“两边均偶数或某边等于 4”，已无须逐尺寸穷举。这不等于
