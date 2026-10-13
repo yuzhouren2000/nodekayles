@@ -1,0 +1,340 @@
+{
+  "format": "node-kayles-guarded-symmetry-audit-v1",
+  "exhaustive_graphs": 4832,
+  "move_closure_checks": 38672,
+  "random_graphs": 200,
+  "central_histories": 8,
+  "symmetric_history_variants": 49,
+  "four_move_histories": 14,
+  "symmetric_masks": 293,
+  "small_core": {
+    "columns": [
+      7,
+      7,
+      5
+    ],
+    "option_values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "grundy": 1
+  },
+  "four_move_p_examples": [
+    {
+      "width": 8,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 9,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 10,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 11,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 12,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 13,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 14,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          14
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 15,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          14
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 16,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          16
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 17,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          16
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 18,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          18
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 19,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          18
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 20,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          2,
+          20
+        ]
+      ],
+      "grundy": 0
+    },
+    {
+      "width": 21,
+      "history": [
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          2,
+          20
+        ]
+      ],
+      "grundy": 0
+    }
+  ],
+  "counterexamples": 4,
+  "invalid_input_checks": 13
+}
