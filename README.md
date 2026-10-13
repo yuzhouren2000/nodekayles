@@ -31,6 +31,7 @@ notes/
   13_interface_obstruction.md  SG 边界删除表不足以递推的真实可达反例
   14_outer_defect_algebra.md   两行闭合递推、交错尾巴闭式与周期提升
   15_comb_stabilization.md     任意固定核心接交错尾巴的无条件周期定理
+  16_clique_column_strips.md   三行特殊列参数递推、完整梯子无界性与周期尾巴
 src/nodekayles/solver.py       参考求解器（纯 Python，易读）
 src/cfast/kayles.c             快速求解器（C，位棋盘 + 记忆化）
 src/cfast/strip3.c             三行专用求解器（126 位状态 + 严格归约）
@@ -42,6 +43,7 @@ scripts/strip3_ports.py        B/E/H 端口族几何、survey/closure/target 调
 scripts/strip3_two_move.py     用两着分割构造整盘 P 证书、重算辅助端口值
 scripts/strip3_interface.py    寻找同边界摘要、接列后胜负不同的局面
 scripts/strip3_defect_algebra.py 两行区间代数、任意核心交错尾巴的周期求值
+scripts/periodic_clique_strip.py 任意三行有限缺陷递推及混合周期尾巴求值
 scripts/winning_moves.py       小棋盘的首手制胜着（Python）
 scripts/pairing_certificates.py 根据结构定理构造配对证书（保留穷举核验）
 scripts/fixed_pairing.py        任意固定配对搜索，输出可独立检查的反证
@@ -58,6 +60,8 @@ tests/test_strip3_two_move.py  两着分割公式、完整分类与证书负例�
 tests/verify_strip3_two_move.py 独立检查零回应并用原 C 求解器重算 SG 前提
 tests/verify_strip3_interface.py 坐标递推与原 C 双重核验接口摘要反例
 tests/verify_comb_stabilization.py 穷尽与核心大小无关的四值块稳定性引理
+tests/test_clique_column_strips.py 任意三行缺陷代数、端点表与真实代表着法核验
+tests/verify_clique_strip_period.py 三行混合尾巴周期窗口的原图独立复算
 data/                          OEIS 基准数据、原始运行结果、汇总表
 ```
 
@@ -148,6 +152,16 @@ SG 前提已由原 C 求解器重算。特别地，在空 `3×(4k+6)` 上下出�
 因此 `RootedComb.stabilize()` 无须猜测尾巴截断长度；
 `make test-comb-stabilization` 核验通用引理及原有完整选项谱。
 
+进一步的[三行特殊列代数](notes/16_clique_column_strips.md)把任意三行诱导图
+压成区间、端点删除和 h 个特殊列的三态选择，得到 `O(3^h n³)` 精确递推；
+h 是原来同时含上下外格的列数。纯外行历史只要覆盖每列及邻列，就有 h=0，
+第三行可反复保留，SG 仍能多项式求出。混合周期历史“上、上、下、下”，列距
+`2,3,2,3`，给出第三行仍存的周期10尾巴及连接三行头部的无限 P 族。
+另一方面，完整两行梯子删一个角格的 SG **恰为 n**，证明周期几何和固定核心
+不保证 SG 有界或最终周期。14,989 个周期前提由原 C 独立复算；任意 `3×5`
+诱导图及接口状态由朴素原图递推核验。运行 `make test-clique-strips`。
+空盘 h=n，仍未得到完整空三行棋盘的分类或周期。
+
 定向求边行后继/整盘值的入口（同一进程内共享记忆，避免逐列重复计算）：
 
 ```bash
@@ -179,8 +193,10 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
   Brown et al. 2020 表 1 的全部可读格，以及三条结构性定理。
 * 全部文档为中文；代码注释保留英文。
 
-目前正面结构与下一道边界见 [notes/15](notes/15_comb_stabilization.md)：任意
-固定核心连接交错尾巴已必然周期，第三行尚存时的闭合表示仍待研究。
+目前正面结构与下一道边界见 [notes/16](notes/16_clique_column_strips.md)：
+任意三行有限缺陷已有闭合参数递推，混合三行尾巴已有周期证书；完整列相互
+作用及含环尾巴的无限规律仍待研究。任意固定核心接交错尾巴的无条件稳定性
+见 [notes/15](notes/15_comb_stabilization.md)。
 接口设计的反例基准见 [notes/13](notes/13_interface_obstruction.md)。既有三行分割工具见
 [notes/08](notes/08_strip3_reductions.md)。更一般棋盘的配对研究见
 [`notes/06_structural_pairing.md`](notes/06_structural_pairing.md)：乘积型固定

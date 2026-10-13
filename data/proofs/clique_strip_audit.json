@@ -1,0 +1,53 @@
+{
+  "certificate": "data/proofs/clique_strip_period.json",
+  "certificate_sha256": "ca73bf7e2bf16a341cd5a20032c9aef083ee3cc10518e8591df394aba36b5ef7",
+  "pure_words": 4,
+  "core_examples": [
+    {
+      "head": 1,
+      "core_states": 1,
+      "start": 10,
+      "period": 10,
+      "zero_residues": [
+        3,
+        5,
+        9
+      ]
+    },
+    {
+      "head": 2,
+      "core_states": 3,
+      "start": 10,
+      "period": 10,
+      "zero_residues": [
+        1,
+        3,
+        8
+      ]
+    },
+    {
+      "head": 3,
+      "core_states": 12,
+      "start": 18,
+      "period": 10,
+      "zero_residues": []
+    },
+    {
+      "head": 4,
+      "core_states": 38,
+      "start": 18,
+      "period": 10,
+      "zero_residues": [
+        2,
+        7
+      ]
+    }
+  ],
+  "different_sg_premises": 14989,
+  "recomputation": {
+    "solver": "original multiword C",
+    "positions": 14989,
+    "source_sha256": "7adef5c41057e9d7159ca87bc25606ea8aaed90fcb25ba957618289134089348",
+    "elapsed_s": 0.155
+  }
+}
