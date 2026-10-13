@@ -97,6 +97,13 @@ test-neutral-core:
 	$(PY) tests/verify_neutral_core.py data/proofs/paired_neutral_core_9.json
 	$(PY) tests/verify_neutral_core.py data/proofs/bipartite_neutral_obstruction_12.json
 
+test-comb-bridge:
+	$(PY) tests/test_comb_bridge.py
+	$(PY) tests/verify_comb_bridge.py data/proofs/comb_bridge_2_4.json
+
+test-reachable-boundary-search:
+	$(PY) tests/test_reachable_boundary_search.py
+
 analyze-strip3:
 	$(PY) scripts/analyze_strip3.py
 

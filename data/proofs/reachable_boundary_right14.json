@@ -1,0 +1,135 @@
+{
+  "format": "reachable-full-boundary-search-v1",
+  "boundary": "right",
+  "max_width": 14,
+  "requested_max_width": 16,
+  "rows": [
+    {
+      "width": 2,
+      "graphs": 5,
+      "total_graphs": 5,
+      "interface_nodes": 35,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 0.004
+    },
+    {
+      "width": 3,
+      "graphs": 7,
+      "total_graphs": 12,
+      "interface_nodes": 89,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 0.015
+    },
+    {
+      "width": 4,
+      "graphs": 11,
+      "total_graphs": 23,
+      "interface_nodes": 174,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 0.044
+    },
+    {
+      "width": 5,
+      "graphs": 21,
+      "total_graphs": 44,
+      "interface_nodes": 356,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 0.131
+    },
+    {
+      "width": 6,
+      "graphs": 39,
+      "total_graphs": 83,
+      "interface_nodes": 695,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 0.377
+    },
+    {
+      "width": 7,
+      "graphs": 71,
+      "total_graphs": 154,
+      "interface_nodes": 1320,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 1.064
+    },
+    {
+      "width": 8,
+      "graphs": 131,
+      "total_graphs": 285,
+      "interface_nodes": 2471,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 2.803
+    },
+    {
+      "width": 9,
+      "graphs": 241,
+      "total_graphs": 526,
+      "interface_nodes": 4591,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 7.106
+    },
+    {
+      "width": 10,
+      "graphs": 443,
+      "total_graphs": 969,
+      "interface_nodes": 8492,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 17.824
+    },
+    {
+      "width": 11,
+      "graphs": 815,
+      "total_graphs": 1784,
+      "interface_nodes": 15669,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 44.22
+    },
+    {
+      "width": 12,
+      "graphs": 1499,
+      "total_graphs": 3283,
+      "interface_nodes": 28872,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 105.504
+    },
+    {
+      "width": 13,
+      "graphs": 2757,
+      "total_graphs": 6040,
+      "interface_nodes": 53158,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 240.784
+    },
+    {
+      "width": 14,
+      "graphs": 5071,
+      "total_graphs": 11111,
+      "interface_nodes": 97829,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 547.039
+    }
+  ],
+  "matches": [],
+  "search_source_revision": "4a27efc06cf3640ee394984baa39201e7517a126",
+  "scope": "exact recursive equality only; no converse equivalence claim",
+  "remote": {
+    "host": "opentile@192.168.41.137",
+    "directory": "/home/opentile/bjcq_boundary_20261014",
+    "job_pid": 165211,
+    "nice": 15
+  },
+  "termination": "Stopped after fully completing width 14; widths 15 and 16 are not reported."
+}

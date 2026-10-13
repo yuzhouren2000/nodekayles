@@ -37,6 +37,7 @@ notes/
   19_exact_column_transfer.md 单块生成完整三行图类，接口模 Nim 偏移仍无限
   20_guarded_symmetry.md      固定叶子补偿定理、两手后的密集三行局面 SG 恒为 1
   21_neutral_core_absorption.md 删除中性核心吸收、受保护孪生与三行尾端改写
+  22_two_sided_comb_bridge.md 两个任意厚核心之间长桥的自动周期与无限 P 族
 src/nodekayles/solver.py       参考求解器（纯 Python，易读）
 src/cfast/kayles.c             快速求解器（C，位棋盘 + 记忆化）
 src/cfast/strip3.c             三行专用求解器（126 位状态 + 严格归约）
@@ -254,6 +255,10 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
 任意三行有限缺陷与混合周期尾巴见 [notes/16](notes/16_clique_column_strips.md)。
 任意固定核心接交错尾巴的无条件稳定性
 见 [notes/15](notes/15_comb_stabilization.md)。
+两个任意核心之间的交错桥现可自动继承两端周期，起点为两端一端起点之和
+再加 6，准确计算任意长桥的 SG 和制胜着；证明与真实三行无限 P 族见
+[notes/22](notes/22_two_sided_comb_bridge.md)。这仍要求桥上的每手都分开两端，
+完整厚块的保连通外行手尚未处理。
 接口设计的反例基准见 [notes/13](notes/13_interface_obstruction.md)。既有三行分割工具见
 [notes/08](notes/08_strip3_reductions.md)。更一般棋盘的配对研究见
 [`notes/06_structural_pairing.md`](notes/06_structural_pairing.md)：乘积型固定

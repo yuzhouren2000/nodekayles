@@ -1,0 +1,110 @@
+{
+  "format": "reachable-full-boundary-search-v1",
+  "boundary": "both",
+  "max_width": 12,
+  "rows": [
+    {
+      "width": 2,
+      "graphs": 1,
+      "total_graphs": 1,
+      "interface_nodes": 64,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 0.001
+    },
+    {
+      "width": 3,
+      "graphs": 1,
+      "total_graphs": 2,
+      "interface_nodes": 219,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 0.005
+    },
+    {
+      "width": 4,
+      "graphs": 1,
+      "total_graphs": 3,
+      "interface_nodes": 536,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 0.016
+    },
+    {
+      "width": 5,
+      "graphs": 3,
+      "total_graphs": 6,
+      "interface_nodes": 1290,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 0.054
+    },
+    {
+      "width": 6,
+      "graphs": 5,
+      "total_graphs": 11,
+      "interface_nodes": 3162,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 0.193
+    },
+    {
+      "width": 7,
+      "graphs": 9,
+      "total_graphs": 20,
+      "interface_nodes": 7579,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 0.65
+    },
+    {
+      "width": 8,
+      "graphs": 17,
+      "total_graphs": 37,
+      "interface_nodes": 17613,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 2.118
+    },
+    {
+      "width": 9,
+      "graphs": 31,
+      "total_graphs": 68,
+      "interface_nodes": 39419,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 6.554
+    },
+    {
+      "width": 10,
+      "graphs": 57,
+      "total_graphs": 125,
+      "interface_nodes": 86082,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 19.486
+    },
+    {
+      "width": 11,
+      "graphs": 105,
+      "total_graphs": 230,
+      "interface_nodes": 184549,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 56.447
+    },
+    {
+      "width": 12,
+      "graphs": 193,
+      "total_graphs": 423,
+      "interface_nodes": 388424,
+      "isomorphic_duplicates": 0,
+      "nonisomorphic_matches": 0,
+      "elapsed_seconds": 161.137
+    }
+  ],
+  "matches": [],
+  "scope": "exact recursive equality only; no converse equivalence claim",
+  "git_revision": "d05c01ef02a25488d8f76b6b5a0a55d43532c8fa",
+  "search_source_revision": "4a27efc06cf3640ee394984baa39201e7517a126"
+}
