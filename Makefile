@@ -3,11 +3,12 @@ PY ?= python3
 CC ?= gcc
 CFLAGS ?= -O2 -march=native
 
-.PHONY: build build-strip3 test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
+.PHONY: build build-strip3 build-strip3-language test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
 
 help:
 	@echo "make build    - compile the C solver"
 	@echo "make build-strip3 - compile the specialised three-row solver"
+	@echo "make build-strip3-language - compile the perfect-index one-byte solver"
 	@echo "make test-strip3  - independent induced-position and survey checks"
 	@echo "make test-strip3-ports - B/E/H port-family coordinate and data checks"
 	@echo "make test-strip3-target - verify the 3x30 edge-orbit conclusion"
@@ -17,6 +18,7 @@ help:
 	@echo "make test-strip3-defect - check move-closed defect algebra and infinite period certificates"
 	@echo "make test-comb-stabilization - exhaust the universal block lemma and check tail algebra"
 	@echo "make test-clique-strips - check three-row defect algebra and infinite period certificates"
+	@echo "make test-strip3-language - check the complete reachable-component language and byte table"
 	@echo "make analyze-strip3 - structural analysis and constructive first moves"
 	@echo "make analyze-strip3-ports - regenerate the port-family survey/closure data"
 	@echo "make test     - Python reference checks vs literature (~1 min)"
@@ -29,6 +31,9 @@ build:
 
 build-strip3:
 	$(CC) $(CFLAGS) -Wall -Wextra -o src/cfast/strip3 src/cfast/strip3.c
+
+build-strip3-language:
+	$(CC) $(CFLAGS) -Wall -Wextra -pthread -o src/cfast/strip3_language src/cfast/strip3_language.c
 
 test-strip3:
 	$(PY) tests/test_strip3.py --survey data/strip3_survey.jsonl
@@ -69,6 +74,9 @@ test-clique-strips:
 	$(PY) tests/test_clique_column_strips.py
 	$(PY) tests/verify_clique_strip_period.py data/proofs/clique_strip_period.json
 
+test-strip3-language:
+	$(PY) tests/test_strip3_history_language.py
+
 analyze-strip3:
 	$(PY) scripts/analyze_strip3.py
 
@@ -95,4 +103,4 @@ wmoves:
 	$(PY) scripts/winning_moves.py 6
 
 clean:
-	rm -f src/cfast/kayles src/cfast/strip3
+	rm -f src/cfast/kayles src/cfast/strip3 src/cfast/strip3_language

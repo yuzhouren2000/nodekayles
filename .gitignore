@@ -1,6 +1,7 @@
 # 编译产物
 src/cfast/kayles
 src/cfast/strip3
+src/cfast/strip3_language
 
 # 运行期标记与日志
 logs/
