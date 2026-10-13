@@ -1,0 +1,1256 @@
+{
+  "info": {
+    "returncode": 0,
+    "status": "ok",
+    "elapsed_s": 6.224,
+    "emitted": 175,
+    "requested": 175,
+    "ht_bits": 25,
+    "reductions": null,
+    "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+    "stderr_tail": [
+      "done 6.223s memo=1467127 capacity=2097152 bytes_per_slot=16 reductions=7 threads=1 lanes=1",
+      "stats calls=112140314 moves=56807439 path=99 cycle=0 rotation=1 cancelled=3975128"
+    ],
+    "reductions_effective": 7
+  },
+  "rows": [
+    {
+      "family": "E",
+      "n": 13,
+      "j": 1,
+      "value": 3,
+      "mask": "7ffffffff4"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 2,
+      "value": 8,
+      "mask": "7fffffffa4"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 3,
+      "value": 3,
+      "mask": "7ffffffd35"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 4,
+      "value": 3,
+      "mask": "7fffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 5,
+      "value": 3,
+      "mask": "7fffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 6,
+      "value": 0,
+      "mask": "7ffffa6ffd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 7,
+      "value": 1,
+      "mask": "7fffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 8,
+      "value": 4,
+      "mask": "7ffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 9,
+      "value": 3,
+      "mask": "7ff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 10,
+      "value": 1,
+      "mask": "7fa6fffffd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 11,
+      "value": 0,
+      "mask": "7d37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 12,
+      "value": 3,
+      "mask": "69bffffffd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 13,
+      "value": 3,
+      "mask": "4dfffffffd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 1,
+      "value": 1,
+      "mask": "3fffffffff4"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 2,
+      "value": 1,
+      "mask": "3ffffffffa4"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 3,
+      "value": 1,
+      "mask": "3fffffffd35"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 4,
+      "value": 4,
+      "mask": "3ffffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 5,
+      "value": 7,
+      "mask": "3ffffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 6,
+      "value": 1,
+      "mask": "3fffffa6ffd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 7,
+      "value": 3,
+      "mask": "3ffffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 8,
+      "value": 1,
+      "mask": "3fffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 9,
+      "value": 3,
+      "mask": "3fff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 10,
+      "value": 1,
+      "mask": "3ffa6fffffd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 11,
+      "value": 1,
+      "mask": "3fd37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 12,
+      "value": 1,
+      "mask": "3e9bffffffd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 13,
+      "value": 9,
+      "mask": "34dfffffffd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 14,
+      "value": 3,
+      "mask": "26ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 1,
+      "value": 10,
+      "mask": "1ffffffffff4"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 2,
+      "value": 3,
+      "mask": "1fffffffffa4"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 3,
+      "value": 6,
+      "mask": "1ffffffffd35"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 4,
+      "value": 5,
+      "mask": "1fffffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 5,
+      "value": 0,
+      "mask": "1fffffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 6,
+      "value": 7,
+      "mask": "1ffffffa6ffd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 7,
+      "value": 12,
+      "mask": "1fffffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 8,
+      "value": 8,
+      "mask": "1ffffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 9,
+      "value": 4,
+      "mask": "1ffff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 10,
+      "value": 5,
+      "mask": "1fffa6fffffd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 11,
+      "value": 1,
+      "mask": "1ffd37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 12,
+      "value": 5,
+      "mask": "1fe9bffffffd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 13,
+      "value": 6,
+      "mask": "1f4dfffffffd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 14,
+      "value": 6,
+      "mask": "1a6ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 15,
+      "value": 4,
+      "mask": "137ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 1,
+      "value": 2,
+      "mask": "fffffffffff4"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 2,
+      "value": 0,
+      "mask": "ffffffffffa4"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 3,
+      "value": 2,
+      "mask": "fffffffffd35"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 4,
+      "value": 2,
+      "mask": "ffffffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 5,
+      "value": 0,
+      "mask": "ffffffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 6,
+      "value": 2,
+      "mask": "fffffffa6ffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 7,
+      "value": 2,
+      "mask": "ffffffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 8,
+      "value": 0,
+      "mask": "fffffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 9,
+      "value": 2,
+      "mask": "fffff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 10,
+      "value": 0,
+      "mask": "ffffa6fffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 11,
+      "value": 2,
+      "mask": "fffd37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 12,
+      "value": 0,
+      "mask": "ffe9bffffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 13,
+      "value": 2,
+      "mask": "ff4dfffffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 14,
+      "value": 2,
+      "mask": "fa6ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 15,
+      "value": 2,
+      "mask": "d37ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 16,
+      "value": 2,
+      "mask": "9bfffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 1,
+      "value": 6,
+      "mask": "7fffffffffff4"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 2,
+      "value": 2,
+      "mask": "7ffffffffffa4"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 3,
+      "value": 0,
+      "mask": "7fffffffffd35"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 4,
+      "value": 12,
+      "mask": "7ffffffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 5,
+      "value": 3,
+      "mask": "7ffffffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 6,
+      "value": 2,
+      "mask": "7fffffffa6ffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 7,
+      "value": 1,
+      "mask": "7ffffffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 8,
+      "value": 8,
+      "mask": "7fffffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 9,
+      "value": 5,
+      "mask": "7fffff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 10,
+      "value": 9,
+      "mask": "7ffffa6fffffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 11,
+      "value": 5,
+      "mask": "7fffd37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 12,
+      "value": 6,
+      "mask": "7ffe9bffffffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 13,
+      "value": 10,
+      "mask": "7ff4dfffffffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 14,
+      "value": 12,
+      "mask": "7fa6ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 15,
+      "value": 3,
+      "mask": "7d37ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 16,
+      "value": 3,
+      "mask": "69bfffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 17,
+      "j": 17,
+      "value": 0,
+      "mask": "4dffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 1,
+      "value": 3,
+      "mask": "3ffffffffffff4"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 2,
+      "value": 1,
+      "mask": "3fffffffffffa4"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 3,
+      "value": 1,
+      "mask": "3ffffffffffd35"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 4,
+      "value": 7,
+      "mask": "3fffffffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 5,
+      "value": 1,
+      "mask": "3fffffffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 6,
+      "value": 3,
+      "mask": "3ffffffffa6ffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 7,
+      "value": 3,
+      "mask": "3fffffffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 8,
+      "value": 3,
+      "mask": "3ffffffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 9,
+      "value": 3,
+      "mask": "3ffffff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 10,
+      "value": 1,
+      "mask": "3fffffa6fffffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 11,
+      "value": 3,
+      "mask": "3ffffd37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 12,
+      "value": 1,
+      "mask": "3fffe9bffffffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 13,
+      "value": 13,
+      "mask": "3fff4dfffffffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 14,
+      "value": 3,
+      "mask": "3ffa6ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 15,
+      "value": 1,
+      "mask": "3fd37ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 16,
+      "value": 3,
+      "mask": "3e9bfffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 17,
+      "value": 13,
+      "mask": "34dffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 18,
+      "value": 5,
+      "mask": "26fffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 1,
+      "value": 8,
+      "mask": "1fffffffffffff4"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 2,
+      "value": 5,
+      "mask": "1ffffffffffffa4"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 3,
+      "value": 8,
+      "mask": "1fffffffffffd35"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 4,
+      "value": 3,
+      "mask": "1ffffffffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 5,
+      "value": 16,
+      "mask": "1ffffffffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 6,
+      "value": 3,
+      "mask": "1fffffffffa6ffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 7,
+      "value": 12,
+      "mask": "1ffffffffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 8,
+      "value": 1,
+      "mask": "1fffffffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 9,
+      "value": 0,
+      "mask": "1fffffff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 10,
+      "value": 9,
+      "mask": "1ffffffa6fffffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 11,
+      "value": 6,
+      "mask": "1fffffd37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 12,
+      "value": 7,
+      "mask": "1ffffe9bffffffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 13,
+      "value": 4,
+      "mask": "1ffff4dfffffffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 14,
+      "value": 0,
+      "mask": "1fffa6ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 15,
+      "value": 4,
+      "mask": "1ffd37ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 16,
+      "value": 9,
+      "mask": "1fe9bfffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 17,
+      "value": 4,
+      "mask": "1f4dffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 18,
+      "value": 0,
+      "mask": "1a6fffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 19,
+      "j": 19,
+      "value": 3,
+      "mask": "137fffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 1,
+      "value": 0,
+      "mask": "ffffffffffffff4"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 2,
+      "value": 8,
+      "mask": "fffffffffffffa4"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 3,
+      "value": 2,
+      "mask": "ffffffffffffd35"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 4,
+      "value": 2,
+      "mask": "fffffffffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 5,
+      "value": 0,
+      "mask": "fffffffffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 6,
+      "value": 2,
+      "mask": "ffffffffffa6ffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 7,
+      "value": 4,
+      "mask": "fffffffffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 8,
+      "value": 2,
+      "mask": "ffffffffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 9,
+      "value": 9,
+      "mask": "ffffffff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 10,
+      "value": 0,
+      "mask": "fffffffa6fffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 11,
+      "value": 2,
+      "mask": "ffffffd37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 12,
+      "value": 2,
+      "mask": "fffffe9bffffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 13,
+      "value": 7,
+      "mask": "fffff4dfffffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 14,
+      "value": 0,
+      "mask": "ffffa6ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 15,
+      "value": 12,
+      "mask": "fffd37ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 16,
+      "value": 2,
+      "mask": "ffe9bfffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 17,
+      "value": 0,
+      "mask": "ff4dffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 18,
+      "value": 1,
+      "mask": "fa6fffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 19,
+      "value": 2,
+      "mask": "d37fffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 20,
+      "j": 20,
+      "value": 4,
+      "mask": "9bffffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 1,
+      "value": 11,
+      "mask": "7ffffffffffffff4"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 2,
+      "value": 2,
+      "mask": "7fffffffffffffa4"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 3,
+      "value": 13,
+      "mask": "7ffffffffffffd35"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 4,
+      "value": 2,
+      "mask": "7fffffffffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 5,
+      "value": 6,
+      "mask": "7fffffffffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 6,
+      "value": 0,
+      "mask": "7ffffffffffa6ffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 7,
+      "value": 2,
+      "mask": "7fffffffffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 8,
+      "value": 0,
+      "mask": "7ffffffffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 9,
+      "value": 7,
+      "mask": "7ffffffff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 10,
+      "value": 0,
+      "mask": "7fffffffa6fffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 11,
+      "value": 9,
+      "mask": "7ffffffd37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 12,
+      "value": 11,
+      "mask": "7fffffe9bffffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 13,
+      "value": 7,
+      "mask": "7fffff4dfffffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 14,
+      "value": 9,
+      "mask": "7ffffa6ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 15,
+      "value": 0,
+      "mask": "7fffd37ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 16,
+      "value": 4,
+      "mask": "7ffe9bfffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 17,
+      "value": 2,
+      "mask": "7ff4dffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 18,
+      "value": 0,
+      "mask": "7fa6fffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 19,
+      "value": 0,
+      "mask": "7d37fffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 20,
+      "value": 5,
+      "mask": "69bffffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 21,
+      "j": 21,
+      "value": 2,
+      "mask": "4dfffffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 1,
+      "value": 1,
+      "mask": "3fffffffffffffff4"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 2,
+      "value": 7,
+      "mask": "3ffffffffffffffa4"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 3,
+      "value": 3,
+      "mask": "3fffffffffffffd35"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 4,
+      "value": 1,
+      "mask": "3ffffffffffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 5,
+      "value": 1,
+      "mask": "3ffffffffffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 6,
+      "value": 15,
+      "mask": "3fffffffffffa6ffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 7,
+      "value": 1,
+      "mask": "3ffffffffffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 8,
+      "value": 3,
+      "mask": "3fffffffffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 9,
+      "value": 1,
+      "mask": "3fffffffff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 10,
+      "value": 3,
+      "mask": "3ffffffffa6fffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 11,
+      "value": 14,
+      "mask": "3fffffffd37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 12,
+      "value": 1,
+      "mask": "3ffffffe9bffffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 13,
+      "value": 3,
+      "mask": "3ffffff4dfffffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 14,
+      "value": 1,
+      "mask": "3fffffa6ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 15,
+      "value": 3,
+      "mask": "3ffffd37ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 16,
+      "value": 3,
+      "mask": "3fffe9bfffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 17,
+      "value": 10,
+      "mask": "3fff4dffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 18,
+      "value": 3,
+      "mask": "3ffa6fffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 19,
+      "value": 4,
+      "mask": "3fd37fffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 20,
+      "value": 8,
+      "mask": "3e9bffffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 21,
+      "value": 3,
+      "mask": "34dfffffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 22,
+      "j": 22,
+      "value": 5,
+      "mask": "26ffffffffffffffd"
+    }
+  ],
+  "format": "nodekayles-strip3-auxiliary-values-v1",
+  "strip3_sha256": "9adfe5d8b3589fbe9a81339663a5b9817b97c5100cc05898d524bfc2becd844f",
+  "encoding": "column-major bit = 3*(column-1)+(row-1)",
+  "generation": {
+    "compiler": "gcc -O3 -march=native -Wall -Wextra",
+    "entry": "strip3 masks",
+    "precision": "exact",
+    "ht_bits": 25,
+    "timeout_s": null,
+    "scope": "E(n,j) for 13 <= n <= 22 and 1 <= j <= n",
+    "provenance": "preserved from the preceding research run; command timeout was not recorded"
+  }
+}

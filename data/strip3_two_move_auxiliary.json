@@ -1,0 +1,2269 @@
+{
+  "format": "nodekayles-strip3-auxiliary-values-v1",
+  "strip3_sha256": "9adfe5d8b3589fbe9a81339663a5b9817b97c5100cc05898d524bfc2becd844f",
+  "encoding": "column-major bit = 3*(column-1)+(row-1)",
+  "runs": [
+    {
+      "row_start": 0,
+      "row_count": 44,
+      "info": {
+        "returncode": 0,
+        "status": "ok",
+        "elapsed_s": 10.029,
+        "emitted": 44,
+        "requested": 44,
+        "ht_bits": 26,
+        "reductions": null,
+        "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+        "stderr_tail": [
+          "done 10.026s memo=1984769 capacity=4194304 bytes_per_slot=16 reductions=7 threads=1 lanes=1",
+          "stats calls=155903305 moves=78515302 path=103 cycle=0 rotation=1 cancelled=4919304"
+        ],
+        "reductions_effective": 7
+      },
+      "generation": {
+        "compiler": "gcc -O3 -march=native -Wall -Wextra",
+        "entry": "strip3 masks",
+        "precision": "exact",
+        "ht_bits": 26,
+        "timeout_s": 120,
+        "scope": "all listed rows, in recorded order"
+      }
+    },
+    {
+      "row_start": 44,
+      "row_count": 6,
+      "info": {
+        "returncode": 0,
+        "status": "ok",
+        "elapsed_s": 35.668,
+        "emitted": 6,
+        "requested": 6,
+        "ht_bits": 27,
+        "reductions": null,
+        "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+        "stderr_tail": [
+          "done 35.653s memo=6078726 capacity=16777216 bytes_per_slot=16 reductions=7 threads=1 lanes=1",
+          "stats calls=531338499 moves=264321447 path=110 cycle=0 rotation=1 cancelled=17667591"
+        ],
+        "reductions_effective": 7
+      },
+      "generation": {
+        "compiler": "gcc -O3 -march=native -Wall -Wextra",
+        "entry": "strip3 masks",
+        "precision": "exact",
+        "ht_bits": 27,
+        "timeout_s": 120,
+        "scope": "all listed rows, in recorded order"
+      }
+    },
+    {
+      "row_start": 50,
+      "row_count": 4,
+      "info": {
+        "returncode": null,
+        "status": "timeout",
+        "elapsed_s": 240.035,
+        "emitted": 4,
+        "requested": 6,
+        "ht_bits": 28,
+        "reductions": null,
+        "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+        "stderr_tail": []
+      },
+      "generation": {
+        "compiler": "gcc -O3 -march=native -Wall -Wextra",
+        "entry": "strip3 masks",
+        "precision": "exact",
+        "ht_bits": 28,
+        "scope": "E(26,j), E(27,j) listed below"
+      }
+    },
+    {
+      "row_start": 54,
+      "row_count": 2,
+      "info": {
+        "returncode": 0,
+        "status": "ok",
+        "elapsed_s": 171.908,
+        "emitted": 2,
+        "requested": 2,
+        "ht_bits": 28,
+        "reductions": null,
+        "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+        "stderr_tail": [
+          "done 171.700s memo=34253174 capacity=268435456 bytes_per_slot=16 reductions=7 threads=8 lanes=65536",
+          "stats calls=3497486058 moves=1724388060 path=121 cycle=0 rotation=1 cancelled=107866717"
+        ]
+      },
+      "generation": {
+        "compiler": "gcc -O3 -march=native -Wall -Wextra",
+        "entry": "strip3 masks",
+        "precision": "exact",
+        "ht_bits": 28,
+        "scope": "E(28,9), E(28,12)"
+      }
+    },
+    {
+      "row_start": 56,
+      "row_count": 2,
+      "info": {
+        "returncode": 0,
+        "status": "ok",
+        "elapsed_s": 107.143,
+        "emitted": 164,
+        "requested": 164,
+        "ht_bits": 28,
+        "reductions": null,
+        "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+        "stderr_tail": [
+          "done 106.923s memo=62959445 capacity=268435456 bytes_per_slot=16 reductions=7 threads=8 lanes=65536",
+          "stats calls=6783452611 moves=3337849896 path=139 cycle=0 rotation=1 cancelled=207345904"
+        ]
+      },
+      "generation": {
+        "compiler": "gcc -O3 -march=native -Wall -Wextra",
+        "entry": "strip3 masks",
+        "precision": "exact",
+        "method": "all legal successors, shared memo, mex",
+        "ht_bits": 28,
+        "scope": "E(29,10), E(29,13), all 164 legal successors; values derived by mex"
+      }
+    },
+    {
+      "row_start": 58,
+      "row_count": 2,
+      "info": {
+        "returncode": 0,
+        "status": "ok",
+        "elapsed_s": 213.736,
+        "emitted": 170,
+        "requested": 170,
+        "ht_bits": 28,
+        "reductions": null,
+        "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+        "stderr_tail": [
+          "done 213.529s memo=115670590 capacity=268435456 bytes_per_slot=16 reductions=7 threads=8 lanes=65536",
+          "stats calls=13018684085 moves=6388532627 path=149 cycle=0 rotation=2 cancelled=389314160"
+        ]
+      },
+      "generation": {
+        "compiler": "gcc -O3 -march=native -Wall -Wextra",
+        "entry": "strip3 masks",
+        "precision": "exact",
+        "method": "all legal successors, shared memo, mex",
+        "ht_bits": 28,
+        "scope": "E(30,11), E(30,14), all 170 legal successors; values derived by mex"
+      }
+    }
+  ],
+  "rows": [
+    {
+      "family": "T",
+      "n": 1,
+      "j": null,
+      "value": 1,
+      "mask": "6"
+    },
+    {
+      "family": "C",
+      "n": 1,
+      "j": null,
+      "value": 1,
+      "mask": "2"
+    },
+    {
+      "family": "T",
+      "n": 2,
+      "j": null,
+      "value": 3,
+      "mask": "37"
+    },
+    {
+      "family": "C",
+      "n": 2,
+      "j": null,
+      "value": 1,
+      "mask": "17"
+    },
+    {
+      "family": "T",
+      "n": 3,
+      "j": null,
+      "value": 0,
+      "mask": "1bf"
+    },
+    {
+      "family": "C",
+      "n": 3,
+      "j": null,
+      "value": 2,
+      "mask": "bf"
+    },
+    {
+      "family": "T",
+      "n": 4,
+      "j": null,
+      "value": 4,
+      "mask": "dff"
+    },
+    {
+      "family": "C",
+      "n": 4,
+      "j": null,
+      "value": 0,
+      "mask": "5ff"
+    },
+    {
+      "family": "T",
+      "n": 5,
+      "j": null,
+      "value": 1,
+      "mask": "6fff"
+    },
+    {
+      "family": "C",
+      "n": 5,
+      "j": null,
+      "value": 0,
+      "mask": "2fff"
+    },
+    {
+      "family": "T",
+      "n": 6,
+      "j": null,
+      "value": 4,
+      "mask": "37fff"
+    },
+    {
+      "family": "C",
+      "n": 6,
+      "j": null,
+      "value": 1,
+      "mask": "17fff"
+    },
+    {
+      "family": "T",
+      "n": 7,
+      "j": null,
+      "value": 2,
+      "mask": "1bffff"
+    },
+    {
+      "family": "C",
+      "n": 7,
+      "j": null,
+      "value": 2,
+      "mask": "bffff"
+    },
+    {
+      "family": "T",
+      "n": 8,
+      "j": null,
+      "value": 6,
+      "mask": "dfffff"
+    },
+    {
+      "family": "C",
+      "n": 8,
+      "j": null,
+      "value": 2,
+      "mask": "5fffff"
+    },
+    {
+      "family": "T",
+      "n": 9,
+      "j": null,
+      "value": 1,
+      "mask": "6ffffff"
+    },
+    {
+      "family": "C",
+      "n": 9,
+      "j": null,
+      "value": 6,
+      "mask": "2ffffff"
+    },
+    {
+      "family": "T",
+      "n": 10,
+      "j": null,
+      "value": 3,
+      "mask": "37ffffff"
+    },
+    {
+      "family": "C",
+      "n": 10,
+      "j": null,
+      "value": 3,
+      "mask": "17ffffff"
+    },
+    {
+      "family": "T",
+      "n": 11,
+      "j": null,
+      "value": 1,
+      "mask": "1bfffffff"
+    },
+    {
+      "family": "C",
+      "n": 11,
+      "j": null,
+      "value": 3,
+      "mask": "bfffffff"
+    },
+    {
+      "family": "T",
+      "n": 12,
+      "j": null,
+      "value": 0,
+      "mask": "dffffffff"
+    },
+    {
+      "family": "C",
+      "n": 12,
+      "j": null,
+      "value": 2,
+      "mask": "5ffffffff"
+    },
+    {
+      "family": "T",
+      "n": 13,
+      "j": null,
+      "value": 6,
+      "mask": "6fffffffff"
+    },
+    {
+      "family": "C",
+      "n": 13,
+      "j": null,
+      "value": 5,
+      "mask": "2fffffffff"
+    },
+    {
+      "family": "T",
+      "n": 14,
+      "j": null,
+      "value": 5,
+      "mask": "37fffffffff"
+    },
+    {
+      "family": "C",
+      "n": 14,
+      "j": null,
+      "value": 8,
+      "mask": "17fffffffff"
+    },
+    {
+      "family": "T",
+      "n": 15,
+      "j": null,
+      "value": 8,
+      "mask": "1bffffffffff"
+    },
+    {
+      "family": "C",
+      "n": 15,
+      "j": null,
+      "value": 3,
+      "mask": "bffffffffff"
+    },
+    {
+      "family": "T",
+      "n": 16,
+      "j": null,
+      "value": 2,
+      "mask": "dfffffffffff"
+    },
+    {
+      "family": "C",
+      "n": 16,
+      "j": null,
+      "value": 10,
+      "mask": "5fffffffffff"
+    },
+    {
+      "family": "T",
+      "n": 17,
+      "j": null,
+      "value": 11,
+      "mask": "6ffffffffffff"
+    },
+    {
+      "family": "C",
+      "n": 17,
+      "j": null,
+      "value": 2,
+      "mask": "2ffffffffffff"
+    },
+    {
+      "family": "T",
+      "n": 18,
+      "j": null,
+      "value": 1,
+      "mask": "37ffffffffffff"
+    },
+    {
+      "family": "C",
+      "n": 18,
+      "j": null,
+      "value": 9,
+      "mask": "17ffffffffffff"
+    },
+    {
+      "family": "T",
+      "n": 19,
+      "j": null,
+      "value": 3,
+      "mask": "1bfffffffffffff"
+    },
+    {
+      "family": "C",
+      "n": 19,
+      "j": null,
+      "value": 1,
+      "mask": "bfffffffffffff"
+    },
+    {
+      "family": "T",
+      "n": 20,
+      "j": null,
+      "value": 11,
+      "mask": "dffffffffffffff"
+    },
+    {
+      "family": "C",
+      "n": 20,
+      "j": null,
+      "value": 8,
+      "mask": "5ffffffffffffff"
+    },
+    {
+      "family": "T",
+      "n": 21,
+      "j": null,
+      "value": 0,
+      "mask": "6fffffffffffffff"
+    },
+    {
+      "family": "C",
+      "n": 21,
+      "j": null,
+      "value": 4,
+      "mask": "2fffffffffffffff"
+    },
+    {
+      "family": "T",
+      "n": 22,
+      "j": null,
+      "value": 6,
+      "mask": "37fffffffffffffff"
+    },
+    {
+      "family": "C",
+      "n": 22,
+      "j": null,
+      "value": 2,
+      "mask": "17fffffffffffffff"
+    },
+    {
+      "family": "E",
+      "n": 23,
+      "j": 4,
+      "value": 1,
+      "mask": "1fffffffffffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 23,
+      "j": 7,
+      "value": 1,
+      "mask": "1fffffffffffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 24,
+      "j": 5,
+      "value": 0,
+      "mask": "ffffffffffffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 24,
+      "j": 8,
+      "value": 10,
+      "mask": "fffffffffffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 25,
+      "j": 6,
+      "value": 0,
+      "mask": "7fffffffffffffa6ffd"
+    },
+    {
+      "family": "E",
+      "n": 25,
+      "j": 9,
+      "value": 0,
+      "mask": "7fffffffffff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 26,
+      "j": 7,
+      "value": 7,
+      "mask": "3fffffffffffffd37ffd"
+    },
+    {
+      "family": "E",
+      "n": 26,
+      "j": 10,
+      "value": 15,
+      "mask": "3fffffffffffa6fffffd"
+    },
+    {
+      "family": "E",
+      "n": 27,
+      "j": 8,
+      "value": 3,
+      "mask": "1fffffffffffffe9bfffd"
+    },
+    {
+      "family": "E",
+      "n": 27,
+      "j": 11,
+      "value": 1,
+      "mask": "1fffffffffffd37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 28,
+      "j": 9,
+      "value": 16,
+      "mask": "ffffffffffffff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 28,
+      "j": 12,
+      "value": 14,
+      "mask": "fffffffffffe9bffffffd"
+    },
+    {
+      "family": "E",
+      "n": 29,
+      "j": 10,
+      "mask": "7fffffffffffffa6fffffd",
+      "moves": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          1,
+          15
+        ],
+        [
+          1,
+          16
+        ],
+        [
+          1,
+          17
+        ],
+        [
+          1,
+          18
+        ],
+        [
+          1,
+          19
+        ],
+        [
+          1,
+          20
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          23
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          25
+        ],
+        [
+          1,
+          26
+        ],
+        [
+          1,
+          27
+        ],
+        [
+          1,
+          28
+        ],
+        [
+          1,
+          29
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          2,
+          14
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          2,
+          16
+        ],
+        [
+          2,
+          17
+        ],
+        [
+          2,
+          18
+        ],
+        [
+          2,
+          19
+        ],
+        [
+          2,
+          20
+        ],
+        [
+          2,
+          21
+        ],
+        [
+          2,
+          22
+        ],
+        [
+          2,
+          23
+        ],
+        [
+          2,
+          24
+        ],
+        [
+          2,
+          25
+        ],
+        [
+          2,
+          26
+        ],
+        [
+          2,
+          27
+        ],
+        [
+          2,
+          28
+        ],
+        [
+          2,
+          29
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          3,
+          13
+        ],
+        [
+          3,
+          14
+        ],
+        [
+          3,
+          15
+        ],
+        [
+          3,
+          16
+        ],
+        [
+          3,
+          17
+        ],
+        [
+          3,
+          18
+        ],
+        [
+          3,
+          19
+        ],
+        [
+          3,
+          20
+        ],
+        [
+          3,
+          21
+        ],
+        [
+          3,
+          22
+        ],
+        [
+          3,
+          23
+        ],
+        [
+          3,
+          24
+        ],
+        [
+          3,
+          25
+        ],
+        [
+          3,
+          26
+        ],
+        [
+          3,
+          27
+        ],
+        [
+          3,
+          28
+        ],
+        [
+          3,
+          29
+        ]
+      ],
+      "options": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1,
+        3,
+        3,
+        11,
+        3,
+        3,
+        3,
+        3,
+        10,
+        1,
+        3,
+        7,
+        3,
+        1,
+        1,
+        3,
+        3,
+        5,
+        3,
+        7,
+        1,
+        1,
+        3,
+        3,
+        1,
+        1,
+        3,
+        4,
+        3,
+        14,
+        1,
+        3,
+        15,
+        3,
+        3,
+        3,
+        3,
+        1,
+        7,
+        3,
+        3,
+        5,
+        3,
+        0,
+        1,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        3,
+        1,
+        7,
+        3,
+        21,
+        3,
+        10,
+        3,
+        3,
+        3,
+        3,
+        7,
+        1,
+        3,
+        7,
+        3,
+        1,
+        1,
+        3,
+        3,
+        5
+      ],
+      "value": 2
+    },
+    {
+      "family": "E",
+      "n": 29,
+      "j": 13,
+      "mask": "7fffffffffff4dfffffffd",
+      "moves": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          15
+        ],
+        [
+          1,
+          16
+        ],
+        [
+          1,
+          17
+        ],
+        [
+          1,
+          18
+        ],
+        [
+          1,
+          19
+        ],
+        [
+          1,
+          20
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          23
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          25
+        ],
+        [
+          1,
+          26
+        ],
+        [
+          1,
+          27
+        ],
+        [
+          1,
+          28
+        ],
+        [
+          1,
+          29
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          2,
+          14
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          2,
+          16
+        ],
+        [
+          2,
+          17
+        ],
+        [
+          2,
+          18
+        ],
+        [
+          2,
+          19
+        ],
+        [
+          2,
+          20
+        ],
+        [
+          2,
+          21
+        ],
+        [
+          2,
+          22
+        ],
+        [
+          2,
+          23
+        ],
+        [
+          2,
+          24
+        ],
+        [
+          2,
+          25
+        ],
+        [
+          2,
+          26
+        ],
+        [
+          2,
+          27
+        ],
+        [
+          2,
+          28
+        ],
+        [
+          2,
+          29
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          3,
+          13
+        ],
+        [
+          3,
+          14
+        ],
+        [
+          3,
+          15
+        ],
+        [
+          3,
+          16
+        ],
+        [
+          3,
+          17
+        ],
+        [
+          3,
+          18
+        ],
+        [
+          3,
+          19
+        ],
+        [
+          3,
+          20
+        ],
+        [
+          3,
+          21
+        ],
+        [
+          3,
+          22
+        ],
+        [
+          3,
+          23
+        ],
+        [
+          3,
+          24
+        ],
+        [
+          3,
+          25
+        ],
+        [
+          3,
+          26
+        ],
+        [
+          3,
+          27
+        ],
+        [
+          3,
+          28
+        ],
+        [
+          3,
+          29
+        ]
+      ],
+      "options": [
+        1,
+        20,
+        1,
+        17,
+        3,
+        11,
+        3,
+        3,
+        1,
+        3,
+        0,
+        18,
+        13,
+        19,
+        1,
+        4,
+        1,
+        1,
+        3,
+        13,
+        1,
+        3,
+        1,
+        10,
+        3,
+        12,
+        1,
+        15,
+        1,
+        11,
+        3,
+        15,
+        5,
+        3,
+        9,
+        1,
+        3,
+        10,
+        5,
+        4,
+        7,
+        9,
+        3,
+        7,
+        1,
+        3,
+        7,
+        9,
+        4,
+        0,
+        4,
+        5,
+        18,
+        1,
+        15,
+        1,
+        9,
+        3,
+        15,
+        3,
+        3,
+        3,
+        21,
+        3,
+        5,
+        8,
+        8,
+        8,
+        5,
+        8,
+        1,
+        4,
+        1,
+        1,
+        3,
+        15,
+        1,
+        3,
+        1,
+        12,
+        3,
+        12
+      ],
+      "value": 2
+    },
+    {
+      "family": "E",
+      "n": 30,
+      "j": 11,
+      "mask": "3fffffffffffffd37fffffd",
+      "moves": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          1,
+          15
+        ],
+        [
+          1,
+          16
+        ],
+        [
+          1,
+          17
+        ],
+        [
+          1,
+          18
+        ],
+        [
+          1,
+          19
+        ],
+        [
+          1,
+          20
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          23
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          25
+        ],
+        [
+          1,
+          26
+        ],
+        [
+          1,
+          27
+        ],
+        [
+          1,
+          28
+        ],
+        [
+          1,
+          29
+        ],
+        [
+          1,
+          30
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          2,
+          14
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          2,
+          16
+        ],
+        [
+          2,
+          17
+        ],
+        [
+          2,
+          18
+        ],
+        [
+          2,
+          19
+        ],
+        [
+          2,
+          20
+        ],
+        [
+          2,
+          21
+        ],
+        [
+          2,
+          22
+        ],
+        [
+          2,
+          23
+        ],
+        [
+          2,
+          24
+        ],
+        [
+          2,
+          25
+        ],
+        [
+          2,
+          26
+        ],
+        [
+          2,
+          27
+        ],
+        [
+          2,
+          28
+        ],
+        [
+          2,
+          29
+        ],
+        [
+          2,
+          30
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          3,
+          13
+        ],
+        [
+          3,
+          14
+        ],
+        [
+          3,
+          15
+        ],
+        [
+          3,
+          16
+        ],
+        [
+          3,
+          17
+        ],
+        [
+          3,
+          18
+        ],
+        [
+          3,
+          19
+        ],
+        [
+          3,
+          20
+        ],
+        [
+          3,
+          21
+        ],
+        [
+          3,
+          22
+        ],
+        [
+          3,
+          23
+        ],
+        [
+          3,
+          24
+        ],
+        [
+          3,
+          25
+        ],
+        [
+          3,
+          26
+        ],
+        [
+          3,
+          27
+        ],
+        [
+          3,
+          28
+        ],
+        [
+          3,
+          29
+        ],
+        [
+          3,
+          30
+        ]
+      ],
+      "options": [
+        18,
+        3,
+        10,
+        19,
+        2,
+        1,
+        19,
+        3,
+        6,
+        3,
+        6,
+        8,
+        11,
+        1,
+        0,
+        15,
+        4,
+        14,
+        4,
+        3,
+        3,
+        10,
+        8,
+        1,
+        3,
+        4,
+        14,
+        16,
+        3,
+        6,
+        1,
+        2,
+        1,
+        0,
+        3,
+        1,
+        6,
+        3,
+        3,
+        10,
+        12,
+        3,
+        3,
+        3,
+        5,
+        4,
+        7,
+        6,
+        9,
+        6,
+        6,
+        3,
+        6,
+        3,
+        6,
+        12,
+        8,
+        9,
+        8,
+        2,
+        1,
+        14,
+        3,
+        1,
+        5,
+        4,
+        2,
+        6,
+        6,
+        10,
+        8,
+        1,
+        0,
+        8,
+        4,
+        17,
+        4,
+        3,
+        3,
+        17,
+        16,
+        1,
+        3,
+        4,
+        10
+      ],
+      "value": 13
+    },
+    {
+      "family": "E",
+      "n": 30,
+      "j": 14,
+      "mask": "3fffffffffffa6ffffffffd",
+      "moves": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          16
+        ],
+        [
+          1,
+          17
+        ],
+        [
+          1,
+          18
+        ],
+        [
+          1,
+          19
+        ],
+        [
+          1,
+          20
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          23
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          25
+        ],
+        [
+          1,
+          26
+        ],
+        [
+          1,
+          27
+        ],
+        [
+          1,
+          28
+        ],
+        [
+          1,
+          29
+        ],
+        [
+          1,
+          30
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          2,
+          16
+        ],
+        [
+          2,
+          17
+        ],
+        [
+          2,
+          18
+        ],
+        [
+          2,
+          19
+        ],
+        [
+          2,
+          20
+        ],
+        [
+          2,
+          21
+        ],
+        [
+          2,
+          22
+        ],
+        [
+          2,
+          23
+        ],
+        [
+          2,
+          24
+        ],
+        [
+          2,
+          25
+        ],
+        [
+          2,
+          26
+        ],
+        [
+          2,
+          27
+        ],
+        [
+          2,
+          28
+        ],
+        [
+          2,
+          29
+        ],
+        [
+          2,
+          30
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          3,
+          13
+        ],
+        [
+          3,
+          14
+        ],
+        [
+          3,
+          15
+        ],
+        [
+          3,
+          16
+        ],
+        [
+          3,
+          17
+        ],
+        [
+          3,
+          18
+        ],
+        [
+          3,
+          19
+        ],
+        [
+          3,
+          20
+        ],
+        [
+          3,
+          21
+        ],
+        [
+          3,
+          22
+        ],
+        [
+          3,
+          23
+        ],
+        [
+          3,
+          24
+        ],
+        [
+          3,
+          25
+        ],
+        [
+          3,
+          26
+        ],
+        [
+          3,
+          27
+        ],
+        [
+          3,
+          28
+        ],
+        [
+          3,
+          29
+        ],
+        [
+          3,
+          30
+        ]
+      ],
+      "options": [
+        16,
+        3,
+        8,
+        3,
+        10,
+        10,
+        19,
+        8,
+        3,
+        10,
+        6,
+        6,
+        8,
+        6,
+        0,
+        15,
+        12,
+        5,
+        18,
+        7,
+        6,
+        7,
+        15,
+        8,
+        6,
+        0,
+        17,
+        14,
+        1,
+        14,
+        1,
+        8,
+        1,
+        12,
+        7,
+        3,
+        8,
+        4,
+        5,
+        10,
+        3,
+        0,
+        8,
+        2,
+        5,
+        4,
+        7,
+        0,
+        3,
+        6,
+        2,
+        6,
+        2,
+        10,
+        0,
+        8,
+        3,
+        10,
+        3,
+        10,
+        10,
+        16,
+        12,
+        3,
+        8,
+        6,
+        5,
+        2,
+        8,
+        10,
+        8,
+        6,
+        0,
+        8,
+        2,
+        5,
+        13,
+        8,
+        6,
+        7,
+        17,
+        17,
+        6,
+        0,
+        10
+      ],
+      "value": 9
+    }
+  ],
+  "note": "The E(26..27) batch also requested E(28,9),E(28,12), which timed out without output; the final run recomputed both exactly. A recorded exact row remains valid after the batch timeout."
+}

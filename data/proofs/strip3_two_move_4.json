@@ -1,0 +1,122 @@
+{
+  "format": "nodekayles-strip3-two-move-v1",
+  "n": 4,
+  "status": "P_CERTIFICATE",
+  "cases": [
+    {
+      "first": [
+        1,
+        1
+      ],
+      "reply": [
+        2,
+        4
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "174",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 3,
+          "j": 3,
+          "value": 0,
+          "mask": "174",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        2
+      ],
+      "reply": [
+        3,
+        3
+      ],
+      "rule": "safe_rotation",
+      "tail_mask": "606",
+      "pieces": []
+    },
+    {
+      "first": [
+        2,
+        1
+      ],
+      "reply": [
+        2,
+        4
+      ],
+      "rule": "safe_rotation",
+      "tail_mask": "168",
+      "pieces": []
+    },
+    {
+      "first": [
+        2,
+        2
+      ],
+      "reply": [
+        2,
+        4
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "145",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 1,
+          "j": null,
+          "value": 0,
+          "mask": "5",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 1,
+          "j": null,
+          "value": 0,
+          "mask": "140",
+          "isomorphism": {
+            "column_offset": 2,
+            "horizontal": false,
+            "vertical": false
+          }
+        }
+      ]
+    }
+  ],
+  "unresolved": [],
+  "premises": [
+    {
+      "family": "A",
+      "n": 1,
+      "j": null,
+      "value": 0,
+      "mask": "5"
+    },
+    {
+      "family": "D",
+      "n": 1,
+      "j": null,
+      "value": 0,
+      "mask": "5"
+    },
+    {
+      "family": "E",
+      "n": 3,
+      "j": 3,
+      "value": 0,
+      "mask": "135"
+    }
+  ],
+  "max_premise_width": 3
+}

@@ -1,0 +1,1558 @@
+{
+  "format": "nodekayles-strip3-two-move-v1",
+  "n": 30,
+  "status": "P_CERTIFICATE",
+  "cases": [
+    {
+      "first": [
+        1,
+        1
+      ],
+      "reply": [
+        2,
+        14
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3fffffffffff45ffffffff4",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 13,
+          "j": 13,
+          "value": 3,
+          "mask": "5ffffffff4",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 16,
+          "j": null,
+          "value": 3,
+          "mask": "3fffffffffff40000000000",
+          "isomorphism": {
+            "column_offset": 14,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        2
+      ],
+      "reply": [
+        2,
+        15
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3ffffffffffa2ffffffffa6",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 14,
+          "j": 13,
+          "value": 9,
+          "mask": "2ffffffffa6",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 15,
+          "j": null,
+          "value": 9,
+          "mask": "3ffffffffffa00000000000",
+          "isomorphism": {
+            "column_offset": 15,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        3
+      ],
+      "reply": [
+        2,
+        17
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3ffffffffe8bffffffffd37",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 16,
+          "j": 14,
+          "value": 2,
+          "mask": "bffffffffd37",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 13,
+          "j": null,
+          "value": 2,
+          "mask": "3ffffffffe8000000000000",
+          "isomorphism": {
+            "column_offset": 17,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        4
+      ],
+      "reply": [
+        2,
+        17
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3ffffffffe8bfffffffe9bf",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 16,
+          "j": 13,
+          "value": 2,
+          "mask": "bfffffffe9bf",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 13,
+          "j": null,
+          "value": 2,
+          "mask": "3ffffffffe8000000000000",
+          "isomorphism": {
+            "column_offset": 17,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        5
+      ],
+      "reply": [
+        2,
+        14
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3fffffffffff45fffff4dff",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 13,
+          "j": 9,
+          "value": 3,
+          "mask": "5fffff4dff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 16,
+          "j": null,
+          "value": 3,
+          "mask": "3fffffffffff40000000000",
+          "isomorphism": {
+            "column_offset": 14,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        6
+      ],
+      "reply": [
+        2,
+        17
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3ffffffffe8bffffffa6fff",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 16,
+          "j": 11,
+          "value": 2,
+          "mask": "bffffffa6fff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 13,
+          "j": null,
+          "value": 2,
+          "mask": "3ffffffffe8000000000000",
+          "isomorphism": {
+            "column_offset": 17,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        7
+      ],
+      "reply": [
+        3,
+        9
+      ],
+      "rule": "opposite_outer",
+      "tail_mask": "3ffffffffffffffd9537fff",
+      "pieces": [
+        {
+          "family": "B",
+          "n": 7,
+          "j": 1,
+          "value": 0,
+          "mask": "137fff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "point",
+          "n": 1,
+          "j": null,
+          "value": 1,
+          "mask": "400000",
+          "isomorphism": {
+            "column_offset": 7,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "B",
+          "n": 22,
+          "j": 1,
+          "value": 1,
+          "mask": "3ffffffffffffffd9000000",
+          "isomorphism": {
+            "column_offset": 8,
+            "horizontal": false,
+            "vertical": true
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        8
+      ],
+      "reply": [
+        2,
+        17
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3ffffffffe8bffffe9bffff",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 16,
+          "j": 9,
+          "value": 2,
+          "mask": "bffffe9bffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 13,
+          "j": null,
+          "value": 2,
+          "mask": "3ffffffffe8000000000000",
+          "isomorphism": {
+            "column_offset": 17,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        9
+      ],
+      "reply": [
+        2,
+        14
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3fffffffffff45ff4dfffff",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 13,
+          "j": 5,
+          "value": 3,
+          "mask": "5ff4dfffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 16,
+          "j": null,
+          "value": 3,
+          "mask": "3fffffffffff40000000000",
+          "isomorphism": {
+            "column_offset": 14,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        10
+      ],
+      "reply": [
+        2,
+        14
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3fffffffffff45fa6ffffff",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 13,
+          "j": 4,
+          "value": 3,
+          "mask": "5fa6ffffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 16,
+          "j": null,
+          "value": 3,
+          "mask": "3fffffffffff40000000000",
+          "isomorphism": {
+            "column_offset": 14,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        11
+      ],
+      "reply": [
+        2,
+        16
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3fffffffffd17fd37ffffff",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 15,
+          "j": 5,
+          "value": 0,
+          "mask": "17fd37ffffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 14,
+          "j": null,
+          "value": 0,
+          "mask": "3fffffffffd000000000000",
+          "isomorphism": {
+            "column_offset": 16,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        12
+      ],
+      "reply": [
+        2,
+        19
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3fffffffa2fffe9bfffffff",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 18,
+          "j": 7,
+          "value": 3,
+          "mask": "2fffe9bfffffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 11,
+          "j": null,
+          "value": 3,
+          "mask": "3fffffffa00000000000000",
+          "isomorphism": {
+            "column_offset": 19,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        13
+      ],
+      "reply": [
+        2,
+        14
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3fffffffffff44dffffffff",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 13,
+          "j": 1,
+          "value": 3,
+          "mask": "4dffffffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 16,
+          "j": null,
+          "value": 3,
+          "mask": "3fffffffffff40000000000",
+          "isomorphism": {
+            "column_offset": 14,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        14
+      ],
+      "reply": [
+        2,
+        17
+      ],
+      "rule": "outer_middle",
+      "tail_mask": "3ffffffffe8ba6fffffffff",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 16,
+          "j": 3,
+          "value": 2,
+          "mask": "ba6fffffffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 13,
+          "j": null,
+          "value": 2,
+          "mask": "3ffffffffe8000000000000",
+          "isomorphism": {
+            "column_offset": 17,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        1,
+        15
+      ],
+      "reply": [
+        3,
+        16
+      ],
+      "rule": "safe_rotation",
+      "tail_mask": "3fffffffffb037fffffffff",
+      "pieces": []
+    },
+    {
+      "first": [
+        2,
+        1
+      ],
+      "reply": [
+        2,
+        17
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3ffffffffe8bfffffffffe8",
+      "pieces": [
+        {
+          "family": "D",
+          "n": 15,
+          "j": null,
+          "value": 2,
+          "mask": "bfffffffffe8",
+          "isomorphism": {
+            "column_offset": 1,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 13,
+          "j": null,
+          "value": 2,
+          "mask": "3ffffffffe8000000000000",
+          "isomorphism": {
+            "column_offset": 17,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        2
+      ],
+      "reply": [
+        2,
+        17
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3ffffffffe8bfffffffff45",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 1,
+          "j": null,
+          "value": 0,
+          "mask": "5",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 14,
+          "j": null,
+          "value": 2,
+          "mask": "bfffffffff40",
+          "isomorphism": {
+            "column_offset": 2,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 13,
+          "j": null,
+          "value": 2,
+          "mask": "3ffffffffe8000000000000",
+          "isomorphism": {
+            "column_offset": 17,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        3
+      ],
+      "reply": [
+        2,
+        16
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3fffffffffd17fffffffa2f",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 2,
+          "j": null,
+          "value": 3,
+          "mask": "2f",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 12,
+          "j": null,
+          "value": 3,
+          "mask": "17fffffffa00",
+          "isomorphism": {
+            "column_offset": 3,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 14,
+          "j": null,
+          "value": 0,
+          "mask": "3fffffffffd000000000000",
+          "isomorphism": {
+            "column_offset": 16,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        4
+      ],
+      "reply": [
+        2,
+        17
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3ffffffffe8bfffffffd17f",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 3,
+          "j": null,
+          "value": 1,
+          "mask": "17f",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 12,
+          "j": null,
+          "value": 3,
+          "mask": "bfffffffd000",
+          "isomorphism": {
+            "column_offset": 4,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 13,
+          "j": null,
+          "value": 2,
+          "mask": "3ffffffffe8000000000000",
+          "isomorphism": {
+            "column_offset": 17,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        5
+      ],
+      "reply": [
+        2,
+        14
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3fffffffffff45ffffe8bff",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 4,
+          "j": null,
+          "value": 2,
+          "mask": "bff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 8,
+          "j": null,
+          "value": 1,
+          "mask": "5ffffe8000",
+          "isomorphism": {
+            "column_offset": 5,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 16,
+          "j": null,
+          "value": 3,
+          "mask": "3fffffffffff40000000000",
+          "isomorphism": {
+            "column_offset": 14,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        6
+      ],
+      "reply": [
+        2,
+        19
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3fffffffa2ffffffff45fff",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 5,
+          "j": null,
+          "value": 0,
+          "mask": "5fff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 12,
+          "j": null,
+          "value": 3,
+          "mask": "2ffffffff40000",
+          "isomorphism": {
+            "column_offset": 6,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 11,
+          "j": null,
+          "value": 3,
+          "mask": "3fffffffa00000000000000",
+          "isomorphism": {
+            "column_offset": 19,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        7
+      ],
+      "reply": [
+        2,
+        24
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3fffd17ffffffffffa2ffff",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 6,
+          "j": null,
+          "value": 0,
+          "mask": "2ffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 16,
+          "j": null,
+          "value": 0,
+          "mask": "17ffffffffffa00000",
+          "isomorphism": {
+            "column_offset": 7,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 6,
+          "j": null,
+          "value": 0,
+          "mask": "3fffd000000000000000000",
+          "isomorphism": {
+            "column_offset": 24,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        8
+      ],
+      "reply": [
+        2,
+        21
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3fffffe8bfffffffd17ffff",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 7,
+          "j": null,
+          "value": 1,
+          "mask": "17ffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 12,
+          "j": null,
+          "value": 3,
+          "mask": "bfffffffd000000",
+          "isomorphism": {
+            "column_offset": 8,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 9,
+          "j": null,
+          "value": 2,
+          "mask": "3fffffe8000000000000000",
+          "isomorphism": {
+            "column_offset": 21,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        9
+      ],
+      "reply": [
+        2,
+        23
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3ffffa2ffffffffe8bfffff",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 8,
+          "j": null,
+          "value": 5,
+          "mask": "bfffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 13,
+          "j": null,
+          "value": 4,
+          "mask": "2ffffffffe8000000",
+          "isomorphism": {
+            "column_offset": 9,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 7,
+          "j": null,
+          "value": 1,
+          "mask": "3ffffa00000000000000000",
+          "isomorphism": {
+            "column_offset": 23,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        10
+      ],
+      "reply": [
+        2,
+        21
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3fffffe8bffffff45ffffff",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 9,
+          "j": null,
+          "value": 2,
+          "mask": "5ffffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 10,
+          "j": null,
+          "value": 0,
+          "mask": "bffffff40000000",
+          "isomorphism": {
+            "column_offset": 10,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 9,
+          "j": null,
+          "value": 2,
+          "mask": "3fffffe8000000000000000",
+          "isomorphism": {
+            "column_offset": 21,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        11
+      ],
+      "reply": [
+        1,
+        2
+      ],
+      "rule": "middle_outer",
+      "tail_mask": "3fffffffffffffa2fffffa6",
+      "pieces": [
+        {
+          "family": "E",
+          "n": 10,
+          "j": 9,
+          "value": 2,
+          "mask": "2fffffa6",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": true,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 19,
+          "j": null,
+          "value": 2,
+          "mask": "3fffffffffffffa00000000",
+          "isomorphism": {
+            "column_offset": 11,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        12
+      ],
+      "reply": [
+        2,
+        19
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3fffffffa2fffd17fffffff",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 11,
+          "j": null,
+          "value": 3,
+          "mask": "17fffffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 6,
+          "j": null,
+          "value": 0,
+          "mask": "2fffd000000000",
+          "isomorphism": {
+            "column_offset": 12,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 11,
+          "j": null,
+          "value": 3,
+          "mask": "3fffffffa00000000000000",
+          "isomorphism": {
+            "column_offset": 19,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        13
+      ],
+      "reply": [
+        2,
+        17
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3ffffffffe8be8bffffffff",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 12,
+          "j": null,
+          "value": 3,
+          "mask": "bffffffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 3,
+          "j": null,
+          "value": 1,
+          "mask": "be8000000000",
+          "isomorphism": {
+            "column_offset": 13,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 13,
+          "j": null,
+          "value": 2,
+          "mask": "3ffffffffe8000000000000",
+          "isomorphism": {
+            "column_offset": 17,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    },
+    {
+      "first": [
+        2,
+        14
+      ],
+      "reply": [
+        2,
+        17
+      ],
+      "rule": "safe_rotation",
+      "tail_mask": "3ffffffffe8b45fffffffff",
+      "pieces": []
+    },
+    {
+      "first": [
+        2,
+        15
+      ],
+      "reply": [
+        2,
+        21
+      ],
+      "rule": "middle_middle",
+      "tail_mask": "3fffffe8bffa2ffffffffff",
+      "pieces": [
+        {
+          "family": "A",
+          "n": 14,
+          "j": null,
+          "value": 0,
+          "mask": "2ffffffffff",
+          "isomorphism": {
+            "column_offset": 0,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "D",
+          "n": 5,
+          "j": null,
+          "value": 2,
+          "mask": "bffa00000000000",
+          "isomorphism": {
+            "column_offset": 15,
+            "horizontal": false,
+            "vertical": false
+          }
+        },
+        {
+          "family": "A",
+          "n": 9,
+          "j": null,
+          "value": 2,
+          "mask": "3fffffe8000000000000000",
+          "isomorphism": {
+            "column_offset": 21,
+            "horizontal": true,
+            "vertical": false
+          }
+        }
+      ]
+    }
+  ],
+  "unresolved": [],
+  "premises": [
+    {
+      "family": "A",
+      "n": 1,
+      "j": null,
+      "value": 0,
+      "mask": "5"
+    },
+    {
+      "family": "point",
+      "n": 1,
+      "j": null,
+      "value": 1,
+      "mask": "2"
+    },
+    {
+      "family": "A",
+      "n": 2,
+      "j": null,
+      "value": 3,
+      "mask": "2f"
+    },
+    {
+      "family": "A",
+      "n": 3,
+      "j": null,
+      "value": 1,
+      "mask": "17f"
+    },
+    {
+      "family": "D",
+      "n": 3,
+      "j": null,
+      "value": 1,
+      "mask": "17d"
+    },
+    {
+      "family": "A",
+      "n": 4,
+      "j": null,
+      "value": 2,
+      "mask": "bff"
+    },
+    {
+      "family": "A",
+      "n": 5,
+      "j": null,
+      "value": 0,
+      "mask": "5fff"
+    },
+    {
+      "family": "D",
+      "n": 5,
+      "j": null,
+      "value": 2,
+      "mask": "5ffd"
+    },
+    {
+      "family": "A",
+      "n": 6,
+      "j": null,
+      "value": 0,
+      "mask": "2ffff"
+    },
+    {
+      "family": "D",
+      "n": 6,
+      "j": null,
+      "value": 0,
+      "mask": "2fffd"
+    },
+    {
+      "family": "A",
+      "n": 7,
+      "j": null,
+      "value": 1,
+      "mask": "17ffff"
+    },
+    {
+      "family": "B",
+      "n": 7,
+      "j": 1,
+      "value": 0,
+      "mask": "1ffff4"
+    },
+    {
+      "family": "A",
+      "n": 8,
+      "j": null,
+      "value": 5,
+      "mask": "bfffff"
+    },
+    {
+      "family": "D",
+      "n": 8,
+      "j": null,
+      "value": 1,
+      "mask": "bffffd"
+    },
+    {
+      "family": "A",
+      "n": 9,
+      "j": null,
+      "value": 2,
+      "mask": "5ffffff"
+    },
+    {
+      "family": "D",
+      "n": 10,
+      "j": null,
+      "value": 0,
+      "mask": "2ffffffd"
+    },
+    {
+      "family": "E",
+      "n": 10,
+      "j": 9,
+      "value": 2,
+      "mask": "34dffffd"
+    },
+    {
+      "family": "A",
+      "n": 11,
+      "j": null,
+      "value": 3,
+      "mask": "17fffffff"
+    },
+    {
+      "family": "A",
+      "n": 12,
+      "j": null,
+      "value": 3,
+      "mask": "bffffffff"
+    },
+    {
+      "family": "D",
+      "n": 12,
+      "j": null,
+      "value": 3,
+      "mask": "bfffffffd"
+    },
+    {
+      "family": "A",
+      "n": 13,
+      "j": null,
+      "value": 2,
+      "mask": "5fffffffff"
+    },
+    {
+      "family": "D",
+      "n": 13,
+      "j": null,
+      "value": 4,
+      "mask": "5ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 1,
+      "value": 3,
+      "mask": "7ffffffff4"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 4,
+      "value": 3,
+      "mask": "7fffffe9bd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 5,
+      "value": 3,
+      "mask": "7fffff4dfd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 9,
+      "value": 3,
+      "mask": "7ff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 13,
+      "j": 13,
+      "value": 3,
+      "mask": "4dfffffffd"
+    },
+    {
+      "family": "A",
+      "n": 14,
+      "j": null,
+      "value": 0,
+      "mask": "2ffffffffff"
+    },
+    {
+      "family": "D",
+      "n": 14,
+      "j": null,
+      "value": 2,
+      "mask": "2fffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 14,
+      "j": 13,
+      "value": 9,
+      "mask": "34dfffffffd"
+    },
+    {
+      "family": "A",
+      "n": 15,
+      "j": null,
+      "value": 9,
+      "mask": "17ffffffffff"
+    },
+    {
+      "family": "D",
+      "n": 15,
+      "j": null,
+      "value": 2,
+      "mask": "17fffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 15,
+      "j": 5,
+      "value": 0,
+      "mask": "1fffffff4dfd"
+    },
+    {
+      "family": "A",
+      "n": 16,
+      "j": null,
+      "value": 3,
+      "mask": "bfffffffffff"
+    },
+    {
+      "family": "D",
+      "n": 16,
+      "j": null,
+      "value": 0,
+      "mask": "bffffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 3,
+      "value": 2,
+      "mask": "fffffffffd35"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 9,
+      "value": 2,
+      "mask": "fffff4dffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 11,
+      "value": 2,
+      "mask": "fffd37fffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 13,
+      "value": 2,
+      "mask": "ff4dfffffffd"
+    },
+    {
+      "family": "E",
+      "n": 16,
+      "j": 14,
+      "value": 2,
+      "mask": "fa6ffffffffd"
+    },
+    {
+      "family": "E",
+      "n": 18,
+      "j": 7,
+      "value": 3,
+      "mask": "3fffffffd37ffd"
+    },
+    {
+      "family": "A",
+      "n": 19,
+      "j": null,
+      "value": 2,
+      "mask": "17fffffffffffff"
+    },
+    {
+      "family": "B",
+      "n": 22,
+      "j": 1,
+      "value": 1,
+      "mask": "3fffffffffffffff4"
+    }
+  ],
+  "max_premise_width": 22
+}

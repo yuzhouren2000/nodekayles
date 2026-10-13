@@ -1,0 +1,89 @@
+{
+  "format": "nodekayles-strip3-two-move-audit-v1",
+  "date": "2026-10-13",
+  "solver_source_sha256": "7adef5c41057e9d7159ca87bc25606ea8aaed90fcb25ba957618289134089348",
+  "geometry_test": {
+    "max_n": 30,
+    "middle_middle": 4060,
+    "mixed": 17980,
+    "opposite": 2147,
+    "nonseparating_pairs": 15428,
+    "independent_sg_max_n": 7,
+    "mutations_rejected": 8
+  },
+  "certificates": [
+    {
+      "path": "data/proofs/strip3_two_move_4.json",
+      "sha256": "93b6b18a44023c342123ded115543e276472edceca2fa461b340af678a84e8cf",
+      "status": "P_CERTIFICATE",
+      "first_move_orbits": 4,
+      "first_moves_covered": 12,
+      "premises": 3,
+      "max_premise_width": 3,
+      "independent_recomputed_positions": 3,
+      "independent_elapsed_s": 0.001,
+      "independent_result": "all values agree"
+    },
+    {
+      "path": "data/proofs/strip3_two_move_22.json",
+      "sha256": "f2f05f95ef6fd19d53154c29c124252cc7a18d0effe25e5213ef9fa5cf22ea82",
+      "status": "P_CERTIFICATE",
+      "first_move_orbits": 22,
+      "first_moves_covered": 66,
+      "premises": 32,
+      "max_premise_width": 18,
+      "independent_recomputed_positions": 32,
+      "independent_elapsed_s": 1.259,
+      "independent_result": "all values agree"
+    },
+    {
+      "path": "data/proofs/strip3_two_move_26.json",
+      "sha256": "02bb898c9f23e828d9183605fbcde9de6d2e65298519e84031a39a5721beb97e",
+      "status": "P_CERTIFICATE",
+      "first_move_orbits": 26,
+      "first_moves_covered": 78,
+      "premises": 34,
+      "max_premise_width": 15,
+      "independent_recomputed_positions": 34,
+      "independent_elapsed_s": 0.176,
+      "independent_result": "all values agree"
+    },
+    {
+      "path": "data/proofs/strip3_two_move_30.json",
+      "sha256": "e6d971840085c12192ae5a63cbfbf564cfba1decf548eabda8440214da0ee728",
+      "status": "P_CERTIFICATE",
+      "first_move_orbits": 30,
+      "first_moves_covered": 90,
+      "premises": 43,
+      "max_premise_width": 22,
+      "independent_recomputed_positions": 42,
+      "independent_elapsed_s": 28.307,
+      "independent_result": "all values agree"
+    }
+  ],
+  "auxiliary_descriptors_checked": 235,
+  "width_bounds": [
+    {
+      "n": 30,
+      "first": [
+        1,
+        7
+      ],
+      "excluded_max_width": 21,
+      "checked_responses": 14,
+      "minimum_width": 22,
+      "scope": "M/X/O geometric separators, conditional on recorded exact SG values"
+    },
+    {
+      "n": 36,
+      "first": [
+        1,
+        17
+      ],
+      "excluded_max_width": 30,
+      "checked_responses": 30,
+      "minimum_width": 31,
+      "scope": "M/X/O geometric separators, conditional on recorded exact SG values"
+    }
+  ]
+}

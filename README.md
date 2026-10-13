@@ -27,6 +27,7 @@ notes/
   08_strip3_reductions.md      三行端口家族、严格剪枝和构造性胜着
   09_strip3_handoff.md         三行下一阶段任务书（可独立接手）
   10_strip3_ports.md           B/E/H 端口族切割/延伸引理、闭合边界、最小反例
+  12_two_move_separators.md    两着分割完整分类、小端口零回应与整盘证书
 src/nodekayles/solver.py       参考求解器（纯 Python，易读）
 src/cfast/kayles.c             快速求解器（C，位棋盘 + 记忆化）
 src/cfast/strip3.c             三行专用求解器（126 位状态 + 严格归约）
@@ -35,6 +36,7 @@ scripts/dawsons_chess.py       1×n 棋盘 = Dawson's chess（octal 0.137）
 scripts/analyze.py             序列、周期检测、P-位置、全部校验
 scripts/analyze_strip3.py      3×n 端口族、中行分裂和首着结构检查
 scripts/strip3_ports.py        B/E/H 端口族几何、survey/closure/target 调查器
+scripts/strip3_two_move.py     用两着分割构造整盘 P 证书、重算辅助端口值
 scripts/winning_moves.py       小棋盘的首手制胜着（Python）
 scripts/pairing_certificates.py 根据结构定理构造配对证书（保留穷举核验）
 scripts/fixed_pairing.py        任意固定配对搜索，输出可独立检查的反证
@@ -47,6 +49,8 @@ tests/dumb_solver.py           朴素独立实现（第三方复核）
 tests/verify_certificates.py   配对证书的操作性模拟验证
 tests/test_strip3_ports.py     B/E/H 切割公式的独立坐标/递推核验
 tests/verify_strip3_ports.py   端口族数据文件与最小反例的独立复核
+tests/test_strip3_two_move.py  两着分割公式、完整分类与证书负例核验
+tests/verify_strip3_two_move.py 独立检查零回应并用原 C 求解器重算 SG 前提
 data/                          OEIS 基准数据、原始运行结果、汇总表
 ```
 
@@ -107,6 +111,11 @@ G :  2  1  1  0  3  3  2  2  2  3  3  5  2  4  1  3  2  2  1  1  5  0  1  1  3  
 首着。边行首着之后的端口族 `B,E,H` 已有切割引理与零尾巴延伸引理
 （[notes/10](notes/10_strip3_ports.md)），含 `B(10,4)` 的全着法结构、
 126 个显式零回应、以及“有限模板词汇表不闭合”的最小反例（T4 爪形）。
+新增的[两着分割定理](notes/12_two_move_separators.md)完整分类所有可能的两着
+几何分割，并直接给出 `3×4,22,26,30` 的 P 证书。`3×30` 只用宽度不超过 22
+的 43 个 SG 前提；原多字 C 求解器约 30 秒即可独立复算其中的 42 个非平凡值，
+无需计算任何 B(30,j) 的完整 nimber。运行 `make test-strip3-two-move` 复现。
+`3×36` 已有 35/36 轨道回应，边行第 17 列仍未闭合，整盘结果保持未知。
 定向求边行后继/整盘值的入口（同一进程内共享记忆，避免逐列重复计算）：
 
 ```bash
