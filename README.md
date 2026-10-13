@@ -36,6 +36,7 @@ notes/
   18_boundary_replacement_algebra.md 任意环境的四环—树恒等式与完整端口证书
   19_exact_column_transfer.md 单块生成完整三行图类，接口模 Nim 偏移仍无限
   20_guarded_symmetry.md      固定叶子补偿定理、两手后的密集三行局面 SG 恒为 1
+  21_neutral_core_absorption.md 删除中性核心吸收、任意前缀两点尾巴异或恒等式
 src/nodekayles/solver.py       参考求解器（纯 Python，易读）
 src/cfast/kayles.c             快速求解器（C，位棋盘 + 记忆化）
 src/cfast/strip3.c             三行专用求解器（126 位状态 + 严格归约）
@@ -51,6 +52,7 @@ scripts/strip3_defect_algebra.py 两行区间代数、任意核心交错尾巴�
 scripts/periodic_clique_strip.py 任意三行有限缺陷递推及混合周期尾巴求值
 scripts/strip3_history_language.py 全可达连通局面的规范编码、计数、编号与 SG
 scripts/guarded_symmetry.py    受保护固定集的精确 SG 证书与密集三行后继族
+scripts/neutral_core.py        核心删除中性与配对外围证书、局部尾巴直接消去
 scripts/winning_moves.py       小棋盘的首手制胜着（Python）
 scripts/pairing_certificates.py 根据结构定理构造配对证书（保留穷举核验）
 scripts/fixed_pairing.py        任意固定配对搜索，输出可独立检查的反证
@@ -71,6 +73,7 @@ tests/test_clique_column_strips.py 任意三行缺陷代数、端点表与真实
 tests/verify_clique_strip_period.py 三行混合尾巴周期窗口的原图独立复算
 tests/test_strip3_history_language.py 全部历史/组件、双向编号及字节表独立核验
 tests/test_guarded_symmetry.py 固定集奇偶公式、完整着法闭合与真实历史独立核验
+tests/verify_neutral_core.py   独立检查核心全部 mex/删除状态及外围配对条件
 data/                          OEIS 基准数据、原始运行结果、汇总表
 ```
 
@@ -197,6 +200,14 @@ SG 等于中心数与固定孤立点数之和的奇偶。镜像回应删除中�
 `n≥8` 的四手 P 历史，但不声称能强迫对手采用这些历史，也未判定空盘。
 运行 `make test-guarded-symmetry`；证明及独立核验见 notes/20。
 
+**删除中性核心与局部改写：** [notes/21](notes/21_neutral_core_absorption.md)
+将固定叶子补偿推广成遗传的端口删除等值条件。满足条件的核心可以吸收任意
+兼容配对外围，精确保持核心 SG；配对无需图自同构，核心值可取任意 nimber
+（一般图构造，未声称全部扩图三行可达）。另一条纯结构规则证明：已有叶子的
+顶点再接两点尾巴，SG 恰好异或 1。因此任意三行前缀 U 都有
+`g(U,4,6,4,4)=g(U,4,6) xor1`；真实三手后继只删除 12 格也能应用，但剩余
+厚核心尚未解出。运行 `make test-neutral-core`；核心和外围条件均可独立验算。
+
 定向求边行后继/整盘值的入口（同一进程内共享记忆，避免逐列重复计算）：
 
 ```bash
@@ -235,6 +246,8 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
 [notes/19](notes/19_exact_column_transfer.md)；后者也划出通用有限接口压缩的边界。
 任意对称外围的固定叶子补偿及密集三行精确值见
 [notes/20](notes/20_guarded_symmetry.md)；空盘如何进入这些已解结构仍待研究。
+更一般的核心吸收与任意前缀尾巴恒等式见
+[notes/21](notes/21_neutral_core_absorption.md)。
 任意三行有限缺陷与混合周期尾巴见 [notes/16](notes/16_clique_column_strips.md)。
 任意固定核心接交错尾巴的无条件稳定性
 见 [notes/15](notes/15_comb_stabilization.md)。

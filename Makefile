@@ -3,7 +3,7 @@ PY ?= python3
 CC ?= gcc
 CFLAGS ?= -O2 -march=native
 
-.PHONY: build build-strip3 build-strip3-language test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-kayles-boundary test-kayles-transfer test-guarded-symmetry analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
+.PHONY: build build-strip3 build-strip3-language test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
 
 help:
 	@echo "make build    - compile the C solver"
@@ -22,6 +22,7 @@ help:
 	@echo "make test-kayles-boundary - verify arbitrary-context square/tree replacement and boundary products"
 	@echo "make test-kayles-transfer - check complete column generation and infinite-interface premises"
 	@echo "make test-guarded-symmetry - check exact guarded-symmetry SG and dense three-row families"
+	@echo "make test-neutral-core - verify paired-exterior absorption and arbitrary-prefix tail rewrites"
 	@echo "make analyze-strip3 - structural analysis and constructive first moves"
 	@echo "make analyze-strip3-ports - regenerate the port-family survey/closure data"
 	@echo "make test     - Python reference checks vs literature (~1 min)"
@@ -89,6 +90,11 @@ test-kayles-transfer:
 
 test-guarded-symmetry:
 	$(PY) tests/test_guarded_symmetry.py
+
+test-neutral-core:
+	$(PY) tests/test_neutral_core.py
+	$(PY) tests/verify_neutral_core.py data/proofs/neutral_core_sg5.json
+	$(PY) tests/verify_neutral_core.py data/proofs/paired_neutral_core_9.json
 
 analyze-strip3:
 	$(PY) scripts/analyze_strip3.py

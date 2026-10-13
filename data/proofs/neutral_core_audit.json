@@ -1,0 +1,412 @@
+{
+  "format": "node-kayles-neutral-core-audit-v1",
+  "small_core_port_queries": 1098,
+  "accepted_core_certificates": 239,
+  "exhaustive_extensions": 368,
+  "random_extensions": 200,
+  "two_path_identities": 150,
+  "nonautomorphic_extensions": 92,
+  "unbounded_family": [
+    {
+      "ladder_width": 2,
+      "vertices": 5,
+      "neutral_root": 3,
+      "grundy": 3,
+      "proof_states": 13
+    },
+    {
+      "ladder_width": 3,
+      "vertices": 7,
+      "neutral_root": 5,
+      "grundy": 2,
+      "proof_states": 30
+    },
+    {
+      "ladder_width": 4,
+      "vertices": 9,
+      "neutral_root": 7,
+      "grundy": 5,
+      "proof_states": 71
+    },
+    {
+      "ladder_width": 5,
+      "vertices": 11,
+      "neutral_root": 9,
+      "grundy": 4,
+      "proof_states": 163
+    },
+    {
+      "ladder_width": 6,
+      "vertices": 13,
+      "neutral_root": 11,
+      "grundy": 7,
+      "proof_states": 375
+    },
+    {
+      "ladder_width": 7,
+      "vertices": 15,
+      "neutral_root": 13,
+      "grundy": 6,
+      "proof_states": 864
+    },
+    {
+      "ladder_width": 8,
+      "vertices": 17,
+      "neutral_root": 15,
+      "grundy": 9,
+      "proof_states": 1992
+    },
+    {
+      "ladder_width": 9,
+      "vertices": 19,
+      "neutral_root": 17,
+      "grundy": 8,
+      "proof_states": 4593
+    }
+  ],
+  "reachable_three_row_cores": [
+    {
+      "columns": [
+        7,
+        3
+      ],
+      "neutral_root": 1,
+      "grundy": 3,
+      "proof_states": 11,
+      "parent_width": 4,
+      "legal_history": [
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "columns": [
+        7,
+        6,
+        4,
+        6,
+        4,
+        6,
+        6
+      ],
+      "neutral_root": 1,
+      "grundy": 2,
+      "proof_states": 463,
+      "parent_width": 9,
+      "legal_history": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          9
+        ]
+      ]
+    },
+    {
+      "columns": [
+        7,
+        6,
+        4,
+        6,
+        4,
+        6,
+        7,
+        7
+      ],
+      "neutral_root": 1,
+      "grundy": 5,
+      "proof_states": 2547,
+      "parent_width": 8,
+      "legal_history": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "columns": [
+        7,
+        6,
+        4,
+        6,
+        4,
+        6,
+        7,
+        7,
+        6
+      ],
+      "neutral_root": 1,
+      "grundy": 4,
+      "proof_states": 5869,
+      "parent_width": 11,
+      "legal_history": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          3,
+          11
+        ]
+      ]
+    }
+  ],
+  "arbitrary_three_row_tail_rewrites": 585,
+  "dense_three_move_histories": [
+    {
+      "width": 7,
+      "history": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "playable_cells": 9
+    },
+    {
+      "width": 8,
+      "history": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "playable_cells": 12
+    },
+    {
+      "width": 9,
+      "history": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "playable_cells": 15
+    },
+    {
+      "width": 10,
+      "history": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          9
+        ]
+      ],
+      "playable_cells": 18
+    },
+    {
+      "width": 11,
+      "history": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "playable_cells": 21
+    },
+    {
+      "width": 12,
+      "history": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "playable_cells": 24
+    },
+    {
+      "width": 13,
+      "history": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "playable_cells": 27
+    },
+    {
+      "width": 14,
+      "history": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          13
+        ]
+      ],
+      "playable_cells": 30
+    },
+    {
+      "width": 15,
+      "history": [
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          14
+        ]
+      ],
+      "playable_cells": 33
+    },
+    {
+      "width": 16,
+      "history": [
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          2,
+          15
+        ]
+      ],
+      "playable_cells": 36
+    },
+    {
+      "width": 17,
+      "history": [
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          2,
+          16
+        ]
+      ],
+      "playable_cells": 39
+    }
+  ],
+  "one_time_equality_counterexample": {
+    "core": [
+      6,
+      1,
+      9,
+      20,
+      8
+    ],
+    "port": 0,
+    "core_value": 3,
+    "extended_value": 4,
+    "extended_graph": [
+      102,
+      1,
+      9,
+      20,
+      8,
+      641,
+      1281,
+      32,
+      64,
+      32,
+      64
+    ]
+  },
+  "empty_strip_rejections": 6,
+  "tamper_rejections": 5,
+  "paired_tamper_rejections": 5
+}
