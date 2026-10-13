@@ -1,0 +1,22 @@
+{
+  "format": "nodekayles-comb-stabilization-lemma-v1",
+  "tail_coefficient_identities": 256,
+  "mex_map_order_types_checked": 36,
+  "block_lemma": [
+    {
+      "phase": 0,
+      "states": 1590,
+      "transitions": 3180,
+      "reachable_states_sha256": "892281cc3819f75186af4ea78f1c96b75161b1c0244e4b5ff98d32e7b2bbddac",
+      "full_forbidden_blocks": 0
+    },
+    {
+      "phase": 1,
+      "states": 1590,
+      "transitions": 3180,
+      "reachable_states_sha256": "b2652849578296e9603c652334748d64abbe304aa9be1809f51420d28baff625",
+      "full_forbidden_blocks": 0
+    }
+  ],
+  "scope": "Universal finite block lemma; infinite consequences follow by the proof in notes/15_comb_stabilization.md."
+}

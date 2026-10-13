@@ -29,6 +29,8 @@ notes/
   10_strip3_ports.md           B/E/H 端口族切割/延伸引理、闭合边界、最小反例
   12_two_move_separators.md    两着分割完整分类、小端口零回应与整盘证书
   13_interface_obstruction.md  SG 边界删除表不足以递推的真实可达反例
+  14_outer_defect_algebra.md   两行闭合递推、交错尾巴闭式与周期提升
+  15_comb_stabilization.md     任意固定核心接交错尾巴的无条件周期定理
 src/nodekayles/solver.py       参考求解器（纯 Python，易读）
 src/cfast/kayles.c             快速求解器（C，位棋盘 + 记忆化）
 src/cfast/strip3.c             三行专用求解器（126 位状态 + 严格归约）
@@ -39,6 +41,7 @@ scripts/analyze_strip3.py      3×n 端口族、中行分裂和首着结构检�
 scripts/strip3_ports.py        B/E/H 端口族几何、survey/closure/target 调查器
 scripts/strip3_two_move.py     用两着分割构造整盘 P 证书、重算辅助端口值
 scripts/strip3_interface.py    寻找同边界摘要、接列后胜负不同的局面
+scripts/strip3_defect_algebra.py 两行区间代数、任意核心交错尾巴的周期求值
 scripts/winning_moves.py       小棋盘的首手制胜着（Python）
 scripts/pairing_certificates.py 根据结构定理构造配对证书（保留穷举核验）
 scripts/fixed_pairing.py        任意固定配对搜索，输出可独立检查的反证
@@ -54,6 +57,7 @@ tests/verify_strip3_ports.py   端口族数据文件与最小反例的独立复�
 tests/test_strip3_two_move.py  两着分割公式、完整分类与证书负例核验
 tests/verify_strip3_two_move.py 独立检查零回应并用原 C 求解器重算 SG 前提
 tests/verify_strip3_interface.py 坐标递推与原 C 双重核验接口摘要反例
+tests/verify_comb_stabilization.py 穷尽与核心大小无关的四值块稳定性引理
 data/                          OEIS 基准数据、原始运行结果、汇总表
 ```
 
@@ -137,6 +141,13 @@ SG 前提已由原 C 求解器重算。特别地，在空 `3×(4k+6)` 上下出�
 与制胜着 `(3,1000004)`，只需 26 个候选。`make test-strip3-defect` 独立复现。
 这些是缺口局面的无限规律，空三行棋盘的完整分类仍未得到。
 
+进一步的[无条件稳定定理](notes/15_comb_stabilization.md)证明：任意 `k` 顶点
+核心以单边接交错尾巴，全部 SG 都小于 `4(k+2)`，并且最迟从
+`192k²+984k+3` 以内的某个起点进入周期 4。四值块有限引理加上历史集合
+饱和、二值 mex 映射给出证明，适用于所有有限核心，核验窗口必然能找到。
+因此 `RootedComb.stabilize()` 无须猜测尾巴截断长度；
+`make test-comb-stabilization` 核验通用引理及原有完整选项谱。
+
 定向求边行后继/整盘值的入口（同一进程内共享记忆，避免逐列重复计算）：
 
 ```bash
@@ -168,8 +179,8 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
   Brown et al. 2020 表 1 的全部可读格，以及三条结构性定理。
 * 全部文档为中文；代码注释保留英文。
 
-目前正面结构与下一道边界见 [notes/14](notes/14_outer_defect_algebra.md)：缺口
-尾巴已有闭合代数及连接周期提升，第三行尚存时的闭合表示仍待研究。
+目前正面结构与下一道边界见 [notes/15](notes/15_comb_stabilization.md)：任意
+固定核心连接交错尾巴已必然周期，第三行尚存时的闭合表示仍待研究。
 接口设计的反例基准见 [notes/13](notes/13_interface_obstruction.md)。既有三行分割工具见
 [notes/08](notes/08_strip3_reductions.md)。更一般棋盘的配对研究见
 [`notes/06_structural_pairing.md`](notes/06_structural_pairing.md)：乘积型固定

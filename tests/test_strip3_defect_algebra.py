@@ -11,7 +11,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from strip3_defect_algebra import RootedComb, TwoRowIntervals, comb_value
+from strip3_defect_algebra import RootedComb, TwoRowIntervals, comb_value, stabilization_bound
 from verify_strip3_defect_period import check
 from verify_strip3_two_move import recompute
 
@@ -106,11 +106,15 @@ def test_combs_and_contexts():
                     adjacency[v] |= 1 << u
                     adjacency[u] |= 1 << v
             for phase in (0, 1):
-                model = RootedComb(adjacency, phase).extend(24)
+                # Incremental history updates and unconditional discovery are
+                # checked against raw graph deletion, including full spectra.
+                model = RootedComb(adjacency, phase).extend(5).extend(8).stabilize().extend(24)
                 graph, masks = attach(adjacency, 24, phase)
                 sg = reference(graph)
                 assert model.period_start() is not None
+                assert model.period_start() <= stabilization_bound(order)
                 for state in model.states:
+                    assert max(model.values[state]) < 4 * (state.bit_count() + 2)
                     for length, full in enumerate(masks):
                         position = full & ~((1 << order) - 1) | state
                         assert model.values[state][length] == sg(position)

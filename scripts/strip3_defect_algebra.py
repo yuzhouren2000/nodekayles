@@ -4,7 +4,8 @@
 An alternating comb has a backbone path and one pendant leaf at alternating
 backbone vertices. Its phase is 1 when the first vertex has a leaf. A rooted
 core attaches to the first backbone vertex by ONE edge. No equality of bare
-SG values is used as a replacement rule. See notes/14_outer_defect_algebra.md.
+SG values is used as a replacement rule. Every finite core eventually has
+period four: see notes/14_outer_defect_algebra.md and notes/15_comb_stabilization.md.
 """
 
 import argparse
@@ -24,6 +25,13 @@ def comb_value(phase, length):
     if phase not in (0, 1) or length < 0:
         raise ValueError("invalid alternating comb")
     return ((0, 1, 2, 1), (0, 1, 2, 3))[phase][length % 4]
+
+
+def stabilization_bound(core_order):
+    """Conservative unconditional period-4 onset bound, notes/15."""
+    if type(core_order) is not int or core_order < 1:
+        raise ValueError("a rooted core must have positive order")
+    return 192 * core_order ** 2 + 984 * core_order + 3
 
 
 class TwoRowIntervals:
@@ -118,6 +126,7 @@ class RootedComb:
                         pending.append(successor)
         self.states = sorted(states, key=lambda mask: (mask.bit_count(), mask))
         self.values = {mask: [self.core_value(mask)] for mask in self.states}
+        self.histories = {mask: [set() for _ in range(4)] for mask in self.states}
 
     @cache
     def core_value(self, mask):
@@ -155,19 +164,49 @@ class RootedComb:
                 options.add(self.core_value(mask & ~1)
                             ^ comb_value(p, max(n - 2, 0))
                             ^ ((1 - p) if n >= 2 else 0))
-                for i in range(n):
-                    tooth = p ^ (i % 2)
-                    if tooth:
-                        options.add(self.values[mask][i]
-                                    ^ comb_value(p ^ ((i + 1) % 2), n - i - 1))
-                    if i:
-                        isolated = ((int(i > 0) + int(i + 1 < n))
-                                    * (1 - tooth)) % 2
-                        options.add(self.values[mask][i - 1]
-                                    ^ comb_value(p ^ ((i + 2) % 2), max(n - i - 2, 0))
-                                    ^ isolated)
+                if n < 3:
+                    for i in range(n):
+                        tooth = p ^ (i % 2)
+                        if tooth:
+                            options.add(self.values[mask][i] ^ comb_value(0, n - i - 1))
+                        if i:
+                            isolated = (1 + int(i + 1 < n)) * (1 - tooth) % 2
+                            options.add(self.values[mask][i - 1]
+                                        ^ comb_value(p ^ ((i + 2) % 2), max(n - i - 2, 0))
+                                        ^ isolated)
+                else:
+                    # Each old value enters once. Remote tail moves depend
+                    # only on its residue; the last two prefixes stay separate.
+                    history = self.histories[mask]
+                    history[(n - 3) % 4].add(self.values[mask][n - 3])
+                    for residue, seen in enumerate(history):
+                        offsets = {comb_value(p ^ ((residue + 3) % 2),
+                                              (n - residue - 3) % 4)}
+                        if p ^ (residue % 2):
+                            offsets.add(comb_value(0, (n - residue - 1) % 4))
+                        options.update(value ^ offset for value in seen for offset in offsets)
+                    delta = p ^ (n % 2)
+                    options.add(self.values[mask][n - 2] ^ delta)
+                    if not delta:
+                        options.add(self.values[mask][n - 1])
                 self.values[mask].append(mex(options))
         return self
+
+    def stabilize(self):
+        """Find a period certificate; termination follows from notes/15.
+
+        Core closure may be exponential in core order. No tail cutoff or
+        guessed period is required. The bound limits B; its window ends B+9.
+        """
+        limit = stabilization_bound(len(self.adjacency)) + 9
+        target = min(limit, max(12, len(self.values[self.full]) - 1))
+        while True:
+            self.extend(target)
+            if self.period_start() is not None:
+                return self
+            if target == limit:
+                raise AssertionError("unconditional comb stabilization bound violated")
+            target = min(limit, target * 2)
 
     def period_start(self):
         available = len(self.values[self.full]) - 1
@@ -252,7 +291,7 @@ def build_report(max_length=24):
     examples = []
     for width in (2, 3, 4, 6):
         cells, adjacency = full_head(width)
-        model = RootedComb(adjacency).extend(max_length)
+        model = RootedComb(adjacency).extend(max_length).stabilize()
         examples.append(model.certificate(f"head-{width}", cells, [], width))
     for name, mask, history in (
         ("obstruction-H", 0x7ff4d37, [(1, 3), (1, 5)]),
@@ -260,7 +299,7 @@ def build_report(max_length=24):
     ):
         cells = {(v % 3 + 1, v // 3 + 1) for v in range(27) if mask >> v & 1}
         cells, adjacency = grid_core(cells - {(1, 9)}, (3, 9))
-        model = RootedComb(adjacency).extend(max_length)
+        model = RootedComb(adjacency).extend(max_length).stabilize()
         examples.append(model.certificate(name, cells, history, 9))
     return {
         "format": "nodekayles-rooted-comb-period-v1",
@@ -275,17 +314,18 @@ def build_report(max_length=24):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path)
-    parser.add_argument("--max-tail", type=int, default=24)
+    parser.add_argument("--max-tail", type=int, default=24,
+                        help="initial certificate prefix; expands automatically if needed")
     parser.add_argument("--head", type=int, help="query a full three-row head, phase 0")
     parser.add_argument("--tail", type=int, help="query an arbitrarily long alternating tail")
     args = parser.parse_args()
-    if args.max_tail < 14:
-        parser.error("at least 14 tail vertices are needed for the example windows")
+    if args.max_tail < 0:
+        parser.error("initial tail prefix must be nonnegative")
     if args.head is not None or args.tail is not None:
         if args.head is None or args.tail is None or not 1 <= args.head <= 8 or args.tail < 1:
             parser.error("query requires --head in 1..8 and a positive --tail")
         cells, adjacency = full_head(args.head)
-        model = RootedComb(adjacency).extend(args.max_tail)
+        model = RootedComb(adjacency).stabilize()
         value, options = model.periodic_options(model.full, args.tail)
         winning = next((move for move, g in options if g == 0), None)
         if winning:

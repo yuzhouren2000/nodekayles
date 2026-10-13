@@ -3,7 +3,7 @@ PY ?= python3
 CC ?= gcc
 CFLAGS ?= -O2 -march=native
 
-.PHONY: build build-strip3 test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
+.PHONY: build build-strip3 test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
 
 help:
 	@echo "make build    - compile the C solver"
@@ -15,6 +15,7 @@ help:
 	@echo "make test-strip3-two-move - check separator identities and recompute proof premises"
 	@echo "make test-strip3-interface - independently check the boundary-summary obstruction"
 	@echo "make test-strip3-defect - check move-closed defect algebra and infinite period certificates"
+	@echo "make test-comb-stabilization - exhaust the universal block lemma and check tail algebra"
 	@echo "make analyze-strip3 - structural analysis and constructive first moves"
 	@echo "make analyze-strip3-ports - regenerate the port-family survey/closure data"
 	@echo "make test     - Python reference checks vs literature (~1 min)"
@@ -59,6 +60,9 @@ test-strip3-interface:
 test-strip3-defect:
 	$(PY) tests/test_strip3_defect_algebra.py
 	$(PY) tests/verify_strip3_defect_period.py data/proofs/strip3_defect_period.json
+
+test-comb-stabilization: test-strip3-defect
+	$(PY) tests/verify_comb_stabilization.py
 
 analyze-strip3:
 	$(PY) scripts/analyze_strip3.py
