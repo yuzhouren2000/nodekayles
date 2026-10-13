@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "kind": "strip3_sweep",
+  "n": 32,
+  "columns": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "ht_bits": 30,
+  "load": null,
+  "prealloc": true,
+  "threads": 8,
+  "timeout_s": 10800.0,
+  "status": "ok",
+  "returncode": 0,
+  "elapsed_s": 1409.1,
+  "union_memo": 553046333,
+  "memo_at_exit": null,
+  "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+  "results": [
+    {
+      "column": 1,
+      "mask": "fffffffffffffffffffffff4",
+      "value": 10
+    },
+    {
+      "column": 2,
+      "mask": "ffffffffffffffffffffffa6",
+      "value": 0
+    },
+    {
+      "column": 3,
+      "mask": "fffffffffffffffffffffd37",
+      "value": 23
+    },
+    {
+      "column": 4,
+      "mask": "ffffffffffffffffffffe9bf",
+      "value": 1
+    },
+    {
+      "column": 5,
+      "mask": "ffffffffffffffffffff4dff",
+      "value": 3
+    },
+    {
+      "column": 6,
+      "mask": "fffffffffffffffffffa6fff",
+      "value": 5
+    },
+    {
+      "column": 7,
+      "mask": "ffffffffffffffffffd37fff",
+      "value": 8
+    },
+    {
+      "column": 8,
+      "mask": "fffffffffffffffffe9bffff",
+      "value": 7
+    },
+    {
+      "column": 9,
+      "mask": "fffffffffffffffff4dfffff",
+      "value": 19
+    },
+    {
+      "column": 10,
+      "mask": "ffffffffffffffffa6ffffff",
+      "value": 22
+    },
+    {
+      "column": 11,
+      "mask": "fffffffffffffffd37ffffff",
+      "value": 2
+    },
+    {
+      "column": 12,
+      "mask": "ffffffffffffffe9bfffffff",
+      "value": 14
+    },
+    {
+      "column": 13,
+      "mask": "ffffffffffffff4dffffffff",
+      "value": 10
+    },
+    {
+      "column": 14,
+      "mask": "fffffffffffffa6fffffffff",
+      "value": 2
+    },
+    {
+      "column": 15,
+      "mask": "ffffffffffffd37fffffffff",
+      "value": 12
+    },
+    {
+      "column": 16,
+      "mask": "fffffffffffe9bffffffffff",
+      "value": 8
+    }
+  ],
+  "note": "one process, shared memo; UNKNOWN means the process ended before that line was emitted; fully covered columns are exact values",
+  "stderr_tail": [
+    "done 1408.044s memo=553046333 capacity=1073741824 bytes_per_slot=16 reductions=7 threads=8 lanes=65536",
+    "stats calls=70786894170 moves=34806025132 path=156 cycle=0 rotation=1 cancelled=2001442977"
+  ]
+}

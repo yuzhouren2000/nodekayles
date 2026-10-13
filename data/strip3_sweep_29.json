@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "kind": "strip3_sweep",
+  "n": 29,
+  "columns": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "ht_bits": 28,
+  "load": null,
+  "prealloc": true,
+  "threads": 8,
+  "timeout_s": 3600.0,
+  "status": "ok",
+  "returncode": 0,
+  "elapsed_s": 175.4,
+  "union_memo": 88893951,
+  "memo_at_exit": null,
+  "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+  "results": [
+    {
+      "column": 1,
+      "mask": "7ffffffffffffffffffff4",
+      "value": 0
+    },
+    {
+      "column": 2,
+      "mask": "7fffffffffffffffffffa6",
+      "value": 19
+    },
+    {
+      "column": 3,
+      "mask": "7ffffffffffffffffffd37",
+      "value": 2
+    },
+    {
+      "column": 4,
+      "mask": "7fffffffffffffffffe9bf",
+      "value": 0
+    },
+    {
+      "column": 5,
+      "mask": "7fffffffffffffffff4dff",
+      "value": 0
+    },
+    {
+      "column": 6,
+      "mask": "7ffffffffffffffffa6fff",
+      "value": 0
+    },
+    {
+      "column": 7,
+      "mask": "7fffffffffffffffd37fff",
+      "value": 0
+    },
+    {
+      "column": 8,
+      "mask": "7ffffffffffffffe9bffff",
+      "value": 11
+    },
+    {
+      "column": 9,
+      "mask": "7ffffffffffffff4dfffff",
+      "value": 2
+    },
+    {
+      "column": 10,
+      "mask": "7fffffffffffffa6ffffff",
+      "value": 6
+    },
+    {
+      "column": 11,
+      "mask": "7ffffffffffffd37ffffff",
+      "value": 3
+    },
+    {
+      "column": 12,
+      "mask": "7fffffffffffe9bfffffff",
+      "value": 0
+    },
+    {
+      "column": 13,
+      "mask": "7fffffffffff4dffffffff",
+      "value": 9
+    },
+    {
+      "column": 14,
+      "mask": "7ffffffffffa6fffffffff",
+      "value": 0
+    },
+    {
+      "column": 15,
+      "mask": "7fffffffffd37fffffffff",
+      "value": 2
+    }
+  ],
+  "note": "one process, shared memo; UNKNOWN means the process ended before that line was emitted; fully covered columns are exact values",
+  "stderr_tail": [
+    "done 175.162s memo=88893951 capacity=268435456 bytes_per_slot=16 reductions=7 threads=8 lanes=65536",
+    "stats calls=10146427886 moves=5023135293 path=134 cycle=0 rotation=2 cancelled=302836637"
+  ]
+}

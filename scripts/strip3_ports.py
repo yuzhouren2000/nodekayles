@@ -693,6 +693,67 @@ def collect(args):
     return 0
 
 
+# ------------------------------------------------------------------ value
+
+def position_value(args):
+    """Exact value of a single position, parallelised over its move children.
+
+    All children are evaluated in one shared-memo process (the memo is shared
+    across the children, so overlapping subtrees are computed once); the mex of
+    the children's values is the position's Grundy value.  This gives a large
+    job to many threads even for one board, which the coarse per-line
+    parallelism cannot do.
+    """
+    n = args.n
+    mask = int(args.mask, 16)
+    if mask & ~((1 << (3 * n)) - 1):
+        raise ValueError("mask does not fit the board")
+    cells = mask_to_cells(mask)
+    children = []
+    for cell in legal_moves(cells):
+        children.append((n, to_mask(successor_cells(cells, cell))))
+    if not children:
+        raise ValueError("position has no legal move")
+    env = dict(os.environ)
+    env["STRIP3_HT_BITS"] = str(args.ht_bits)
+    if args.load is not None:
+        env["STRIP3_HT_LOAD"] = str(args.load)
+    if args.prealloc:
+        env["STRIP3_HT_PREALLOC"] = "1"
+    if args.threads:
+        env["STRIP3_THREADS"] = str(args.threads)
+    text = "".join(f"{c[0]} {c[1]:x}\n" for c in children)
+    started = time.monotonic()
+    proc = subprocess.run([str(args.binary), "masks"], input=text, text=True,
+                          capture_output=True, timeout=args.timeout, env=env)
+    elapsed = time.monotonic() - started
+    if proc.returncode != 0:
+        raise RuntimeError(f"solver exited {proc.returncode}: {proc.stderr[-400:]}")
+    values = [int(x) for x in proc.stdout.split()]
+    if len(values) != len(children):
+        raise RuntimeError(f"expected {len(children)} child values, got {len(values)}")
+    present = set(values)
+    value = 0
+    while value in present:
+        value += 1
+    out = {"version": VERSION, "kind": "strip3_value", "n": n,
+           "mask": args.mask.lower().lstrip("0") or "0",
+           "family": args.family, "value": value,
+           "children": values, "child_cells": [cell_to_display(c) for c in legal_moves(cells)],
+           "ht_bits": args.ht_bits, "threads": args.threads,
+           "load": args.load, "prealloc": args.prealloc,
+           "elapsed_s": round(elapsed, 1),
+           "binary_sha256": sha256_file(args.binary) if args.binary.exists() else None,
+           "note": "all legal moves evaluated; the value is their mex"}
+    Path(args.output).write_text(json.dumps(out, indent=1) + "\n")
+    append_run({"kind": "value", "output": str(args.output), "n": n,
+                "family": args.family, "value": value, "elapsed_s": round(elapsed, 1),
+                "threads": args.threads, "ht_bits": args.ht_bits})
+    print(f"{args.family}({n}) = {value}   [{len(children)} children, "
+          f"{elapsed:.0f}s, threads={args.threads}]")
+    return 0
+
+
 # ------------------------------------------------------------------- sweep
 
 def sweep(args):
@@ -842,6 +903,19 @@ def main():
     p.add_argument("--machine", default="")
     p.add_argument("--strip3-sha256", default="")
     p.set_defaults(func=collect)
+
+    p = sub.add_parser("value")
+    p.add_argument("--n", type=int, required=True)
+    p.add_argument("--family", required=True,
+                   help="family label for the record (A, D, B, E, H, F, ...)")
+    p.add_argument("--mask", required=True, help="hex column-major mask")
+    p.add_argument("--ht-bits", type=int, default=28)
+    p.add_argument("--load", type=int, default=None)
+    p.add_argument("--threads", type=int, default=1)
+    p.add_argument("--prealloc", action="store_true")
+    p.add_argument("--timeout", type=float, default=7200)
+    p.add_argument("--output", type=Path, required=True)
+    p.set_defaults(func=position_value)
 
     p = sub.add_parser("sweep")
     p.add_argument("--n", type=int, required=True)

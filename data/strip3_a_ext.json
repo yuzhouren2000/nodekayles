@@ -1,0 +1,29 @@
+{
+ "format": "nodekayles-strip3-a-ext-v1",
+ "note": "A(t) = value of F_t minus (2,t) for t = 29, 30, 31, computed in one shared-memo strip3 masks process (A(29..31); A(32) from a separate run), per-line flush; needed for the middle-move values of 3x31, 3x32 and 3x33",
+ "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+ "ht_bits": 30,
+ "prealloc": true,
+ "union_memo": null,
+ "elapsed_s": null,
+ "masks": {
+  "29": "5fffffffffffffffffffff",
+  "30": "2ffffffffffffffffffffff",
+  "31": "17ffffffffffffffffffffff",
+  "32": "bfffffffffffffffffffffff"
+ },
+ "values": {
+  "29": 1,
+  "30": 3,
+  "31": 4
+ },
+ "provenance": {
+  "29_30": "campaign A(29..31) shared-memo process (values flushed per line)",
+  "31": {
+   "value": 4,
+   "children": 92,
+   "elapsed_s": 1769.1,
+   "threads": 8
+  }
+ }
+}
