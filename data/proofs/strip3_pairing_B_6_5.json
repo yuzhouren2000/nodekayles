@@ -1,0 +1,380 @@
+{
+ "format": "nodekayles-fixed-pairing-v1",
+ "rows": 3,
+ "cols": 6,
+ "playable": [
+  0,
+  1,
+  2,
+  6,
+  7,
+  8,
+  9,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17
+ ],
+ "status": "UNSAT",
+ "proof": {
+  "kind": "branching",
+  "root": 39,
+  "nodes": [
+   {
+    "vertex": 12,
+    "branches": []
+   },
+   {
+    "vertex": 6,
+    "branches": [
+     [
+      13,
+      0
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      13,
+      2
+     ]
+    ]
+   },
+   {
+    "vertex": 8,
+    "branches": [
+     [
+      1,
+      1
+     ],
+     [
+      6,
+      3
+     ]
+    ]
+   },
+   {
+    "vertex": 8,
+    "branches": []
+   },
+   {
+    "vertex": 0,
+    "branches": [
+     [
+      12,
+      5
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      13,
+      7
+     ]
+    ]
+   },
+   {
+    "vertex": 6,
+    "branches": [
+     [
+      1,
+      6
+     ],
+     [
+      8,
+      8
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 6,
+    "branches": [
+     [
+      15,
+      10
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 6,
+    "branches": [
+     [
+      8,
+      12
+     ]
+    ]
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      8,
+      11
+     ],
+     [
+      15,
+      13
+     ]
+    ]
+   },
+   {
+    "vertex": 6,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      17,
+      15
+     ]
+    ]
+   },
+   {
+    "vertex": 0,
+    "branches": [
+     [
+      2,
+      5
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 0,
+    "branches": [
+     [
+      14,
+      18
+     ]
+    ]
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      6,
+      17
+     ],
+     [
+      13,
+      19
+     ]
+    ]
+   },
+   {
+    "vertex": 6,
+    "branches": []
+   },
+   {
+    "vertex": 17,
+    "branches": [
+     [
+      12,
+      21
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 0,
+    "branches": [
+     [
+      12,
+      23
+     ]
+    ]
+   },
+   {
+    "vertex": 6,
+    "branches": []
+   },
+   {
+    "vertex": 11,
+    "branches": [
+     [
+      12,
+      25
+     ]
+    ]
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      8,
+      22
+     ],
+     [
+      13,
+      24
+     ],
+     [
+      15,
+      26
+     ]
+    ]
+   },
+   {
+    "vertex": 1,
+    "branches": []
+   },
+   {
+    "vertex": 8,
+    "branches": [
+     [
+      16,
+      28
+     ]
+    ]
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 6,
+    "branches": [
+     [
+      17,
+      30
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 0,
+    "branches": [
+     [
+      11,
+      32
+     ]
+    ]
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      15,
+      31
+     ],
+     [
+      17,
+      33
+     ]
+    ]
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 0,
+    "branches": [
+     [
+      15,
+      36
+     ]
+    ]
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      11,
+      35
+     ],
+     [
+      16,
+      37
+     ]
+    ]
+   },
+   {
+    "vertex": 7,
+    "branches": [
+     [
+      0,
+      4
+     ],
+     [
+      2,
+      9
+     ],
+     [
+      9,
+      14
+     ],
+     [
+      11,
+      16
+     ],
+     [
+      12,
+      20
+     ],
+     [
+      14,
+      27
+     ],
+     [
+      15,
+      29
+     ],
+     [
+      16,
+      34
+     ],
+     [
+      17,
+      38
+     ]
+    ]
+   }
+  ]
+ },
+ "stats": {
+  "candidate_pairs": 73,
+  "search_nodes": 41,
+  "proof_nodes": 40,
+  "seconds": 0.000291
+ },
+ "family": "B",
+ "strip3_value": 0
+}

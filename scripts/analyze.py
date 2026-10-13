@@ -71,7 +71,7 @@ def find_period(seq, min_period=1, max_period=60, min_repeats=3):
     for p in range(min_period, max_period + 1):
         if L < p * min_repeats:
             continue
-        for s in range(0, L - 2 * p):
+        for s in range(0, L - p * min_repeats + 1):
             if all(seq[i] == seq[i + p] for i in range(s, L - p)):
                 return (s, p)
     return None
@@ -113,11 +113,14 @@ def main():
         ns = sorted(n for (a, b) in g for n in ((b,) if a == m else (a,) if b == m else ()))
         seq = [get(g, m, n) for n in ns]
         print(f"m={m:2d} (n={ns[0]}..{ns[-1]}): " + " ".join(str(x) for x in seq))
-        per = find_period(seq, min_repeats=4)
+        consecutive = ns == list(range(ns[0], ns[-1] + 1))
+        per = find_period(seq, min_repeats=4) if consecutive else None
         if per:
             s, p = per
             print(f"          observed periodic from n={ns[s]} with period {p}"
                   f" (within computed range, {len(seq)} terms)")
+        elif not consecutive:
+            print("          period search skipped: missing sizes in this family")
         else:
             print("          no period <= 60 observed within computed range")
     print()

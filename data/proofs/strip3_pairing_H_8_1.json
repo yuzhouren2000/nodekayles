@@ -1,0 +1,659 @@
+{
+ "format": "nodekayles-fixed-pairing-v1",
+ "rows": 3,
+ "cols": 8,
+ "playable": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23
+ ],
+ "status": "UNSAT",
+ "proof": {
+  "kind": "branching",
+  "root": 72,
+  "nodes": [
+   {
+    "vertex": 17,
+    "branches": []
+   },
+   {
+    "vertex": 12,
+    "branches": []
+   },
+   {
+    "vertex": 5,
+    "branches": [
+     [
+      17,
+      1
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 12,
+    "branches": [
+     [
+      17,
+      3
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": [
+     [
+      2,
+      0
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      11,
+      4
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 11,
+    "branches": [
+     [
+      5,
+      6
+     ]
+    ]
+   },
+   {
+    "vertex": 20,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": [
+     [
+      12,
+      8
+     ]
+    ]
+   },
+   {
+    "vertex": 4,
+    "branches": []
+   },
+   {
+    "vertex": 7,
+    "branches": [
+     [
+      3,
+      10
+     ]
+    ]
+   },
+   {
+    "vertex": 14,
+    "branches": []
+   },
+   {
+    "vertex": 12,
+    "branches": [
+     [
+      3,
+      12
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      4,
+      9
+     ],
+     [
+      6,
+      11
+     ],
+     [
+      13,
+      13
+     ]
+    ]
+   },
+   {
+    "vertex": 4,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 12,
+    "branches": []
+   },
+   {
+    "vertex": 13,
+    "branches": [
+     [
+      3,
+      17
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      5,
+      15
+     ],
+     [
+      7,
+      16
+     ],
+     [
+      14,
+      18
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": []
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      6,
+      20
+     ]
+    ]
+   },
+   {
+    "vertex": 6,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": [
+     [
+      5,
+      22
+     ]
+    ]
+   },
+   {
+    "vertex": 20,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": [
+     [
+      19,
+      24
+     ]
+    ]
+   },
+   {
+    "vertex": 6,
+    "branches": []
+   },
+   {
+    "vertex": 5,
+    "branches": [
+     [
+      3,
+      26
+     ]
+    ]
+   },
+   {
+    "vertex": 21,
+    "branches": []
+   },
+   {
+    "vertex": 19,
+    "branches": [
+     [
+      3,
+      28
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      4,
+      23
+     ],
+     [
+      11,
+      25
+     ],
+     [
+      13,
+      27
+     ],
+     [
+      20,
+      29
+     ]
+    ]
+   },
+   {
+    "vertex": 12,
+    "branches": []
+   },
+   {
+    "vertex": 12,
+    "branches": []
+   },
+   {
+    "vertex": 12,
+    "branches": []
+   },
+   {
+    "vertex": 11,
+    "branches": [
+     [
+      5,
+      31
+     ],
+     [
+      14,
+      32
+     ],
+     [
+      21,
+      33
+     ]
+    ]
+   },
+   {
+    "vertex": 4,
+    "branches": []
+   },
+   {
+    "vertex": 5,
+    "branches": [
+     [
+      3,
+      35
+     ]
+    ]
+   },
+   {
+    "vertex": 4,
+    "branches": []
+   },
+   {
+    "vertex": 5,
+    "branches": [
+     [
+      3,
+      37
+     ]
+    ]
+   },
+   {
+    "vertex": 23,
+    "branches": []
+   },
+   {
+    "vertex": 21,
+    "branches": [
+     [
+      3,
+      39
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      6,
+      36
+     ],
+     [
+      13,
+      38
+     ],
+     [
+      22,
+      40
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 11,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": [
+     [
+      19,
+      45
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      9,
+      43
+     ],
+     [
+      16,
+      44
+     ],
+     [
+      18,
+      46
+     ]
+    ]
+   },
+   {
+    "vertex": 20,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": [
+     [
+      12,
+      48
+     ]
+    ]
+   },
+   {
+    "vertex": 20,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": [
+     [
+      17,
+      50
+     ]
+    ]
+   },
+   {
+    "vertex": 11,
+    "branches": []
+   },
+   {
+    "vertex": 12,
+    "branches": [
+     [
+      3,
+      52
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      11,
+      49
+     ],
+     [
+      18,
+      51
+     ],
+     [
+      20,
+      53
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 11,
+    "branches": [
+     [
+      21,
+      55
+     ]
+    ]
+   },
+   {
+    "vertex": 11,
+    "branches": []
+   },
+   {
+    "vertex": 5,
+    "branches": [
+     [
+      3,
+      57
+     ]
+    ]
+   },
+   {
+    "vertex": 4,
+    "branches": []
+   },
+   {
+    "vertex": 12,
+    "branches": [
+     [
+      3,
+      59
+     ]
+    ]
+   },
+   {
+    "vertex": 23,
+    "branches": []
+   },
+   {
+    "vertex": 14,
+    "branches": [
+     [
+      3,
+      61
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      13,
+      58
+     ],
+     [
+      20,
+      60
+     ],
+     [
+      22,
+      62
+     ]
+    ]
+   },
+   {
+    "vertex": 5,
+    "branches": []
+   },
+   {
+    "vertex": 6,
+    "branches": [
+     [
+      3,
+      64
+     ]
+    ]
+   },
+   {
+    "vertex": 4,
+    "branches": []
+   },
+   {
+    "vertex": 13,
+    "branches": [
+     [
+      3,
+      66
+     ]
+    ]
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      14,
+      65
+     ],
+     [
+      21,
+      67
+     ],
+     [
+      23,
+      68
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": []
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      22,
+      70
+     ]
+    ]
+   },
+   {
+    "vertex": 10,
+    "branches": [
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      7
+     ],
+     [
+      5,
+      14
+     ],
+     [
+      6,
+      19
+     ],
+     [
+      7,
+      21
+     ],
+     [
+      12,
+      30
+     ],
+     [
+      13,
+      34
+     ],
+     [
+      14,
+      41
+     ],
+     [
+      16,
+      42
+     ],
+     [
+      17,
+      47
+     ],
+     [
+      19,
+      54
+     ],
+     [
+      20,
+      56
+     ],
+     [
+      21,
+      63
+     ],
+     [
+      22,
+      69
+     ],
+     [
+      23,
+      71
+     ]
+    ]
+   }
+  ]
+ },
+ "stats": {
+  "candidate_pairs": 162,
+  "search_nodes": 73,
+  "proof_nodes": 73,
+  "seconds": 0.001581
+ },
+ "family": "H",
+ "strip3_value": 0
+}

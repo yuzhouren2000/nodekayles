@@ -12,16 +12,19 @@ strategy: after every move of the first player, the responder's partner cell is
 still playable and the invariant is restored.  Hence a certificate is a
 self-contained proof that the board is a P-position (Grundy value 0).
 
-This script searches certificates of the *product form*
+This script constructs certificates of the *product form*
 
     phi(i, j) = (tau(i), sigma(j)),   tau an involution of rows, sigma of columns,
 
-by exhaustive enumeration of the involutions, and verifies (C1)-(C3) directly
-(no decomposition shortcuts).  It reproduces Brown et al.'s Theorem 6 proof
+using the classification proved in notes/06_structural_pairing.md: one exists
+iff both dimensions are even or one dimension equals 4.  The exhaustive
+search remains available with search(..., exhaustive=True) for independent
+small-board checks.  Verification checks (C1)-(C3) directly.  This reproduces
+Brown et al.'s Theorem 6 proof
 (n x 4, tau = id, sigma = (1 3)(2 4) in 1-based columns) as a verified
 certificate.
 
-Observations recorded by the search (see output):
+Consequences of the classification (see output):
 
 * A certificate with tau = id proves G(m x n) = 0 for *every* m (the rows
   never enter the conditions) - it is a theorem about the whole column n.
@@ -31,8 +34,7 @@ Observations recorded by the search (see output):
   would be fixed, violating (C1).
 * Consequently, if a certificate with tau = id existed for n = 8, it would
   prove G(3 x 8) = 0; the value is 2, so no such certificate exists.  The
-  search below verifies the analogous negative statements exhaustively for
-  the ranges it covers.
+  path lemma now proves the stronger statement: tau = id permits only n = 4.
 
 Run:  python3 scripts/pairing_certificates.py
 """
@@ -82,7 +84,6 @@ def check_cert(m, n, tau, sigma):
         return False
     if any(sigma[sigma[j]] != j for j in range(n)):
         return False
-    rowo = [False] * m
     fixed_cell = False
     for i in range(m):
         for j in range(n):
@@ -93,24 +94,14 @@ def check_cert(m, n, tau, sigma):
     # adjacency: |tau(i)-i| + |sigma(j)-j| >= 2 for all i,j (<=> dmin(tau)+dmin(sigma)>=2)
     if dmin(tau) + dmin(sigma) < 2:
         return False
-    # orbit representatives of (i,j) under (tau,sigma): check U-invariance on one per orbit
-    seen_i = [False] * m
-    seen_j = [False] * n
-    rep_i = []
+    # Check every cell.  A row orbit times a column orbit can contain TWO
+    # cell orbits, so taking just one Cartesian-product representative is
+    # not in itself a justification for checking both.
     for i in range(m):
-        if not seen_i[i]:
-            rep_i.append(i)
-            seen_i[i] = seen_i[tau[i]] = True
-    rep_j = []
-    for j in range(n):
-        if not seen_j[j]:
-            rep_j.append(j)
-            seen_j[j] = seen_j[sigma[j]] = True
-    for i in rep_i:
         A = [r for r in (i - 1, i, i + 1) if 0 <= r < m]
         i2 = tau[i]
         A2 = [r for r in (i2 - 1, i2, i2 + 1) if 0 <= r < m]
-        for j in rep_j:
+        for j in range(n):
             B = [c for c in (j - 1, j, j + 1) if 0 <= c < n]
             j2 = sigma[j]
             B2 = [c for c in (j2 - 1, j2, j2 + 1) if 0 <= c < n]
@@ -144,8 +135,38 @@ def cycles(p):
     return " ".join(out) or "id"
 
 
-def search(m, n, limit=None):
-    """Exhaustive product-form search. Returns list of (tau, sigma) certificates."""
+def construct_product_certificate(m, n):
+    """Return one certificate, or None if none exists (for positive sizes).
+
+    This classifies product certificates, not winning/losing positions.
+    The construction costs O(m+n); the proof is in notes/06_structural_pairing.md.
+    """
+    if m <= 0 or n <= 0:
+        raise ValueError("board dimensions must be positive")
+    if m == 4:
+        return (2, 3, 0, 1), tuple(range(n))
+    if n == 4:
+        return tuple(range(m)), (2, 3, 0, 1)
+    if m % 2 == 0 and n % 2 == 0:
+        return tuple(reversed(range(m))), tuple(reversed(range(n)))
+    return None
+
+
+def search(m, n, limit=None, *, exhaustive=False):
+    """Return up to limit product certificates (all if limit is None).
+
+    By default the theorem answers nonexistence and limit=1 immediately.
+    exhaustive=True bypasses the theorem and enumerates every candidate until
+    the requested limit is reached, for independent verification.
+    """
+    if m <= 0 or n <= 0:
+        raise ValueError("board dimensions must be positive")
+    if not exhaustive:
+        cert = construct_product_certificate(m, n)
+        if cert is None:
+            return []
+        if limit == 1:
+            return [cert]
     found = []
     info_m = [(p, fixed_point_free(p), dmin(p)) for p in involutions(m)]
     info_n = [(p, fixed_point_free(p), dmin(p)) for p in involutions(n)]
@@ -173,12 +194,21 @@ def main():
         out_lines.append(s)
 
     log("pairing certificates, product form phi(i,j) = (tau(i), sigma(j))")
+    log("classification: both dimensions even OR one dimension equals 4")
+    log("proof: notes/06_structural_pairing.md; each constructed certificate is checked directly")
     log("")
 
-    log("A. full search for all boards m x n, m <= 6, n <= 6 (all involutions):")
+    def classified(m, n):
+        certs = search(m, n, limit=1)
+        for tau, sigma in certs:
+            if not check_cert(m, n, tau, sigma):
+                raise AssertionError(f"invalid constructed certificate for {m}x{n}")
+        return certs
+
+    log("A. classification for all boards m x n, m <= 6, n <= 6:")
     for m in range(1, 7):
         for n in range(m, 7):
-            certs = search(m, n, limit=1)
+            certs = classified(m, n)
             if certs:
                 tau, sigma = certs[0]
                 log(f"  {m} x {n}: CERT  rows {cycles(tau)}  cols {cycles(sigma)}")
@@ -189,7 +219,7 @@ def main():
     log("A2. family 2 x n and 4 x n (m = 2 or 4 rows), n <= 14:")
     for m in (2, 4):
         for n in range(m, 15):
-            certs = search(m, n, limit=1)
+            certs = classified(m, n)
             if certs:
                 tau, sigma = certs[0]
                 log(f"  {m} x {n}: CERT  rows {cycles(tau)}  cols {cycles(sigma)}")
@@ -197,16 +227,14 @@ def main():
                 log(f"  {m} x {n}: no product certificate")
 
     log("")
-    log("B. targeted searches (odd dimension >= 5 against even dimension):")
+    log("B. selected boards (classified without enumerating involutions):")
     targets = [(5, 6), (5, 8), (5, 10), (5, 12), (6, 7), (7, 8), (7, 10), (8, 9),
                (9, 8), (9, 10), (6, 12), (8, 12)]
-    # Boards whose full exhaustion needs > 10^7 candidate pairs (e.g. 9x12,
-    # 7x12, 5x14) are deliberately not searched exhaustively here; for them the
-    # search would have to enumerate all involutions of a 12/13/14-element side.
+    targets += [(9, 12), (7, 12), (5, 14)]
     for m, n in targets:
         if m <= 6 and n <= 6:
             continue  # covered in A
-        certs = search(m, n, limit=1)
+        certs = classified(m, n)
         if certs:
             tau, sigma = certs[0]
             log(f"  {m} x {n}: CERT  rows {cycles(tau)}  cols {cycles(sigma)}")
@@ -214,20 +242,15 @@ def main():
             log(f"  {m} x {n}: no product certificate")
 
     log("")
-    log("C. tau = id certificates for columns n <= 14 (would prove G(m x n) = 0 for ALL m):")
+    log("C. tau = id certificates: the path theorem permits only n = 4 (for every m):")
     for n in range(1, 15):
-        tau2 = (0, 1)
-        ok = False
-        for sigma in involutions(n):
-            if not fixed_point_free(sigma):
-                continue
-            if dmin(sigma) < 2:
-                continue
-            if check_cert(2, n, tau2, sigma):
-                ok = True
-                log(f"  n = {n}: CERT with tau = id, sigma = {cycles(sigma)}")
-                break
-        if not ok:
+        cert = construct_product_certificate(1, n)
+        if cert is not None:
+            _, sigma = cert
+            if not check_cert(2, n, (0, 1), sigma):
+                raise AssertionError(f"invalid column certificate for n={n}")
+            log(f"  n = {n}: CERT with tau = id, sigma = {cycles(sigma)}")
+        else:
             log(f"  n = {n}: none")
 
     path = os.path.join(ROOT, "data", "pairing_certificates.txt")

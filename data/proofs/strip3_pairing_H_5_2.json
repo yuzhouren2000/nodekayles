@@ -1,0 +1,28 @@
+{
+ "format": "nodekayles-fixed-pairing-v1",
+ "rows": 3,
+ "cols": 5,
+ "playable": [
+  3,
+  4,
+  7,
+  8,
+  10,
+  11,
+  12,
+  13,
+  14
+ ],
+ "status": "UNSAT",
+ "proof": {
+  "kind": "odd-order"
+ },
+ "stats": {
+  "candidate_pairs": 0,
+  "search_nodes": 0,
+  "proof_nodes": 0,
+  "seconds": 2e-06
+ },
+ "family": "H",
+ "strip3_value": 0
+}

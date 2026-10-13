@@ -1,0 +1,30 @@
+{
+ "format": "nodekayles-fixed-pairing-v1",
+ "rows": 3,
+ "cols": 3,
+ "playable": [
+  5,
+  6,
+  7,
+  8
+ ],
+ "status": "SAT",
+ "pairs": [
+  [
+   5,
+   7
+  ],
+  [
+   6,
+   8
+  ]
+ ],
+ "stats": {
+  "candidate_pairs": 3,
+  "search_nodes": 3,
+  "proof_nodes": 0,
+  "seconds": 1.1e-05
+ },
+ "family": "E",
+ "strip3_value": 0
+}

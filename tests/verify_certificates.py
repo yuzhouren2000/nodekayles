@@ -7,8 +7,8 @@ the second player's mirror strategy against EVERY legal first move x:
   * the set removed by the first move and the response must be phi-invariant
     (so the invariant is restored: the mirror strategy can continue).
 
-Unlike scripts/pairing_certificates.py (which checks the algebraic conditions
-on orbit representatives), this walks the strategy move by move on the whole
+Unlike scripts/pairing_certificates.py (which checks algebraic conditions),
+this walks the strategy move by move on the whole
 board - an independent implementation path for the same statement.
 
 Run:  python3 tests/verify_certificates.py

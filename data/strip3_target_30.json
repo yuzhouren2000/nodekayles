@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "kind": "strip3_target",
+  "n": 30,
+  "ht_bits": 28,
+  "timeout_s": 3600.0,
+  "machine": "local WSL (28 cores) + opentile@192.168.41.137 (128 cores, loaded)",
+  "strip3_sha256": "",
+  "middle_screens_reference": {
+    "source": "data/strip3_analysis.json",
+    "status": "no_middle_win",
+    "exclusions": 15
+  },
+  "note": "assembled from raw per-column strip3 masks runs; UNKNOWN means budget or timeout before a value was emitted; a zero value proves the full board is an N-position only if every edge orbit is covered and all options are nonzero",
+  "results": [
+    {
+      "column": 1,
+      "mask": "3fffffffffffffffffffff4",
+      "value": 2,
+      "returncode": 0,
+      "seconds": 2011,
+      "status": "ok",
+      "raw_output": "2",
+      "stderr_tail": [
+        "done 1939.921s memo=132992451 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "same-machine rerun (V4) agrees: 2 (1556s); the server attempt hit its 3600s budget (rc=124 UNKNOWN in logs/strip3_target_30/dev/summary_B.txt)"
+      ]
+    },
+    {
+      "column": 2,
+      "mask": "3ffffffffffffffffffffa6",
+      "value": 1,
+      "returncode": 0,
+      "seconds": 1609,
+      "status": "ok",
+      "raw_output": "1",
+      "stderr_tail": [
+        "done 1542.170s memo=115598935 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "server recomputation agrees: 1"
+      ]
+    },
+    {
+      "column": 3,
+      "mask": "3fffffffffffffffffffd37",
+      "value": 13,
+      "returncode": 0,
+      "seconds": 1311,
+      "status": "ok",
+      "raw_output": "13",
+      "stderr_tail": [
+        "done 1253.674s memo=99739693 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "server recomputation agrees: 13"
+      ]
+    },
+    {
+      "column": 4,
+      "mask": "3ffffffffffffffffffe9bf",
+      "value": 3,
+      "returncode": 0,
+      "seconds": 1314,
+      "status": "ok",
+      "raw_output": "3",
+      "stderr_tail": [
+        "done 1314.079s memo=96194128 capacity=268435456 bytes_per_slot=17 reductions=7",
+        "exit=0"
+      ],
+      "cross_checks": [
+        "same-machine rerun agrees: 3; server rerun agrees: 3 (2818s)"
+      ]
+    },
+    {
+      "column": 5,
+      "mask": "3ffffffffffffffffff4dff",
+      "value": 13,
+      "returncode": 0,
+      "seconds": 3054,
+      "status": "ok",
+      "raw_output": "13",
+      "stderr_tail": [
+        "done 3052.478s memo=101764532 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "local recomputation agrees: 13"
+      ]
+    },
+    {
+      "column": 6,
+      "mask": "3fffffffffffffffffa6fff",
+      "value": 4,
+      "returncode": 0,
+      "seconds": 1321,
+      "status": "ok",
+      "raw_output": "4",
+      "stderr_tail": [
+        "done 1256.671s memo=100037336 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "server recomputation agrees: 4"
+      ]
+    },
+    {
+      "column": 7,
+      "mask": "3ffffffffffffffffd37fff",
+      "value": 3,
+      "returncode": 0,
+      "seconds": 1303,
+      "status": "ok",
+      "raw_output": "3",
+      "stderr_tail": [
+        "done 1239.739s memo=99677902 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "server recomputation agrees: 3"
+      ]
+    },
+    {
+      "column": 8,
+      "mask": "3fffffffffffffffe9bffff",
+      "value": 11,
+      "returncode": 0,
+      "seconds": 1258,
+      "status": "ok",
+      "raw_output": "11",
+      "stderr_tail": [
+        "done 1191.838s memo=99862614 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "server recomputation agrees: 11"
+      ]
+    },
+    {
+      "column": 9,
+      "mask": "3fffffffffffffff4dfffff",
+      "value": 7,
+      "returncode": 0,
+      "seconds": 2689,
+      "status": "ok",
+      "raw_output": "7",
+      "stderr_tail": [
+        "done 2688.502s memo=99667762 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "local recomputation agrees: 7"
+      ]
+    },
+    {
+      "column": 10,
+      "mask": "3ffffffffffffffa6ffffff",
+      "value": 18,
+      "returncode": 0,
+      "seconds": 1412,
+      "status": "ok",
+      "raw_output": "18",
+      "stderr_tail": [
+        "done 1365.723s memo=99626836 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "both machines agree: 18"
+      ]
+    },
+    {
+      "column": 11,
+      "mask": "3fffffffffffffd37ffffff",
+      "value": 3,
+      "returncode": 0,
+      "seconds": 1427,
+      "status": "ok",
+      "raw_output": "3",
+      "stderr_tail": [
+        "done 1379.071s memo=99618522 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "server recomputation agrees: 3"
+      ]
+    },
+    {
+      "column": 12,
+      "mask": "3ffffffffffffe9bfffffff",
+      "value": 4,
+      "returncode": 0,
+      "seconds": 2904,
+      "status": "ok",
+      "raw_output": "4",
+      "stderr_tail": [
+        "done 2902.527s memo=99646335 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "local recomputation agrees: 4"
+      ]
+    },
+    {
+      "column": 13,
+      "mask": "3ffffffffffff4dffffffff",
+      "value": 1,
+      "returncode": 0,
+      "seconds": 2691,
+      "status": "ok",
+      "raw_output": "1",
+      "stderr_tail": [
+        "done 2880.008s memo=99527077 capacity=268435456 bytes_per_slot=17 reductions=0"
+      ],
+      "cross_checks": [
+        "same server, STRIP3_REDUCTIONS=0: value 1 (pruning ablation)"
+      ]
+    },
+    {
+      "column": 14,
+      "mask": "3fffffffffffa6fffffffff",
+      "value": 7,
+      "returncode": 0,
+      "seconds": 1368,
+      "status": "ok",
+      "raw_output": "7",
+      "stderr_tail": [
+        "done 1323.085s memo=98067090 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "both machines agree: 7"
+      ]
+    },
+    {
+      "column": 15,
+      "mask": "3ffffffffffd37fffffffff",
+      "value": 9,
+      "returncode": 0,
+      "seconds": 1422,
+      "status": "ok",
+      "raw_output": "9",
+      "stderr_tail": [
+        "done 1356.815s memo=107437072 capacity=268435456 bytes_per_slot=17 reductions=7"
+      ],
+      "cross_checks": [
+        "both machines agree: 9"
+      ]
+    }
+  ],
+  "covers_columns": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "complete_edge_orbit_cover": true,
+  "cross_check_summary": {
+    "machine_cross_checks": "13 of 15 columns recomputed on the other machine with matching values (2,3,4,5,6,7,8,9,10,11,12,14,15)",
+    "ablation": "column 13 recomputed with STRIP3_REDUCTIONS=0 on the same binary/hardware: still 1",
+    "same_machine_reruns": "columns 1 and 4 rerun on the primary machine with matching values (1: 2, 4: 3)",
+    "server_timeout_record": "the server's first attempt at column 1 exceeded its 3600s budget (exit 124, UNKNOWN): a budget boundary record, not a conflicting value",
+    "raw_logs": "logs/strip3_target_30/ (local) and logs/strip3_target_30/dev/ (server); logs/ is gitignored, the essential metadata is in this file"
+  },
+  "premise_recomputation": {
+    "position": "D(28) = F_28 minus (2,1),(2,28), column-major mask bfffffffffffffffffffd",
+    "value": 0,
+    "note": "recomputed this round with src/cfast/strip3 masks at STRIP3_HT_BITS=28; this is the only computed premise entering the a(29) != a(0) exclusion; the zero-tail theorem then gives a(29) != a(0)"
+  }
+}

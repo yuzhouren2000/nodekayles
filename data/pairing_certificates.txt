@@ -1,6 +1,8 @@
 pairing certificates, product form phi(i,j) = (tau(i), sigma(j))
+classification: both dimensions even OR one dimension equals 4
+proof: notes/06_structural_pairing.md; each constructed certificate is checked directly
 
-A. full search for all boards m x n, m <= 6, n <= 6 (all involutions):
+A. classification for all boards m x n, m <= 6, n <= 6:
   1 x 1: no product certificate
   1 x 2: no product certificate
   1 x 3: no product certificate
@@ -9,7 +11,7 @@ A. full search for all boards m x n, m <= 6, n <= 6 (all involutions):
   1 x 6: no product certificate
   2 x 2: CERT  rows (1 2)  cols (1 2)
   2 x 3: no product certificate
-  2 x 4: CERT  rows (1 2)  cols (1 4) (2 3)
+  2 x 4: CERT  rows id  cols (1 3) (2 4)
   2 x 5: no product certificate
   2 x 6: CERT  rows (1 2)  cols (1 6) (2 5) (3 4)
   3 x 3: no product certificate
@@ -26,7 +28,7 @@ A. full search for all boards m x n, m <= 6, n <= 6 (all involutions):
 A2. family 2 x n and 4 x n (m = 2 or 4 rows), n <= 14:
   2 x 2: CERT  rows (1 2)  cols (1 2)
   2 x 3: no product certificate
-  2 x 4: CERT  rows (1 2)  cols (1 4) (2 3)
+  2 x 4: CERT  rows id  cols (1 3) (2 4)
   2 x 5: no product certificate
   2 x 6: CERT  rows (1 2)  cols (1 6) (2 5) (3 4)
   2 x 7: no product certificate
@@ -49,7 +51,7 @@ A2. family 2 x n and 4 x n (m = 2 or 4 rows), n <= 14:
   4 x 13: CERT  rows (1 3) (2 4)  cols id
   4 x 14: CERT  rows (1 3) (2 4)  cols id
 
-B. targeted searches (odd dimension >= 5 against even dimension):
+B. selected boards (classified without enumerating involutions):
   5 x 8: no product certificate
   5 x 10: no product certificate
   5 x 12: no product certificate
@@ -61,8 +63,11 @@ B. targeted searches (odd dimension >= 5 against even dimension):
   9 x 10: no product certificate
   6 x 12: CERT  rows (1 6) (2 5) (3 4)  cols (1 12) (2 11) (3 10) (4 9) (5 8) (6 7)
   8 x 12: CERT  rows (1 8) (2 7) (3 6) (4 5)  cols (1 12) (2 11) (3 10) (4 9) (5 8) (6 7)
+  9 x 12: no product certificate
+  7 x 12: no product certificate
+  5 x 14: no product certificate
 
-C. tau = id certificates for columns n <= 14 (would prove G(m x n) = 0 for ALL m):
+C. tau = id certificates: the path theorem permits only n = 4 (for every m):
   n = 1: none
   n = 2: none
   n = 3: none

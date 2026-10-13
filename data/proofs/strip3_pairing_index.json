@@ -1,0 +1,312 @@
+{
+ "format": "nodekayles-strip3-pairing-index-v1",
+ "note": "fixed pairing scan of every B/E/H zero with n<=8 from data/strip3_ports_n12.jsonl plus B(10,4), B(10,7), D(6); each file independently checkable by tests/verify_fixed_pairing.py",
+ "entries": [
+  {
+   "file": "strip3_pairing_B_3_1.json",
+   "family": "B",
+   "n": 3,
+   "j": 1,
+   "status": "SAT",
+   "current_strip3_value": 0,
+   "evidence": "compatible perfect matching"
+  },
+  {
+   "file": "strip3_pairing_E_3_1.json",
+   "family": "E",
+   "n": 3,
+   "j": 1,
+   "status": "SAT",
+   "current_strip3_value": 0,
+   "evidence": "compatible perfect matching"
+  },
+  {
+   "file": "strip3_pairing_H_3_1.json",
+   "family": "H",
+   "n": 3,
+   "j": 1,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_E_3_2.json",
+   "family": "E",
+   "n": 3,
+   "j": 2,
+   "status": "SAT",
+   "current_strip3_value": 0,
+   "evidence": "compatible perfect matching"
+  },
+  {
+   "file": "strip3_pairing_B_3_3.json",
+   "family": "B",
+   "n": 3,
+   "j": 3,
+   "status": "SAT",
+   "current_strip3_value": 0,
+   "evidence": "compatible perfect matching"
+  },
+  {
+   "file": "strip3_pairing_E_3_3.json",
+   "family": "E",
+   "n": 3,
+   "j": 3,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_H_3_3.json",
+   "family": "H",
+   "n": 3,
+   "j": 3,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_H_4_1.json",
+   "family": "H",
+   "n": 4,
+   "j": 1,
+   "status": "SAT",
+   "current_strip3_value": 0,
+   "evidence": "compatible perfect matching"
+  },
+  {
+   "file": "strip3_pairing_E_4_4.json",
+   "family": "E",
+   "n": 4,
+   "j": 4,
+   "status": "SAT",
+   "current_strip3_value": 0,
+   "evidence": "compatible perfect matching"
+  },
+  {
+   "file": "strip3_pairing_H_4_4.json",
+   "family": "H",
+   "n": 4,
+   "j": 4,
+   "status": "SAT",
+   "current_strip3_value": 0,
+   "evidence": "compatible perfect matching"
+  },
+  {
+   "file": "strip3_pairing_H_5_2.json",
+   "family": "H",
+   "n": 5,
+   "j": 2,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_H_5_4.json",
+   "family": "H",
+   "n": 5,
+   "j": 4,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_B_6_2.json",
+   "family": "B",
+   "n": 6,
+   "j": 2,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_B_6_5.json",
+   "family": "B",
+   "n": 6,
+   "j": 5,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_B_7_1.json",
+   "family": "B",
+   "n": 7,
+   "j": 1,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_E_7_1.json",
+   "family": "E",
+   "n": 7,
+   "j": 1,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_B_7_3.json",
+   "family": "B",
+   "n": 7,
+   "j": 3,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_E_7_3.json",
+   "family": "E",
+   "n": 7,
+   "j": 3,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_H_7_3.json",
+   "family": "H",
+   "n": 7,
+   "j": 3,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_B_7_5.json",
+   "family": "B",
+   "n": 7,
+   "j": 5,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_E_7_5.json",
+   "family": "E",
+   "n": 7,
+   "j": 5,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_H_7_5.json",
+   "family": "H",
+   "n": 7,
+   "j": 5,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_E_7_6.json",
+   "family": "E",
+   "n": 7,
+   "j": 6,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_B_7_7.json",
+   "family": "B",
+   "n": 7,
+   "j": 7,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_H_8_1.json",
+   "family": "H",
+   "n": 8,
+   "j": 1,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_H_8_3.json",
+   "family": "H",
+   "n": 8,
+   "j": 3,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_E_8_4.json",
+   "family": "E",
+   "n": 8,
+   "j": 4,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_E_8_6.json",
+   "family": "E",
+   "n": 8,
+   "j": 6,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_H_8_6.json",
+   "family": "H",
+   "n": 8,
+   "j": 6,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_E_8_8.json",
+   "family": "E",
+   "n": 8,
+   "j": 8,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_H_8_8.json",
+   "family": "H",
+   "n": 8,
+   "j": 8,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_B_10_4.json",
+   "family": "B",
+   "n": 10,
+   "j": 4,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_B_10_7.json",
+   "family": "B",
+   "n": 10,
+   "j": 7,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  },
+  {
+   "file": "strip3_pairing_D_6_D.json",
+   "family": "D",
+   "n": 6,
+   "j": null,
+   "status": "UNSAT",
+   "current_strip3_value": 0,
+   "evidence": "SAT: structural matchings; UNSAT: complete branch refutation"
+  }
+ ]
+}

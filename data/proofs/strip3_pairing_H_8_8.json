@@ -1,0 +1,766 @@
+{
+ "format": "nodekayles-fixed-pairing-v1",
+ "rows": 3,
+ "cols": 8,
+ "playable": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23
+ ],
+ "status": "UNSAT",
+ "proof": {
+  "kind": "branching",
+  "root": 85,
+  "nodes": [
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 19,
+    "branches": []
+   },
+   {
+    "vertex": 12,
+    "branches": [
+     [
+      3,
+      2
+     ]
+    ]
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": [
+     [
+      17,
+      4
+     ]
+    ]
+   },
+   {
+    "vertex": 11,
+    "branches": [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      9,
+      5
+     ]
+    ]
+   },
+   {
+    "vertex": 18,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      17,
+      7
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 18,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      5,
+      9
+     ],
+     [
+      12,
+      10
+     ]
+    ]
+   },
+   {
+    "vertex": 18,
+    "branches": []
+   },
+   {
+    "vertex": 4,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      12,
+      12
+     ],
+     [
+      19,
+      13
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": [
+     [
+      2,
+      8
+     ],
+     [
+      4,
+      11
+     ],
+     [
+      11,
+      14
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 11,
+    "branches": [
+     [
+      5,
+      16
+     ]
+    ]
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 9,
+    "branches": [
+     [
+      13,
+      18
+     ]
+    ]
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 9,
+    "branches": [
+     [
+      4,
+      20
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      4,
+      19
+     ],
+     [
+      13,
+      21
+     ]
+    ]
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      3,
+      23
+     ],
+     [
+      5,
+      24
+     ]
+    ]
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      3,
+      26
+     ],
+     [
+      19,
+      27
+     ]
+    ]
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 19,
+    "branches": []
+   },
+   {
+    "vertex": 4,
+    "branches": [
+     [
+      11,
+      30
+     ]
+    ]
+   },
+   {
+    "vertex": 5,
+    "branches": [
+     [
+      1,
+      29
+     ],
+     [
+      3,
+      31
+     ]
+    ]
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 14,
+    "branches": []
+   },
+   {
+    "vertex": 0,
+    "branches": [
+     [
+      22,
+      34
+     ]
+    ]
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      19,
+      33
+     ],
+     [
+      21,
+      35
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      4,
+      25
+     ],
+     [
+      11,
+      28
+     ],
+     [
+      13,
+      32
+     ],
+     [
+      20,
+      36
+     ]
+    ]
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 12,
+    "branches": []
+   },
+   {
+    "vertex": 12,
+    "branches": []
+   },
+   {
+    "vertex": 11,
+    "branches": [
+     [
+      5,
+      38
+     ],
+     [
+      14,
+      39
+     ],
+     [
+      21,
+      40
+     ]
+    ]
+   },
+   {
+    "vertex": 11,
+    "branches": []
+   },
+   {
+    "vertex": 9,
+    "branches": [
+     [
+      22,
+      42
+     ]
+    ]
+   },
+   {
+    "vertex": 11,
+    "branches": []
+   },
+   {
+    "vertex": 9,
+    "branches": [
+     [
+      13,
+      44
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      13,
+      43
+     ],
+     [
+      22,
+      45
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": []
+   },
+   {
+    "vertex": 11,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      3,
+      48
+     ]
+    ]
+   },
+   {
+    "vertex": 1,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      19,
+      51
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      9,
+      49
+     ],
+     [
+      16,
+      50
+     ],
+     [
+      18,
+      52
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      3,
+      54
+     ],
+     [
+      12,
+      55
+     ]
+    ]
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      17,
+      57
+     ]
+    ]
+   },
+   {
+    "vertex": 18,
+    "branches": []
+   },
+   {
+    "vertex": 9,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      12,
+      59
+     ],
+     [
+      21,
+      60
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      11,
+      56
+     ],
+     [
+      18,
+      58
+     ],
+     [
+      20,
+      61
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": []
+   },
+   {
+    "vertex": 11,
+    "branches": [
+     [
+      21,
+      63
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": []
+   },
+   {
+    "vertex": 4,
+    "branches": []
+   },
+   {
+    "vertex": 5,
+    "branches": [
+     [
+      1,
+      65
+     ],
+     [
+      3,
+      66
+     ]
+    ]
+   },
+   {
+    "vertex": 11,
+    "branches": []
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      12,
+      68
+     ],
+     [
+      19,
+      69
+     ]
+    ]
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 0,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      14,
+      71
+     ],
+     [
+      23,
+      72
+     ]
+    ]
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      13,
+      67
+     ],
+     [
+      20,
+      70
+     ],
+     [
+      22,
+      73
+     ]
+    ]
+   },
+   {
+    "vertex": 3,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      13,
+      75
+     ]
+    ]
+   },
+   {
+    "vertex": 11,
+    "branches": []
+   },
+   {
+    "vertex": 3,
+    "branches": [
+     [
+      20,
+      77
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": []
+   },
+   {
+    "vertex": 1,
+    "branches": [
+     [
+      13,
+      78
+     ],
+     [
+      20,
+      79
+     ]
+    ]
+   },
+   {
+    "vertex": 1,
+    "branches": []
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      14,
+      76
+     ],
+     [
+      21,
+      80
+     ],
+     [
+      23,
+      81
+     ]
+    ]
+   },
+   {
+    "vertex": 9,
+    "branches": []
+   },
+   {
+    "vertex": 2,
+    "branches": [
+     [
+      22,
+      83
+     ]
+    ]
+   },
+   {
+    "vertex": 10,
+    "branches": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      6
+     ],
+     [
+      3,
+      15
+     ],
+     [
+      4,
+      17
+     ],
+     [
+      5,
+      22
+     ],
+     [
+      12,
+      37
+     ],
+     [
+      13,
+      41
+     ],
+     [
+      14,
+      46
+     ],
+     [
+      16,
+      47
+     ],
+     [
+      17,
+      53
+     ],
+     [
+      19,
+      62
+     ],
+     [
+      20,
+      64
+     ],
+     [
+      21,
+      74
+     ],
+     [
+      22,
+      82
+     ],
+     [
+      23,
+      84
+     ]
+    ]
+   }
+  ]
+ },
+ "stats": {
+  "candidate_pairs": 162,
+  "search_nodes": 86,
+  "proof_nodes": 86,
+  "seconds": 0.001399
+ },
+ "family": "H",
+ "strip3_value": 0
+}

@@ -3,10 +3,17 @@ PY ?= python3
 CC ?= gcc
 CFLAGS ?= -O2 -march=native
 
-.PHONY: build test analyze data wmoves clean help
+.PHONY: build build-strip3 test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
 
 help:
 	@echo "make build    - compile the C solver"
+	@echo "make build-strip3 - compile the specialised three-row solver"
+	@echo "make test-strip3  - independent induced-position and survey checks"
+	@echo "make test-strip3-ports - B/E/H port-family coordinate and data checks"
+	@echo "make test-strip3-target - verify the 3x30 edge-orbit conclusion"
+	@echo "make test-strip3-exact - re-derive G(3xn) for n=29..32 from sweep data"
+	@echo "make analyze-strip3 - structural analysis and constructive first moves"
+	@echo "make analyze-strip3-ports - regenerate the port-family survey/closure data"
 	@echo "make test     - Python reference checks vs literature (~1 min)"
 	@echo "make analyze  - sequences, periodicity, conjecture monitors, all checks"
 	@echo "make data     - run/continue the full data campaign (background, resumable)"
@@ -15,9 +22,42 @@ help:
 build:
 	$(CC) $(CFLAGS) -o src/cfast/kayles src/cfast/kayles.c
 
+build-strip3:
+	$(CC) $(CFLAGS) -Wall -Wextra -o src/cfast/strip3 src/cfast/strip3.c
+
+test-strip3:
+	$(PY) tests/test_strip3.py --survey data/strip3_survey.jsonl
+	$(PY) tests/verify_strip3_analysis.py
+
+test-strip3-ports:
+	$(PY) tests/test_strip3_ports.py --max-n 12 --max-sg-n 8
+	$(PY) tests/verify_strip3_ports.py data/strip3_ports_n12.jsonl
+	$(PY) tests/verify_fixed_pairing.py data/proofs/strip3_pairing_[A-Z]_*.json
+
+test-strip3-target:
+	$(PY) tests/verify_strip3_target.py
+
+test-strip3-exact:
+	$(PY) tests/verify_strip3_exact.py --n 29 --sweep data/strip3_sweep_29.json
+	$(PY) tests/verify_strip3_exact.py --n 30 --sweep data/strip3_sweep_30.json
+	$(PY) tests/verify_strip3_exact.py --n 31 --sweep data/strip3_sweep_31.json
+	$(PY) tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
+
+analyze-strip3:
+	$(PY) scripts/analyze_strip3.py
+
+analyze-strip3-ports:
+	$(PY) scripts/strip3_ports.py survey --max-n 12 --ht-bits 24 --timeout 300 \
+	  --output data/strip3_ports_n12.jsonl
+	$(PY) scripts/strip3_ports.py closure --max-n 8 \
+	  --output data/strip3_ports_closure.json
+
 test:
 	$(PY) tests/test_literature.py
 	$(PY) tests/dumb_solver.py 6 7
+	$(PY) tests/verify_certificates.py
+	$(PY) tests/test_pairing_classification.py
+	$(PY) tests/test_fixed_pairing.py
 
 analyze:
 	$(PY) scripts/analyze.py
@@ -29,4 +69,4 @@ wmoves:
 	$(PY) scripts/winning_moves.py 6
 
 clean:
-	rm -f src/cfast/kayles
+	rm -f src/cfast/kayles src/cfast/strip3

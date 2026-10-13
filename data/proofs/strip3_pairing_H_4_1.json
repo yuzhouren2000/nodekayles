@@ -1,0 +1,42 @@
+{
+ "format": "nodekayles-fixed-pairing-v1",
+ "rows": 3,
+ "cols": 4,
+ "playable": [
+  2,
+  3,
+  5,
+  6,
+  8,
+  9,
+  10,
+  11
+ ],
+ "status": "SAT",
+ "pairs": [
+  [
+   6,
+   9
+  ],
+  [
+   3,
+   11
+  ],
+  [
+   2,
+   10
+  ],
+  [
+   5,
+   8
+  ]
+ ],
+ "stats": {
+  "candidate_pairs": 20,
+  "search_nodes": 8,
+  "proof_nodes": 0,
+  "seconds": 4.1e-05
+ },
+ "family": "H",
+ "strip3_value": 0
+}

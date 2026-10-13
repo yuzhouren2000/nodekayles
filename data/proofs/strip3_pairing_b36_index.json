@@ -1,0 +1,168 @@
+{
+ "format": "nodekayles-strip3-pairing-index-v1",
+ "note": "fixed pairing search for every B(36,j), j=1..18 (3x36 edge orbits); all UNSAT, each independently checkable",
+ "entries": [
+  {
+   "file": "strip3_pairing_B_36_1.json",
+   "family": "B",
+   "n": 36,
+   "j": 1,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_2.json",
+   "family": "B",
+   "n": 36,
+   "j": 2,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_3.json",
+   "family": "B",
+   "n": 36,
+   "j": 3,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_4.json",
+   "family": "B",
+   "n": 36,
+   "j": 4,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_5.json",
+   "family": "B",
+   "n": 36,
+   "j": 5,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_6.json",
+   "family": "B",
+   "n": 36,
+   "j": 6,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_7.json",
+   "family": "B",
+   "n": 36,
+   "j": 7,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_8.json",
+   "family": "B",
+   "n": 36,
+   "j": 8,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_9.json",
+   "family": "B",
+   "n": 36,
+   "j": 9,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_10.json",
+   "family": "B",
+   "n": 36,
+   "j": 10,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_11.json",
+   "family": "B",
+   "n": 36,
+   "j": 11,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_12.json",
+   "family": "B",
+   "n": 36,
+   "j": 12,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_13.json",
+   "family": "B",
+   "n": 36,
+   "j": 13,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_14.json",
+   "family": "B",
+   "n": 36,
+   "j": 14,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_15.json",
+   "family": "B",
+   "n": 36,
+   "j": 15,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_16.json",
+   "family": "B",
+   "n": 36,
+   "j": 16,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_17.json",
+   "family": "B",
+   "n": 36,
+   "j": 17,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  },
+  {
+   "file": "strip3_pairing_B_36_18.json",
+   "family": "B",
+   "n": 36,
+   "j": 18,
+   "status": "UNSAT",
+   "current_strip3_value": null,
+   "purpose": "fixed-pairing search on the 3x36 edge-orbit positions; UNSAT means no static pairing certificate exists"
+  }
+ ]
+}

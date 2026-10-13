@@ -1,0 +1,79 @@
+{
+ "format": "nodekayles-strip3-unknown-fingerprints-v1",
+ "note": "column-letter fingerprints (one hex digit per column = set of present rows) of every column-run piece among all legal successors of B/E/H with n<=16, classified by the declared vocabulary; the unrecognised count keeps growing with n",
+ "range": "n<=16",
+ "known_distinct": 411,
+ "T4_distinct": 3,
+ "unknown_distinct": 4529,
+ "per_n_new": {
+  "1": {
+   "unknown_fp": 0,
+   "T4_fp": 0
+  },
+  "2": {
+   "unknown_fp": 0,
+   "T4_fp": 0
+  },
+  "3": {
+   "unknown_fp": 0,
+   "T4_fp": 3
+  },
+  "4": {
+   "unknown_fp": 13,
+   "T4_fp": 2
+  },
+  "5": {
+   "unknown_fp": 42,
+   "T4_fp": 2
+  },
+  "6": {
+   "unknown_fp": 92,
+   "T4_fp": 2
+  },
+  "7": {
+   "unknown_fp": 149,
+   "T4_fp": 2
+  },
+  "8": {
+   "unknown_fp": 209,
+   "T4_fp": 2
+  },
+  "9": {
+   "unknown_fp": 278,
+   "T4_fp": 2
+  },
+  "10": {
+   "unknown_fp": 356,
+   "T4_fp": 2
+  },
+  "11": {
+   "unknown_fp": 443,
+   "T4_fp": 2
+  },
+  "12": {
+   "unknown_fp": 539,
+   "T4_fp": 2
+  },
+  "13": {
+   "unknown_fp": 644,
+   "T4_fp": 2
+  },
+  "14": {
+   "unknown_fp": 758,
+   "T4_fp": 2
+  },
+  "15": {
+   "unknown_fp": 881,
+   "T4_fp": 2
+  },
+  "16": {
+   "unknown_fp": 1013,
+   "T4_fp": 2
+  }
+ },
+ "examples_unknown_smallest": [
+  "37",
+  "67",
+  "73"
+ ]
+}
