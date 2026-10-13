@@ -1,0 +1,475 @@
+{
+  "format": "nodekayles-strip3-interface-obstruction-v1",
+  "n": 9,
+  "boundary": [
+    [
+      1,
+      9
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "identical_full_suffix_columns": 3,
+  "signature_definition": "entry[S][D] = SG(G minus (union of closed neighbourhoods of S) minus D); row 1 is bit 0",
+  "shared_signature": [
+    [
+      0,
+      4,
+      2,
+      1,
+      4,
+      0,
+      1,
+      5
+    ],
+    [
+      3,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    [
+      3,
+      0,
+      3,
+      0,
+      3,
+      0,
+      3,
+      0
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "positions": [
+    {
+      "history": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "mask": "7ff4d37",
+      "value": 0,
+      "extension_mask": "3fff4d37",
+      "extension_value": 0,
+      "extension_options": [
+        {
+          "move": [
+            1,
+            1
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            1,
+            7
+          ],
+          "value": 5
+        },
+        {
+          "move": [
+            1,
+            8
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            1,
+            9
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            1,
+            10
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            2,
+            1
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            2,
+            2
+          ],
+          "value": 5
+        },
+        {
+          "move": [
+            2,
+            4
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            2,
+            6
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            2,
+            7
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            2,
+            8
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            2,
+            9
+          ],
+          "value": 3
+        },
+        {
+          "move": [
+            2,
+            10
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            3,
+            1
+          ],
+          "value": 5
+        },
+        {
+          "move": [
+            3,
+            2
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            3,
+            3
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            3,
+            4
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            3,
+            5
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            3,
+            6
+          ],
+          "value": 5
+        },
+        {
+          "move": [
+            3,
+            7
+          ],
+          "value": 5
+        },
+        {
+          "move": [
+            3,
+            8
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            3,
+            9
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            3,
+            10
+          ],
+          "value": 1
+        }
+      ],
+      "cut_at_2_6": {
+        "left_value": 0,
+        "right_value": 2,
+        "base_option_value": 1,
+        "base_right_value": 1
+      }
+    },
+    {
+      "history": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "mask": "7ff4df4",
+      "value": 0,
+      "extension_mask": "3fff4df4",
+      "extension_value": 4,
+      "extension_options": [
+        {
+          "move": [
+            1,
+            3
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            1,
+            7
+          ],
+          "value": 8
+        },
+        {
+          "move": [
+            1,
+            8
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            1,
+            9
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            1,
+            10
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            2,
+            2
+          ],
+          "value": 5
+        },
+        {
+          "move": [
+            2,
+            3
+          ],
+          "value": 3
+        },
+        {
+          "move": [
+            2,
+            4
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            2,
+            6
+          ],
+          "value": 0
+        },
+        {
+          "move": [
+            2,
+            7
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            2,
+            8
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            2,
+            9
+          ],
+          "value": 3
+        },
+        {
+          "move": [
+            2,
+            10
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            3,
+            1
+          ],
+          "value": 5
+        },
+        {
+          "move": [
+            3,
+            2
+          ],
+          "value": 5
+        },
+        {
+          "move": [
+            3,
+            3
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            3,
+            4
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            3,
+            5
+          ],
+          "value": 3
+        },
+        {
+          "move": [
+            3,
+            6
+          ],
+          "value": 5
+        },
+        {
+          "move": [
+            3,
+            7
+          ],
+          "value": 7
+        },
+        {
+          "move": [
+            3,
+            8
+          ],
+          "value": 1
+        },
+        {
+          "move": [
+            3,
+            9
+          ],
+          "value": 2
+        },
+        {
+          "move": [
+            3,
+            10
+          ],
+          "value": 1
+        }
+      ],
+      "cut_at_2_6": {
+        "left_value": 2,
+        "right_value": 2,
+        "base_option_value": 3,
+        "base_right_value": 1
+      }
+    }
+  ],
+  "scope": "Refutes a summary consisting of width, the last three columns, and these 64 SG values. Does not refute all finite interface summaries or periodicity of full strips."
+}

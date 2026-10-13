@@ -1,0 +1,13 @@
+{
+  "format": "nodekayles-strip3-interface-audit-v1",
+  "certificate_sha256": "416030c966471606dc6ba70b8b98833b3ee86db90ca839e7a9889b1d440b229b",
+  "verifier_sha256": "458fdf25a0a9c7eacccb8a02d23cda1b96acccebccd6d4197d19c677470dd039",
+  "coordinate_recursion_subsets": 48947,
+  "original_c": {
+    "solver": "original multiword C",
+    "positions": 87,
+    "source_sha256": "7adef5c41057e9d7159ca87bc25606ea8aaed90fcb25ba957618289134089348",
+    "elapsed_s": 0.004
+  },
+  "conclusion": "the declared boundary SG table does not preserve column extension"
+}

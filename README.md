@@ -28,6 +28,7 @@ notes/
   09_strip3_handoff.md         三行下一阶段任务书（可独立接手）
   10_strip3_ports.md           B/E/H 端口族切割/延伸引理、闭合边界、最小反例
   12_two_move_separators.md    两着分割完整分类、小端口零回应与整盘证书
+  13_interface_obstruction.md  SG 边界删除表不足以递推的真实可达反例
 src/nodekayles/solver.py       参考求解器（纯 Python，易读）
 src/cfast/kayles.c             快速求解器（C，位棋盘 + 记忆化）
 src/cfast/strip3.c             三行专用求解器（126 位状态 + 严格归约）
@@ -37,6 +38,7 @@ scripts/analyze.py             序列、周期检测、P-位置、全部校验
 scripts/analyze_strip3.py      3×n 端口族、中行分裂和首着结构检查
 scripts/strip3_ports.py        B/E/H 端口族几何、survey/closure/target 调查器
 scripts/strip3_two_move.py     用两着分割构造整盘 P 证书、重算辅助端口值
+scripts/strip3_interface.py    寻找同边界摘要、接列后胜负不同的局面
 scripts/winning_moves.py       小棋盘的首手制胜着（Python）
 scripts/pairing_certificates.py 根据结构定理构造配对证书（保留穷举核验）
 scripts/fixed_pairing.py        任意固定配对搜索，输出可独立检查的反证
@@ -51,6 +53,7 @@ tests/test_strip3_ports.py     B/E/H 切割公式的独立坐标/递推核验
 tests/verify_strip3_ports.py   端口族数据文件与最小反例的独立复核
 tests/test_strip3_two_move.py  两着分割公式、完整分类与证书负例核验
 tests/verify_strip3_two_move.py 独立检查零回应并用原 C 求解器重算 SG 前提
+tests/verify_strip3_interface.py 坐标递推与原 C 双重核验接口摘要反例
 data/                          OEIS 基准数据、原始运行结果、汇总表
 ```
 
@@ -116,6 +119,14 @@ G :  2  1  1  0  3  3  2  2  2  3  3  5  2  4  1  3  2  2  1  1  5  0  1  1  3  
 的 43 个 SG 前提；原多字 C 求解器约 30 秒即可独立复算其中的 42 个非平凡值，
 无需计算任何 B(30,j) 的完整 nimber。运行 `make test-strip3-two-move` 复现。
 `3×36` 已有 35/36 轨道回应，边行第 17 列仍未闭合，整盘结果保持未知。
+
+**结构研究的当前边界：** 两着分割提高有限证书的效率，尚未解释空盘零点规律。
+[接口摘要审计](notes/13_interface_obstruction.md)进一步发现两个真实可达的
+`3×9` 连通 P 局面：末三列及全部 64 项接口删除 SG 表相同，接上一列却分别
+得到 SG 0、4。这排除了该摘要作为精确递推状态，未排除更丰富的接口方法。
+运行 `make test-strip3-interface` 可独立复算。后续理论目标转向能保留全部
+合法后继的接口等价、任意长度替换或空盘的无限胜负族；这些目标尚未完成。
+
 定向求边行后继/整盘值的入口（同一进程内共享记忆，避免逐列重复计算）：
 
 ```bash
@@ -147,8 +158,9 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
   Brown et al. 2020 表 1 的全部可读格，以及三条结构性定理。
 * 全部文档为中文；代码注释保留英文。
 
-目前优先从 [notes/08](notes/08_strip3_reductions.md) 的三行结构定理和辅助家族
-推进。更一般棋盘的配对研究见
+目前理论优先级见 [notes/13](notes/13_interface_obstruction.md)：检验连接上下文
+中的局面等价，防止把有限分割证书当作空盘规律。既有三行分割工具见
+[notes/08](notes/08_strip3_reductions.md)。更一般棋盘的配对研究见
 [`notes/06_structural_pairing.md`](notes/06_structural_pairing.md)：乘积型固定
 配对存在当且仅当“两边均偶数或某边等于 4”，已无须逐尺寸穷举。这不等于
 全部 P-位置的分类；`5×8` 等零点仍需研究更一般的配对或动态应答策略。
