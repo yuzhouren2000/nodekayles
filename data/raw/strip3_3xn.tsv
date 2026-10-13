@@ -26,5 +26,7 @@
 3	26	0
 3	27	2
 3	28	5
+3	29	1
 3	30	0
-# 3x29 not computed; G(3x30)=0 proven via 15 edge-orbit certificates (notes/10 section 11)
+3	31	2
+3	32	6
