@@ -33,6 +33,8 @@ notes/
   15_comb_stabilization.md     任意固定核心接交错尾巴的无条件周期定理
   16_clique_column_strips.md   三行特殊列参数递推、完整梯子无界性与周期尾巴
   17_connected_history_language.md 空盘全部连通后继的唯一语言、精确计数与一字节表
+  18_boundary_replacement_algebra.md 任意环境的四环—树恒等式与完整端口证书
+  19_exact_column_transfer.md 单块生成完整三行图类，接口模 Nim 偏移仍无限
 src/nodekayles/solver.py       参考求解器（纯 Python，易读）
 src/cfast/kayles.c             快速求解器（C，位棋盘 + 记忆化）
 src/cfast/strip3.c             三行专用求解器（126 位状态 + 严格归约）
@@ -166,7 +168,7 @@ h 是原来同时含上下外格的列数。纯外行历史只要覆盖每列及
 诱导图及接口状态由朴素原图递推核验。运行 `make test-clique-strips`。
 空盘 h=n，仍未得到完整空三行棋盘的分类或周期。
 
-最新的[连通历史语言定理](notes/17_connected_history_language.md)进一步去掉形状
+[连通历史语言定理](notes/17_connected_history_language.md)进一步去掉形状
 限制：空三行盘的**每个可达连通分量**都有唯一“正则外行词 + 两端有限删除”编码。
 同行落子间距至少 2，异行至少 3；全跨连通后继数严格满足三阶递推，全部连通
 掩码数也从第 7 项起满足同一递推，指数底数 `ρ=1.839286755…`。它解释了旧
@@ -174,6 +176,14 @@ h 是原来同时含上下外格的列数。纯外行历史只要覆盖每列及
 至 33 的表容量为 9.21 GB，已落入本机内存范围，**但 f(33) 仍未求得**。
 新 C 版单线程查询较慢，测试已复现到 22；运行 `make test-strip3-language`。
 内部落子列都是割点，所有环局限在未落子段；厚块之间共享割点的游戏接口仍待解决。
+
+最新的[连接代数](notes/18_boundary_replacement_algebra.md)保留全部内部后继，
+证明真实三行四环图可在任意指定双端口环境下换成树。其
+[逐列运算](notes/19_exact_column_transfer.md)进一步用一个六点 `3×2` 生成元
+表示任意三行诱导图，完整空盘成为同一列算子的轨道。同时证明全部诱导图的
+连接接口即使模去任意独立 Nim 堆也仍无限：缺角梯子连接延长实行整数加法，
+不能由固定异或偏移补偿。实现仍指数；这一障碍未排除空盘实际可达家族的
+特殊结构。运行 `make test-kayles-transfer`；没有新空盘数值或周期结论。
 
 定向求边行后继/整盘值的入口（同一进程内共享记忆，避免逐列重复计算）：
 
@@ -209,6 +219,8 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
 目前完整可达几何的结构与下一道边界见
 [notes/17](notes/17_connected_history_language.md)：连通历史已有唯一语言、
 精确计数和完美编号；SG 的无限规律、厚块的共享割点接口仍待研究。
+任意上下文替换及完整列运算见 [notes/18](notes/18_boundary_replacement_algebra.md)、
+[notes/19](notes/19_exact_column_transfer.md)；后者也划出通用有限接口压缩的边界。
 任意三行有限缺陷与混合周期尾巴见 [notes/16](notes/16_clique_column_strips.md)。
 任意固定核心接交错尾巴的无条件稳定性
 见 [notes/15](notes/15_comb_stabilization.md)。

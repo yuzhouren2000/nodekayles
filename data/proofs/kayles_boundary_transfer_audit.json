@@ -1,0 +1,148 @@
+{
+  "exhaustive_partial_joins": 14641,
+  "contextual_joins": 800,
+  "forget_contexts": 800,
+  "rename_contexts": 800,
+  "associativity_checks": 800,
+  "strip_words": 5081,
+  "strip_contexts": 585,
+  "full_widths": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "full_values": [
+    2,
+    1,
+    1,
+    0,
+    3,
+    3,
+    2,
+    2,
+    2,
+    3,
+    3,
+    5
+  ],
+  "full_accumulated_nodes": [
+    64,
+    92,
+    264,
+    705,
+    1622,
+    3463,
+    7034,
+    14066,
+    27974,
+    55633,
+    110569,
+    219842
+  ],
+  "raw_full_widths": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "notes13_extension_values": [
+    0,
+    4
+  ],
+  "raw_corner_ladder_extensions": 28,
+  "nimber_translation_counterexample": {
+    "widths": [
+      2,
+      3
+    ],
+    "initial_values": [
+      2,
+      3
+    ],
+    "extension_columns": 1,
+    "extended_values": [
+      3,
+      4
+    ],
+    "initial_xor": 1,
+    "extended_xor": 7
+  },
+  "distant_separate_path_counterexample": {
+    "values": [
+      0,
+      1
+    ],
+    "left_context": [
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "right_context": [
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        0
+      ]
+    ]
+  },
+  "arbitrary_branch_parity_counterexample": {
+    "values": [
+      4,
+      2
+    ],
+    "branch": [
+      [
+        2,
+        5,
+        2
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "context": [
+      [
+        6,
+        25,
+        25,
+        6,
+        6
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "copy_counts": [
+      1,
+      3
+    ]
+  },
+  "invalid_inputs_rejected": 10
+}
