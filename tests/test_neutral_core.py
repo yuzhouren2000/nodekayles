@@ -264,8 +264,20 @@ def main():
             reduced = column_graph(prefix + (4, 6))[0]
             assert raw_value(graph) == raw_value(reduced) ^ 1
             tail_cases += 1
-            square, _ = column_graph(prefix + (4, 6, 6, 4))
+            square, cells = column_graph(prefix + (4, 6, 6, 4))
             tree, _ = column_graph(prefix + (4, 6, 2))
+            # Check the specific root used in the arbitrary-prefix proof;
+            # the recognizer may prefer a different valid root in the prefix.
+            k = len(prefix)
+            root = cells.index((2, k + 2))
+            twin = cells.index((1, k + 1))
+            leaf = cells.index((2, k + 3))
+            assert square[leaf] == 1 << root
+            assert square[root] & ~(1 << leaf) == square[twin]
+            retained = [v for v in range(len(square)) if v not in (root, leaf)]
+            literal_reduction = tuple(sum(1 << j for j, u in enumerate(retained)
+                                           if square[v] >> u & 1) for v in retained)
+            assert literal_reduction == tree
             assert raw_value(square) == raw_value(tree) ^ 1
             reduction = guarded_twin_reduction(square)
             assert reduction is not None
