@@ -1,0 +1,85 @@
+{
+  "format": "node-kayles-two-comb-certificate-audit-v1",
+  "certificates": [
+    {
+      "core_states": 1,
+      "unary_tables": 6,
+      "distinct_unary_tables_checked": 4,
+      "original_unary_values": 108,
+      "finite_mex_identities": 2076,
+      "representative_pairs": 2076,
+      "proof_rectangle": 51,
+      "thresholds": [
+        8,
+        8,
+        16
+      ],
+      "name": "square_opposite",
+      "elapsed_seconds": 0.052
+    },
+    {
+      "core_states": 7,
+      "unary_tables": 58,
+      "distinct_unary_tables_checked": 42,
+      "original_unary_values": 4648,
+      "finite_mex_identities": 22820,
+      "representative_pairs": 3260,
+      "proof_rectangle": 63,
+      "thresholds": [
+        8,
+        12,
+        24
+      ],
+      "name": "strip_middle2",
+      "elapsed_seconds": 0.728
+    },
+    {
+      "core_states": 30,
+      "unary_tables": 202,
+      "distinct_unary_tables_checked": 133,
+      "original_unary_values": 24448,
+      "finite_mex_identities": 97800,
+      "representative_pairs": 3260,
+      "proof_rectangle": 63,
+      "thresholds": [
+        8,
+        12,
+        24
+      ],
+      "name": "strip_middle3",
+      "elapsed_seconds": 2.998
+    },
+    {
+      "core_states": 98,
+      "unary_tables": 704,
+      "distinct_unary_tables_checked": 366,
+      "original_unary_values": 164130,
+      "finite_mex_identities": 319480,
+      "representative_pairs": 3260,
+      "proof_rectangle": 63,
+      "thresholds": [
+        8,
+        12,
+        24
+      ],
+      "name": "strip_middle4",
+      "elapsed_seconds": 9.916
+    },
+    {
+      "core_states": 348,
+      "unary_tables": 2398,
+      "distinct_unary_tables_checked": 1115,
+      "original_unary_values": 932124,
+      "finite_mex_identities": 1134480,
+      "representative_pairs": 3260,
+      "proof_rectangle": 63,
+      "thresholds": [
+        8,
+        12,
+        24
+      ],
+      "name": "strip_middle5",
+      "elapsed_seconds": 38.66
+    }
+  ]
+}

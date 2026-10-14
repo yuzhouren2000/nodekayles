@@ -1,0 +1,200 @@
+{
+  "format": "node-kayles-two-comb-audit-v1",
+  "original_graph_checks": 2360,
+  "literal_coefficient_checks": 2632,
+  "refined_spectrum_checks": 2632,
+  "reachable_histories": 900,
+  "families": [
+    {
+      "complete_middle_columns": 2,
+      "minimum": 8,
+      "matrix_mod4": [
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ],
+      "zero_pairs_mod4": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "complete_middle_columns": 3,
+      "minimum": 8,
+      "matrix_mod4": [
+        [
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ]
+      ],
+      "zero_pairs_mod4": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "complete_middle_columns": 4,
+      "minimum": 8,
+      "matrix_mod4": [
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "zero_pairs_mod4": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "complete_middle_columns": 5,
+      "minimum": 8,
+      "matrix_mod4": [
+        [
+          1,
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          1,
+          0,
+          6
+        ],
+        [
+          3,
+          0,
+          1,
+          7
+        ],
+        [
+          5,
+          6,
+          7,
+          4
+        ]
+      ],
+      "zero_pairs_mod4": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    }
+  ],
+  "tamper_rejections": 4,
+  "persistent_difference_obstruction": {
+    "n": 1000000000000000001,
+    "equal": 0,
+    "difference4": 2,
+    "difference2": 5
+  }
+}
