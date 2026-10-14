@@ -264,6 +264,12 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
 短段/余数/长度差分区证书求解，见 [notes/23](notes/23_two_arm_semilinear_algebra.md)。
 已核验保留 2–5 列完整三行厚块的四族任意双长度公式及可达 P 无限族。
 完整厚块宽度增加仍会扩大核心状态；尚未证明所有核心都能得到这种证书。
+这些模块的查询尾巴起点还能统一覆盖任意外臂长度及全部后继；两个带无上限
+外臂的厚模块通过第三条桥连接时，桥的周期起点不随外臂增长，见
+[notes/24](notes/24_parametric_bridge_modules.md)。例如宽度 2、3 的两厚块，
+任意两外臂下，正奇数桥长≥23 可按模 4 缩短到 23 或 25。运行
+`make test-parametric-bridge`；当前入口提供桥长归约，没有给出剩余三参数的
+完整 SG 公式或制胜手。
 接口设计的反例基准见 [notes/13](notes/13_interface_obstruction.md)。既有三行分割工具见
 [notes/08](notes/08_strip3_reductions.md)。更一般棋盘的配对研究见
 [`notes/06_structural_pairing.md`](notes/06_structural_pairing.md)：乘积型固定

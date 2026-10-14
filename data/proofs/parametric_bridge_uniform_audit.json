@@ -1,0 +1,119 @@
+{
+  "format": "node-kayles-parametric-bridge-uniform-audit-v1",
+  "modules": [
+    {
+      "uniform_onset": 8,
+      "core_states": 7,
+      "long_chamber_checks": 2800,
+      "short_axis_checks": 2240,
+      "base_certificate": {
+        "core_states": 7,
+        "unary_tables": 58,
+        "distinct_unary_tables_checked": 42,
+        "original_unary_values": 4648,
+        "finite_mex_identities": 22820,
+        "representative_pairs": 3260,
+        "proof_rectangle": 63,
+        "thresholds": [
+          8,
+          12,
+          24
+        ]
+      },
+      "complete_middle_columns": 2,
+      "certificate_sha256": "c3040b9349c05e1caa0bd2491d3ca10e2f046241c231e6bb93355be26d465fa3"
+    },
+    {
+      "uniform_onset": 9,
+      "core_states": 30,
+      "long_chamber_checks": 12000,
+      "short_axis_checks": 9600,
+      "base_certificate": {
+        "core_states": 30,
+        "unary_tables": 202,
+        "distinct_unary_tables_checked": 133,
+        "original_unary_values": 24448,
+        "finite_mex_identities": 97800,
+        "representative_pairs": 3260,
+        "proof_rectangle": 63,
+        "thresholds": [
+          8,
+          12,
+          24
+        ]
+      },
+      "complete_middle_columns": 3,
+      "certificate_sha256": "95b6c863634197913d0d9791f7dbab8738d727ae5244b4542af45718563f9167"
+    },
+    {
+      "uniform_onset": 8,
+      "core_states": 98,
+      "long_chamber_checks": 39200,
+      "short_axis_checks": 31360,
+      "base_certificate": {
+        "core_states": 98,
+        "unary_tables": 704,
+        "distinct_unary_tables_checked": 366,
+        "original_unary_values": 164130,
+        "finite_mex_identities": 319480,
+        "representative_pairs": 3260,
+        "proof_rectangle": 63,
+        "thresholds": [
+          8,
+          12,
+          24
+        ]
+      },
+      "complete_middle_columns": 4,
+      "certificate_sha256": "ad3844e2027606eaa9f6a329abb0844cad45928e8cad23eab5883397abf3c06b"
+    },
+    {
+      "uniform_onset": 9,
+      "core_states": 348,
+      "long_chamber_checks": 139200,
+      "short_axis_checks": 111360,
+      "base_certificate": {
+        "core_states": 348,
+        "unary_tables": 2398,
+        "distinct_unary_tables_checked": 1115,
+        "original_unary_values": 932124,
+        "finite_mex_identities": 1134480,
+        "representative_pairs": 3260,
+        "proof_rectangle": 63,
+        "thresholds": [
+          8,
+          12,
+          24
+        ]
+      },
+      "complete_middle_columns": 5,
+      "certificate_sha256": "efbd0fe03bd8053678ba00d2b3a6f0354ee83a8812f459e329228dbfc19c1441"
+    }
+  ],
+  "bridge_onsets": [
+    [
+      22,
+      23,
+      22,
+      23
+    ],
+    [
+      23,
+      24,
+      23,
+      24
+    ],
+    [
+      22,
+      23,
+      22,
+      23
+    ],
+    [
+      23,
+      24,
+      23,
+      24
+    ]
+  ]
+}

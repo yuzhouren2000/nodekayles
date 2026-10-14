@@ -1,0 +1,47 @@
+{
+  "format": "node-kayles-parametric-bridge-test-audit-v1",
+  "uniform_onsets": {
+    "2": 8,
+    "3": 9,
+    "4": 8,
+    "5": 9
+  },
+  "real_histories": 980,
+  "original_C_period_pairs": 87,
+  "raw_subset_SG_checks": 8,
+  "C_provenance": {
+    "returncode": 0,
+    "status": "ok",
+    "elapsed_s": 0.132,
+    "emitted": 184,
+    "requested": 184,
+    "ht_bits": 25,
+    "reductions": null,
+    "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+    "stderr_tail": [
+      "done 0.131s memo=17922 capacity=262144 bytes_per_slot=16 reductions=7 threads=1 lanes=1",
+      "stats calls=1964121 moves=988457 path=43 cycle=0 rotation=1 cancelled=220340"
+    ]
+  },
+  "huge_bridge_reduction": {
+    "left_uniform_onset": 8,
+    "right_uniform_onset": 9,
+    "bridge_period": 4,
+    "bridge_onset": 23,
+    "length": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
+    "reduced_length": 25,
+    "scope": "same SG for every outer-arm pair, including all parameterized root-safe descendants"
+  },
+  "diagonal_module_rejections": 2,
+  "real_onset_counterexample": {
+    "core": "277646313776",
+    "lengths": [
+      12,
+      16
+    ],
+    "SG_values": [
+      9,
+      13
+    ]
+  }
+}

@@ -3,7 +3,7 @@ PY ?= python3
 CC ?= gcc
 CFLAGS ?= -O2 -march=native
 
-.PHONY: build build-strip3 build-strip3-language test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
+.PHONY: build build-strip3 build-strip3-language test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
 
 help:
 	@echo "make build    - compile the C solver"
@@ -25,6 +25,7 @@ help:
 	@echo "make test-neutral-core - verify paired-exterior absorption and arbitrary-prefix tail rewrites"
 	@echo "make test-comb-bridge - verify the two-core bridge period and reachable families"
 	@echo "make test-two-comb-core - verify the two-arm finite formula certificates"
+	@echo "make test-parametric-bridge - verify bridge periods uniform in both outer-arm lengths"
 	@echo "make analyze-strip3 - structural analysis and constructive first moves"
 	@echo "make analyze-strip3-ports - regenerate the port-family survey/closure data"
 	@echo "make test     - Python reference checks vs literature (~1 min)"
@@ -113,6 +114,10 @@ test-two-comb-core:
 	$(PY) tests/verify_two_comb_core.py data/proofs/two_comb_strip_middle3.json.gz
 	$(PY) tests/verify_two_comb_core.py data/proofs/two_comb_strip_middle4.json.gz
 	$(PY) tests/verify_two_comb_core.py data/proofs/two_comb_strip_middle5.json.gz
+
+test-parametric-bridge:
+	$(PY) tests/test_parametric_comb_bridge.py
+	$(PY) tests/verify_parametric_comb_bridge.py
 
 analyze-strip3:
 	$(PY) scripts/analyze_strip3.py
