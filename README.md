@@ -42,6 +42,7 @@ notes/
   24_parametric_bridge_modules.md 任意外臂下统一的第三条桥周期
   25_three_length_nim_formula.md 不等厚块三长度精确证书与两比特 SG 公式
   26_comb_search_ablation.md   梳臂证书接入全盘搜索的命中、状态和耗时消融
+  27_bounded_thickness_search_lower_bound.md 完整 SG 展开不能靠有限厚块查表改变指数率
 src/nodekayles/solver.py       参考求解器（纯 Python，易读）
 src/cfast/kayles.c             快速求解器（C，位棋盘 + 记忆化）
 src/cfast/strip3.c             三行专用求解器（126 位状态 + 严格归约）
@@ -281,6 +282,10 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
 这些证书现有可关闭的 C 全核心识别入口（归约位8、16），实测范围与局限见
 [notes/26](notes/26_comb_search_ablation.md)。运行`make benchmark-strip3-comb`
 在本机比较相同求解器的命中、状态数和耗时；默认归约仍为7。
+进一步的任意宽度证明见 [notes/27](notes/27_bounded_thickness_search_lower_bound.md)：
+即使整个组件的全部有界厚块形状都免费求值，只要厚度上限 W=o(N)，完整
+记忆化 mex 展开的状态指数率仍为1.839…；这不限制局部接口改写或只求胜负
+的其他算法。`make test-protected-strip-search` 检查真实历史及已缓存的依赖。
 接口设计的反例基准见 [notes/13](notes/13_interface_obstruction.md)。既有三行分割工具见
 [notes/08](notes/08_strip3_reductions.md)。更一般棋盘的配对研究见
 [`notes/06_structural_pairing.md`](notes/06_structural_pairing.md)：乘积型固定
