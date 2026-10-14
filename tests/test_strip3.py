@@ -1,7 +1,7 @@
 """Independent checks of the three-row solver and its structural shortcuts.
 
 Exhaust every induced subgraph of 3x5 using a direct subset recurrence (no
-components, geometry normalisation, or theorem shortcuts). Exercise all eight
+components, geometry normalisation, or theorem shortcuts). Exercise all 32
 reduction settings, sparse positions across bit 64 and bit 125, input/budget
 errors, then compare a first-move survey to the original multiword C solver.
 
@@ -140,9 +140,9 @@ def main():
                         str(ROOT / "src/cfast/strip3.c")], check=True)
         expected = subset_table(5)
         positions = [(5, m) for m in range(len(expected))]
-        for flags in range(8):
+        for flags in range(32):
             check_masks(binary, positions, expected, flags)
-        print(f"direct subset recurrence: all {len(expected)} induced 3x5 positions agree under all 8 reduction settings")
+        print(f"direct subset recurrence: all {len(expected)} induced 3x5 positions agree under all 32 reduction settings")
 
         rng = random.Random(1729)
         sparse = [(42, 0)] + [(42, 1 << v) for v in range(126)]
@@ -152,7 +152,7 @@ def main():
         for _ in range(128):
             sparse.append((42, sum(1 << v for v in rng.sample(range(126), rng.randrange(1, 13)))))
         expected_sparse = [sparse_value(mask) for _, mask in sparse]
-        for flags in (0, 7):
+        for flags in (0, 7, 31):
             check_masks(binary, sparse, expected_sparse, flags)
         print(f"direct sparse-graph recurrence: {len(sparse)} positions across the 64/126-bit boundaries agree")
 
@@ -162,7 +162,7 @@ def main():
                               (["masks"], "bad\n"), (["masks"], "3 1 extra\n")):
             assert run(binary, command, text).returncode == 2, (command, text)
         for variable, value in (("STRIP3_HT_BITS", "7"), ("STRIP3_HT_BITS", ""),
-                                ("STRIP3_REDUCTIONS", "8")):
+                                ("STRIP3_REDUCTIONS", "32")):
             assert run(binary, ["board", "3"], **{variable: value}).returncode == 2
         budget = run(binary, ["strip", "16"], STRIP3_HT_BITS="8")
         assert budget.returncode == 3 and "memo budget reached" in budget.stderr

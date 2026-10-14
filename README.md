@@ -39,6 +39,9 @@ notes/
   21_neutral_core_absorption.md 删除中性核心吸收、受保护孪生与三行尾端改写
   22_two_sided_comb_bridge.md 两个任意厚核心之间长桥的自动周期与无限 P 族
   23_two_arm_semilinear_algebra.md 任意两根核心接双长段的有限分区证明及厚块实例
+  24_parametric_bridge_modules.md 任意外臂下统一的第三条桥周期
+  25_three_length_nim_formula.md 不等厚块三长度精确证书与两比特 SG 公式
+  26_comb_search_ablation.md   梳臂证书接入全盘搜索的命中、状态和耗时消融
 src/nodekayles/solver.py       参考求解器（纯 Python，易读）
 src/cfast/kayles.c             快速求解器（C，位棋盘 + 记忆化）
 src/cfast/strip3.c             三行专用求解器（126 位状态 + 严格归约）
@@ -275,6 +278,9 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
 奇数桥ℓ≥7已有准确P条件`n−m≡ℓ+1 (mod4)`。短段也由完整表覆盖。
 运行`python3 scripts/three_comb_chain.py --lengths 左外臂 右外臂 中桥`，
 或`make test-three-comb-chain`核验；厚块宽度仍未推广为无上限参数。
+这些证书现有可关闭的 C 全核心识别入口（归约位8、16），实测范围与局限见
+[notes/26](notes/26_comb_search_ablation.md)。运行`make benchmark-strip3-comb`
+在本机比较相同求解器的命中、状态数和耗时；默认归约仍为7。
 接口设计的反例基准见 [notes/13](notes/13_interface_obstruction.md)。既有三行分割工具见
 [notes/08](notes/08_strip3_reductions.md)。更一般棋盘的配对研究见
 [`notes/06_structural_pairing.md`](notes/06_structural_pairing.md)：乘积型固定

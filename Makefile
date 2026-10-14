@@ -3,11 +3,14 @@ PY ?= python3
 CC ?= gcc
 CFLAGS ?= -O2 -march=native
 
-.PHONY: build build-strip3 build-strip3-language test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge test-connected-comb-core test-three-comb-chain analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
+.PHONY: build build-strip3 build-strip3-language export-strip3-comb test-strip3-comb benchmark-strip3-comb test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge test-connected-comb-core test-three-comb-chain analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
 
 help:
 	@echo "make build    - compile the C solver"
 	@echo "make build-strip3 - compile the specialised three-row solver"
+	@echo "make export-strip3-comb - independently verify and export bounded comb tables"
+	@echo "make test-strip3-comb - check comb recognition and SG against recursive search"
+	@echo "make benchmark-strip3-comb - locally measure full-board search with/without comb rules"
 	@echo "make build-strip3-language - compile the perfect-index one-byte solver"
 	@echo "make test-strip3  - independent induced-position and survey checks"
 	@echo "make test-strip3-ports - B/E/H port-family coordinate and data checks"
@@ -38,8 +41,18 @@ help:
 build:
 	$(CC) $(CFLAGS) -o src/cfast/kayles src/cfast/kayles.c
 
-build-strip3:
+build-strip3: src/cfast/strip3_comb_tables.h
 	$(CC) $(CFLAGS) -Wall -Wextra -o src/cfast/strip3 src/cfast/strip3.c
+
+export-strip3-comb:
+	$(PY) scripts/export_strip3_comb.py --verify
+
+test-strip3-comb:
+	$(PY) scripts/export_strip3_comb.py --check
+	$(PY) tests/test_strip3_comb.py
+
+benchmark-strip3-comb:
+	$(PY) scripts/benchmark_strip3_comb.py
 
 build-strip3-language:
 	$(CC) $(CFLAGS) -Wall -Wextra -pthread -o src/cfast/strip3_language src/cfast/strip3_language.c

@@ -17,6 +17,8 @@
  * N and hexadecimal column-major mask, one position per line.
  * Env: STRIP3_HT_BITS (max, default 26), STRIP3_REDUCTIONS is a bit set:
  * 1=paths/cycles, 2=safe rotation, 4=equal component cancellation (default 7).
+ * 8=certified full single-thick-block combs (widths 2..5),
+ * 16=certified full double-thick-block combs (widths 2,3, odd bridge).
  * Set 0 for comparison; geometry normalisation is always enabled.
  * STRIP3_HT_PREALLOC=1 allocates the maximum table immediately instead of
  * growing from 2^18, so no doubling ever keeps two tables at once (needed
@@ -33,9 +35,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "strip3_comb_tables.h"
 
 typedef unsigned __int128 Mask;
 enum { MAXCOLS = 42, MAXCELLS = 126 };
+_Static_assert(MAXCOLS == STRIP3_COMB_MAXCOLS, "regenerate bounded comb tables");
 static const Mask KEYMASK = (((Mask)1 << 120) - 1);
 static Mask rowmask[3];
 static Mask *slots;                 /* packed key (low 120 bits) + value (top 8) */
@@ -61,7 +65,10 @@ static uint8_t *wide_values;
 static size_t wide_cap, wide_entries;
 
 /* per-thread statistics, summed at exit */
-struct tstat { uint64_t calls, moves, path_hits, cycle_hits, rotation_hits, cancelled; };
+struct tstat {
+    uint64_t calls, moves, path_hits, cycle_hits, rotation_hits, cancelled;
+    uint64_t single_comb, chain_comb, chain_formula;
+};
 static __thread struct tstat tst;
 enum { TMAX = 64 };
 static struct tstat stats_out[TMAX];   /* copied by each thread before it exits */
@@ -137,6 +144,62 @@ static Mask canonical(Mask m) {
         if (horizontal < best) best = horizontal;
     }
     return best;
+}
+
+static int column(Mask m, int c) { return (int)(m >> (3 * c)) & 7; }
+
+static size_t comb_pair_index(int budget, int left, int right) {
+    return (size_t)(left * (budget + 1) - left * (left - 1) / 2 + right);
+}
+
+/* Match the ENTIRE component, never a subword or a damaged thick block.
+ * Full columns locate the blocks; caps must be 6 and every remaining column
+ * must be the exact phase-zero 4,6 comb seen from its cap. Vertical reflection
+ * is tried by the caller. A reversed 3,2 chain swaps the outer lengths.
+ */
+static int oriented_comb(Mask m, int n, Mask full, int total, int *g, int *formula) {
+    int first = lowbit(full) / 3, after = first;
+    while (after < n && column(m, after) == 7) after++;
+    int w = after - first, left = first - 1;
+    if (left < 0 || after >= n || column(m, first - 1) != 6 || column(m, after) != 6)
+        return 0;
+    for (int i = 0; i < left; i++)
+        if (column(m, left - 1 - i) != (i % 2 ? 6 : 4)) return 0;
+    if ((reductions & 8) && total == w && w >= 2 && w <= 5) {
+        int right = n - after - 1;
+        for (int i = 0; i < right; i++)
+            if (column(m, after + 1 + i) != (i % 2 ? 6 : 4)) return 0;
+        int budget = MAXCOLS - w - 2;
+        *g = strip3_single_values[strip3_single_offsets[w - 2] + comb_pair_index(budget, left, right)];
+        return 8;
+    }
+    if (!(reductions & 16) || total != 5 || (w != 2 && w != 3)) return 0;
+    int second = after + 1;
+    while (second < n && column(m, second) != 7) second++;
+    int bridge = second - after - 2, end = second;
+    if (second >= n || bridge < 1 || !(bridge % 2) || column(m, second - 1) != 6) return 0;
+    for (int i = 0; i < bridge; i++)
+        if (column(m, after + 1 + i) != (i % 2 ? 6 : 4)) return 0;
+    while (end < n && column(m, end) == 7) end++;
+    if (end - second != 5 - w || end >= n || column(m, end) != 6) return 0;
+    int right = n - end - 1;
+    for (int i = 0; i < right; i++)
+        if (column(m, end + 1 + i) != (i % 2 ? 6 : 4)) return 0;
+    if (w == 3) { int temp = left; left = right; right = temp; }
+    int budget = MAXCOLS - 9 - bridge;
+    *g = strip3_chain_values[strip3_chain_offsets[(bridge - 1) / 2] + comb_pair_index(budget, left, right)];
+    *formula = left >= 5 && right >= 5 && bridge >= 11;
+    return 16;
+}
+
+static int certified_comb(Mask m, int n, int *g, int *formula) {
+    Mask full = m & (m >> 1) & (m >> 2) & rowmask[0];
+    if (!full) return 0;
+    int total = order(full);
+    if (!(((reductions & 8) && total >= 2 && total <= 5) || ((reductions & 16) && total == 5)))
+        return 0;
+    int kind = oriented_comb(m, n, full, total, g, formula);
+    return kind ? kind : oriented_comb(flip_rows(m), n, full, total, g, formula);
 }
 
 static uint64_t hash(Mask m) {
@@ -331,6 +394,15 @@ static int component_value(Mask m) {
         }
 
     }
+    if (reductions & 24) {
+        int g, formula = 0, kind = certified_comb(m, n, &g, &formula);
+        if (kind) {
+            if (kind == 8) tst.single_comb++;
+            else { tst.chain_comb++; tst.chain_formula += formula; }
+            store(m, g);
+            return g;
+        }
+    }
     uint64_t seen[2] = {0, 0};
     for (Mask x = m; x; x &= x - 1) {
         int v = lowbit(x), col = v / 3, row = v % 3;
@@ -388,11 +460,12 @@ static void *worker_main(void *arg) {
 static Mask full_board(int n) { return ((Mask)1 << (3 * n)) - 1; }
 
 static void stats(int n, int g, double t) {
-    fprintf(stderr, "[3x%d] G=%d time=%.3f memo=%zu calls=%llu moves=%llu path=%llu cycle=%llu rotation=%llu cancelled=%llu\n",
+    fprintf(stderr, "[3x%d] G=%d time=%.3f memo=%zu calls=%llu moves=%llu path=%llu cycle=%llu rotation=%llu cancelled=%llu single_comb=%llu chain_comb=%llu chain_formula=%llu\n",
         n, g, seconds() - t, __atomic_load_n(&entries, __ATOMIC_RELAXED),
         (unsigned long long)tst.calls, (unsigned long long)tst.moves,
         (unsigned long long)tst.path_hits, (unsigned long long)tst.cycle_hits,
-        (unsigned long long)tst.rotation_hits, (unsigned long long)tst.cancelled);
+        (unsigned long long)tst.rotation_hits, (unsigned long long)tst.cancelled,
+        (unsigned long long)tst.single_comb, (unsigned long long)tst.chain_comb, (unsigned long long)tst.chain_formula);
 }
 
 static void initialise(void) {
@@ -418,7 +491,7 @@ static void initialise(void) {
     if (env) {
         char *end;
         long flags = strtol(env, &end, 10);
-        if (!*env || *end || flags < 0 || flags > 7) { fprintf(stderr, "invalid STRIP3_REDUCTIONS (0..7)\n"); exit(2); }
+        if (!*env || *end || flags < 0 || flags > 31) { fprintf(stderr, "invalid STRIP3_REDUCTIONS (0..31)\n"); exit(2); }
         reductions = (int)flags;
     }
     env = getenv("STRIP3_HT_PREALLOC");
@@ -533,19 +606,21 @@ int main(int argc, char **argv) {
         }
     } else goto usage;
     {
-        uint64_t tc = 0, tm = 0, tp = 0, tcy = 0, tr = 0, tcn = 0;
+        uint64_t tc = 0, tm = 0, tp = 0, tcy = 0, tr = 0, tcn = 0, tsc = 0, tcc = 0, tcf = 0;
         int reg = nregistered ? nregistered : 0;
         if (!reg) { stats_out[0] = tst; reg = 1; }   /* survey/strip/board modes */
         for (int i = 0; i < reg && i < TMAX; i++) {
             tc += stats_out[i].calls; tm += stats_out[i].moves;
             tp += stats_out[i].path_hits; tcy += stats_out[i].cycle_hits;
             tr += stats_out[i].rotation_hits; tcn += stats_out[i].cancelled;
+            tsc += stats_out[i].single_comb; tcc += stats_out[i].chain_comb; tcf += stats_out[i].chain_formula;
         }
         fprintf(stderr, "done %.3fs memo=%zu capacity=%zu bytes_per_slot=16 reductions=%d threads=%d lanes=%zu\n",
                 seconds() - started, __atomic_load_n(&entries, __ATOMIC_RELAXED), capacity, reductions, nthreads, lane_count);
-        fprintf(stderr, "stats calls=%llu moves=%llu path=%llu cycle=%llu rotation=%llu cancelled=%llu\n",
+        fprintf(stderr, "stats calls=%llu moves=%llu path=%llu cycle=%llu rotation=%llu cancelled=%llu single_comb=%llu chain_comb=%llu chain_formula=%llu\n",
                 (unsigned long long)tc, (unsigned long long)tm, (unsigned long long)tp,
-                (unsigned long long)tcy, (unsigned long long)tr, (unsigned long long)tcn);
+                (unsigned long long)tcy, (unsigned long long)tr, (unsigned long long)tcn,
+                (unsigned long long)tsc, (unsigned long long)tcc, (unsigned long long)tcf);
     }
     free(slots);
     return 0;
