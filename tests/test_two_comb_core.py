@@ -246,6 +246,34 @@ def main():
             residue_value = (0, 3, 2, 1)
             assert all(matrix[i][j] == (residue_value[i] ^ residue_value[j] ^ 1)
                        for i in range(4) for j in range(4))
+            # Closed-form winning play uses only the last two spine vertices
+            # (or last leaf), so no search of a long arm or core is required.
+            query = CertifiedTwoComb(load("strip_middle3"))
+            for n in range(12, 28):
+                for m in range(12, 28):
+                    value = query.value((n, m))
+                    if value == 0:
+                        continue
+                    if value == 2:
+                        side = 0 if n % 2 == 0 else 1
+                        length = (n, m)[side]
+                        move = ("spine", side, length - 1)
+                    elif value == 1:
+                        move = ("leaf", 0, n - 1) if n % 2 == 0 else ("spine", 0, n - 2)
+                    else:
+                        assert value == 3
+                        move = ("spine", 0, n - 2) if n % 2 == 0 else ("spine", 0, n - 1)
+                    kind, side, index = move
+                    length, other = (n, m)[side], (m, n)[side]
+                    if kind == "leaf":
+                        prefix, extra = index, ((0, 1, 2, 1)[(length - index - 1) % 4])
+                    else:
+                        prefix = index - 1
+                        pure_tail = ((0, 1, 2, 1), (0, 1, 2, 3))[(index + 2) % 2]
+                        extra = pure_tail[max(length - index - 2, 0) % 4]
+                        extra ^= (1 + int(index + 1 < length)) * (1 - index % 2) % 2
+                    pair = (prefix, other) if side == 0 else (other, prefix)
+                    assert checker.at(checker.full, *pair) ^ extra == 0
         assert all(checker.at(checker.full, n, m) == matrix[n % 4][m % 4]
                    for n in range(checker.b, checker.R + 1)
                    for m in range(checker.b, checker.R + 1))
@@ -265,6 +293,13 @@ def main():
     assert square.at(square.full, n, n) == 0
     assert square.at(square.full, n + 4, n) == 2
     assert square.at(square.full, n, n + 2) == 5
+    # Absorb the first phase-one vertex and its leaf into a bipartite core.
+    # This gives the same persistent obstruction with two phase-zero arms.
+    absorbed_graph = (26, 5, 74, 5, 33, 16, 132, 64)
+    absorbed = TwoCombCore(absorbed_graph, (4, 6), (0, 0)).build(20)
+    assert all(absorbed.value(absorbed.full, (i, j))
+               == square.at(square.full, i + 1, j + 1)
+               for i in range(21) for j in range(21))
     tampered = []
     proof = load("square_opposite")
     bad = deepcopy(proof); bad["states"][0]["rows"][8][8] ^= 1; tampered.append(bad)
