@@ -171,9 +171,9 @@ python3 scripts/parametric_comb_bridge.py \
 make test-parametric-bridge
 ```
 
-当前命令给出已证明的桥长归约，**没有计算剩余三参数局面的全部 SG 或
-制胜手**。不能把一个参数被消去说成另外两个参数也已解出。三长度全公式
-还需分析归约后的连接核心。
+本节命令给出已证明的桥长归约，没有计算剩余三参数局面的全部 SG 或
+制胜手。后续 [notes/25](25_three_length_nim_formula.md) 已对 w=2,u=3 核验
+全部13个连接核心，完成任意三长度SG查询，并提取显式两比特公式和P条件。
 
 ## 5. 核验和对宽度方向的边界
 

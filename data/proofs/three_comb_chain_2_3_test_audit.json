@@ -1,0 +1,29 @@
+{
+  "format": "node-kayles-thick-three-comb-test-audit-v1",
+  "real_histories": 637,
+  "original_C_SG_checks": 489,
+  "named_vertex_SG_checks": 8,
+  "huge_formula_checks": 1000,
+  "abstract_zero_axis_checks": 65,
+  "invalid_inputs_rejected": 5,
+  "short_bridge_SG_counterexample": {
+    "left": 7,
+    "right": 7,
+    "bridge": 9,
+    "SG": 4
+  },
+  "C_provenance": {
+    "returncode": 0,
+    "status": "ok",
+    "elapsed_s": 0.165,
+    "emitted": 489,
+    "requested": 489,
+    "ht_bits": 25,
+    "reductions": null,
+    "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
+    "stderr_tail": [
+      "done 0.156s memo=28992 capacity=262144 bytes_per_slot=16 reductions=7 threads=1 lanes=1",
+      "stats calls=2678898 moves=1332808 path=43 cycle=0 rotation=1 cancelled=253382"
+    ]
+  }
+}

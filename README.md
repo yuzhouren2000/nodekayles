@@ -268,8 +268,13 @@ python3 tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
 外臂的厚模块通过第三条桥连接时，桥的周期起点不随外臂增长，见
 [notes/24](notes/24_parametric_bridge_modules.md)。例如宽度 2、3 的两厚块，
 任意两外臂下，正奇数桥长≥23 可按模 4 缩短到 23 或 25。运行
-`make test-parametric-bridge`；当前入口提供桥长归约，没有给出剩余三参数的
-完整 SG 公式或制胜手。
+`make test-parametric-bridge`；该入口提供桥长归约。
+宽度2、3的两厚块现在已有全部三长度的精确查询证书，见
+[notes/25](notes/25_three_length_nim_formula.md)。两外臂n,m≥5、奇数桥ℓ≥11时，
+`SG=r(n) xor r(m) xor((ℓ+1) mod4)`，`r=(0,3,2,1)`按长度模4索引；
+奇数桥ℓ≥7已有准确P条件`n−m≡ℓ+1 (mod4)`。短段也由完整表覆盖。
+运行`python3 scripts/three_comb_chain.py --lengths 左外臂 右外臂 中桥`，
+或`make test-three-comb-chain`核验；厚块宽度仍未推广为无上限参数。
 接口设计的反例基准见 [notes/13](notes/13_interface_obstruction.md)。既有三行分割工具见
 [notes/08](notes/08_strip3_reductions.md)。更一般棋盘的配对研究见
 [`notes/06_structural_pairing.md`](notes/06_structural_pairing.md)：乘积型固定

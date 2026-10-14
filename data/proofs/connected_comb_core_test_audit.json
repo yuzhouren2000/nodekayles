@@ -1,0 +1,50 @@
+{
+  "raw_named_graph_checks": 5040,
+  "raw_descendant_cross_checks": 9360,
+  "verified_certificates": 47,
+  "query_original_checks": 1656,
+  "literal_and_refined_spectra": 368,
+  "tamper_rejections": 5,
+  "mixed_phase_square_samples": [
+    {
+      "phases": [
+        0,
+        1
+      ],
+      "diagonal_lengths": [
+        16,
+        32,
+        64
+      ],
+      "SG": [
+        13,
+        15,
+        15
+      ],
+      "status": "finite exact samples; no unboundedness theorem asserted"
+    },
+    {
+      "phases": [
+        1,
+        0
+      ],
+      "diagonal_lengths": [
+        16,
+        32,
+        64
+      ],
+      "SG": [
+        13,
+        15,
+        15
+      ],
+      "status": "finite exact samples; no unboundedness theorem asserted"
+    }
+  ],
+  "permanent_phase_zero_difference": {
+    "n": 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+    "equal": 0,
+    "difference4": 2,
+    "difference2": 5
+  }
+}

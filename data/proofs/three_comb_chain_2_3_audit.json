@@ -1,0 +1,882 @@
+{
+  "format": "node-kayles-thick-three-comb-audit-v1",
+  "widths": [
+    2,
+    3
+  ],
+  "bridge_onset": 23,
+  "module_premises": [
+    {
+      "uniform_onset": 8,
+      "core_states": 7,
+      "long_chamber_checks": 2800,
+      "short_axis_checks": 2240,
+      "base_certificate": {
+        "core_states": 7,
+        "unary_tables": 58,
+        "distinct_unary_tables_checked": 42,
+        "original_unary_values": 4648,
+        "finite_mex_identities": 22820,
+        "representative_pairs": 3260,
+        "proof_rectangle": 63,
+        "thresholds": [
+          8,
+          12,
+          24
+        ]
+      }
+    },
+    {
+      "uniform_onset": 9,
+      "core_states": 30,
+      "long_chamber_checks": 12000,
+      "short_axis_checks": 9600,
+      "base_certificate": {
+        "core_states": 30,
+        "unary_tables": 202,
+        "distinct_unary_tables_checked": 133,
+        "original_unary_values": 24448,
+        "finite_mex_identities": 97800,
+        "representative_pairs": 3260,
+        "proof_rectangle": 63,
+        "thresholds": [
+          8,
+          12,
+          24
+        ]
+      }
+    }
+  ],
+  "bridges": [
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 4370,
+      "connected_unary_states": 242,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 7,
+      "full_core_matrix_mod4": [
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 1
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 4940,
+      "connected_unary_states": 260,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 7,
+      "full_core_matrix_mod4": [
+        [
+          0,
+          5,
+          2,
+          1
+        ],
+        [
+          5,
+          6,
+          7,
+          4
+        ],
+        [
+          2,
+          7,
+          0,
+          3
+        ],
+        [
+          11,
+          1,
+          9,
+          4
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 3
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 5030,
+      "connected_unary_states": 278,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 5,
+      "full_core_matrix_mod4": [
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 5
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 5096,
+      "connected_unary_states": 296,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 5,
+      "full_core_matrix_mod4": [
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 7
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 5414,
+      "connected_unary_states": 314,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 3,
+      "full_core_matrix_mod4": [
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          4
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 9
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 5732,
+      "connected_unary_states": 332,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 5,
+      "full_core_matrix_mod4": [
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 11
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 6050,
+      "connected_unary_states": 350,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 3,
+      "full_core_matrix_mod4": [
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 13
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 6368,
+      "connected_unary_states": 368,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 5,
+      "full_core_matrix_mod4": [
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 15
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 6686,
+      "connected_unary_states": 386,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 3,
+      "full_core_matrix_mod4": [
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 17
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 7004,
+      "connected_unary_states": 404,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 5,
+      "full_core_matrix_mod4": [
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 19
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 7322,
+      "connected_unary_states": 422,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 3,
+      "full_core_matrix_mod4": [
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 21
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 7640,
+      "connected_unary_states": 440,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 5,
+      "full_core_matrix_mod4": [
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 23
+    },
+    {
+      "core_states": 18,
+      "unary_tables": 2,
+      "distinct_unary_tables_checked": 2,
+      "finite_mex_identities": 48312,
+      "representative_pairs": 2684,
+      "proof_rectangle": 55,
+      "thresholds": [
+        12,
+        4,
+        24
+      ],
+      "finite_unary_mex_identities": 7958,
+      "connected_unary_states": 458,
+      "format": "node-kayles-connected-two-comb-audit-v1",
+      "full_core_independent_onset": 3,
+      "full_core_matrix_mod4": [
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ]
+      ],
+      "P_pairs_mod4": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "all_connected_descendants_independent": true,
+      "bridge": 25
+    }
+  ],
+  "total_finite_mex_identities": 628056,
+  "total_finite_unary_mex_identities": 79610,
+  "closed_SG_formula": {
+    "outer_minimum": 5,
+    "odd_bridge_minimum": 11,
+    "r_mod4": [
+      0,
+      3,
+      2,
+      1
+    ],
+    "SG": "r(n) xor r(m) xor ((ell+1) mod4)"
+  },
+  "closed_P_formula": {
+    "outer_minimum": 5,
+    "odd_bridge_minimum": 7,
+    "condition": "n-m == ell+1 (mod4)"
+  },
+  "certificate_sha256": "0bf8c1ccbab892e76b12ca9e17dd147cd9c5260f235ae0ca398de3b8bce99ac2"
+}

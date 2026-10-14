@@ -3,7 +3,7 @@ PY ?= python3
 CC ?= gcc
 CFLAGS ?= -O2 -march=native
 
-.PHONY: build build-strip3 build-strip3-language test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
+.PHONY: build build-strip3 build-strip3-language test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge test-connected-comb-core test-three-comb-chain analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
 
 help:
 	@echo "make build    - compile the C solver"
@@ -26,6 +26,8 @@ help:
 	@echo "make test-comb-bridge - verify the two-core bridge period and reachable families"
 	@echo "make test-two-comb-core - verify the two-arm finite formula certificates"
 	@echo "make test-parametric-bridge - verify bridge periods uniform in both outer-arm lengths"
+	@echo "make test-connected-comb-core - verify component-normalized comb certificates"
+	@echo "make test-three-comb-chain - verify all three lengths and the explicit nim formula"
 	@echo "make analyze-strip3 - structural analysis and constructive first moves"
 	@echo "make analyze-strip3-ports - regenerate the port-family survey/closure data"
 	@echo "make test     - Python reference checks vs literature (~1 min)"
@@ -118,6 +120,13 @@ test-two-comb-core:
 test-parametric-bridge:
 	$(PY) tests/test_parametric_comb_bridge.py
 	$(PY) tests/verify_parametric_comb_bridge.py
+
+test-connected-comb-core:
+	$(PY) tests/test_connected_comb_core.py
+
+test-three-comb-chain: test-connected-comb-core
+	$(PY) tests/test_three_comb_chain.py
+	$(PY) tests/verify_three_comb_chain.py
 
 analyze-strip3:
 	$(PY) scripts/analyze_strip3.py
