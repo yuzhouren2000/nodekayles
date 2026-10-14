@@ -190,6 +190,8 @@
       ]
     }
   ],
+  "query_original_checks": 147,
+  "query_spectrum_checks": 240,
   "tamper_rejections": 4,
   "persistent_difference_obstruction": {
     "n": 1000000000000000001,

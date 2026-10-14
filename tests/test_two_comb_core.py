@@ -12,7 +12,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from two_comb_core import TwoCombCore, tail_graph
+from two_comb_core import CertifiedTwoComb, TwoCombCore, tail_graph
 from kayles_boundary_transfer import column_graph
 from strip3_history_language import decode
 from verify_two_comb_core import Checker
@@ -142,6 +142,46 @@ def main():
     original_count = original_checks()
     rng = random.Random(2342)
     coefficient_checks = refined_checks = reachable = 0
+    query_original_checks = query_spectrum_checks = 0
+    for name in ("square_opposite", "strip_middle2", "strip_middle3"):
+        proof = load(name)
+        query = CertifiedTwoComb(proof)
+        checker = Checker(proof, check_unary=False)
+        for n in range(7):
+            for m in range(7):
+                lengths = n, m
+                expected, raw_options = original(checker.graph, checker.roots, checker.phases, lengths)
+                options = query.representative_options(lengths)
+                assert query.value(lengths) == expected
+                assert {value for _, value in options} == set(raw_options.values())
+                assert all(raw_options[move] == value for move, value in options)
+                winning = query.winning_move(lengths)
+                assert (winning is None) == (expected == 0)
+                if winning is not None:
+                    assert raw_options[winning] == 0
+                query_original_checks += 1
+        for _ in range(80):
+            lengths = rng.randrange(10 ** 18), rng.randrange(10 ** 18)
+            # Include the precise diagonal and either short axis, not just far cells.
+            if query_spectrum_checks % 4 == 0:
+                lengths = lengths[0], lengths[0] + rng.randrange(-3, 4)
+            elif query_spectrum_checks % 4 == 1:
+                lengths = rng.randrange(8), lengths[1]
+            elif query_spectrum_checks % 4 == 2:
+                lengths = lengths[0], rng.randrange(8)
+            options = query.representative_options(lengths)
+            assert query.value(lengths) == checker.at(checker.full, *lengths)
+            assert {value for _, value in options} == checker.options(checker.full, *lengths)
+            for move, _ in options:
+                if move[0] != "core":
+                    kind, side, index = move
+                    assert 0 <= index < lengths[side]
+                    assert kind == "spine" or checker.phases[side] ^ (index % 2)
+            winning = query.winning_move(lengths)
+            assert (winning is None) == (query.value(lengths) == 0)
+            if winning is not None:
+                assert (winning, 0) in options
+            query_spectrum_checks += 1
     for name in ("square_opposite", "strip_middle2", "strip_middle3", "strip_middle4"):
         checker = Checker(load(name), check_unary=False)
         for mask in checker.rows:
@@ -209,6 +249,11 @@ def main():
         assert all(checker.at(checker.full, n, m) == matrix[n % 4][m % 4]
                    for n in range(checker.b, checker.R + 1)
                    for m in range(checker.b, checker.R + 1))
+        # Phase-zero reachable examples have independent periods even in every
+        # retained descendant. The generic certificate also permits a diagonal band.
+        assert all(checker.at(mask, n, m) == checker.at(mask, 8 + n % 4, 8 + m % 4)
+                   for mask in checker.rows for n in range(8, checker.R + 1)
+                   for m in range(8, checker.R + 1))
         families.append({"complete_middle_columns": width, "minimum": checker.b,
                          "matrix_mod4": matrix,
                          "zero_pairs_mod4": [[i, j] for i in range(4) for j in range(4)
@@ -235,6 +280,8 @@ def main():
     audit = {"format": "node-kayles-two-comb-audit-v1", "original_graph_checks": original_count,
              "literal_coefficient_checks": coefficient_checks, "refined_spectrum_checks": refined_checks,
              "reachable_histories": reachable, "families": families,
+             "query_original_checks": query_original_checks,
+             "query_spectrum_checks": query_spectrum_checks,
              "tamper_rejections": len(tampered),
              "persistent_difference_obstruction": {"n": n, "equal": 0,
                                                    "difference4": 2, "difference2": 5}}

@@ -103,9 +103,10 @@ class TwoCombCore:
         j = n if n < start else start + (n - start) % 4
         return model.values[model.full][j] ^ offset
 
-    def direct_options(self, mask, lengths, lookup=None):
+    def direct_options(self, mask, lengths, lookup=None, terminated=None):
         """Core moves and the first main-chain move of either arm."""
         lookup = self.value if lookup is None else lookup
+        terminated = self.terminated if terminated is None else terminated
         options = []
         for v in range(len(self.graph)):
             if not mask >> v & 1:
@@ -116,14 +117,14 @@ class TwoCombCore:
                     new[side] = 0
                     offset ^= comb_value(p ^ 1, n - 1) ^ p
             value = (lookup(rest, tuple(new)) if rest & self.root_mask == self.root_mask
-                     and all(new) else self.terminated(rest, tuple(new)))
+                     and all(new) else terminated(rest, tuple(new)))
             options.append((("core", v), value ^ offset))
         for side, (root, p, n) in enumerate(zip(self.roots, self.phases, lengths)):
             if not n:
                 continue
             new = list(lengths)
             new[side] = 0
-            value = self.terminated(mask & ~(1 << root), tuple(new))
+            value = terminated(mask & ~(1 << root), tuple(new))
             value ^= comb_value(p, max(n - 2, 0)) ^ ((1 - p) if n >= 2 else 0)
             options.append((("spine", side, 0), value))
         return options
@@ -255,6 +256,27 @@ class DiagonalCandidate:
                    for mask, rows in self.model.rows.items()
                    for n, row in enumerate(rows) for m, g in enumerate(row))
 
+    def prefix_positions(self, upper, other):
+        """Actual prefix lengths covering each value and residue in 0..upper."""
+        if upper < 0:
+            return []
+        b, d, t = self.minimum, self.difference, self.boundary
+        positions = set()
+        if other < b:
+            positions.update(range(min(upper + 1, t)))
+            intervals = ((t, upper),)
+        else:
+            positions.update(range(min(upper + 1, b)))
+            low, high = max(b, other - d + 1), min(upper, other + d - 1)
+            if low <= high:
+                positions.update(range(low, high + 1))
+            intervals = ((b, min(upper, other - d)),
+                         (max(b, other + d), upper))
+        for low, high in intervals:
+            if low <= high:
+                positions.update(range(low, min(high + 1, low + 4)))
+        return sorted(positions)
+
     def proof(self):
         unary = []
         for (mask, side), model in sorted(self.model.unary.items()):
@@ -272,6 +294,97 @@ class DiagonalCandidate:
                 "states": [{"mask": mask, "rows": [row[:k + 1] for row in rows[:k + 1]]}
                            for mask, rows in self.model.rows.items()],
                 "unary": unary}
+
+
+class CertifiedTwoComb:
+    """SG and actual representative moves from a previously verified proof.
+
+    This is a query reader, not an independent certificate verifier. Its
+    working graph is the finite core; neither long arm is materialized.
+    """
+
+    def __init__(self, proof):
+        if proof.get("format") != "node-kayles-two-comb-semilinear-v1":
+            raise ValueError("unknown two-comb certificate format")
+        self.model = TwoCombCore(proof["adjacency"], proof["roots"], proof["phases"])
+        self.model.maximum = proof["sample_bound"]
+        self.model.rows = {row["mask"]: row["rows"] for row in proof["states"]}
+        self.candidate = self.model.candidate(proof["minimum"], proof["difference"],
+                                              proof["boundary"])
+        self.unary = {}
+        for table in proof["unary"]:
+            full = (1 << len(table["adjacency"])) - 1
+            values = next(row["values"] for row in table["states"] if row["mask"] == full)
+            self.unary[table["core_mask"], table["side"]] = table["start"], values
+
+    def terminated(self, mask, lengths):
+        offset, active = 0, []
+        for side, (root, phase, n) in enumerate(zip(self.model.roots, self.model.phases, lengths)):
+            if n and not mask >> root & 1:
+                offset ^= comb_value(phase, n)
+            elif n:
+                active.append(side)
+        if not active:
+            return self.model.core_value(mask) ^ offset
+        if len(active) != 1:
+            raise ValueError("terminal query has two active arms")
+        side = active[0]
+        start, values = self.unary[mask, side]
+        n = lengths[side]
+        return offset ^ values[n if n < start else start + (n - start) % 4]
+
+    def value(self, lengths, mask=None):
+        if len(lengths) != 2 or any(type(n) is not int or n < 0 for n in lengths):
+            raise ValueError("two nonnegative lengths required")
+        mask = self.model.full if mask is None else mask
+        if not all(lengths) or mask & self.model.root_mask != self.model.root_mask:
+            return self.terminated(mask, lengths)
+        return self.candidate.value(mask, lengths)
+
+    def representative_options(self, lengths, mask=None):
+        """Named original moves covering the entire option-value set."""
+        mask = self.model.full if mask is None else mask
+        self.value(lengths, mask)  # Validate lengths before constructing moves.
+        if mask & self.model.root_mask != self.model.root_mask:
+            raise ValueError("representative moves require both core roots")
+        lookup = lambda rest, pair: self.value(pair, rest)
+        # The same exact core/first-spine recurrence uses stored unary tables.
+        # No discovery solver is needed while querying the certificate.
+        options = self.model.direct_options(mask, lengths, lookup, self.terminated)
+        for side, (p, length, other) in enumerate(zip(self.model.phases, lengths, lengths[::-1])):
+            def prefix(j):
+                pair = (j, other) if side == 0 else (other, j)
+                return self.value(pair, mask)
+            if length < 3:
+                for i in range(length):
+                    tooth = p ^ (i % 2)
+                    if tooth:
+                        options.append((("leaf", side, i), prefix(i)
+                                        ^ comb_value(0, length - i - 1)))
+                    if i:
+                        options.append((("spine", side, i), prefix(i - 1)
+                                        ^ comb_value(p ^ ((i + 2) % 2), max(length - i - 2, 0))
+                                        ^ ((1 + int(i + 1 < length)) * (1 - tooth) % 2)))
+                continue
+            for j in self.candidate.prefix_positions(length - 3, other):
+                value = prefix(j)
+                options.append((("spine", side, j + 1), value
+                                ^ comb_value(p ^ ((j + 3) % 2), length - j - 3)))
+                if p ^ (j % 2):
+                    options.append((("leaf", side, j), value ^ comb_value(0, length - j - 1)))
+            delta = p ^ (length % 2)
+            options.append((("spine", side, length - 1), prefix(length - 2) ^ delta))
+            if not delta:
+                options.append((("leaf", side, length - 1), prefix(length - 1)))
+        return options
+
+    def winning_move(self, lengths):
+        if self.value(lengths) == 0:
+            return None
+        for move, value in self.representative_options(lengths):
+            if value == 0:
+                return move
+        raise ValueError("certificate is inconsistent: nonzero SG has no zero-valued option")
 
 
 def main():
@@ -293,19 +406,14 @@ def main():
         opener = gzip.open if args.certificate.suffix == ".gz" else open
         with opener(args.certificate, "rt") as source:
             proof = json.load(source)
-        if proof.get("format") != "node-kayles-two-comb-semilinear-v1":
-            parser.error("unknown certificate format")
         # This reads the proved table; the independent verifier is a separate
         # command so arbitrary-length queries do not repeat its finite proof.
-        class StoredModel:
-            maximum = proof["sample_bound"]
-            rows = {row["mask"]: row["rows"] for row in proof["states"]}
-        candidate = DiagonalCandidate(StoredModel(), proof["minimum"], proof["difference"],
-                                      proof["boundary"])
-        full = (1 << len(proof["adjacency"])) - 1
+        query = CertifiedTwoComb(proof)
         lengths = tuple(args.lengths)
-        print(json.dumps({"lengths": lengths, "canonical_lengths": candidate.canonical(lengths),
-                          "SG": candidate.value(full, lengths),
+        print(json.dumps({"lengths": lengths,
+                          "canonical_lengths": query.candidate.canonical(lengths),
+                          "SG": query.value(lengths), "winning_move": query.winning_move(lengths),
+                          "move_indexing": "zero-based; arm side 0=left, 1=right; index from core",
                           "thresholds": [proof[k] for k in ("minimum", "difference", "boundary")]}))
         return
     if not args.columns or any(c not in "01234567" for c in args.columns):
