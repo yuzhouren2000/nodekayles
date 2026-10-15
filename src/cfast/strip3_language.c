@@ -1,11 +1,21 @@
 /* Exact Node Kayles restricted to the entire reachable-component family of
  * the full three-row board. Perfect indexing: one byte per geometry, no keys.
- * See notes/17_connected_history_language.md. This is single-threaded.
+ * See notes/17_connected_history_language.md.
  *
- * Usage: strip3_language board N | strip N | masks | ranks
+ * Parallelism (STRIP3_LANGUAGE_THREADS > 1): threads share the one-byte SG
+ * table.  A state is claimed by an atomic compare-exchange of its byte to a
+ * COMPUTING marker, so it is computed exactly once; a thread that meets a
+ * claimed state spins until its value is published.  Dependencies always go to
+ * a strictly smaller cell count (a move deletes N[v], v in its own component),
+ * so the wait-for graph is acyclic and no deadlock is possible.  The top level
+ * (the first-move options of the current empty board) is split across the
+ * threads; every deeper level is reached through the shared memo.
+ *
+ * Usage: strip3_language strip N | board N | masks | ranks
+ * STRIP3_LANGUAGE_THREADS (default 1) sets threads for strip/board.
  * STRIP3_LANGUAGE_BYTES caps allocated SG bytes (default 1 GiB).
  * STRIP3_LANGUAGE_REDUCTIONS uses the original 1/2/4 reduction flags.
- * masks rejects connected geometries outside the proved reachable family.
+ * masks ranks rejects connected geometries outside the proved reachable family.
  *
  * Reuse only the original geometry primitives and path table. Its hash-table
  * initialiser/CLI are never called by this entry point.
@@ -15,12 +25,16 @@
 #undef main
 #include <errno.h>
 
+enum { LANG_COMPUTING = 255 };
+
 static uint8_t *dense[MAXCOLS + 1];
 static uint64_t ways[MAXCOLS + 1][MAXCOLS + 1][3][5][6];
+#define WAYS_UNSET ((uint64_t)-1)
 static uint64_t state_counts[MAXCOLS + 1];
 static uint64_t allocated_bytes, byte_budget = (uint64_t)1 << 30;
 static uint64_t language_entries;
 static int language_flags = 7;
+static int lang_threads = 1, lang_parallel = 0;
 static const int end_choices[4][5] = {{0}, {0,2}, {0,1,4,5}, {0,1,2,4,5}};
 static const int end_sizes[4] = {1,2,4,5};
 static const unsigned small1[6] = {1,2,3,4,6,7};
@@ -42,7 +56,7 @@ static void invalid_mask(Mask m) {
 static uint64_t completion(int n, int pos, int side, int age, int weight) {
     if (pos == n) return (uint64_t)weight * (side ? end_sizes[age - 1] : 5);
     uint64_t *saved = &ways[n][pos][side][age][weight];
-    if (*saved) return *saved;
+    if (*saved != WAYS_UNSET) return *saved;
     uint64_t total = 0;
     for (int bit = 0; bit < 3; bit++) {
         if (bit && side && age < (side == bit ? 2 : 3)) continue;
@@ -122,28 +136,24 @@ static Mask language_canonical(Mask m) {
 
 static int language_value(Mask m);
 
-static void save_language(int n, uint64_t rank, int g) {
-    dense[n][rank] = (uint8_t)(g + 1);
-    language_entries++;
+/* Allocate (zeroed) the one-byte SG row for a width, idempotently. */
+static void ensure_row(int n) {
+    if (dense[n]) return;
+    if (state_counts[n] > byte_budget - allocated_bytes) {
+        fprintf(stderr, "strip3_language: byte budget reached; width %d needs %llu extra bytes, "
+                "%llu allocated, budget %llu; current position incomplete\n", n,
+                (unsigned long long)state_counts[n], (unsigned long long)allocated_bytes,
+                (unsigned long long)byte_budget);
+        exit(3);
+    }
+    dense[n] = calloc((size_t)state_counts[n], 1);
+    if (!dense[n]) { fprintf(stderr, "strip3_language: allocation failed\n"); exit(3); }
+    allocated_bytes += state_counts[n];
 }
 
-static int language_component(Mask m) {
-    tst.calls++;
-    int n = width(m);
-    uint64_t rank = language_rank(m);
-    if (!dense[n]) {
-        if (state_counts[n] > byte_budget - allocated_bytes) {
-            fprintf(stderr, "strip3_language: byte budget reached; width %d needs %llu extra bytes, "
-                    "%llu allocated, budget %llu; current position incomplete\n", n,
-                    (unsigned long long)state_counts[n], (unsigned long long)allocated_bytes,
-                    (unsigned long long)byte_budget);
-            exit(3);
-        }
-        dense[n] = calloc((size_t)state_counts[n], 1);
-        if (!dense[n]) { fprintf(stderr, "strip3_language: allocation failed\n"); exit(3); }
-        allocated_bytes += state_counts[n];
-    }
-    if (dense[n][rank]) return dense[n][rank] - 1;
+/* Evaluate a single connected component whose row is already allocated.
+ * The caller owns its memo byte and publishes the result. */
+static int compute_component(Mask m, int n) {
     int nodes = order(m);
     if (language_flags & 1) {
         int maxdegree = 0, endpoints = 0;
@@ -156,7 +166,6 @@ static int language_component(Mask m) {
         if (maxdegree <= 2) {
             int g = (endpoints || nodes == 1) ? path_g[nodes] : (path_g[nodes-3] == 0);
             if (endpoints || nodes == 1) tst.path_hits++; else tst.cycle_hits++;
-            save_language(n, rank, g);
             return g;
         }
     }
@@ -167,7 +176,7 @@ static int language_component(Mask m) {
             int v = lowbit(x), partner = 3*n - 1 - v;
             if (partner == v || (neighbours((Mask)1 << v) & ((Mask)1 << partner))) safe = 0;
         }
-        if (safe) { tst.rotation_hits++; save_language(n, rank, 0); return 0; }
+        if (safe) { tst.rotation_hits++; return 0; }
     }
     uint64_t seen[2] = {0, 0};
     for (Mask x = m; x; x &= x - 1) {
@@ -183,7 +192,39 @@ static int language_component(Mask m) {
     int g = 0;
     while (g < 128 && ((seen[g >> 6] >> (g & 63)) & 1)) g++;
     if (g >= 128) { fprintf(stderr, "strip3_language: mex overflow\n"); exit(1); }
-    save_language(n, rank, g);
+    return g;
+}
+
+static int language_component(Mask m) {
+    tst.calls++;
+    int n = width(m);
+    uint64_t rank = language_rank(m);
+    if (!dense[n]) ensure_row(n);   /* parallel: pre-allocated before threads start */
+    uint8_t *row = dense[n];
+    if (!lang_parallel) {
+        uint8_t have = row[rank];
+        if (have) return have - 1;
+        int g = compute_component(m, n);
+        row[rank] = (uint8_t)(g + 1);
+        language_entries++;
+        return g;
+    }
+    for (;;) {
+        uint8_t cur = __atomic_load_n(&row[rank], __ATOMIC_ACQUIRE);
+        if (cur) {
+            if (cur != LANG_COMPUTING) return cur - 1;
+            do { __asm__ volatile("pause"); }
+            while (__atomic_load_n(&row[rank], __ATOMIC_ACQUIRE) == LANG_COMPUTING);
+            continue;
+        }
+        uint8_t expected = 0;
+        if (__atomic_compare_exchange_n(&row[rank], &expected, LANG_COMPUTING,
+                                        0, __ATOMIC_ACQ_REL, __ATOMIC_ACQUIRE))
+            break;
+    }
+    int g = compute_component(m, n);
+    __atomic_store_n(&row[rank], (uint8_t)(g + 1), __ATOMIC_RELEASE);
+    __atomic_fetch_add(&language_entries, 1, __ATOMIC_RELAXED);
     return g;
 }
 
@@ -206,6 +247,90 @@ static int language_value(Mask m) {
     }
     int g = 0;
     for (int i = 0; i < count; i++) g ^= language_component(parts[i]);
+    return g;
+}
+
+/* ---- parallel top level: split the first-move options of one empty board --- */
+
+static struct {
+    Mask full;
+    int cells;
+    int *opt;
+    _Atomic int next;
+} lang_job;
+
+static void *lang_worker(void *arg) {
+    int worker = (int)(intptr_t)arg;
+    for (;;) {
+        int i = __atomic_fetch_add(&lang_job.next, 1, __ATOMIC_RELAXED);
+        if (i >= lang_job.cells) break;
+        Mask bit = (Mask)1 << i;
+        lang_job.opt[i] = language_value(lang_job.full & ~(bit | neighbours(bit)));
+    }
+    stats_out[worker] = tst;
+    return NULL;
+}
+
+/* ---- generic batch pool: independent positions, one value each ----------- */
+
+static struct {
+    Mask *masks;
+    int *values;
+    int count;
+    _Atomic int next;
+} batch_job;
+
+static void *batch_worker(void *arg) {
+    int worker = (int)(intptr_t)arg;
+    for (;;) {
+        int i = __atomic_fetch_add(&batch_job.next, 1, __ATOMIC_RELAXED);
+        if (i >= batch_job.count) break;
+        batch_job.values[i] = language_value(batch_job.masks[i]);
+    }
+    stats_out[worker] = tst;
+    return NULL;
+}
+
+static void run_batch(Mask *masks, int *values, int count) {
+    batch_job.masks = masks;
+    batch_job.values = values;
+    batch_job.count = count;
+    __atomic_store_n(&batch_job.next, 0, __ATOMIC_RELAXED);
+    int nw = lang_threads < count ? lang_threads : count;
+    if (nw < 1) nw = 1;
+    pthread_t th[TMAX];
+    for (int w = 1; w < nw; w++) pthread_create(&th[w], NULL, batch_worker, (void *)(intptr_t)w);
+    batch_worker((void *)(intptr_t)0);
+    for (int w = 1; w < nw; w++) pthread_join(th[w], NULL);
+}
+
+/* Values of every first move of the empty 3xn board, spread over the threads.
+ * Fills opt[0 .. 3n-1] (column-major cells) and returns the mex. */
+static int parallel_options(int n, int *opt) {
+    int cells = 3 * n;
+    lang_job.full = full_board(n);
+    lang_job.cells = cells;
+    lang_job.opt = opt;
+    __atomic_store_n(&lang_job.next, 0, __ATOMIC_RELAXED);
+    int nw = lang_threads < cells ? lang_threads : cells;
+    pthread_t th[TMAX];
+    for (int w = 1; w < nw; w++) pthread_create(&th[w], NULL, lang_worker, (void *)(intptr_t)w);
+    lang_worker((void *)(intptr_t)0);
+    for (int w = 1; w < nw; w++) pthread_join(th[w], NULL);
+    uint64_t seen[2] = {0, 0};
+    for (int i = 0; i < cells; i++) if (opt[i] < 128) seen[opt[i] >> 6] |= 1ULL << (opt[i] & 63);
+    int g = 0;
+    while (g < 128 && ((seen[g >> 6] >> (g & 63)) & 1)) g++;
+    if (g >= 128) { fprintf(stderr, "strip3_language: mex overflow\n"); exit(1); }
+    return g;
+}
+
+/* Value of the empty 3xn board, with its first moves spread over the threads. */
+static int parallel_width(int n) {
+    int *opt = malloc((size_t)(3 * n) * sizeof *opt);
+    if (!opt) { fprintf(stderr, "strip3_language: allocation failed\n"); exit(3); }
+    int g = parallel_options(n, opt);
+    free(opt);
     return g;
 }
 
@@ -233,10 +358,19 @@ static void language_init(void) {
         }
         while ((seen[path_g[size] >> 6] >> (path_g[size] & 63)) & 1) path_g[size]++;
     }
+    memset(ways, 0xff, sizeof ways);   /* WAYS_UNSET: counts may legitimately be 0 */
     state_counts[1] = 6; state_counts[2] = 24;
     for (int n = 3; n <= MAXCOLS; n++) state_counts[n] = completion(n, 0, 0, 4, 0);
+    /* Freeze the suffix-count table before any thread touches it. */
+    for (int n = 1; n <= MAXCOLS; n++)
+        for (int pos = 0; pos <= n; pos++)
+            for (int side = 0; side < 3; side++)
+                for (int age = 1; age <= 4; age++)
+                    for (int weight = 0; weight < 6; weight++)
+                        completion(n, pos, side, age, weight);
     byte_budget = read_setting("STRIP3_LANGUAGE_BYTES", byte_budget, SIZE_MAX);
     language_flags = (int)read_setting("STRIP3_LANGUAGE_REDUCTIONS", 7, 7);
+    lang_threads = (int)read_setting("STRIP3_LANGUAGE_THREADS", 1, TMAX);
     started = seconds();
 }
 
@@ -269,20 +403,76 @@ int main(int argc, char **argv) {
         }
     } else if (argc == 3 && (!strcmp(argv[1], "board") || !strcmp(argv[1], "strip"))) {
         char *end;
+        long limit = strtol(argv[2], &end, 10);
+        if (!*argv[2] || *end || limit < 1 || limit > MAXCOLS) goto usage;
+        int first = !strcmp(argv[1], "board") ? (int)limit : 1;
+        lang_parallel = lang_threads > 1;
+        if (lang_parallel) for (int n = 1; n <= limit; n++) ensure_row(n);
+        for (int n = first; n <= limit; n++) {
+            double t = seconds();
+            int g = lang_parallel ? parallel_width(n) : language_value(full_board(n));
+            printf("%d\t%d\n", n, g);
+            fflush(stdout);
+            fprintf(stderr, "[3x%d] G=%d time=%.3f memo=%llu sg_bytes=%llu\n",
+                    n, g, seconds() - t,
+                    (unsigned long long)__atomic_load_n(&language_entries, __ATOMIC_RELAXED),
+                    (unsigned long long)allocated_bytes);
+        }
+    } else if (argc == 3 && !strcmp(argv[1], "survey")) {
+        char *end;
         long n = strtol(argv[2], &end, 10);
         if (!*argv[2] || *end || n < 1 || n > MAXCOLS) goto usage;
-        for (int w = !strcmp(argv[1], "strip") ? 1 : (int)n; w <= n; w++) {
-            int g = language_value(full_board(w));
-            printf("%d\t%d\n", w, g); fflush(stdout);
+        lang_parallel = lang_threads > 1;
+        if (lang_parallel) for (int w = 1; w <= n; w++) ensure_row(w);
+        int *opt = malloc((size_t)(3 * n) * sizeof *opt);
+        if (!opt) { fprintf(stderr, "strip3_language: allocation failed\n"); exit(3); }
+        int g;
+        if (lang_parallel) g = parallel_options((int)n, opt);
+        else {
+            Mask full = full_board((int)n);
+            for (int v = 0; v < 3 * n; v++) {
+                Mask bit = (Mask)1 << v;
+                opt[v] = language_value(full & ~(bit | neighbours(bit)));
+            }
+            uint64_t seen[2] = {0, 0};
+            for (int v = 0; v < 3 * n; v++) if (opt[v] < 128) seen[opt[v] >> 6] |= 1ULL << (opt[v] & 63);
+            g = 0;
+            while (g < 128 && ((seen[g >> 6] >> (g & 63)) & 1)) g++;
         }
+        printf("{\"n\":%ld,\"grundy\":%d,\"options\":[", n, g);
+        for (int v = 0; v < 3 * n; v++) printf("%s%d", v ? "," : "", opt[v]);
+        printf("]}\n");
+        fflush(stdout);
+        free(opt);
+    } else if (argc == 3 && !strcmp(argv[1], "gaps")) {
+        char *end;
+        long limit = strtol(argv[2], &end, 10);
+        if (!*argv[2] || *end || limit < 1 || limit > MAXCOLS) goto usage;
+        lang_parallel = lang_threads > 1;
+        if (lang_parallel) for (int w = 1; w <= limit; w++) ensure_row(w);
+        Mask *masks = malloc((size_t)(2 * limit) * sizeof *masks);
+        int *values = malloc((size_t)(2 * limit) * sizeof *values);
+        if (!masks || !values) { fprintf(stderr, "strip3_language: allocation failed\n"); exit(3); }
+        for (int t = 1; t <= limit; t++) {
+            Mask right_gap = full_board(t) & ~((Mask)1 << (3 * (t - 1) + 1));
+            masks[2 * (t - 1)]     = right_gap;                        /* A(t) */
+            masks[2 * (t - 1) + 1] = right_gap & ~((Mask)1 << 1);      /* D(t) */
+        }
+        run_batch(masks, values, 2 * (int)limit);
+        for (int t = 1; t <= limit; t++)
+            printf("%d\t%d\t%d\n", t, values[2 * (t - 1)], values[2 * (t - 1) + 1]);
+        fflush(stdout);
+        free(masks);
+        free(values);
     } else goto usage;
-    fprintf(stderr, "language: time=%.3f memo=%llu sg_bytes=%llu calls=%llu moves=%llu\n",
-            seconds()-started, (unsigned long long)language_entries,
+    fprintf(stderr, "language: time=%.3f memo=%llu sg_bytes=%llu calls=%llu moves=%llu threads=%d\n",
+            seconds()-started,
+            (unsigned long long)__atomic_load_n(&language_entries, __ATOMIC_RELAXED),
             (unsigned long long)allocated_bytes, (unsigned long long)tst.calls,
-            (unsigned long long)tst.moves);
+            (unsigned long long)tst.moves, lang_threads);
     for (int n = 1; n <= MAXCOLS; n++) free(dense[n]);
     return 0;
 usage:
-    fprintf(stderr, "usage: strip3_language board N | strip N | masks | ranks\n");
+    fprintf(stderr, "usage: strip3_language strip N | board N | survey N | gaps N | masks | ranks\n");
     return 2;
 }

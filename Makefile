@@ -3,7 +3,7 @@ PY ?= python3
 CC ?= gcc
 CFLAGS ?= -O2 -march=native
 
-.PHONY: build build-strip3 build-strip3-language export-strip3-comb test-strip3-comb benchmark-strip3-comb test-protected-strip-search test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge test-connected-comb-core test-three-comb-chain analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
+.PHONY: build build-strip3 build-strip3-language export-strip3-comb test-strip3-comb benchmark-strip3-comb test-protected-strip-search test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-strip3-language-33 test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge test-connected-comb-core test-three-comb-chain test-interface-classes analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
 
 help:
 	@echo "make build    - compile the C solver"
@@ -23,6 +23,8 @@ help:
 	@echo "make test-comb-stabilization - exhaust the universal block lemma and check tail algebra"
 	@echo "make test-clique-strips - check three-row defect algebra and infinite period certificates"
 	@echo "make test-strip3-language - check the complete reachable-component language and byte table"
+	@echo "make test-strip3-language-33 - verify f(33)=1: a-sequence middle options and mex over the survey certificate"
+	@echo "make test-interface-classes - check reachable-family transfer classes and boundary-fixing isomorphisms"
 	@echo "make test-kayles-boundary - verify arbitrary-context square/tree replacement and boundary products"
 	@echo "make test-kayles-transfer - check complete column generation and infinite-interface premises"
 	@echo "make test-guarded-symmetry - check exact guarded-symmetry SG and dense three-row families"
@@ -102,6 +104,12 @@ test-clique-strips:
 
 test-strip3-language:
 	$(PY) tests/test_strip3_history_language.py
+
+test-strip3-language-33:
+	$(PY) tests/verify_strip3_language_33.py
+
+test-interface-classes:
+	$(PY) tests/verify_interface_classes.py
 
 test-kayles-boundary:
 	$(PY) tests/verify_kayles_boundary.py data/proofs/kayles_boundary_replacement.json

@@ -1,0 +1,57 @@
+[3x1] G=2 time=0.000 memo=1 sg_bytes=9212242967
+[3x2] G=1 time=0.000 memo=2 sg_bytes=9212242967
+[3x3] G=1 time=0.000 memo=10 sg_bytes=9212242967
+[3x4] G=0 time=0.000 memo=20 sg_bytes=9212242967
+[3x5] G=3 time=0.000 memo=45 sg_bytes=9212242967
+[3x6] G=3 time=0.000 memo=87 sg_bytes=9212242967
+[3x7] G=2 time=0.000 memo=161 sg_bytes=9212242967
+[3x8] G=2 time=0.000 memo=286 sg_bytes=9212242967
+[3x9] G=2 time=0.000 memo=519 sg_bytes=9212242967
+[3x10] G=3 time=0.000 memo=929 sg_bytes=9212242967
+[3x11] G=3 time=0.001 memo=1687 sg_bytes=9212242967
+[3x12] G=5 time=0.001 memo=3053 sg_bytes=9212242967
+[3x13] G=2 time=0.003 memo=5572 sg_bytes=9212242967
+[3x14] G=4 time=0.005 memo=10151 sg_bytes=9212242967
+[3x15] G=1 time=0.009 memo=18588 sg_bytes=9212242967
+[3x16] G=3 time=0.018 memo=34007 sg_bytes=9212242967
+[3x17] G=2 time=0.034 memo=62395 sg_bytes=9212242967
+[3x18] G=2 time=0.066 memo=114429 sg_bytes=9212242967
+[3x19] G=1 time=0.136 memo=210186 sg_bytes=9212242967
+[3x20] G=1 time=0.271 memo=385980 sg_bytes=9212242967
+[3x21] G=5 time=0.578 memo=709412 sg_bytes=9212242967
+[3x22] G=0 time=1.333 memo=1303689 sg_bytes=9212242967
+[3x23] G=1 time=2.652 memo=2396913 sg_bytes=9212242967
+[3x24] G=1 time=5.416 memo=4406550 sg_bytes=9212242967
+[3x25] G=3 time=10.257 memo=8103177 sg_bytes=9212242967
+[3x26] G=0 time=20.855 memo=14900283 sg_bytes=9212242967
+[3x27] G=2 time=40.641 memo=27402715 sg_bytes=9212242967
+[3x28] G=5 time=79.862 memo=50394501 sg_bytes=9212242967
+[3x29] G=1 time=157.991 memo=92684102 sg_bytes=9212242967
+[3x30] G=0 time=310.664 memo=170459869 sg_bytes=9212242967
+[3x31] G=2 time=601.961 memo=313513856 sg_bytes=9212242967
+[3x32] G=6 time=1199.326 memo=576618403 sg_bytes=9212242967
+[3x33] G=1 time=2410.510 memo=1060546881 sg_bytes=9212242967
+language: time=4842.594 memo=1060546881 sg_bytes=9212242967 calls=2158434712 moves=1049492380 threads=16
+	Command being timed: "./src/cfast/strip3_language strip 33"
+	User time (seconds): 79714.04
+	System time (seconds): 32.89
+	Percent of CPU this job got: 1599%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:23:05
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 8995904
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 4500124
+	Voluntary context switches: 53
+	Involuntary context switches: 99831
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 144
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
