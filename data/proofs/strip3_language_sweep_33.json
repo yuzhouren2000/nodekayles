@@ -1,0 +1,123 @@
+{
+ "version": 1,
+ "kind": "strip3_sweep",
+ "n": 33,
+ "columns": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17
+ ],
+ "ht_bits": null,
+ "load": null,
+ "prealloc": null,
+ "threads": null,
+ "timeout_s": null,
+ "status": "ok",
+ "returncode": 0,
+ "elapsed_s": null,
+ "union_memo": null,
+ "memo_at_exit": null,
+ "binary_sha256": null,
+ "results": [
+  {
+   "column": 1,
+   "mask": "7fffffffffffffffffffffff4",
+   "value": 0
+  },
+  {
+   "column": 2,
+   "mask": "7ffffffffffffffffffffffa6",
+   "value": 0
+  },
+  {
+   "column": 3,
+   "mask": "7fffffffffffffffffffffd37",
+   "value": 0
+  },
+  {
+   "column": 4,
+   "mask": "7ffffffffffffffffffffe9bf",
+   "value": 0
+  },
+  {
+   "column": 5,
+   "mask": "7ffffffffffffffffffff4dff",
+   "value": 0
+  },
+  {
+   "column": 6,
+   "mask": "7fffffffffffffffffffa6fff",
+   "value": 18
+  },
+  {
+   "column": 7,
+   "mask": "7ffffffffffffffffffd37fff",
+   "value": 0
+  },
+  {
+   "column": 8,
+   "mask": "7fffffffffffffffffe9bffff",
+   "value": 6
+  },
+  {
+   "column": 9,
+   "mask": "7fffffffffffffffff4dfffff",
+   "value": 2
+  },
+  {
+   "column": 10,
+   "mask": "7ffffffffffffffffa6ffffff",
+   "value": 4
+  },
+  {
+   "column": 11,
+   "mask": "7fffffffffffffffd37ffffff",
+   "value": 0
+  },
+  {
+   "column": 12,
+   "mask": "7ffffffffffffffe9bfffffff",
+   "value": 0
+  },
+  {
+   "column": 13,
+   "mask": "7ffffffffffffff4dffffffff",
+   "value": 0
+  },
+  {
+   "column": 14,
+   "mask": "7fffffffffffffa6fffffffff",
+   "value": 0
+  },
+  {
+   "column": 15,
+   "mask": "7ffffffffffffd37fffffffff",
+   "value": 0
+  },
+  {
+   "column": 16,
+   "mask": "7fffffffffffe9bffffffffff",
+   "value": 0
+  },
+  {
+   "column": 17,
+   "mask": "7fffffffffff4dfffffffffff",
+   "value": 4
+  }
+ ],
+ "note": "edge orbits extracted from src/cfast/strip3_language survey (language solver); grundy and middle options are re-derived by verify_strip3_exact"
+}

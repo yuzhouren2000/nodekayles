@@ -1,6 +1,6 @@
 {
  "format": "nodekayles-strip3-a-ext-v1",
- "note": "A(t) = value of F_t minus (2,t) for t = 29, 30, 31, computed in one shared-memo strip3 masks process (A(29..31); A(32) from a separate run), per-line flush; needed for the middle-move values of 3x31, 3x32 and 3x33",
+ "note": "A(t) = value of F_t minus (2,t), the right-end-middle-gap strip. Values 29..31 were computed by the old shared-memo strip3 solver (see provenance); value 32 comes from the language solver's direct sequence run `strip3_language gaps 32`, whose complete A/D table for t<=32 is data/strip3_language_gaps_32.out. Needed for the middle-move split values of 3x31, 3x32, 3x33 and 3x34.",
  "binary_sha256": "ebfd3b9b3fa6a637c28904b0d4bd5c30f4a13c90bfc176fdd607eb13e3599d97",
  "ht_bits": 30,
  "prealloc": true,
@@ -15,15 +15,21 @@
  "values": {
   "29": 1,
   "30": 3,
-  "31": 4
+  "31": 4,
+  "32": 0
  },
  "provenance": {
-  "29_30": "campaign A(29..31) shared-memo process (values flushed per line)",
+  "29_30": "campaign A(29..31) shared-memo process (values flushed per line); independently replicated by an option-decomposition run of the same 175 first-move jobs through the old solver's masks mode (data/strip3_a_options.out; generator scripts/strip3_option_jobs.py; old solver binary sha256 453c743b...): mex A(29)=1, A(30)=3",
   "31": {
    "value": 4,
    "children": 92,
    "elapsed_s": 1769.1,
    "threads": 8
+  },
+  "32": {
+   "value": 0,
+   "source": "strip3_language gaps 32 (language solver 2587b0dd..., direct A(t)/D(t) evaluation, 16 threads, clean exit 0, wall 2h00m48s, peak RSS 4,892,040 KB, memo=667357664, sg_bytes=5008595272 = exact capacity prediction for width 32)",
+   "cross_checks": "A/D for t<=28 equal the old solver's survey (28/28, machine-checked by tests/verify_strip3_language_33.py); A(29)=1, A(30)=3, A(31)=4 equal this file; the value 0 also equals the F_33 survey's middle-move option at columns 1/33 (the A(32) board itself)"
   }
  }
 }

@@ -80,6 +80,7 @@ test-strip3-exact:
 	$(PY) tests/verify_strip3_exact.py --n 30 --sweep data/strip3_sweep_30.json
 	$(PY) tests/verify_strip3_exact.py --n 31 --sweep data/strip3_sweep_31.json
 	$(PY) tests/verify_strip3_exact.py --n 32 --sweep data/strip3_sweep_32.json
+	$(PY) tests/verify_strip3_exact.py --n 33 --sweep data/proofs/strip3_language_sweep_33.json
 
 test-strip3-two-move:
 	$(PY) tests/test_strip3_two_move.py

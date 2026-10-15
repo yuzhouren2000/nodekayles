@@ -1,0 +1,25 @@
+[3x34] G=5 time=9010.593 memo=1870877942 sg_bytes=16943956496
+language: time=9010.594 memo=1870877942 sg_bytes=16943956496 calls=4 moves=0 threads=16
+	Command being timed: "./src/cfast/strip3_language board 34"
+	User time (seconds): 144276.43
+	System time (seconds): 54.33
+	Percent of CPU this job got: 1599%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:30:21
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 16545192
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 8276297
+	Voluntary context switches: 9
+	Involuntary context switches: 172024
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

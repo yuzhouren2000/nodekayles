@@ -378,8 +378,11 @@ int main(int argc, char **argv) {
     if (argc < 2) goto usage;
     language_init();
     if ((!strcmp(argv[1], "masks") || !strcmp(argv[1], "ranks")) && argc == 2) {
+        int ranks = !strcmp(argv[1], "ranks");
         char line[128], hex[40], extra;
-        int n;
+        int n, count = 0, cap = 0;
+        Mask *masks = NULL;
+        int *values = NULL;
         while (fgets(line, sizeof line, stdin)) {
             if (sscanf(line, "%d %39s %c", &n, hex, &extra) != 2 || n < 1 || n > MAXCOLS) goto usage;
             if (!*hex || strlen(hex) > 32) goto usage;
@@ -392,15 +395,43 @@ int main(int argc, char **argv) {
                 m = (m << 4) | digit;
             }
             if (m >> (3*n)) goto usage;
-            if (!strcmp(argv[1], "ranks")) {
+            if (count == cap) {
+                cap = cap ? 2 * cap : 64;
+                masks = realloc(masks, (size_t)cap * sizeof *masks);
+                values = realloc(values, (size_t)cap * sizeof *values);
+                if (!masks || !values) { fprintf(stderr, "strip3_language: allocation failed\n"); exit(3); }
+            }
+            masks[count++] = m;
+        }
+        if (ranks) {
+            for (int i = 0; i < count; i++) {
+                Mask m = masks[i];
                 if (!m || !(m & 7)) invalid_mask(m);
                 Mask reached = (Mask)1 << lowbit(m), frontier = reached;
                 while (frontier) { frontier = neighbours(frontier) & m & ~reached; reached |= frontier; }
                 if (reached != m) invalid_mask(m);
                 printf("%llu\n", (unsigned long long)language_rank(m));
-            } else printf("%d\n", language_value(m));
-            fflush(stdout);
+            }
+        } else if (count) {
+            lang_parallel = lang_threads > 1;
+            if (lang_parallel) {
+                /* Every row up to the widest input must exist before any worker
+                 * can lazily allocate below it (ensure_row is not thread-safe). */
+                int maxw = 0;
+                for (int i = 0; i < count; i++) {
+                    int w = width(masks[i]);
+                    if (w > maxw) maxw = w;
+                }
+                for (int w = 1; w <= maxw; w++) ensure_row(w);
+                run_batch(masks, values, count);
+            } else {
+                for (int i = 0; i < count; i++) values[i] = language_value(masks[i]);
+            }
+            for (int i = 0; i < count; i++) printf("%d\n", values[i]);
         }
+        fflush(stdout);
+        free(masks);
+        free(values);
     } else if (argc == 3 && (!strcmp(argv[1], "board") || !strcmp(argv[1], "strip"))) {
         char *end;
         long limit = strtol(argv[2], &end, 10);
