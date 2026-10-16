@@ -1,0 +1,48 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 28,
+      "status": "timeout",
+      "wall_s": 2.011674,
+      "returncode": -9,
+      "stdout": "",
+      "stderr": "stage k=0 equal=0 time=0.016883 memo=3046 queries=126326 moves=42322\nstage k=1 equal=0 time=0.509395 memo=38535 queries=5981728 moves=1775937\nstage k=2 equal=0 time=0.509470 memo=38535 queries=5981733 moves=1775938\nstage k=3 equal=0 time=0.859813 memo=64253 queries=10196949 moves=2972720",
+      "counts": {
+        "k": 3,
+        "equal": 0,
+        "memo": 64253,
+        "queries": 10196949,
+        "moves": 2972720
+      },
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      28
+    ],
+    "skip_reference": true
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "ef40236bc8d17fd66ac60f5c3e23309d50965457",
+    "source_sha256": {
+      "src/cfast/strip3_target.c": "36727dd8233e5f2e5adc2342e22f726653f1dd221ea0d2a2f13d5f682d9a1e8a",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 2.950136
+}

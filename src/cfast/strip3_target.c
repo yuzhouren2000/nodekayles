@@ -194,7 +194,18 @@ int main(int argc, char **argv) {
         while ((seen >> path_g[size]) & 1) path_g[size]++;
     }
     double start = seconds();
-    if (board) printf("3\t%d\t%d\n", n, exact_value(full_board(n)));
+    if (board) {
+        int g = 0, match;
+        do {
+            match = equality(full_board(n), g);
+            fprintf(stderr, "stage k=%d equal=%d time=%.6f memo=%zu queries=%llu moves=%llu\n",
+                    g, match, seconds()-start, query_entries,
+                    (unsigned long long)queries, (unsigned long long)query_moves);
+            fflush(stderr);  /* retain completed obligations even on a later timeout */
+            if (!match) g++;
+        } while (!match);
+        printf("3\t%d\t%d\n", n, g);
+    }
     else if (eq) printf("%d\n", equality(full_board(n), k));
     else {
         char line[160], hex[40], extra;

@@ -1,0 +1,192 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 12,
+      "status": "complete",
+      "wall_s": 0.008646,
+      "returncode": 0,
+      "stdout": "3\t12\t5",
+      "stderr": "target time=0.005222 memo=1075 exact=416 queries=32750 moves=11621 refutations=1634 bytes_per_slot=48 order=2 low_first=1",
+      "counts": {
+        "memo": 1075,
+        "exact": 416,
+        "queries": 32750,
+        "moves": 11621,
+        "refutations": 1634,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 1
+      },
+      "SG": 5,
+      "solver": "candidate"
+    },
+    {
+      "n": 16,
+      "status": "complete",
+      "wall_s": 0.0186,
+      "returncode": 0,
+      "stdout": "3\t16\t3",
+      "stderr": "target time=0.014667 memo=2478 exact=806 queries=81299 moves=27270 refutations=3591 bytes_per_slot=48 order=2 low_first=1",
+      "counts": {
+        "memo": 2478,
+        "exact": 806,
+        "queries": 81299,
+        "moves": 27270,
+        "refutations": 3591,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 1
+      },
+      "SG": 3,
+      "solver": "candidate"
+    },
+    {
+      "n": 18,
+      "status": "complete",
+      "wall_s": 0.021431,
+      "returncode": 0,
+      "stdout": "3\t18\t2",
+      "stderr": "target time=0.017606 memo=3237 exact=1029 queries=116540 moves=38795 refutations=4708 bytes_per_slot=48 order=2 low_first=1",
+      "counts": {
+        "memo": 3237,
+        "exact": 1029,
+        "queries": 116540,
+        "moves": 38795,
+        "refutations": 4708,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 1
+      },
+      "SG": 2,
+      "solver": "candidate"
+    },
+    {
+      "n": 20,
+      "status": "complete",
+      "wall_s": 0.173253,
+      "returncode": 0,
+      "stdout": "3\t20\t1",
+      "stderr": "target time=0.164693 memo=23322 exact=7562 queries=1347235 moves=410159 refutations=38154 bytes_per_slot=48 order=2 low_first=1",
+      "counts": {
+        "memo": 23322,
+        "exact": 7562,
+        "queries": 1347235,
+        "moves": 410159,
+        "refutations": 38154,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 1
+      },
+      "SG": 1,
+      "solver": "candidate"
+    },
+    {
+      "n": 22,
+      "status": "complete",
+      "wall_s": 0.061883,
+      "returncode": 0,
+      "stdout": "3\t22\t0",
+      "stderr": "target time=0.057040 memo=8886 exact=3032 queries=452923 moves=143817 refutations=13746 bytes_per_slot=48 order=2 low_first=1",
+      "counts": {
+        "memo": 8886,
+        "exact": 3032,
+        "queries": 452923,
+        "moves": 143817,
+        "refutations": 13746,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 1
+      },
+      "SG": 0,
+      "solver": "candidate"
+    },
+    {
+      "n": 24,
+      "status": "complete",
+      "wall_s": 0.593152,
+      "returncode": 0,
+      "stdout": "3\t24\t1",
+      "stderr": "target time=0.581119 memo=64990 exact=23405 queries=5338241 moves=1555949 refutations=119969 bytes_per_slot=48 order=2 low_first=1",
+      "counts": {
+        "memo": 64990,
+        "exact": 23405,
+        "queries": 5338241,
+        "moves": 1555949,
+        "refutations": 119969,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 1
+      },
+      "SG": 1,
+      "solver": "candidate"
+    },
+    {
+      "n": 26,
+      "status": "complete",
+      "wall_s": 0.189256,
+      "returncode": 0,
+      "stdout": "3\t26\t0",
+      "stderr": "target time=0.182929 memo=14913 exact=9463 queries=1743876 moves=536327 refutations=35102 bytes_per_slot=48 order=2 low_first=1",
+      "counts": {
+        "memo": 14913,
+        "exact": 9463,
+        "queries": 1743876,
+        "moves": 536327,
+        "refutations": 35102,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 1
+      },
+      "SG": 0,
+      "solver": "candidate"
+    },
+    {
+      "n": 28,
+      "status": "timeout",
+      "wall_s": 2.01501,
+      "returncode": -9,
+      "stdout": "",
+      "stderr": "",
+      "counts": {},
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 1,
+    "sizes": [
+      12,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      34
+    ],
+    "skip_reference": true
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "ef40236bc8d17fd66ac60f5c3e23309d50965457",
+    "source_sha256": {
+      "src/cfast/strip3_target.c": "60603a31b382ee22f979c6655d43a1f2895570e108fd8adc0c22e0db5a928f86",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 3.978255
+}

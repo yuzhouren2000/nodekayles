@@ -1,0 +1,272 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "completed_requested_sizes",
+  "samples": [
+    {
+      "n": 12,
+      "status": "complete",
+      "wall_s": 0.007742,
+      "returncode": 0,
+      "stdout": "3\t12\t5",
+      "stderr": "target time=0.004592 memo=908 exact=372 queries=32258 moves=11943 refutations=1606 bytes_per_slot=48 order=2 low_first=0",
+      "counts": {
+        "memo": 908,
+        "exact": 372,
+        "queries": 32258,
+        "moves": 11943,
+        "refutations": 1606,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0
+      },
+      "SG": 5,
+      "solver": "candidate"
+    },
+    {
+      "n": 12,
+      "status": "complete",
+      "wall_s": 0.019644,
+      "returncode": 0,
+      "stdout": "3\t12\t5",
+      "stderr": "[3x12] G=5 time=0.016 memo=2917 calls=93987 moves=52959 path=49 cycle=0 rotation=1 cancelled=5993 single_comb=0 chain_comb=0 chain_formula=0\ndone 0.016s memo=2917 capacity=16777216 bytes_per_slot=16 reductions=7 threads=1 lanes=1\nstats calls=93987 moves=52959 path=49 cycle=0 rotation=1 cancelled=5993 single_comb=0 chain_comb=0 chain_formula=0",
+      "counts": {
+        "G": 5,
+        "memo": 2917,
+        "calls": 93987,
+        "moves": 52959,
+        "path": 49,
+        "cycle": 0,
+        "rotation": 1,
+        "cancelled": 5993,
+        "single_comb": 0,
+        "chain_comb": 0,
+        "chain_formula": 0,
+        "capacity": 16777216,
+        "bytes_per_slot": 16,
+        "reductions": 7,
+        "threads": 1,
+        "lanes": 1
+      },
+      "SG": 5,
+      "solver": "reference"
+    },
+    {
+      "n": 16,
+      "status": "complete",
+      "wall_s": 0.012999,
+      "returncode": 0,
+      "stdout": "3\t16\t3",
+      "stderr": "target time=0.009099 memo=1391 exact=504 queries=49935 moves=17953 refutations=2394 bytes_per_slot=48 order=2 low_first=0",
+      "counts": {
+        "memo": 1391,
+        "exact": 504,
+        "queries": 49935,
+        "moves": 17953,
+        "refutations": 2394,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0
+      },
+      "SG": 3,
+      "solver": "candidate"
+    },
+    {
+      "n": 16,
+      "status": "complete",
+      "wall_s": 0.261875,
+      "returncode": 0,
+      "stdout": "3\t16\t3",
+      "stderr": "[3x16] G=3 time=0.252 memo=32568 calls=1624733 moves=860255 path=68 cycle=0 rotation=1 cancelled=74907 single_comb=0 chain_comb=0 chain_formula=0\ndone 0.252s memo=32568 capacity=16777216 bytes_per_slot=16 reductions=7 threads=1 lanes=1\nstats calls=1624733 moves=860255 path=68 cycle=0 rotation=1 cancelled=74907 single_comb=0 chain_comb=0 chain_formula=0",
+      "counts": {
+        "G": 3,
+        "memo": 32568,
+        "calls": 1624733,
+        "moves": 860255,
+        "path": 68,
+        "cycle": 0,
+        "rotation": 1,
+        "cancelled": 74907,
+        "single_comb": 0,
+        "chain_comb": 0,
+        "chain_formula": 0,
+        "capacity": 16777216,
+        "bytes_per_slot": 16,
+        "reductions": 7,
+        "threads": 1,
+        "lanes": 1
+      },
+      "SG": 3,
+      "solver": "reference"
+    },
+    {
+      "n": 18,
+      "status": "complete",
+      "wall_s": 0.017674,
+      "returncode": 0,
+      "stdout": "3\t18\t2",
+      "stderr": "target time=0.013079 memo=2152 exact=741 queries=90832 moves=31784 refutations=3717 bytes_per_slot=48 order=2 low_first=0",
+      "counts": {
+        "memo": 2152,
+        "exact": 741,
+        "queries": 90832,
+        "moves": 31784,
+        "refutations": 3717,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0
+      },
+      "SG": 2,
+      "solver": "candidate"
+    },
+    {
+      "n": 18,
+      "status": "complete",
+      "wall_s": 0.820262,
+      "returncode": 0,
+      "stdout": "3\t18\t2",
+      "stderr": "[3x18] G=2 time=0.805 memo=109656 calls=6418754 moves=3337204 path=79 cycle=0 rotation=1 cancelled=265990 single_comb=0 chain_comb=0 chain_formula=0\ndone 0.805s memo=109656 capacity=16777216 bytes_per_slot=16 reductions=7 threads=1 lanes=1\nstats calls=6418754 moves=3337204 path=79 cycle=0 rotation=1 cancelled=265990 single_comb=0 chain_comb=0 chain_formula=0",
+      "counts": {
+        "G": 2,
+        "memo": 109656,
+        "calls": 6418754,
+        "moves": 3337204,
+        "path": 79,
+        "cycle": 0,
+        "rotation": 1,
+        "cancelled": 265990,
+        "single_comb": 0,
+        "chain_comb": 0,
+        "chain_formula": 0,
+        "capacity": 16777216,
+        "bytes_per_slot": 16,
+        "reductions": 7,
+        "threads": 1,
+        "lanes": 1
+      },
+      "SG": 2,
+      "solver": "reference"
+    },
+    {
+      "n": 20,
+      "status": "complete",
+      "wall_s": 0.078746,
+      "returncode": 0,
+      "stdout": "3\t20\t1",
+      "stderr": "target time=0.072369 memo=8700 exact=2925 queries=513356 moves=163719 refutations=16483 bytes_per_slot=48 order=2 low_first=0",
+      "counts": {
+        "memo": 8700,
+        "exact": 2925,
+        "queries": 513356,
+        "moves": 163719,
+        "refutations": 16483,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0
+      },
+      "SG": 1,
+      "solver": "candidate"
+    },
+    {
+      "n": 20,
+      "status": "timeout",
+      "wall_s": 2.015516,
+      "returncode": -9,
+      "stdout": "",
+      "stderr": "",
+      "counts": {},
+      "solver": "reference"
+    },
+    {
+      "n": 22,
+      "status": "complete",
+      "wall_s": 0.043218,
+      "returncode": 0,
+      "stdout": "3\t22\t0",
+      "stderr": "target time=0.038822 memo=3526 exact=2090 queries=304691 moves=101399 refutations=7894 bytes_per_slot=48 order=2 low_first=0",
+      "counts": {
+        "memo": 3526,
+        "exact": 2090,
+        "queries": 304691,
+        "moves": 101399,
+        "refutations": 7894,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0
+      },
+      "SG": 0,
+      "solver": "candidate"
+    },
+    {
+      "n": 24,
+      "status": "complete",
+      "wall_s": 0.093809,
+      "returncode": 0,
+      "stdout": "3\t24\t1",
+      "stderr": "target time=0.089050 memo=8586 exact=4822 queries=867589 moves=277486 refutations=19785 bytes_per_slot=48 order=2 low_first=0",
+      "counts": {
+        "memo": 8586,
+        "exact": 4822,
+        "queries": 867589,
+        "moves": 277486,
+        "refutations": 19785,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0
+      },
+      "SG": 1,
+      "solver": "candidate"
+    },
+    {
+      "n": 26,
+      "status": "complete",
+      "wall_s": 0.194543,
+      "returncode": 0,
+      "stdout": "3\t26\t0",
+      "stderr": "target time=0.188321 memo=15171 exact=10308 queries=2131516 moves=661233 refutations=39698 bytes_per_slot=48 order=2 low_first=0",
+      "counts": {
+        "memo": 15171,
+        "exact": 10308,
+        "queries": 2131516,
+        "moves": 661233,
+        "refutations": 39698,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0
+      },
+      "SG": 0,
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      12,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26
+    ],
+    "skip_reference": false
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "ef40236bc8d17fd66ac60f5c3e23309d50965457",
+    "source_sha256": {
+      "src/cfast/strip3_target.c": "60603a31b382ee22f979c6655d43a1f2895570e108fd8adc0c22e0db5a928f86",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 4.439048
+}
