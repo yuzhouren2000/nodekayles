@@ -19,6 +19,7 @@ static struct memo *memo;
 static uint32_t *unique, *quantified, *restricted, *restriction_stamp;
 static size_t used = 2, capacity, unique_size, memo_size;
 static unsigned stamp, width, cells, levels;
+static int history_mode;
 static unsigned char removed[600];
 static B literals[600], reachable;
 static uint64_t applications, predecessor_calls;
@@ -122,12 +123,21 @@ static B independent_reachable_domain(void) {
     return quantify_history(relation);
 }
 
+static B independent_history_domain(void) {
+    B answer = 1;
+    for (unsigned u = 0; u < cells; u++) for (unsigned v = u+1; v < cells; v++)
+        if (distance(u, v) == 1)
+            answer = intersect(answer, unite(negate(literals[2*u]), negate(literals[2*v])));
+    return answer;
+}
+
 static B delete_neighbourhood(B a) {
     if (a < 2) return a;
     if (restriction_stamp[a] == stamp) return restricted[a];
     struct vertex copy = graph[a];
     B answer;
-    if (removed[copy.variable]) answer = delete_neighbourhood(copy.low);
+    if (removed[copy.variable])
+        answer = delete_neighbourhood(removed[copy.variable] == 2 ? copy.high : copy.low);
     else {
         B low = delete_neighbourhood(copy.low), high = delete_neighbourhood(copy.high);
         answer = node(copy.variable, low, high);
@@ -141,11 +151,19 @@ static B predecessor(B target) {
     B answer = 0;
     for (unsigned v = 0; v < cells; v++) {
         memset(removed, 0, sizeof removed);
-        for (unsigned u = 0; u < cells; u++) if (distance(u, v) <= 1) removed[2*u] = 1;
+        B legal = literals[2*v];
+        if (history_mode) {
+            legal = 1;
+            for (unsigned u = 0; u < cells; u++) if (distance(u, v) <= 1)
+                legal = intersect(legal, negate(literals[2*u]));
+            removed[2*v] = 2;
+        } else {
+            for (unsigned u = 0; u < cells; u++) if (distance(u, v) <= 1) removed[2*u] = 1;
+        }
         stamp++;
         require(stamp != 0, "restriction stamp exhausted");
         B after = delete_neighbourhood(target);
-        B term = intersect(intersect(reachable, literals[2*v]), after);
+        B term = intersect(intersect(reachable, legal), after);
         answer = unite(answer, term);
     }
     return answer;
@@ -168,7 +186,9 @@ static B from_reference(B ref, const B *translated) {
 
 int main(void) {
     char header[80];
-    require(fgets(header, sizeof header, stdin) != NULL && !strcmp(header, "node-kayles-symbolic-kernel-v1\n"), "wrong format");
+    require(fgets(header, sizeof header, stdin) != NULL, "missing format");
+    history_mode = !strcmp(header, "node-kayles-history-kernel-v1\n");
+    require(history_mode || !strcmp(header, "node-kayles-symbolic-kernel-v1\n"), "wrong format");
     width = integer(); unsigned target = integer(), count = integer();
     require(width >= 1 && width <= 100 && target <= 3*width, "invalid board or nimber");
     cells = 3*width; levels = 2*cells;
@@ -200,8 +220,8 @@ int main(void) {
     B claimed_domain = from_reference(domain_ref, translated), kernels[301];
     for (unsigned k = 0; k <= target; k++) kernels[k] = from_reference(roots[k], translated);
     for (unsigned v = 0; v < levels; v++) literals[v] = node(v, 0, 1);
-    reachable = independent_reachable_domain();
-    require(reachable == claimed_domain, "domain differs from the independent-history image");
+    reachable = history_mode ? independent_history_domain() : independent_reachable_domain();
+    require(reachable == claimed_domain, "domain differs from its independent reconstruction");
     B excluded = 0, witnesses[301];
     unsigned complete_lower_kernels = 0;
     for (unsigned k = 0; k <= target; k++) {
@@ -222,7 +242,7 @@ int main(void) {
         excluded = unite(excluded, kernel);
     }
     B board = kernels[target];
-    while (board >= 2) board = graph[board].high;
+    while (board >= 2) board = history_mode ? graph[board].low : graph[board].high;
     require(board == 1, "full board is absent from the last kernel");
     printf("{\"n\":%u,\"SG\":%u,\"certificate_nodes\":%u,\"checker_nodes\":%zu,\"complete_lower_kernels\":%u,\"predecessor_calls\":%llu,\"apply_calls\":%llu}\n",
            width, target, count-1, used-2, complete_lower_kernels, (unsigned long long)predecessor_calls, (unsigned long long)applications);

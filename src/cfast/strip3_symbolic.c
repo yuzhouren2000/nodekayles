@@ -247,7 +247,12 @@ static int write_kernel_certificate(unsigned n, unsigned k, Ref last) {
     for (size_t id = 1; id < node_count; id++) if (marked[id]) compact_map[id] = (uint32_t)next++;
     FILE *file = fopen(certificate_path, "w");
     if (!file) return 0;
-    fprintf(file, "node-kayles-symbolic-kernel-v1\n%u %u %zu\n%u\n", n, k, next, remap_live(domain));
+#ifdef STRIP3_HISTORY_SYMBOLIC
+    const char *format = "node-kayles-history-kernel-v1";
+#else
+    const char *format = "node-kayles-symbolic-kernel-v1";
+#endif
+    fprintf(file, "%s\n%u %u %zu\n%u\n", format, n, k, next, remap_live(domain));
     for (unsigned j = 0; j <= k; j++) fprintf(file, "%u%c", remap_live(j == k ? last : certificate_sets[j]), j == k ? '\n' : ' ');
     for (size_t id = 1; id < node_count; id++) if (marked[id]) {
         struct node node = nodes[id];
