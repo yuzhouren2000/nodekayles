@@ -113,6 +113,8 @@ def main():
                              "source_sha256": {str(p.relative_to(ROOT)): sha(p) for p in
                                                (args.candidate_source.resolve(), ROOT / "src/cfast/strip3.c",
                                                 ROOT / "src/cfast/strip3_target.c",
+                                                ROOT / "src/cfast/strip3_symbolic.c",
+                                                ROOT / "scripts/screen_strip3.py",
                                                 ROOT / "src/cfast/strip3_comb_tables.h")}},
               "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
               "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios."}

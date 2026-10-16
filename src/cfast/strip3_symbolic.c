@@ -22,6 +22,14 @@ static uint32_t generation;
 static unsigned variables, current_vertex;
 static Ref xvars[300];
 static uint64_t apply_calls;
+static Ref domain = 1;
+#ifdef STRIP3_REACHABLE_SYMBOLIC
+static uint64_t created_nodes, collections;
+static size_t peak_nodes;
+static uint32_t *compact_map;
+static unsigned char *marked;
+static int gc_enabled = 1;
+#endif
 
 static uint64_t mix(uint64_t h) {
     h ^= h >> 30; h *= 0xbf58476d1ce4e5b9ULL;
@@ -44,9 +52,18 @@ static Ref make_node(unsigned var, Ref lo, Ref hi) {
     if (node_count == node_limit) {
         fprintf(stderr, "symbolic: node budget reached; incomplete; nodes=%zu apply_calls=%llu\n",
                 node_count, (unsigned long long)apply_calls);
+#ifdef STRIP3_REACHABLE_SYMBOLIC
+        fprintf(stderr, "reachable_stats created_nodes=%llu peak_nodes=%zu retained_nodes=%zu gc=%llu apply_calls=%llu\n",
+                (unsigned long long)created_nodes, peak_nodes, node_count, (unsigned long long)collections,
+                (unsigned long long)apply_calls);
+#endif
         exit(3);
     }
     uint32_t id = (uint32_t)node_count++;
+#ifdef STRIP3_REACHABLE_SYMBOLIC
+    created_nodes++;
+    if (node_count > peak_nodes) peak_nodes = node_count;
+#endif
     nodes[id] = (struct node){lo, hi, var};
     unique[index] = id;
     return (id<<1)^complement;
@@ -104,7 +121,8 @@ static Ref predecessor(Ref f) {
             memset(restrict_generation, 0, node_limit*sizeof *restrict_generation);
             generation++;
         }
-        result = bdd_or(result, bdd_and(xvars[v], restrict_zero(f)));
+        Ref legal = domain == 1 ? xvars[v] : bdd_and(domain, xvars[v]);
+        result = bdd_or(result, bdd_and(legal, restrict_zero(f)));
     }
     return result;
 }
@@ -118,12 +136,99 @@ static int evaluate(Ref f, uint64_t mask, int full) {
     return f;
 }
 
+#ifdef STRIP3_REACHABLE_SYMBOLIC
+/* Collection only occurs between fixed-point iterations, when all live roots
+ * are explicit. No collection can invalidate a recursive apply/restrict frame. */
+static void mark_live(Ref f) {
+    if (f < 2 || marked[f >> 1]) return;
+    marked[f >> 1] = 1;
+    mark_live(nodes[f >> 1].lo);
+    mark_live(nodes[f >> 1].hi);
+}
+
+static Ref remap_live(Ref f) { return f < 2 ? f : (compact_map[f >> 1] << 1) | (f & 1); }
+
+static void collect_live(Ref *excluded, Ref *losing, Ref *winning) {
+    if (!gc_enabled || node_count < node_limit/8) return;
+    memset(marked, 0, node_count);
+    mark_live(domain); mark_live(*excluded); mark_live(*losing); mark_live(*winning);
+    for (unsigned v = 0; v < variables; v++) mark_live(xvars[v]);
+    size_t next = 1;
+    /* Children are older than parents; in-place compaction is safe. */
+    for (size_t id = 1; id < node_count; id++) if (marked[id]) {
+        struct node node = nodes[id];
+        assert(node.lo < 2 || (node.lo >> 1) < id);
+        assert(node.hi < 2 || (node.hi >> 1) < id);
+        compact_map[id] = (uint32_t)next;
+        nodes[next++] = (struct node){remap_live(node.lo), remap_live(node.hi), node.var};
+    }
+    domain = remap_live(domain); *excluded = remap_live(*excluded);
+    *losing = remap_live(*losing); *winning = remap_live(*winning);
+    for (unsigned v = 0; v < variables; v++) xvars[v] = remap_live(xvars[v]);
+    node_count = next;
+    memset(unique, 0, unique_cap*sizeof *unique);
+    memset(cache, 0, cache_cap*sizeof *cache);
+    memset(restrict_generation, 0, node_limit*sizeof *restrict_generation);
+    generation = 0;
+    for (uint32_t id = 1; id < node_count; id++) {
+        struct node node = nodes[id];
+        size_t index = mix(((uint64_t)node.lo << 32) ^ node.hi ^
+                           ((uint64_t)node.var*0x9e3779b97f4a7c15ULL)) & (unique_cap-1);
+        while (unique[index]) index = (index+1) & (unique_cap-1);
+        unique[index] = id;
+    }
+    collections++;
+}
+
+/* Image of every independent history under S -> V\N[S].  Histories use
+ * vertically independent column masks.  Availability in a column is known
+ * after its right history neighbour is selected.  This is an exact regular
+ * image, not the larger family of arbitrary induced subgraphs. */
+static Ref history_memo[101][8][8];
+static unsigned char history_seen[101][8][8];
+static unsigned strip_width;
+
+static Ref history_image(unsigned column, unsigned left, unsigned here) {
+    if (history_seen[column][left][here]) return history_memo[column][left][here];
+    history_seen[column][left][here] = 1;
+    static const unsigned choices[] = {0, 1, 2, 4, 5};
+    Ref result = 0;
+    unsigned blocked = here | ((here << 1) & 7) | (here >> 1) | left;
+    for (unsigned i = 0; i < 5; i++) {
+        unsigned right = choices[i];
+        if ((column+1 == strip_width && right) || (right & here)) continue;
+        unsigned available = 7 & ~(blocked | right);
+        Ref term = column+1 == strip_width ? 1 : history_image(column+1, here, right);
+        /* Descending variable order prepends one output column to its suffix. */
+        for (int r = 2; r >= 0; r--) {
+            unsigned var = 3*column+(unsigned)r;
+            term = (available >> r) & 1 ? make_node(var, 0, term) : make_node(var, term, 0);
+        }
+        result = bdd_or(result, term);
+    }
+    history_memo[column][left][here] = result;
+    return result;
+}
+
+static Ref reachable_domain(unsigned n) {
+    static const unsigned choices[] = {0, 1, 2, 4, 5};
+    strip_width = n;
+    Ref result = 0;
+    for (unsigned i = 0; i < 5; i++) result = bdd_or(result, history_image(0, 0, choices[i]));
+    return result;
+}
+#endif
+
 int main(int argc, char **argv) {
-    if (argc != 3 || (strcmp(argv[1], "board") && strcmp(argv[1], "table"))) return 2;
+    int domain_only = 0;
+#ifdef STRIP3_REACHABLE_SYMBOLIC
+    domain_only = argc == 3 && !strcmp(argv[1], "domain");
+#endif
+    if (argc != 3 || (!domain_only && strcmp(argv[1], "board") && strcmp(argv[1], "table"))) return 2;
     char *end;
     long n = strtol(argv[2], &end, 10);
     int table = !strcmp(argv[1], "table");
-    if (!*argv[2] || *end || n < 1 || n > 100 || (table && n > 6)) return 2;
+    if (!*argv[2] || *end || n < 1 || n > 100 || ((table || domain_only) && n > 6)) return 2;
     variables = (unsigned)(3*n);
     const char *env = getenv("STRIP3_SYMBOLIC_BITS");
     long bits = env ? strtol(env, &end, 10) : 20;
@@ -135,13 +240,35 @@ int main(int argc, char **argv) {
     restrict_generation = calloc(node_limit, sizeof *restrict_generation);
     restrict_cache = calloc(node_limit, sizeof *restrict_cache);
     if (!nodes || !unique || !cache || !restrict_generation || !restrict_cache) return 3;
-    for (unsigned v = 0; v < variables; v++) xvars[v] = make_node(v, 0, 1);
     int *values = NULL;
-    size_t masks = table ? (size_t)1 << variables : 0, assigned = 0;
+#ifdef STRIP3_REACHABLE_SYMBOLIC
+    const char *gc_env = getenv("STRIP3_SYMBOLIC_GC");
+    if (gc_env && strcmp(gc_env, "0") && strcmp(gc_env, "1")) return 2;
+    gc_enabled = !gc_env || !strcmp(gc_env, "1");
+    if (gc_enabled) {
+        compact_map = calloc(node_limit, sizeof *compact_map);
+        marked = calloc(node_limit, sizeof *marked);
+        if (!compact_map || !marked) return 3;
+    }
+#endif
+    for (unsigned v = 0; v < variables; v++) xvars[v] = make_node(v, 0, 1);
+#ifdef STRIP3_REACHABLE_SYMBOLIC
+    domain = reachable_domain((unsigned)n);
+    fprintf(stderr, "reachable_domain nodes=%zu apply_calls=%llu\n", node_count,
+            (unsigned long long)apply_calls);
+    if (domain_only) {
+        for (uint64_t m = 0; m < ((uint64_t)1 << variables); m++) printf("%d\n", evaluate(domain, m, 0));
+        goto done;
+    }
+#endif
+    size_t masks = table ? (size_t)1 << variables : 0, assigned = 0, wanted = 0;
     if (table) {
         values = malloc(masks*sizeof *values);
         if (!values) return 3;
-        for (size_t m = 0; m < masks; m++) values[m] = -1;
+        for (size_t m = 0; m < masks; m++) {
+            values[m] = -1;
+            wanted += evaluate(domain, m, 0);
+        }
     }
     Ref excluded = 0;
     int g;
@@ -149,7 +276,11 @@ int main(int argc, char **argv) {
         Ref losing = 0, winning = excluded;
         unsigned steps = 0;
         do {
-            losing = bdd_and(excluded^1, predecessor(winning^1)^1);
+#ifdef STRIP3_REACHABLE_SYMBOLIC
+            collect_live(&excluded, &losing, &winning);
+#endif
+            Ref unexcluded = domain == 1 ? excluded^1 : bdd_and(domain, excluded^1);
+            losing = bdd_and(unexcluded, predecessor(winning^1)^1);
             winning = bdd_or(excluded, predecessor(losing));
             assert(!bdd_and(losing, winning));
             steps++;
@@ -161,7 +292,7 @@ int main(int argc, char **argv) {
                 printf("3\t%ld\t%d\n", n, g);
                 goto done;
             }
-        } while (winning != (losing^1));
+        } while (winning != (domain == 1 ? losing^1 : bdd_and(domain, losing^1)));
         fprintf(stderr, "symbolic k=%d steps=%u nodes=%zu apply_calls=%llu\n", g, steps, node_count,
                 (unsigned long long)apply_calls);
         if (table) for (size_t m = 0; m < masks; m++) if (evaluate(losing, m, 0)) {
@@ -169,11 +300,17 @@ int main(int argc, char **argv) {
             values[m] = g; assigned++;
         }
         excluded = bdd_or(excluded, losing);
-        if (table && assigned == masks) break;
+        if (table && assigned == wanted) break;
     }
-    if (table && assigned == masks) for (size_t m = 0; m < masks; m++) printf("%d\n", values[m]);
+    if (table && assigned == wanted) for (size_t m = 0; m < masks; m++) printf("%d\n", values[m]);
     else { fprintf(stderr, "symbolic: incomplete SG classification\n"); return 1; }
 done:
+#ifdef STRIP3_REACHABLE_SYMBOLIC
+    fprintf(stderr, "reachable_stats created_nodes=%llu peak_nodes=%zu retained_nodes=%zu gc=%llu apply_calls=%llu\n",
+            (unsigned long long)created_nodes, peak_nodes, node_count, (unsigned long long)collections,
+            (unsigned long long)apply_calls);
+    free(compact_map); free(marked);
+#endif
     free(values); free(nodes); free(unique); free(cache); free(restrict_generation); free(restrict_cache);
     return 0;
 }
