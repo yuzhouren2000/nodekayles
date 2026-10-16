@@ -6,6 +6,7 @@ CFLAGS ?= -O2 -march=native
 .PHONY: build build-strip3 build-strip3-language export-strip3-comb test-strip3-comb benchmark-strip3-comb test-protected-strip-search test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-strip3-language-33 test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge test-connected-comb-core test-three-comb-chain test-interface-classes analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
 
 help:
+	@echo "make test-strip3-connection-rank - independently check finite ranks, nonsingular minors and reachable joins"
 	@echo "make test-strip3-search-experiments - check coupled, symbolic and proof-number prototypes on independent small graphs"
 	@echo "make test-strip3-target-search - independently verify the target-nimber prototype (seconds)"
 	@echo "make screen-strip3 - bounded local screening: 2 s/process, 20 s total, 512 MiB"
@@ -130,6 +131,9 @@ test-strip3-language-33:
 test-interface-classes:
 	$(PY) tests/verify_interface_classes.py
 
+test-strip3-connection-rank:
+	$(PY) tests/verify_strip3_connection_rank.py data/strip3_connection_rank.json.gz data/strip3_guarded_connection_rank.json
+
 test-kayles-boundary:
 	$(PY) tests/verify_kayles_boundary.py data/proofs/kayles_boundary_replacement.json
 	$(PY) tests/test_kayles_boundary.py
@@ -202,3 +206,4 @@ clean:
 
 .PHONY: build-strip3-target test-strip3-target-search screen-strip3
 .PHONY: test-strip3-search-experiments
+.PHONY: test-strip3-connection-rank
