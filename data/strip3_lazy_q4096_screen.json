@@ -1,0 +1,124 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 24,
+      "status": "complete",
+      "wall_s": 0.161353,
+      "returncode": 0,
+      "stdout": "3\t24\t1",
+      "stderr": "stage k=0 equal=0 time=0.029505 memo=4707 queries=78923 moves=70468\nstage k=1 equal=1 time=0.154847 memo=27591 queries=427631 moves=392599\ntarget time=0.154938 memo=27591 exact=7037 queries=427631 moves=392599 refutations=36614 bytes_per_slot=48 order=2 low_first=0 option_probes=0 frontier=4 share_options=1 cache_first=0\nlazy work=440550 unknown=580 rounds=47891 skipped=1790 cached=379675 pending=534 pending_bytes=25165824 quantum=4096 growth_bits=2",
+      "counts": {
+        "k": 1,
+        "equal": 1,
+        "memo": 27591,
+        "queries": 427631,
+        "moves": 392599,
+        "exact": 7037,
+        "refutations": 36614,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 0,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 0,
+        "work": 440550,
+        "unknown": 580,
+        "rounds": 47891,
+        "skipped": 1790,
+        "cached": 379675,
+        "pending": 534,
+        "pending_bytes": 25165824,
+        "quantum": 4096,
+        "growth_bits": 2
+      },
+      "SG": 1,
+      "solver": "candidate"
+    },
+    {
+      "n": 26,
+      "status": "complete",
+      "wall_s": 0.108683,
+      "returncode": 0,
+      "stdout": "3\t26\t0",
+      "stderr": "stage k=0 equal=1 time=0.103332 memo=17171 queries=358014 moves=316374\ntarget time=0.103420 memo=17171 exact=6688 queries=358014 moves=316374 refutations=26333 bytes_per_slot=48 order=2 low_first=0 option_probes=0 frontier=4 share_options=1 cache_first=0\nlazy work=354033 unknown=366 rounds=37600 skipped=1477 cached=320349 pending=349 pending_bytes=25165824 quantum=4096 growth_bits=2",
+      "counts": {
+        "k": 0,
+        "equal": 1,
+        "memo": 17171,
+        "queries": 358014,
+        "moves": 316374,
+        "exact": 6688,
+        "refutations": 26333,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 0,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 0,
+        "work": 354033,
+        "unknown": 366,
+        "rounds": 37600,
+        "skipped": 1477,
+        "cached": 320349,
+        "pending": 349,
+        "pending_bytes": 25165824,
+        "quantum": 4096,
+        "growth_bits": 2
+      },
+      "SG": 0,
+      "solver": "candidate"
+    },
+    {
+      "n": 28,
+      "status": "timeout",
+      "wall_s": 2.015547,
+      "returncode": -9,
+      "stdout": "",
+      "stderr": "stage k=0 equal=0 time=0.041442 memo=6496 queries=97891 moves=88477\nstage k=1 equal=0 time=0.178459 memo=28488 queries=557021 moves=500477\nstage k=2 equal=0 time=0.178522 memo=28488 queries=557022 moves=500477\nstage k=3 equal=0 time=0.179302 memo=28659 queries=559111 moves=502535",
+      "counts": {
+        "k": 3,
+        "equal": 0,
+        "memo": 28659,
+        "queries": 559111,
+        "moves": 502535
+      },
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      24,
+      26,
+      28
+    ],
+    "skip_reference": true,
+    "extra_env": {
+      "STRIP3_LAZY_QUANTUM": "4096"
+    }
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 16.438072289020056,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "239063303e4b65f6a71c9d9ba19e4620bcce0cae",
+    "source_sha256": {
+      "src/cfast/strip3_lazy.c": "d1ae7da192324db343320342ba09006ad3d5597647d3b7699f52d87103d53db0",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_target.c": "65efef79cff768a388dcd1d9ece6788bb071308dd51addc04e0c3d25e5f2fddb",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 3.112229
+}

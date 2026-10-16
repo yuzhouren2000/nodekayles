@@ -52,6 +52,8 @@ python3 scripts/play.py 5 5    # 与最优对手交互对弈
 两者都未越过28，四批正式实验合计约16秒，未延长失败任务。
 证明树/DAG诊断与快速搜索的独立证书见 [notes/33](notes/33_proof_cost_and_certificates.md)：
 26的准确SG可由小证书约1秒完整核验，构造仍未越过28。
+暂停/轮转查询的后续筛选见 [notes/34](notes/34_resumable_queries.md)：
+当前调度未获净规模收益，继续使用原默认引擎。
 
 * **已解决的家族**：偶数×偶数（P）、奇数×奇数（N，天元制胜）、`2 × n`、
   `4 × n`（恒 P）、`1 × n`（即 Dawson's chess），以及一般配对引理。

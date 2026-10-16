@@ -1,0 +1,136 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 24,
+      "status": "complete",
+      "wall_s": 0.131512,
+      "returncode": 0,
+      "stdout": "3\t24\t1",
+      "stderr": "stage k=0 equal=0 time=0.025976 memo=3395 queries=27441 moves=22720\nstage k=1 equal=1 time=0.126113 memo=13012 queries=114490 moves=91278\ntarget time=0.126190 memo=13012 exact=2266 queries=114490 moves=91278 refutations=763 bytes_per_slot=48 order=2 low_first=0 option_probes=367752 frontier=4 share_options=1 cache_first=1\nlazy work=483164 unknown=5412 rounds=9576 skipped=24122 cached=90260 pending=3496 pending_bytes=25165824 quantum=256 growth_bits=2",
+      "counts": {
+        "k": 1,
+        "equal": 1,
+        "memo": 13012,
+        "queries": 114490,
+        "moves": 91278,
+        "exact": 2266,
+        "refutations": 763,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 367752,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 1,
+        "work": 483164,
+        "unknown": 5412,
+        "rounds": 9576,
+        "skipped": 24122,
+        "cached": 90260,
+        "pending": 3496,
+        "pending_bytes": 25165824,
+        "quantum": 256,
+        "growth_bits": 2
+      },
+      "SG": 1,
+      "solver": "candidate"
+    },
+    {
+      "n": 26,
+      "status": "complete",
+      "wall_s": 0.154351,
+      "returncode": 0,
+      "stdout": "3\t26\t0",
+      "stderr": "stage k=0 equal=1 time=0.147679 memo=13771 queries=155760 moves=124013\ntarget time=0.147775 memo=13771 exact=3471 queries=155760 moves=124013 refutations=1016 bytes_per_slot=48 order=2 low_first=0 option_probes=422845 frontier=4 share_options=1 cache_first=1\nlazy work=575853 unknown=5549 rounds=12244 skipped=26609 cached=126690 pending=3853 pending_bytes=25165824 quantum=256 growth_bits=2",
+      "counts": {
+        "k": 0,
+        "equal": 1,
+        "memo": 13771,
+        "queries": 155760,
+        "moves": 124013,
+        "exact": 3471,
+        "refutations": 1016,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 422845,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 1,
+        "work": 575853,
+        "unknown": 5549,
+        "rounds": 12244,
+        "skipped": 26609,
+        "cached": 126690,
+        "pending": 3853,
+        "pending_bytes": 25165824,
+        "quantum": 256,
+        "growth_bits": 2
+      },
+      "SG": 0,
+      "solver": "candidate"
+    },
+    {
+      "n": 28,
+      "status": "failed",
+      "wall_s": 0.478437,
+      "returncode": 3,
+      "stdout": "",
+      "stderr": "stage k=0 equal=0 time=0.035844 memo=3781 queries=32543 moves=27028\nstage k=1 equal=0 time=0.311798 memo=30477 queries=312878 moves=239819\nstage k=2 equal=0 time=0.311866 memo=30477 queries=312879 moves=239819\nstage k=3 equal=0 time=0.311946 memo=30477 queries=312912 moves=239845\nlazy: work budget reached; incomplete; memo=45218 queries=431689 moves=336790 option_probes=1574505\nlazy work=2000000 unknown=21977 rounds=34262 skipped=114331 cached=342664 pending=13362 pending_bytes=25165824 quantum=256 growth_bits=2",
+      "counts": {
+        "k": 3,
+        "equal": 0,
+        "memo": 45218,
+        "queries": 431689,
+        "moves": 336790,
+        "option_probes": 1574505,
+        "work": 2000000,
+        "unknown": 21977,
+        "rounds": 34262,
+        "skipped": 114331,
+        "cached": 342664,
+        "pending": 13362,
+        "pending_bytes": 25165824,
+        "quantum": 256,
+        "growth_bits": 2
+      },
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      24,
+      26,
+      28
+    ],
+    "skip_reference": true,
+    "extra_env": {
+      "STRIP3_LAZY_QUANTUM": "256",
+      "STRIP3_TARGET_CACHE_FIRST": "1",
+      "STRIP3_LAZY_WORK_LIMIT": "2000000"
+    }
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 13.272132973012049,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "239063303e4b65f6a71c9d9ba19e4620bcce0cae",
+    "source_sha256": {
+      "src/cfast/strip3_lazy.c": "d1ae7da192324db343320342ba09006ad3d5597647d3b7699f52d87103d53db0",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_target.c": "65efef79cff768a388dcd1d9ece6788bb071308dd51addc04e0c3d25e5f2fddb",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 1.576171
+}

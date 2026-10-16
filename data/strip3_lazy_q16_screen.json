@@ -1,0 +1,158 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 18,
+      "status": "complete",
+      "wall_s": 0.069752,
+      "returncode": 0,
+      "stdout": "3\t18\t2",
+      "stderr": "stage k=0 equal=0 time=0.054955 memo=6920 queries=81575 moves=73189\nstage k=1 equal=0 time=0.057709 memo=7067 queries=84153 moves=75580\nstage k=2 equal=1 time=0.065159 memo=7347 queries=93742 moves=83900\ntarget time=0.065218 memo=7347 exact=915 queries=93742 moves=83900 refutations=6841 bytes_per_slot=48 order=2 low_first=0 option_probes=0 frontier=4 share_options=1 cache_first=0\nlazy work=101843 unknown=9908 rounds=17902 skipped=28270 cached=75320 pending=5748 pending_bytes=25165824 quantum=16 growth_bits=2",
+      "counts": {
+        "k": 2,
+        "equal": 1,
+        "memo": 7347,
+        "queries": 93742,
+        "moves": 83900,
+        "exact": 915,
+        "refutations": 6841,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 0,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 0,
+        "work": 101843,
+        "unknown": 9908,
+        "rounds": 17902,
+        "skipped": 28270,
+        "cached": 75320,
+        "pending": 5748,
+        "pending_bytes": 25165824,
+        "quantum": 16,
+        "growth_bits": 2
+      },
+      "SG": 2,
+      "solver": "candidate"
+    },
+    {
+      "n": 24,
+      "status": "complete",
+      "wall_s": 0.267729,
+      "returncode": 0,
+      "stdout": "3\t24\t1",
+      "stderr": "stage k=0 equal=0 time=0.018206 memo=2437 queries=28424 moves=24257\nstage k=1 equal=1 time=0.258330 memo=39861 queries=580893 moves=485904\ntarget time=0.258407 memo=39861 exact=3454 queries=580893 moves=485904 refutations=36914 bytes_per_slot=48 order=2 low_first=0 option_probes=0 frontier=4 share_options=1 cache_first=0\nlazy work=591073 unknown=63318 rounds=105116 skipped=180404 cached=472867 pending=33522 pending_bytes=25165824 quantum=16 growth_bits=2",
+      "counts": {
+        "k": 1,
+        "equal": 1,
+        "memo": 39861,
+        "queries": 580893,
+        "moves": 485904,
+        "exact": 3454,
+        "refutations": 36914,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 0,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 0,
+        "work": 591073,
+        "unknown": 63318,
+        "rounds": 105116,
+        "skipped": 180404,
+        "cached": 472867,
+        "pending": 33522,
+        "pending_bytes": 25165824,
+        "quantum": 16,
+        "growth_bits": 2
+      },
+      "SG": 1,
+      "solver": "candidate"
+    },
+    {
+      "n": 26,
+      "status": "complete",
+      "wall_s": 0.32932,
+      "returncode": 0,
+      "stdout": "3\t26\t0",
+      "stderr": "stage k=0 equal=1 time=0.321673 memo=41034 queries=793997 moves=613284\ntarget time=0.321761 memo=41034 exact=4794 queries=793997 moves=613284 refutations=41861 bytes_per_slot=48 order=2 low_first=0 option_probes=0 frontier=4 share_options=1 cache_first=0\nlazy work=755439 unknown=92761 rounds=142096 skipped=318331 cached=648187 pending=43171 pending_bytes=25165824 quantum=16 growth_bits=2",
+      "counts": {
+        "k": 0,
+        "equal": 1,
+        "memo": 41034,
+        "queries": 793997,
+        "moves": 613284,
+        "exact": 4794,
+        "refutations": 41861,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 0,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 0,
+        "work": 755439,
+        "unknown": 92761,
+        "rounds": 142096,
+        "skipped": 318331,
+        "cached": 648187,
+        "pending": 43171,
+        "pending_bytes": 25165824,
+        "quantum": 16,
+        "growth_bits": 2
+      },
+      "SG": 0,
+      "solver": "candidate"
+    },
+    {
+      "n": 28,
+      "status": "timeout",
+      "wall_s": 2.014118,
+      "returncode": -9,
+      "stdout": "",
+      "stderr": "stage k=0 equal=0 time=0.075847 memo=9305 queries=140178 moves=107729\nstage k=1 equal=0 time=0.364949 memo=52876 queries=1102627 moves=839826\nstage k=2 equal=0 time=0.365048 memo=52876 queries=1102628 moves=839826\nstage k=3 equal=0 time=0.365061 memo=52876 queries=1102637 moves=839834",
+      "counts": {
+        "k": 3,
+        "equal": 0,
+        "memo": 52876,
+        "queries": 1102637,
+        "moves": 839834
+      },
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      18,
+      24,
+      26,
+      28
+    ],
+    "skip_reference": true,
+    "extra_env": {}
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 19.99999867801671,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "239063303e4b65f6a71c9d9ba19e4620bcce0cae",
+    "source_sha256": {
+      "src/cfast/strip3_lazy.c": "d1ae7da192324db343320342ba09006ad3d5597647d3b7699f52d87103d53db0",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_target.c": "65efef79cff768a388dcd1d9ece6788bb071308dd51addc04e0c3d25e5f2fddb",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 3.506819
+}

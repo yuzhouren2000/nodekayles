@@ -1,0 +1,98 @@
+{
+  "format": "strip3-offline-proof-screen-v1",
+  "status": "screened_requested_policies",
+  "samples": [
+    {
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.283806,
+      "stdout": "3\t24\t1\n{\"n\":24,\"SG\":1,\"policy\":\"available_tree_min\",\"tree_cost\":\"1050519\",\"search_states\":13012,\"proof_states\":13229,\"certificate_queries\":4357,\"sum_rules\":11553,\"edges\":21001,\"considered_moves\":280374,\"sum_evaluations\":87799,\"oracle_calls\":0,\"search_s\":0.134637,\"export_s\":0.142693,\"total_s\":0.279377}",
+      "stderr": "stage k=0 equal=0 time=0.030461 memo=3395 queries=27441 moves=22720\nstage k=1 equal=1 time=0.134517 memo=13012 queries=114490 moves=91278\ntarget time=0.277313 memo=13012 exact=2266 queries=114490 moves=91278 refutations=763 bytes_per_slot=48 order=2 low_first=0 option_probes=367752 frontier=4 share_options=1 cache_first=1\nlazy work=483164 unknown=5412 rounds=9576 skipped=24122 cached=90260 pending=3496 pending_bytes=25165824 quantum=256 growth_bits=2",
+      "n": 24,
+      "policy": "tree_min",
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.572522,
+        "stdout": "{\"file\": \"/tmp/strip3-proof-screen-gtc_9_sn/certificate.json\", \"n\": 24, \"SG\": 1, \"queries\": 4357, \"component_masks\": 2061, \"sum_rules\": 11553, \"edges\": 21001, \"tree_cost\": \"1050519\"}",
+        "stderr": ""
+      },
+      "metrics": {
+        "n": 24,
+        "SG": 1,
+        "policy": "available_tree_min",
+        "tree_cost": "1050519",
+        "search_states": 13012,
+        "proof_states": 13229,
+        "certificate_queries": 4357,
+        "sum_rules": 11553,
+        "edges": 21001,
+        "considered_moves": 280374,
+        "sum_evaluations": 87799,
+        "oracle_calls": 0,
+        "search_s": 0.134637,
+        "export_s": 0.142693,
+        "total_s": 0.279377
+      },
+      "checked": {
+        "file": "/tmp/strip3-proof-screen-gtc_9_sn/certificate.json",
+        "n": 24,
+        "SG": 1,
+        "queries": 4357,
+        "component_masks": 2061,
+        "sum_rules": 11553,
+        "edges": 21001,
+        "tree_cost": "1050519"
+      },
+      "certificate": "data/proofs/strip3_lazy_equality/strip3_equality_lazy_tree_min_24.json.gz",
+      "certificate_sha256": "a24617711e4d1035dae6e37f59e8e16a3a89931aec8316463892bef3dc3ff897",
+      "certificate_bytes": 1233871,
+      "compressed_bytes": 132872
+    }
+  ],
+  "configuration": {
+    "sizes": [
+      24
+    ],
+    "policies": [
+      "tree_min"
+    ],
+    "engine": "lazy",
+    "environment": {
+      "STRIP3_HT_BITS": "22",
+      "STRIP3_HT_PREALLOC": "1",
+      "STRIP3_THREADS": "1",
+      "STRIP3_PROOF_BITS": "20",
+      "STRIP3_TARGET_BITS": "22",
+      "STRIP3_TARGET_FRONTIER": "4",
+      "STRIP3_TARGET_CACHE_FIRST": "1",
+      "STRIP3_TARGET_SHARE_OPTIONS": "1",
+      "STRIP3_TARGET_ORDER": "2",
+      "STRIP3_LAZY_QUANTUM": "256"
+    }
+  },
+  "limits": {
+    "per_process_s": 2,
+    "total_s": 11.650642000022344,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1,
+    "oracle_included": false
+  },
+  "interpretation": "Full-SG-guided offline or available-proof tree optimisation; selected DAGs are not minimum DAGs.",
+  "provenance": {
+    "commit": "239063303e4b65f6a71c9d9ba19e4620bcce0cae",
+    "source_sha256": {
+      "src/cfast/strip3_lazy_proof.c": "854308f843425a1dfeb4e3430fdfa142eab9e7f5c243d4495cc812e1733c1e95",
+      "src/cfast/strip3_proof_cost.c": "f8020a2cc526e92e3304f87d7a47bf1c65d7ff9629701c3c5cfd7ca1ab129616",
+      "src/cfast/strip3_target.c": "65efef79cff768a388dcd1d9ece6788bb071308dd51addc04e0c3d25e5f2fddb",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa",
+      "tests/verify_strip3_equality_proof.py": "86631c5e67a4d2c912a0b9573914abf54ba249ae871bf77793d5415f38c9fb89",
+      "scripts/screen_strip3_proofs.py": "6f50f71376d2f960cde3811019bd613f84821e18a568b7a406de6e0e56f6a102",
+      "src/cfast/strip3_lazy.c": "d1ae7da192324db343320342ba09006ad3d5597647d3b7699f52d87103d53db0",
+      "src/cfast/strip3_target_proof.c": "04992bf2f9692a3442c2a5b6d616f3d00382c6fb5162172b4f93dd5ded559f98"
+    }
+  },
+  "wall_s": 1.96132
+}
