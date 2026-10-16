@@ -38,7 +38,7 @@ def bounded(command, env, timeout):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sizes", nargs="+", type=int, default=[8, 10, 12, 14, 16, 18])
-    parser.add_argument("--engine", choices=("offline", "target"), default="offline")
+    parser.add_argument("--engine", choices=("offline", "target", "lazy"), default="offline")
     parser.add_argument("--policies", nargs="+", choices=("tree_min", "first"), default=["tree_min", "first"])
     parser.add_argument("--per-run", type=float, default=2)
     parser.add_argument("--total", type=float, default=20)
@@ -50,10 +50,12 @@ def main():
             or any(not math.isfinite(t) or t <= 0 for t in (args.per_run, args.total))):
         parser.error("increasing known widths and positive finite budgets required")
     cpu = min(os.sched_getaffinity(0)); os.sched_setaffinity(0, {cpu})
-    source = "src/cfast/strip3_proof_cost.c" if args.engine == "offline" else "src/cfast/strip3_target_proof.c"
+    source = {"offline": "src/cfast/strip3_proof_cost.c", "target": "src/cfast/strip3_target_proof.c",
+              "lazy": "src/cfast/strip3_lazy_proof.c"}[args.engine]
     sources = list(dict.fromkeys([source, "src/cfast/strip3_proof_cost.c", "src/cfast/strip3_target.c",
                "src/cfast/strip3.c", "src/cfast/strip3_comb_tables.h",
                "tests/verify_strip3_equality_proof.py", "scripts/screen_strip3_proofs.py"]))
+    if args.engine == "lazy": sources.extend(["src/cfast/strip3_lazy.c", "src/cfast/strip3_target_proof.c"])
     report = dict(format="strip3-offline-proof-screen-v1", status="running", samples=[],
                   configuration=dict(sizes=args.sizes, policies=args.policies, engine=args.engine),
                   limits=dict(per_process_s=args.per_run, total_s=args.total, address_space_mib=512,
@@ -68,9 +70,10 @@ def main():
         args.output.write_text(json.dumps(report, indent=2)+"\n")
     env = {k: v for k, v in os.environ.items() if not k.startswith("STRIP3_")}
     env.update(STRIP3_HT_BITS="22", STRIP3_HT_PREALLOC="1", STRIP3_THREADS="1", STRIP3_PROOF_BITS="20")
-    if args.engine == "target":
+    if args.engine in ("target", "lazy"):
         env.update(STRIP3_TARGET_BITS="22", STRIP3_TARGET_FRONTIER="4", STRIP3_TARGET_CACHE_FIRST="1",
                    STRIP3_TARGET_SHARE_OPTIONS="1", STRIP3_TARGET_ORDER="2")
+    if args.engine == "lazy": env["STRIP3_LAZY_QUANTUM"] = "256"
     report["configuration"]["environment"] = {k: v for k, v in env.items() if k.startswith("STRIP3_")}
     args.proof_dir.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="strip3-proof-screen-") as folder:

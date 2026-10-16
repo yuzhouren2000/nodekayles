@@ -2,8 +2,13 @@
  * No SG oracle or new equality search runs during certificate extraction.
  * CLI: board N --certificate PATH. All inherited search controls still apply.
  */
+#ifdef STRIP3_TARGET_PROOF_LAZY
+#define STRIP3_LAZY_EXTERNAL_MAIN
+#include "strip3_lazy.c"
+#else
 #define TARGET_ENTRY_POINT target_cli_main
 #include "strip3_target.c"
+#endif
 #define STRIP3_PROOF_EXTERNAL_BASE
 #define STRIP3_PROOF_EXTERNAL_MAIN
 #include "strip3_proof_cost.c"
@@ -66,6 +71,10 @@ int main(int argc, char **argv) {
     proof_cap = (size_t)1 << bits; proofs = calloc(proof_cap, sizeof *proofs);
     if (!proofs) { fprintf(stderr, "target-proof: allocation failed; incomplete\n"); return 3; }
     certificate_path = argv[4]; completed_board_hook = export_completed;
+#ifdef STRIP3_TARGET_PROOF_LAZY
+    int configured = configure_lazy();
+    if (configured) return configured;
+#endif
     overall_start = seconds();
     int status = target_cli_main(3, argv);
     if (status) return status;
