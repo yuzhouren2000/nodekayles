@@ -56,6 +56,10 @@ class BoundaryTransfer(BoundaryAlgebra):
             self.nodes.append(node)
         return self.intern[node]
 
+    def _finish_node(self, node):
+        """Experimental subclasses may replace a node by a certified state."""
+        return self._intern_node(node), 0
+
     def value(self, state):
         """SG of the represented graph, with no additional external context."""
         self._check_state(state)
@@ -109,7 +113,7 @@ class BoundaryTransfer(BoundaryAlgebra):
                 internal.add((killed, pair(state, (other, 0), killed)))
         node = (tuple(sorted(live)), tuple(direct), tuple(moves),
                 tuple(sorted(internal)))
-        return self._intern_node(node), 0
+        return self._finish_node(node)
 
     def forget(self, state, labels):
         """Make these ports internal; they remain playable vertices."""
@@ -145,7 +149,7 @@ class BoundaryTransfer(BoundaryAlgebra):
         for killed, state in a[3]:
             internal.add((tuple(i for i in killed if i in live), child(state)))
         node = (tuple(sorted(live)), direct, tuple(moves), tuple(sorted(internal)))
-        return self._intern_node(node), 0
+        return self._finish_node(node)
 
     def rename(self, state, mapping):
         """Relabel every live port; extra keys for absent ports are allowed."""

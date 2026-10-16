@@ -17,7 +17,7 @@ def freeze(value):
     return tuple(map(freeze, value)) if isinstance(value, list) else value
 
 
-def verify(proof):
+def verify(proof, require_equal=True):
     assert proof["format"] == "node-kayles-boundary-dag-v1"
     nodes = tuple(map(freeze, proof["nodes"]))
     assert nodes[0] == ((), (), (), ())
@@ -100,7 +100,9 @@ def verify(proof):
 
         actual.append(state(frozenset(range(n))))
     assert actual == list(map(tuple, proof["states"]))
-    assert len(actual) >= 2 and len(set(actual)) == 1, "roots do not match"
+    assert len(actual) >= 2
+    if require_equal:
+        assert len(set(actual)) == 1, "roots do not match"
     used = {state[0] for state in actual}
     pending = list(used)
     while pending:
@@ -110,8 +112,12 @@ def verify(proof):
         used.update(new)
         pending.extend(new)
     assert used == set(range(len(nodes))), "unreferenced certificate nodes"
-    return {"nodes": len(nodes), "induced_states_checked": checked,
-            "common_state": actual[0]}
+    result = {"nodes": len(nodes), "induced_states_checked": checked}
+    if require_equal:
+        result["common_state"] = actual[0]
+    else:
+        result["states"] = actual
+    return result
 
 
 if __name__ == "__main__":

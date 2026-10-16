@@ -1,0 +1,338 @@
+{
+  "format": "kayles-response-screen-v1",
+  "fingerprint": {
+    "sources": {
+      "scripts/screen_kayles_response.py": "a50e859d908be968801cc468c4311325d742460494c4df753f4e302f4cb8b221",
+      "scripts/kayles_boundary_algebra.py": "73b66af7e572305b716e50b15f2a932eb0c718ddc13d4028f4c51b754bb6af25",
+      "scripts/kayles_boundary_transfer.py": "93a6f8381e204886c7344914abccc51f4da0d915763111f630a1a70782712255",
+      "scripts/kayles_response_equivalence.py": "493c5595737c5b9bb48889adae33746cd6b624e3388c8fa06069e6f15514e282",
+      "scripts/screen_strip3.py": "0f7fdcb0f72db3aeacbe7a20acd87cba868f2443613e9101959842570fb206b6",
+      "data/raw/strip3_3xn.tsv": "846875e5b3cbf9dadf6d901c36d398e5c1aa5ec9adc0af9b7b4c95a4938c05b9",
+      "data/strip3_language_34.out": "aaf365629c9dec0cdf2143f48e486a440c110659a05ffafd8481adca9476eac0"
+    },
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "executable": "/usr/bin/python3",
+    "max_n": 100,
+    "reference_max_n": 10,
+    "pair_limit": 200000,
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0
+  },
+  "commit": "4ddf0fac25e5727ade0fb8b391f31e5a660b6a78",
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "threads": 1,
+    "cpu": 0
+  },
+  "status": "candidate_stopped",
+  "runs": [
+    {
+      "mode": "strict",
+      "requested_max_n": 10,
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 1.142078,
+      "rows": [
+        {
+          "n": 1,
+          "SG": 2,
+          "status": "complete",
+          "counts": {
+            "forms": 63,
+            "value_evaluations": 4
+          },
+          "elapsed_s": 0.000933
+        },
+        {
+          "n": 2,
+          "SG": 1,
+          "status": "complete",
+          "counts": {
+            "forms": 91,
+            "value_evaluations": 13
+          },
+          "elapsed_s": 0.001836
+        },
+        {
+          "n": 3,
+          "SG": 1,
+          "status": "complete",
+          "counts": {
+            "forms": 263,
+            "value_evaluations": 35
+          },
+          "elapsed_s": 0.003545
+        },
+        {
+          "n": 4,
+          "SG": 0,
+          "status": "complete",
+          "counts": {
+            "forms": 704,
+            "value_evaluations": 88
+          },
+          "elapsed_s": 0.00765
+        },
+        {
+          "n": 5,
+          "SG": 3,
+          "status": "complete",
+          "counts": {
+            "forms": 1621,
+            "value_evaluations": 199
+          },
+          "elapsed_s": 0.018376
+        },
+        {
+          "n": 6,
+          "SG": 3,
+          "status": "complete",
+          "counts": {
+            "forms": 3462,
+            "value_evaluations": 408
+          },
+          "elapsed_s": 0.04129
+        },
+        {
+          "n": 7,
+          "SG": 2,
+          "status": "complete",
+          "counts": {
+            "forms": 7033,
+            "value_evaluations": 827
+          },
+          "elapsed_s": 0.087735
+        },
+        {
+          "n": 8,
+          "SG": 2,
+          "status": "complete",
+          "counts": {
+            "forms": 14065,
+            "value_evaluations": 1653
+          },
+          "elapsed_s": 0.198671
+        },
+        {
+          "n": 9,
+          "SG": 2,
+          "status": "complete",
+          "counts": {
+            "forms": 27973,
+            "value_evaluations": 3297
+          },
+          "elapsed_s": 0.451726
+        },
+        {
+          "n": 10,
+          "SG": 3,
+          "status": "complete",
+          "counts": {
+            "forms": 55632,
+            "value_evaluations": 6566
+          },
+          "elapsed_s": 1.070126
+        }
+      ],
+      "stderr": ""
+    },
+    {
+      "mode": "response",
+      "requested_max_n": 100,
+      "status": "incomplete",
+      "returncode": 3,
+      "wall_s": 1.685176,
+      "rows": [
+        {
+          "n": 1,
+          "SG": 2,
+          "status": "complete",
+          "counts": {
+            "forms": 63,
+            "representatives": 63,
+            "pairs_cached": 0,
+            "value_evaluations": 64,
+            "value_options": 192
+          },
+          "elapsed_s": 0.001057
+        },
+        {
+          "n": 2,
+          "SG": 1,
+          "status": "complete",
+          "counts": {
+            "forms": 90,
+            "representatives": 76,
+            "pairs_cached": 3,
+            "value_evaluations": 78,
+            "value_options": 242,
+            "candidate_pairs": 1,
+            "pair_queries": 3,
+            "certified_pairs": 1,
+            "merged_forms": 1
+          },
+          "elapsed_s": 0.001888
+        },
+        {
+          "n": 3,
+          "SG": 1,
+          "status": "complete",
+          "counts": {
+            "forms": 240,
+            "representatives": 200,
+            "pairs_cached": 36,
+            "value_evaluations": 213,
+            "value_options": 917,
+            "candidate_pairs": 15,
+            "pair_queries": 36,
+            "certified_pairs": 12,
+            "merged_forms": 12
+          },
+          "elapsed_s": 0.004069
+        },
+        {
+          "n": 4,
+          "SG": 0,
+          "status": "complete",
+          "counts": {
+            "forms": 551,
+            "representatives": 474,
+            "pairs_cached": 132,
+            "value_evaluations": 494,
+            "value_options": 2751,
+            "candidate_pairs": 43,
+            "pair_queries": 132,
+            "certified_pairs": 19,
+            "merged_forms": 19
+          },
+          "elapsed_s": 0.008786
+        },
+        {
+          "n": 5,
+          "SG": 3,
+          "status": "complete",
+          "counts": {
+            "forms": 1190,
+            "representatives": 1039,
+            "pairs_cached": 564,
+            "value_evaluations": 1082,
+            "value_options": 7384,
+            "candidate_pairs": 186,
+            "pair_queries": 564,
+            "certified_pairs": 42,
+            "merged_forms": 42
+          },
+          "elapsed_s": 0.018949
+        },
+        {
+          "n": 6,
+          "SG": 3,
+          "status": "complete",
+          "counts": {
+            "forms": 2302,
+            "representatives": 2052,
+            "pairs_cached": 2049,
+            "value_evaluations": 2106,
+            "value_options": 17444,
+            "candidate_pairs": 671,
+            "pair_queries": 2049,
+            "certified_pairs": 53,
+            "merged_forms": 53
+          },
+          "elapsed_s": 0.042824
+        },
+        {
+          "n": 7,
+          "SG": 2,
+          "status": "complete",
+          "counts": {
+            "forms": 4341,
+            "representatives": 3908,
+            "pairs_cached": 6606,
+            "value_evaluations": 3974,
+            "value_options": 38971,
+            "candidate_pairs": 2304,
+            "pair_queries": 6606,
+            "certified_pairs": 65,
+            "merged_forms": 65
+          },
+          "elapsed_s": 0.090136
+        },
+        {
+          "n": 8,
+          "SG": 2,
+          "status": "complete",
+          "counts": {
+            "forms": 8131,
+            "representatives": 7367,
+            "pairs_cached": 20451,
+            "value_evaluations": 7449,
+            "value_options": 84446,
+            "candidate_pairs": 8167,
+            "pair_queries": 20451,
+            "certified_pairs": 81,
+            "merged_forms": 81
+          },
+          "elapsed_s": 0.198144
+        },
+        {
+          "n": 9,
+          "SG": 2,
+          "status": "complete",
+          "counts": {
+            "forms": 15136,
+            "representatives": 13770,
+            "pairs_cached": 59778,
+            "value_evaluations": 13878,
+            "value_options": 179052,
+            "candidate_pairs": 27728,
+            "pair_queries": 59778,
+            "certified_pairs": 107,
+            "merged_forms": 107
+          },
+          "elapsed_s": 0.478412
+        },
+        {
+          "n": 10,
+          "SG": 3,
+          "status": "complete",
+          "counts": {
+            "forms": 28020,
+            "representatives": 25543,
+            "pairs_cached": 165930,
+            "value_evaluations": 25704,
+            "value_options": 372992,
+            "candidate_pairs": 88496,
+            "pair_queries": 165930,
+            "certified_pairs": 160,
+            "merged_forms": 160
+          },
+          "elapsed_s": 1.219823
+        },
+        {
+          "n": 11,
+          "status": "incomplete",
+          "reason": "response-equivalence pair budget reached; incomplete",
+          "counts": {
+            "forms": 33764,
+            "representatives": 32186,
+            "pairs_cached": 200000,
+            "value_evaluations": 32348,
+            "value_options": 490324,
+            "candidate_pairs": 107794,
+            "pair_queries": 200001,
+            "certified_pairs": 160,
+            "merged_forms": 160
+          }
+        }
+      ],
+      "stderr": ""
+    }
+  ],
+  "solver_processes": 2,
+  "wall_s": 2.849475
+}

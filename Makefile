@@ -18,6 +18,7 @@ help:
 	@echo "make test-strip3-screen-cache - check validated incremental screen reuse (seconds)"
 	@echo "make test-strip3-cube - independently check history-cube rigidity and local inference certificates"
 	@echo "make test-strip3-caterpillar - check reachable tree classification and interval SG evaluation"
+	@echo "make test-kayles-response - independently check universal two-move interface equivalence"
 	@echo "make build    - compile the C solver"
 	@echo "make build-strip3 - compile the specialised three-row solver"
 	@echo "make export-strip3-comb - independently verify and export bounded comb tables"
@@ -116,6 +117,10 @@ test-strip3-cube:
 .PHONY: test-strip3-caterpillar
 test-strip3-caterpillar:
 	$(PY) tests/test_strip3_caterpillar.py
+
+.PHONY: test-kayles-response
+test-kayles-response:
+	$(PY) tests/test_kayles_response.py
 
 test-strip3:
 	$(PY) tests/test_strip3.py --survey data/strip3_survey.jsonl
