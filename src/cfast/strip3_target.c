@@ -30,6 +30,7 @@ static struct query_frame *active_query;
 /* Experimental variants may keep a disjoint sum as one outcome query. */
 static int (*sum_equality_hook)(Mask *, int, int);
 static int (*component_equality_hook)(Mask, int);
+static void (*completed_board_hook)(Mask, int);
 
 static struct query_entry *query_slot(Mask m) {
     size_t i = hash(m) & (query_capacity - 1);
@@ -313,6 +314,7 @@ int TARGET_ENTRY_POINT(int argc, char **argv) {
             fflush(stderr);  /* retain completed obligations even on a later timeout */
             if (!match) g++;
         } while (!match);
+        if (completed_board_hook) completed_board_hook(full_board(n), g);
         printf("3\t%d\t%d\n", n, g);
     }
     else if (eq) printf("%d\n", equality(full_board(n), k));
