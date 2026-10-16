@@ -61,7 +61,9 @@ def check_option_decomposition(a, problems):
     for out_name, index_name, label in (
             ("strip3_a_options.out", "strip3_a_options_index.json", "old solver"),
             ("strip3_language_a_options.out", "strip3_language_a_options_index.json",
-             "language solver")):
+             "language solver"),
+            ("strip3_language_a33_options.out", "strip3_language_a33_options_index.json",
+             "language solver A(33)")):
         out_file = ROOT / "data" / out_name
         index_file = ROOT / "data" / index_name
         if not (out_file.exists() and index_file.exists()):

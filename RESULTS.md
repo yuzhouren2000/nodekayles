@@ -937,9 +937,17 @@ G(3×33) = 1。
 G(3×34) = 5。
 ```
 
+`survey 34` 由与 `board 34` 相同的二进制（sha256 5d2bb8fd…）独立复算：用时
+2 小时 26 分 05 秒、峰值 RSS 16,544,968 KB、1,870,877,942 个已算状态（与
+board 34 完全一致），给出同一 mex 与全部 102 个首着值
+（`data/strip3_language_survey_34.jsonl`）；34 列中行选项全部满足
+`a(c)⊕a(33−c)`（a-序列见 a_ext，a(33)=1），`verify_strip3_exact --n 34`
+以 sweep 34 数据重推 f(34)=5 并入库。
+
 零点仍恰为 `n = 4、22、26、30`。核验入口 `make test-strip3-language-33`；
 选项级对照数据 `data/strip3_language_33.out`、`data/strip3_a_options.out`、
-`data/strip3_language_gaps_32.out`。
+`data/strip3_language_gaps_32.out`、`data/strip3_language_survey_34.jsonl`、
+`data/proofs/strip3_language_sweep_34.json`。
 
 ### N39 — 可达族的转移接口：值类 5–8 个 vs 行为类 ≈0.93·c_w 个 `[推导]` `[计算]`
 

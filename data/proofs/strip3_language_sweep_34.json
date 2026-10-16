@@ -1,0 +1,123 @@
+{
+ "version": 1,
+ "kind": "strip3_sweep",
+ "n": 34,
+ "columns": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17
+ ],
+ "ht_bits": null,
+ "load": null,
+ "prealloc": null,
+ "threads": null,
+ "timeout_s": null,
+ "status": "ok",
+ "returncode": 0,
+ "elapsed_s": null,
+ "union_memo": null,
+ "memo_at_exit": null,
+ "binary_sha256": null,
+ "results": [
+  {
+   "column": 1,
+   "mask": "3ffffffffffffffffffffffff4",
+   "value": 2
+  },
+  {
+   "column": 2,
+   "mask": "3fffffffffffffffffffffffa6",
+   "value": 7
+  },
+  {
+   "column": 3,
+   "mask": "3ffffffffffffffffffffffd37",
+   "value": 2
+  },
+  {
+   "column": 4,
+   "mask": "3fffffffffffffffffffffe9bf",
+   "value": 11
+  },
+  {
+   "column": 5,
+   "mask": "3fffffffffffffffffffff4dff",
+   "value": 11
+  },
+  {
+   "column": 6,
+   "mask": "3ffffffffffffffffffffa6fff",
+   "value": 11
+  },
+  {
+   "column": 7,
+   "mask": "3fffffffffffffffffffd37fff",
+   "value": 9
+  },
+  {
+   "column": 8,
+   "mask": "3ffffffffffffffffffe9bffff",
+   "value": 4
+  },
+  {
+   "column": 9,
+   "mask": "3ffffffffffffffffff4dfffff",
+   "value": 9
+  },
+  {
+   "column": 10,
+   "mask": "3fffffffffffffffffa6ffffff",
+   "value": 4
+  },
+  {
+   "column": 11,
+   "mask": "3ffffffffffffffffd37ffffff",
+   "value": 3
+  },
+  {
+   "column": 12,
+   "mask": "3fffffffffffffffe9bfffffff",
+   "value": 15
+  },
+  {
+   "column": 13,
+   "mask": "3fffffffffffffff4dffffffff",
+   "value": 17
+  },
+  {
+   "column": 14,
+   "mask": "3ffffffffffffffa6fffffffff",
+   "value": 22
+  },
+  {
+   "column": 15,
+   "mask": "3fffffffffffffd37fffffffff",
+   "value": 11
+  },
+  {
+   "column": 16,
+   "mask": "3ffffffffffffe9bffffffffff",
+   "value": 9
+  },
+  {
+   "column": 17,
+   "mask": "3ffffffffffff4dfffffffffff",
+   "value": 4
+  }
+ ],
+ "note": "edge orbits extracted from src/cfast/strip3_language survey (language solver); grundy and middle options are re-derived by verify_strip3_exact"
+}
