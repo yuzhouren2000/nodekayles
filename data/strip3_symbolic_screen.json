@@ -1,0 +1,81 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 4,
+      "status": "complete",
+      "wall_s": 0.012581,
+      "returncode": 0,
+      "stdout": "3\t4\t0",
+      "stderr": "symbolic k=0 steps=4 nodes=4305 apply_calls=13092",
+      "counts": {
+        "k": 0,
+        "steps": 4,
+        "nodes": 4305,
+        "apply_calls": 13092
+      },
+      "SG": 0,
+      "solver": "candidate"
+    },
+    {
+      "n": 6,
+      "status": "complete",
+      "wall_s": 0.065983,
+      "returncode": 0,
+      "stdout": "3\t6\t3",
+      "stderr": "symbolic k=0 steps=5 nodes=92890 apply_calls=323767\nsymbolic k=1 steps=3 nodes=155872 apply_calls=597701\nsymbolic k=2 steps=4 nodes=264258 apply_calls=1005844\nsymbolic k=3 steps=1 nodes=312190 apply_calls=1207246",
+      "counts": {
+        "k": 3,
+        "steps": 1,
+        "nodes": 312190,
+        "apply_calls": 1207246
+      },
+      "SG": 3,
+      "solver": "candidate"
+    },
+    {
+      "n": 8,
+      "status": "failed",
+      "wall_s": 0.252332,
+      "returncode": 3,
+      "stdout": "",
+      "stderr": "symbolic: node budget reached; incomplete; nodes=1048576 apply_calls=4728692",
+      "counts": {
+        "nodes": 1048576,
+        "apply_calls": 4728692
+      },
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      4,
+      6,
+      8
+    ],
+    "skip_reference": true,
+    "extra_env": {}
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "f44f008ec30f6da48219ad5774456674f4ecc456",
+    "source_sha256": {
+      "src/cfast/strip3_symbolic.c": "79d2f4ee948fa794bf99f21b7f45de3d743af8c20ed8cf5a37bb312b07e78853",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_target.c": "afde9d2e14b602b251207092d1e3bb96c1daa00f1f6b5a7810bca83ad3e49e21",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 0.420085
+}

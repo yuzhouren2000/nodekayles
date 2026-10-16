@@ -1,0 +1,144 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 28,
+      "status": "failed",
+      "wall_s": 0.457681,
+      "returncode": 3,
+      "stdout": "",
+      "stderr": "stage k=0 equal=0 time=0.011298 memo=2587 queries=50111 moves=18648\nstage k=1 equal=0 time=0.227535 memo=37340 queries=1286630 moves=401567\nstage k=2 equal=0 time=0.227601 memo=37340 queries=1286631 moves=401567\nstage k=3 equal=0 time=0.230650 memo=37941 queries=1297628 moves=405412\ntarget: move budget reached; incomplete; memo=78048 queries=2489304 moves=750000 option_probes=1533791\nobligation n=28 nodes=84 k=4 move=10 mask=fffffffffffffffffffff\nobligation n=24 nodes=71 k=5 move=39 mask=bfffffffffffffffff\nobligation n=24 nodes=67 k=5 move=-1 mask=bfffffecbfffffffff\nobligation n=24 nodes=67 k=4 move=61 mask=bfffffecbfffffffff\nobligation n=20 nodes=55 k=5 move=-1 mask=00bffecbfffffffff\nobligation n=20 nodes=55 k=4 move=1 mask=00bffecbfffffffff\nobligation n=19 nodes=51 k=4 move=-1 mask=0017ffd97fffffffd\nobligation n=19 nodes=51 k=3 move=18 mask=0017ffd97fffffffd\nobligation n=19 nodes=47 k=3 move=27 mask=0017ffd97ffd37ffd\nobligation n=19 nodes=43 k=3 move=44 mask=0017ffd96cbd37ffd\nobligation n=19 nodes=40 k=3 move=52 mask=0017f6596cbd37ffd\nobligation n=17 nodes=33 k=2 move=8 mask=000016596cbd37ffd",
+      "counts": {
+        "k": 2,
+        "equal": 0,
+        "memo": 78048,
+        "queries": 2489304,
+        "moves": 750000,
+        "option_probes": 1533791,
+        "n": 17,
+        "nodes": 33,
+        "move": 8
+      },
+      "obligations": [
+        {
+          "n": 28,
+          "nodes": 84,
+          "k": 4,
+          "move": 10,
+          "mask": "fffffffffffffffffffff"
+        },
+        {
+          "n": 24,
+          "nodes": 71,
+          "k": 5,
+          "move": 39,
+          "mask": "bfffffffffffffffff"
+        },
+        {
+          "n": 24,
+          "nodes": 67,
+          "k": 5,
+          "move": -1,
+          "mask": "bfffffecbfffffffff"
+        },
+        {
+          "n": 24,
+          "nodes": 67,
+          "k": 4,
+          "move": 61,
+          "mask": "bfffffecbfffffffff"
+        },
+        {
+          "n": 20,
+          "nodes": 55,
+          "k": 5,
+          "move": -1,
+          "mask": "00bffecbfffffffff"
+        },
+        {
+          "n": 20,
+          "nodes": 55,
+          "k": 4,
+          "move": 1,
+          "mask": "00bffecbfffffffff"
+        },
+        {
+          "n": 19,
+          "nodes": 51,
+          "k": 4,
+          "move": -1,
+          "mask": "0017ffd97fffffffd"
+        },
+        {
+          "n": 19,
+          "nodes": 51,
+          "k": 3,
+          "move": 18,
+          "mask": "0017ffd97fffffffd"
+        },
+        {
+          "n": 19,
+          "nodes": 47,
+          "k": 3,
+          "move": 27,
+          "mask": "0017ffd97ffd37ffd"
+        },
+        {
+          "n": 19,
+          "nodes": 43,
+          "k": 3,
+          "move": 44,
+          "mask": "0017ffd96cbd37ffd"
+        },
+        {
+          "n": 19,
+          "nodes": 40,
+          "k": 3,
+          "move": 52,
+          "mask": "0017f6596cbd37ffd"
+        },
+        {
+          "n": 17,
+          "nodes": 33,
+          "k": 2,
+          "move": 8,
+          "mask": "000016596cbd37ffd"
+        }
+      ],
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      28
+    ],
+    "skip_reference": true,
+    "extra_env": {
+      "STRIP3_TARGET_CACHE_FIRST": "1",
+      "STRIP3_TARGET_SHARE_OPTIONS": "1",
+      "STRIP3_TARGET_FRONTIER": "4",
+      "STRIP3_TARGET_MOVE_LIMIT": "750000"
+    }
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "f44f008ec30f6da48219ad5774456674f4ecc456",
+    "source_sha256": {
+      "src/cfast/strip3_target.c": "afde9d2e14b602b251207092d1e3bb96c1daa00f1f6b5a7810bca83ad3e49e21",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 0.916262
+}

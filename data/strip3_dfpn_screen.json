@@ -1,0 +1,115 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 18,
+      "status": "complete",
+      "wall_s": 0.03981,
+      "returncode": 0,
+      "stdout": "3\t18\t2",
+      "stderr": "stage k=0 equal=0 time=0.022902 memo=4687 queries=2316 moves=1051\nstage k=1 equal=0 time=0.025867 memo=5491 queries=2344 moves=1062\nstage k=2 equal=1 time=0.036840 memo=8560 queries=2388 moves=1075\ntarget time=0.036892 memo=8560 exact=410 queries=2388 moves=1075 refutations=133 bytes_per_slot=48 order=2 low_first=0 option_probes=0 frontier=128 share_options=0 cache_first=0\ndfpn proof_memo=21956 expansions=5456 visits=6306 generated_moves=79959 edges=59506 key_bytes=421152",
+      "counts": {
+        "k": 2,
+        "equal": 1,
+        "memo": 8560,
+        "queries": 2388,
+        "moves": 1075,
+        "exact": 410,
+        "refutations": 133,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 0,
+        "frontier": 128,
+        "share_options": 0,
+        "cache_first": 0,
+        "proof_memo": 21956,
+        "expansions": 5456,
+        "visits": 6306,
+        "generated_moves": 79959,
+        "edges": 59506,
+        "key_bytes": 421152
+      },
+      "SG": 2,
+      "solver": "candidate"
+    },
+    {
+      "n": 24,
+      "status": "complete",
+      "wall_s": 0.254455,
+      "returncode": 0,
+      "stdout": "3\t24\t1",
+      "stderr": "stage k=0 equal=0 time=0.145433 memo=35150 queries=2425 moves=1093\nstage k=1 equal=1 time=0.244545 memo=70896 queries=2425 moves=1093\ntarget time=0.244607 memo=70896 exact=1477 queries=2425 moves=1093 refutations=137 bytes_per_slot=48 order=2 low_first=0 option_probes=0 frontier=128 share_options=0 cache_first=0\ndfpn proof_memo=170589 expansions=31455 visits=36709 generated_moves=657073 edges=467637 key_bytes=3592096",
+      "counts": {
+        "k": 1,
+        "equal": 1,
+        "memo": 70896,
+        "queries": 2425,
+        "moves": 1093,
+        "exact": 1477,
+        "refutations": 137,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 0,
+        "frontier": 128,
+        "share_options": 0,
+        "cache_first": 0,
+        "proof_memo": 170589,
+        "expansions": 31455,
+        "visits": 36709,
+        "generated_moves": 657073,
+        "edges": 467637,
+        "key_bytes": 3592096
+      },
+      "SG": 1,
+      "solver": "candidate"
+    },
+    {
+      "n": 26,
+      "status": "failed",
+      "wall_s": 0.245379,
+      "returncode": 3,
+      "stdout": "",
+      "stderr": "dfpn: budget reached; incomplete; proof_memo=183500 expansions=31095 visits=36976 edges=515646",
+      "counts": {
+        "proof_memo": 183500,
+        "expansions": 31095,
+        "visits": 36976,
+        "edges": 515646
+      },
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      18,
+      24,
+      26
+    ],
+    "skip_reference": true,
+    "extra_env": {}
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "f44f008ec30f6da48219ad5774456674f4ecc456",
+    "source_sha256": {
+      "src/cfast/strip3_dfpn.c": "7a3adafe02b962aa7488aade28a07f2d61b037ee623bd48da6386f4b9fb5640e",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_target.c": "afde9d2e14b602b251207092d1e3bb96c1daa00f1f6b5a7810bca83ad3e49e21",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 1.110148
+}

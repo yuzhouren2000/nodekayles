@@ -75,6 +75,7 @@ test-strip3-target-search:
 test-strip3-search-experiments:
 	$(PY) tests/test_strip3_coupled.py
 	$(PY) tests/test_strip3_search_experiments.py
+	$(PY) tests/verify_strip3_work_obligations.py
 
 screen-strip3:
 	$(PY) scripts/screen_strip3.py --output data/strip3_target_screen.json

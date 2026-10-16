@@ -1,0 +1,107 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 24,
+      "status": "complete",
+      "wall_s": 0.033992,
+      "returncode": 0,
+      "stdout": "3\t24\t1",
+      "stderr": "stage k=0 equal=0 time=0.003429 memo=675 queries=11059 moves=4547\nstage k=1 equal=1 time=0.030256 memo=5544 queries=146470 moves=50220\ntarget time=0.030328 memo=5544 exact=1958 queries=146470 moves=50220 refutations=536 bytes_per_slot=48 order=2 low_first=0 option_probes=93987 frontier=4 share_options=1 cache_first=1",
+      "counts": {
+        "k": 1,
+        "equal": 1,
+        "memo": 5544,
+        "queries": 146470,
+        "moves": 50220,
+        "exact": 1958,
+        "refutations": 536,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 93987,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 1
+      },
+      "SG": 1,
+      "solver": "candidate"
+    },
+    {
+      "n": 26,
+      "status": "complete",
+      "wall_s": 0.072023,
+      "returncode": 0,
+      "stdout": "3\t26\t0",
+      "stderr": "stage k=0 equal=1 time=0.067418 memo=11848 queries=403111 moves=129229\ntarget time=0.067505 memo=11848 exact=4754 queries=403111 moves=129229 refutations=1270 bytes_per_slot=48 order=2 low_first=0 option_probes=240360 frontier=4 share_options=1 cache_first=1",
+      "counts": {
+        "k": 0,
+        "equal": 1,
+        "memo": 11848,
+        "queries": 403111,
+        "moves": 129229,
+        "exact": 4754,
+        "refutations": 1270,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 240360,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 1
+      },
+      "SG": 0,
+      "solver": "candidate"
+    },
+    {
+      "n": 28,
+      "status": "timeout",
+      "wall_s": 2.010473,
+      "returncode": -9,
+      "stdout": "",
+      "stderr": "stage k=0 equal=0 time=0.011293 memo=2587 queries=50111 moves=18648\nstage k=1 equal=0 time=0.315728 memo=37340 queries=1286630 moves=401567\nstage k=2 equal=0 time=0.315800 memo=37340 queries=1286631 moves=401567\nstage k=3 equal=0 time=0.318409 memo=37941 queries=1297628 moves=405412",
+      "counts": {
+        "k": 3,
+        "equal": 0,
+        "memo": 37941,
+        "queries": 1297628,
+        "moves": 405412
+      },
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      24,
+      26,
+      28
+    ],
+    "skip_reference": true,
+    "extra_env": {
+      "STRIP3_TARGET_CACHE_FIRST": "1",
+      "STRIP3_TARGET_SHARE_OPTIONS": "1",
+      "STRIP3_TARGET_FRONTIER": "4"
+    }
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "f44f008ec30f6da48219ad5774456674f4ecc456",
+    "source_sha256": {
+      "src/cfast/strip3_target.c": "afde9d2e14b602b251207092d1e3bb96c1daa00f1f6b5a7810bca83ad3e49e21",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 2.50996
+}

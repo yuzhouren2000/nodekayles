@@ -1,0 +1,116 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 24,
+      "status": "complete",
+      "wall_s": 0.054704,
+      "returncode": 0,
+      "stdout": "3\t24\t1",
+      "stderr": "stage k=0 equal=0 time=0.020188 memo=3230 queries=50305 moves=116189\nstage k=1 equal=1 time=0.050417 memo=8663 queries=103083 moves=279083\ntarget time=0.050505 memo=8663 exact=4931 queries=103083 moves=279083 refutations=20581 bytes_per_slot=48 order=2 low_first=0 option_probes=0 frontier=128 share_options=0 cache_first=0\ncoupled sum_memo=416 sum_queries=207725 sum_moves=4845 key_bytes=13328 threshold=12 nim_first=0",
+      "counts": {
+        "k": 1,
+        "equal": 1,
+        "memo": 8663,
+        "queries": 103083,
+        "moves": 279083,
+        "exact": 4931,
+        "refutations": 20581,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 0,
+        "frontier": 128,
+        "share_options": 0,
+        "cache_first": 0,
+        "sum_memo": 416,
+        "sum_queries": 207725,
+        "sum_moves": 4845,
+        "key_bytes": 13328,
+        "threshold": 12,
+        "nim_first": 0
+      },
+      "SG": 1,
+      "solver": "candidate"
+    },
+    {
+      "n": 26,
+      "status": "complete",
+      "wall_s": 0.113159,
+      "returncode": 0,
+      "stdout": "3\t26\t0",
+      "stderr": "stage k=0 equal=1 time=0.108397 memo=15176 queries=217380 moves=659128\ntarget time=0.108516 memo=15176 exact=10291 queries=217380 moves=659128 refutations=39574 bytes_per_slot=48 order=2 low_first=0 option_probes=0 frontier=128 share_options=0 cache_first=0\ncoupled sum_memo=49 sum_queries=494597 sum_moves=560 key_bytes=1584 threshold=12 nim_first=0",
+      "counts": {
+        "k": 0,
+        "equal": 1,
+        "memo": 15176,
+        "queries": 217380,
+        "moves": 659128,
+        "exact": 10291,
+        "refutations": 39574,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 0,
+        "frontier": 128,
+        "share_options": 0,
+        "cache_first": 0,
+        "sum_memo": 49,
+        "sum_queries": 494597,
+        "sum_moves": 560,
+        "key_bytes": 1584,
+        "threshold": 12,
+        "nim_first": 0
+      },
+      "SG": 0,
+      "solver": "candidate"
+    },
+    {
+      "n": 28,
+      "status": "timeout",
+      "wall_s": 2.010524,
+      "returncode": -9,
+      "stdout": "",
+      "stderr": "stage k=0 equal=0 time=0.156814 memo=6053 queries=86334 moves=227120\nstage k=1 equal=0 time=0.405107 memo=38682 queries=528044 moves=1784469\nstage k=2 equal=0 time=0.405177 memo=38682 queries=528045 moves=1784470\nstage k=3 equal=0 time=0.596486 memo=64392 queries=840348 moves=2981210",
+      "counts": {
+        "k": 3,
+        "equal": 0,
+        "memo": 64392,
+        "queries": 840348,
+        "moves": 2981210
+      },
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      24,
+      26,
+      28
+    ],
+    "skip_reference": true,
+    "extra_env": {}
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "f44f008ec30f6da48219ad5774456674f4ecc456",
+    "source_sha256": {
+      "src/cfast/strip3_coupled.c": "70074d2cd37f00c566f4981e6a2bf94ccfa40ca2737af76f33c598aaea6b641b",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_target.c": "afde9d2e14b602b251207092d1e3bb96c1daa00f1f6b5a7810bca83ad3e49e21",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 2.63155
+}
