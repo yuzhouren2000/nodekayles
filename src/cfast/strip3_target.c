@@ -260,7 +260,7 @@ int TARGET_ENTRY_POINT(int argc, char **argv) {
     if (argc < 2) goto usage;
     int board = !strcmp(argv[1], "board"), eq = !strcmp(argv[1], "equal");
     int batch = !strcmp(argv[1], "masks"), qs = !strcmp(argv[1], "queries");
-    int n = 0, k = 0;
+    int n = 0, k = 0, batch_progress = 0;
     if (board || eq) {
         if (argc != (eq ? 4 : 3)) goto usage;
         n = parse_number(argv[2], 1, MAXCOLS);
@@ -279,7 +279,9 @@ int TARGET_ENTRY_POINT(int argc, char **argv) {
     if (env) share_options = parse_number(env, 0, 1);
     env = getenv("STRIP3_TARGET_CACHE_FIRST");
     if (env) cache_first = parse_number(env, 0, 1);
-    if (bits < 0 || query_order < 0 || low_first < 0 || frontier_threshold < 0 || share_options < 0 || cache_first < 0) goto usage;
+    env = getenv("STRIP3_TARGET_BATCH_PROGRESS");
+    if (env) batch_progress = parse_number(env, 0, 1);
+    if (bits < 0 || query_order < 0 || low_first < 0 || frontier_threshold < 0 || share_options < 0 || cache_first < 0 || batch_progress < 0) goto usage;
     env = getenv("STRIP3_TARGET_MOVE_LIMIT");
     if (env) {
         char *end;
@@ -330,6 +332,13 @@ int TARGET_ENTRY_POINT(int argc, char **argv) {
             }
             if (m & ~full_board(n)) goto usage;
             printf("%d\n", qs ? equality(m, k) : exact_value(m));
+            if (batch_progress) {
+                fflush(stdout); /* preserve only completed jobs on timeout */
+                fprintf(stderr, "batch n=%d time=%.6f memo=%zu queries=%llu moves=%llu option_probes=%llu\n",
+                        n, seconds()-start, query_entries, (unsigned long long)queries,
+                        (unsigned long long)query_moves, (unsigned long long)option_probes);
+                fflush(stderr);
+            }
         }
     }
     fprintf(stderr, "target time=%.6f memo=%zu exact=%llu queries=%llu moves=%llu refutations=%llu bytes_per_slot=%zu order=%d low_first=%d option_probes=%llu frontier=%d share_options=%d cache_first=%d\n",
