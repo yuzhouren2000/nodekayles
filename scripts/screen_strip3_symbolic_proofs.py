@@ -41,6 +41,8 @@ def bounded(command, env, timeout, memory, stdin=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sizes", type=int, nargs="+", default=[6, 8, 10, 12, 14])
+    parser.add_argument("--engine", choices=("reachable", "partial"), default="reachable")
+    parser.add_argument("--partial-initial", type=int, default=7)
     parser.add_argument("--bits", type=int, default=20)
     parser.add_argument("--checker-bits", type=int, default=20)
     parser.add_argument("--gc", type=int, choices=(0, 1), default=1)
@@ -53,17 +55,19 @@ def main():
     known = known_values()
     if (not args.sizes or args.sizes != sorted(set(args.sizes)) or any(n not in known for n in args.sizes)
             or not 8 <= args.bits <= 23 or not 8 <= args.checker_bits <= 22 or args.memory_mib < 128
+            or not 0 <= args.partial_initial <= 300
             or not all(math.isfinite(v) and v > 0 for v in (args.per_run, args.total))):
         parser.error("require increasing known sizes, valid BDD budgets and positive finite resource limits")
     cpu = min(os.sched_getaffinity(0)); os.sched_setaffinity(0, {cpu})
     start = time.monotonic()
     sources = [ROOT/path for path in ("src/cfast/strip3_reachable_symbolic.c", "src/cfast/strip3_symbolic.c",
                                     "tests/verify_strip3_symbolic_kernel.c", "scripts/screen_strip3_symbolic_proofs.py",
-                                    "scripts/screen_strip3.py")]
+                                    "scripts/screen_strip3.py", "src/cfast/strip3_partial_symbolic.c")]
     report = {"format": "strip3-symbolic-kernel-screen-v1", "status": "running", "samples": [],
               "provenance": {"commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
                              "source_sha256": {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}},
-              "configuration": {"sizes": args.sizes, "bits": args.bits, "checker_bits": args.checker_bits, "gc": args.gc},
+              "configuration": {"sizes": args.sizes, "bits": args.bits, "checker_bits": args.checker_bits,
+                                "gc": args.gc, "engine": args.engine, "partial_initial": args.partial_initial},
               "limits": {"per_process_wall_s": args.per_run, "total_wall_s": args.total,
                          "address_space_mib": args.memory_mib, "cpu": cpu, "threads": 1,
                          "total_budget_checks": "between stages; compression and JSON writes have no separate hard interrupt"},
@@ -81,10 +85,11 @@ def main():
         return bounded(command, env, min(args.per_run, remaining), args.memory_mib, stdin)
 
     env = {k: v for k, v in os.environ.items() if not k.startswith("STRIP3_")}
-    env.update(STRIP3_SYMBOLIC_BITS=str(args.bits), STRIP3_SYMBOLIC_GC=str(args.gc), STRIP3_KERNEL_BITS=str(args.checker_bits))
+    env.update(STRIP3_SYMBOLIC_BITS=str(args.bits), STRIP3_SYMBOLIC_GC=str(args.gc), STRIP3_KERNEL_BITS=str(args.checker_bits),
+               STRIP3_PARTIAL_INITIAL=str(args.partial_initial))
     with tempfile.TemporaryDirectory(prefix="strip3-symbolic-kernels-") as folder:
         directory = Path(folder); producer, checker = directory/"producer", directory/"checker"
-        for binary, source in ((producer, sources[0]), (checker, sources[2])):
+        for binary, source in ((producer, sources[0] if args.engine == "reachable" else sources[-1]), (checker, sources[2])):
             built = stage(["gcc", "-O3", "-Wall", "-Wextra", "-Werror", "-o", binary, source], env)
             if built["status"] != "complete":
                 report["status"] = "build_failed"; report["build"] = built; save(); return
@@ -106,7 +111,8 @@ def main():
                         else:
                             data = cert.read_bytes()
                             args.proof_directory.mkdir(parents=True, exist_ok=True)
-                            destination = args.proof_directory/f"strip3_kernel_{n}.txt.gz"
+                            prefix = "strip3_kernel" if args.engine == "reachable" else "strip3_partial_kernel"
+                            destination = args.proof_directory/f"{prefix}_{n}.txt.gz"
                             compressed = gzip.compress(data, mtime=0)
                             destination.write_bytes(compressed)
                             sample.update(status="verified", SG=checked["SG"], checked=checked,

@@ -44,16 +44,78 @@ def independent_history_images(n):
     return images
 
 
+def sparse_oracle_certificate(n, images, table):
+    """Small diagnostic only: use the independent SG table to select replies.
+
+    This is not a new search algorithm or a speed comparison. It demonstrates
+    that the certificate conditions accept partial lower kernels.
+    """
+    closed = neighbourhoods(n)
+    full = (1 << (3*n))-1
+    target = table[full]
+    facts = [set() for _ in range(target+1)]
+
+    def losing(mask, k):
+        assert table[mask] == k
+        if mask in facts[k]:
+            return
+        facts[k].add(mask)
+        for v in range(3*n):
+            if mask >> v & 1:
+                winning(mask & ~closed[v], k)
+        for j in range(k):
+            winning(mask, j)
+
+    def winning(mask, k):
+        assert table[mask] != k
+        if table[mask] < k:
+            losing(mask, table[mask])
+        else:
+            child = next(mask & ~closed[v] for v in range(3*n)
+                         if mask >> v & 1 and table[mask & ~closed[v]] == k)
+            losing(child, k)
+
+    losing(full, target)
+    nodes, intern = [], {}
+
+    def make(v, low, high):
+        if low == high:
+            return low
+        flip = low & 1
+        key = v, low ^ flip, high ^ flip
+        if key not in intern:
+            nodes.append(key)
+            intern[key] = 2*len(nodes)
+        return intern[key] ^ flip
+
+    def build(members, v=0):
+        if not members:
+            return 0
+        if v == 3*n:
+            return 1
+        return make(v, build([m for m in members if not (m >> v & 1)], v+1),
+                    build([m for m in members if m >> v & 1], v+1))
+
+    domain = build(sorted(images))
+    roots = [build(sorted(group)) for group in facts]
+    text = (f"node-kayles-symbolic-kernel-v1\n{n} {target} {len(nodes)+1}\n{domain}\n"
+            + " ".join(map(str, roots))+"\n"
+            + "".join(f"{v} {low} {high}\n" for v, low, high in nodes))
+    assert any(len(facts[j]) < sum(table[m] == j for m in images) for j in range(target))
+    return text, [len(group) for group in facts]
+
+
 def main():
     os.sched_setaffinity(0, {min(os.sched_getaffinity(0))})
     resource.setrlimit(resource.RLIMIT_AS, (512*1024**2,)*2)
     expected_counts = (4, 14, 54, 172, 600, 2037)
     checked_values, checked_moves = 0, 0
     with tempfile.TemporaryDirectory(prefix="strip3-reachable-symbolic-test-") as folder:
-        binary, baseline, checker = [Path(folder)/name for name in ("reachable", "induced", "check")]
+        binary, baseline, checker, partial = [Path(folder)/name for name in ("reachable", "induced", "check", "partial")]
         for path, source in ((binary, ROOT/"src/cfast/strip3_reachable_symbolic.c"),
                              (baseline, ROOT/"src/cfast/strip3_symbolic.c"),
-                             (checker, ROOT/"tests/verify_strip3_symbolic_kernel.c")):
+                             (checker, ROOT/"tests/verify_strip3_symbolic_kernel.c"),
+                             (partial, ROOT/"src/cfast/strip3_partial_symbolic.c")):
             subprocess.run(["gcc", "-O3", "-Wall", "-Wextra", "-Werror", "-o", str(path),
                             str(source)], check=True, timeout=2, preexec_fn=limits)
 
@@ -85,6 +147,12 @@ def main():
                 checked_values += len(images)
                 if n == 6 and gc == "1" and bits == "18":
                     assert "gc=0 " not in result.stderr, result.stderr
+            for initial in ("0", "7"):
+                result = run(partial, "table", n, STRIP3_PARTIAL_INITIAL=initial, STRIP3_SYMBOLIC_BITS="18")
+                assert result.returncode == 0, result.stderr
+                assert list(map(int, result.stdout.split())) == [g if m in images else -1
+                                                                 for m, g in enumerate(expected)]
+                checked_values += len(images)
             if n == 5:
                 result = run(baseline, "table", n)
                 assert result.returncode == 0, result.stderr
@@ -97,7 +165,7 @@ def main():
             assert verified.returncode == 0, verified.stderr
             metrics = json.loads(verified.stdout)
             assert metrics["n"] == n and metrics["SG"] == expected[-1]
-            assert metrics["predecessor_calls"] == expected[-1]+2
+            assert metrics["predecessor_calls"] in (expected[-1]+1, expected[-1]+2)
             certificate_checks += 1
         for gc, bits in (("0", "20"), ("1", "18")):
             result = run(binary, "board", 8, "--certificate", cert,
@@ -106,6 +174,19 @@ def main():
             verified = check(cert.read_text())
             assert verified.returncode == 0 and json.loads(verified.stdout)["SG"] == 2, verified.stderr
             certificate_checks += 1
+        for initial in ("0", "7"):
+            result = run(partial, "board", 8, "--certificate", cert,
+                         STRIP3_PARTIAL_INITIAL=initial, STRIP3_SYMBOLIC_BITS="18")
+            assert result.returncode == 0, result.stderr
+            verified = check(cert.read_text())
+            assert verified.returncode == 0 and json.loads(verified.stdout)["SG"] == 2, verified.stderr
+            certificate_checks += 1
+        sparse_text, sparse_sizes = sparse_oracle_certificate(6, images, expected)
+        verified = check(sparse_text)
+        assert verified.returncode == 0, verified.stderr
+        assert json.loads(verified.stdout)["SG"] == 3
+        assert json.loads(verified.stdout)["complete_lower_kernels"] < 3
+        certificate_checks += 1
         # Preserve the n=6 proof for semantic mutations with several lower kernels.
         result = run(binary, "board", 6, "--certificate", cert)
         assert result.returncode == 0, result.stderr
@@ -147,10 +228,16 @@ def main():
         for gc in ("0", "1"):
             result = run(binary, "board", 12, STRIP3_SYMBOLIC_BITS="8", STRIP3_SYMBOLIC_GC=gc)
             assert result.returncode == 3 and not result.stdout and "incomplete" in result.stderr
+            result = run(partial, "board", 12, STRIP3_SYMBOLIC_BITS="8", STRIP3_SYMBOLIC_GC=gc)
+            assert result.returncode == 3 and not result.stdout and "incomplete" in result.stderr
+        for initial in ("-1", "301", "4bad"):
+            result = run(partial, "board", 4, STRIP3_PARTIAL_INITIAL=initial)
+            assert result.returncode == 2 and not result.stdout
         assert run(baseline, "domain", 2).returncode == 2
     print({"domain_counts": expected_counts, "independent_SG_comparisons": checked_values,
            "real_move_closure_checks": checked_moves, "baseline_induced_SG_comparisons": 32768,
            "standalone_kernel_certificates": certificate_checks,
+           "sparse_n6_kernel_facts": sparse_sizes,
            "semantic_tampering_and_missing_successor_witness": "rejected",
            "forced_compaction_and_budget_failures": "passed"})
 

@@ -202,25 +202,30 @@ int main(void) {
     for (unsigned v = 0; v < levels; v++) literals[v] = node(v, 0, 1);
     reachable = independent_reachable_domain();
     require(reachable == claimed_domain, "domain differs from the independent-history image");
-    B excluded = 0;
+    B excluded = 0, witnesses[301];
+    unsigned complete_lower_kernels = 0;
     for (unsigned k = 0; k <= target; k++) {
         B kernel = kernels[k];
         require(!intersect(kernel, negate(reachable)), "kernel outside the reachable domain");
         require(!intersect(kernel, excluded), "kernel overlaps a lower nimber");
         B can_reach = predecessor(kernel), winning = unite(excluded, can_reach);
+        witnesses[k] = winning;
         require(!intersect(kernel, winning), "kernel has a move to itself or a lower classification");
-        if (k < target) require(unite(kernel, winning) == reachable, "lower kernel is incomplete");
-        else {
-            B unknown = intersect(reachable, negate(winning));
-            require(!intersect(kernel, predecessor(unknown)), "last kernel has a successor outside its winning witnesses");
-            B board = kernel;
-            while (board >= 2) board = graph[board].high;
-            require(board == 1, "full board is absent from the last kernel");
-        }
+        /* A move in the auxiliary Nim heap must also have a winning witness.
+         * Lower kernels may be partial: no global classification is assumed. */
+        for (unsigned j = 0; j < k; j++)
+            require(!intersect(kernel, negate(witnesses[j])), "Nim move lacks a winning witness");
+        B unknown = intersect(reachable, negate(winning));
+        B escape = unknown == kernel ? can_reach : predecessor(unknown);
+        require(!intersect(kernel, escape), "kernel has a successor outside its winning witnesses");
+        if (k < target && unknown == kernel) complete_lower_kernels++;
         excluded = unite(excluded, kernel);
     }
-    printf("{\"n\":%u,\"SG\":%u,\"certificate_nodes\":%u,\"checker_nodes\":%zu,\"predecessor_calls\":%llu,\"apply_calls\":%llu}\n",
-           width, target, count-1, used-2, (unsigned long long)predecessor_calls, (unsigned long long)applications);
+    B board = kernels[target];
+    while (board >= 2) board = graph[board].high;
+    require(board == 1, "full board is absent from the last kernel");
+    printf("{\"n\":%u,\"SG\":%u,\"certificate_nodes\":%u,\"checker_nodes\":%zu,\"complete_lower_kernels\":%u,\"predecessor_calls\":%llu,\"apply_calls\":%llu}\n",
+           width, target, count-1, used-2, complete_lower_kernels, (unsigned long long)predecessor_calls, (unsigned long long)applications);
     free(graph); free(unique); free(memo); free(quantified); free(restricted); free(restriction_stamp);
     free(translated); free(source_levels);
     return 0;

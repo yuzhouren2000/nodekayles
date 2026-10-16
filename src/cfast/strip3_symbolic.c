@@ -32,6 +32,9 @@ static int gc_enabled = 1;
 static Ref certificate_sets[301];
 static unsigned certificate_count;
 static const char *certificate_path;
+#ifdef STRIP3_PARTIAL_KERNEL_SYMBOLIC
+static Ref partial_winning[301];
+#endif
 #endif
 
 static uint64_t mix(uint64_t h) {
@@ -157,6 +160,9 @@ static void collect_live(Ref *excluded, Ref *losing, Ref *winning) {
     mark_live(domain); mark_live(*excluded); mark_live(*losing); mark_live(*winning);
     for (unsigned v = 0; v < variables; v++) mark_live(xvars[v]);
     for (unsigned k = 0; k < certificate_count; k++) mark_live(certificate_sets[k]);
+#ifdef STRIP3_PARTIAL_KERNEL_SYMBOLIC
+    for (unsigned k = 0; k < certificate_count; k++) mark_live(partial_winning[k]);
+#endif
     size_t next = 1;
     /* Children are older than parents; in-place compaction is safe. */
     for (size_t id = 1; id < node_count; id++) if (marked[id]) {
@@ -170,6 +176,9 @@ static void collect_live(Ref *excluded, Ref *losing, Ref *winning) {
     *losing = remap_live(*losing); *winning = remap_live(*winning);
     for (unsigned v = 0; v < variables; v++) xvars[v] = remap_live(xvars[v]);
     for (unsigned k = 0; k < certificate_count; k++) certificate_sets[k] = remap_live(certificate_sets[k]);
+#ifdef STRIP3_PARTIAL_KERNEL_SYMBOLIC
+    for (unsigned k = 0; k < certificate_count; k++) partial_winning[k] = remap_live(partial_winning[k]);
+#endif
     node_count = next;
     memset(unique, 0, unique_cap*sizeof *unique);
     memset(cache, 0, cache_cap*sizeof *cache);
@@ -224,8 +233,8 @@ static Ref reachable_domain(unsigned n) {
 }
 
 /* The checker only needs the final kernels, not any iteration history.
- * Complete lower kernels partition their complement with winning witnesses;
- * the last kernel may be partial and must contain the full board. */
+ * This producer completes its lower kernels; the certificate semantics also
+ * permit partial lower kernels with locally checked Nim-move witnesses. */
 static int write_kernel_certificate(unsigned n, unsigned k, Ref last) {
     if (!certificate_path) return 1;
     if (!compact_map) compact_map = calloc(node_limit, sizeof *compact_map);
@@ -307,6 +316,63 @@ int main(int argc, char **argv) {
     }
     Ref excluded = 0;
     int g;
+#ifdef STRIP3_PARTIAL_KERNEL_SYMBOLIC
+    const char *initial_env = getenv("STRIP3_PARTIAL_INITIAL");
+    long initial = initial_env ? strtol(initial_env, &end, 10) : 7;
+    if (initial < 0 || initial > 300 || (initial_env && (!*initial_env || *end))) return 2;
+    unsigned ceiling = (unsigned)initial < variables ? (unsigned)initial : variables;
+    certificate_count = ceiling+1;
+    for (unsigned round = 1; ; round++) {
+        Ref dummy_a = 0, dummy_b = 0, dummy_c = 0;
+        collect_live(&dummy_a, &dummy_b, &dummy_c);
+        int changed = 0;
+        Ref prefix = 0;
+        for (unsigned k = 0; k <= ceiling; k++) {
+            Ref winning = bdd_or(prefix, predecessor(certificate_sets[k]));
+            changed |= winning != partial_winning[k];
+            partial_winning[k] = winning;
+            prefix = bdd_or(prefix, certificate_sets[k]);
+        }
+        Ref smaller_false = domain;
+        for (unsigned k = 0; k <= ceiling; k++) {
+            Ref losing = bdd_and(smaller_false, predecessor(partial_winning[k]^1)^1);
+            changed |= losing != certificate_sets[k];
+            certificate_sets[k] = losing;
+            smaller_false = bdd_and(smaller_false, partial_winning[k]);
+            if (!table && evaluate(losing, 0, 1)) {
+                fprintf(stderr, "partial round=%u ceiling=%u k=%u nodes=%zu apply_calls=%llu\n",
+                        round, ceiling, k, node_count, (unsigned long long)apply_calls);
+                if (!write_kernel_certificate((unsigned)n, k, losing)) {
+                    fprintf(stderr, "symbolic: certificate write failed; incomplete\n"); return 3;
+                }
+                printf("3\t%ld\t%u\n", n, k);
+                goto done;
+            }
+        }
+        fprintf(stderr, "partial round=%u ceiling=%u nodes=%zu apply_calls=%llu\n",
+                round, ceiling, node_count, (unsigned long long)apply_calls);
+        if (table) {
+            for (size_t m = 0; m < masks; m++) if (values[m] < 0 && evaluate(domain, m, 0)) {
+                for (unsigned k = 0; k <= ceiling; k++) if (evaluate(certificate_sets[k], m, 0)) {
+                    values[m] = (int)k; assigned++; break;
+                }
+            }
+            if (assigned == wanted) {
+                for (size_t m = 0; m < masks; m++) printf("%d\n", values[m]);
+                goto done;
+            }
+        }
+        /* No assumption that SG<=the initial ceiling: expand on a completed
+         * refutation of the current board range, or on a saturated table. */
+        int expand = table ? !changed : evaluate(smaller_false, 0, 1);
+        if (expand && ceiling < variables) {
+            ceiling++;
+            certificate_count = ceiling+1;
+        } else if (!changed) {
+            fprintf(stderr, "partial: invalid saturated classification; incomplete\n"); return 1;
+        }
+    }
+#endif
     for (g = 0; g <= (int)variables; g++) {
         Ref losing = 0, winning = excluded;
         unsigned steps = 0;
