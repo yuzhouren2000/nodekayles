@@ -1,0 +1,185 @@
+{
+  "format": "strip3-symbolic-kernel-screen-v1",
+  "status": "screen_stopped",
+  "samples": [
+    {
+      "n": 6,
+      "status": "verified",
+      "construction": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.01951,
+        "stdout": "3\t6\t3",
+        "stderr": "reachable_domain nodes=1010 apply_calls=2013\nsymbolic k=0 steps=5 nodes=24659 apply_calls=87324\nsymbolic k=1 steps=3 nodes=34239 apply_calls=125488\nsymbolic k=2 steps=4 nodes=48528 apply_calls=173335\nsymbolic k=3 steps=1 nodes=52738 apply_calls=189514\nkernel_certificate nodes=1457 roots=4\nreachable_stats created_nodes=52737 peak_nodes=52738 retained_nodes=52738 gc=0 apply_calls=189514"
+      },
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.016494,
+        "stdout": "{\"n\":6,\"SG\":3,\"certificate_nodes\":1457,\"checker_nodes\":26773,\"predecessor_calls\":5,\"apply_calls\":79979}",
+        "stderr": ""
+      },
+      "SG": 3,
+      "checked": {
+        "n": 6,
+        "SG": 3,
+        "certificate_nodes": 1457,
+        "checker_nodes": 26773,
+        "predecessor_calls": 5,
+        "apply_calls": 79979
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_symbolic_kernels/strip3_kernel_6.txt.gz",
+        "bytes": 14850,
+        "gzip_bytes": 5678,
+        "sha256": "c2c49382a4c09d50e9950eb02dd9518b531441f140a368b11ea30bb9dd7d906a",
+        "gzip_sha256": "cfd50e9b472ac7f55e88ad290833730541c9279dc219df7602cf5ad7a5b446e4"
+      }
+    },
+    {
+      "n": 8,
+      "status": "verified",
+      "construction": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.052736,
+        "stdout": "3\t8\t2",
+        "stderr": "reachable_domain nodes=1531 apply_calls=3309\nsymbolic k=0 steps=6 nodes=44877 apply_calls=572407\nsymbolic k=1 steps=3 nodes=104143 apply_calls=785777\nsymbolic k=2 steps=5 nodes=75833 apply_calls=1202462\nkernel_certificate nodes=3391 roots=3\nreachable_stats created_nodes=365798 peak_nodes=162614 retained_nodes=75833 gc=2 apply_calls=1202462"
+      },
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.021864,
+        "stdout": "{\"n\":8,\"SG\":2,\"certificate_nodes\":3391,\"checker_nodes\":82496,\"predecessor_calls\":4,\"apply_calls\":239899}",
+        "stderr": ""
+      },
+      "SG": 2,
+      "checked": {
+        "n": 8,
+        "SG": 2,
+        "certificate_nodes": 3391,
+        "checker_nodes": 82496,
+        "predecessor_calls": 4,
+        "apply_calls": 239899
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_symbolic_kernels/strip3_kernel_8.txt.gz",
+        "bytes": 37594,
+        "gzip_bytes": 14150,
+        "sha256": "4c5cbfa5704fa5d45c16b46a44a39e59a12bfa8e5f8ff7bda1bc8b78264a351c",
+        "gzip_sha256": "81b99a8bebc4595ff2a56f288048fe14101ef15a7f352dfe21e7f0bf964ab56f"
+      }
+    },
+    {
+      "n": 10,
+      "status": "verified",
+      "construction": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.357965,
+        "stdout": "3\t10\t3",
+        "stderr": "reachable_domain nodes=2053 apply_calls=4623\nsymbolic k=0 steps=8 nodes=140458 apply_calls=3440653\nsymbolic k=1 steps=4 nodes=141752 apply_calls=5406934\nsymbolic k=2 steps=7 nodes=142020 apply_calls=8863392\nsymbolic k=3 steps=3 nodes=142981 apply_calls=10336787\nkernel_certificate nodes=7930 roots=4\nreachable_stats created_nodes=3213341 peak_nodes=261631 retained_nodes=142981 gc=18 apply_calls=10336787"
+      },
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.045478,
+        "stdout": "{\"n\":10,\"SG\":3,\"certificate_nodes\":7930,\"checker_nodes\":263859,\"predecessor_calls\":5,\"apply_calls\":808735}",
+        "stderr": ""
+      },
+      "SG": 3,
+      "checked": {
+        "n": 10,
+        "SG": 3,
+        "certificate_nodes": 7930,
+        "checker_nodes": 263859,
+        "predecessor_calls": 5,
+        "apply_calls": 808735
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_symbolic_kernels/strip3_kernel_10.txt.gz",
+        "bytes": 94570,
+        "gzip_bytes": 34682,
+        "sha256": "d2fcb5de665f1be9885a03bdca9fb5d8cd50051b3316e2ff40b5ed33403d229a",
+        "gzip_sha256": "c254a953788d5c686df20ceea444dcde5c1d096818f6ec60a2e97e497283d951"
+      }
+    },
+    {
+      "n": 12,
+      "status": "verified",
+      "construction": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 1.724159,
+        "stdout": "3\t12\t5",
+        "stderr": "reachable_domain nodes=2575 apply_calls=5937\nsymbolic k=0 steps=9 nodes=376243 apply_calls=12066442\nsymbolic k=1 steps=5 nodes=377458 apply_calls=18909672\nsymbolic k=2 steps=8 nodes=384028 apply_calls=31772893\nsymbolic k=3 steps=4 nodes=388866 apply_calls=37253514\nsymbolic k=4 steps=7 nodes=278770 apply_calls=42987316\nsymbolic k=5 steps=3 nodes=285957 apply_calls=45629053\nkernel_certificate nodes=22816 roots=6\nreachable_stats created_nodes=14559677 peak_nodes=896774 retained_nodes=285957 gc=33 apply_calls=45629053"
+      },
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.151748,
+        "stdout": "{\"n\":12,\"SG\":5,\"certificate_nodes\":22816,\"checker_nodes\":921904,\"predecessor_calls\":7,\"apply_calls\":2955739}",
+        "stderr": ""
+      },
+      "SG": 5,
+      "checked": {
+        "n": 12,
+        "SG": 5,
+        "certificate_nodes": 22816,
+        "checker_nodes": 921904,
+        "predecessor_calls": 7,
+        "apply_calls": 2955739
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_symbolic_kernels/strip3_kernel_12.txt.gz",
+        "bytes": 285532,
+        "gzip_bytes": 101886,
+        "sha256": "d87f71c3e3c73f07db27685272dcfe9928a768eca76f2bbbead2d4cdbf8bf60a",
+        "gzip_sha256": "374de424f893bcffe631a31ac27e957fad1053d7b3f4a9e629f18ce3448cf0d4"
+      }
+    },
+    {
+      "n": 14,
+      "status": "incomplete",
+      "construction": {
+        "status": "failed",
+        "returncode": 3,
+        "wall_s": 0.180528,
+        "stdout": "",
+        "stderr": "reachable_domain nodes=3097 apply_calls=7251\nsymbolic: node budget reached; incomplete; nodes=1048576 apply_calls=4823370\nreachable_stats created_nodes=1700301 peak_nodes=1048576 retained_nodes=1048576 gc=2 apply_calls=4823370"
+      }
+    }
+  ],
+  "provenance": {
+    "commit": "e70374d5d869c6356b1358de5eae1ee98f0dd97a",
+    "source_sha256": {
+      "src/cfast/strip3_reachable_symbolic.c": "2402114bc82ef7f2dafb31b262e3b70ae50081c8e80c17770b9fa61d31a98368",
+      "src/cfast/strip3_symbolic.c": "7d8622a03a848af95728a3ebf4b1e86d302b8a3f3f9f67eccf00a10970a2eaba",
+      "tests/verify_strip3_symbolic_kernel.c": "d7e0a43ec80e75ac169c8252fcfdfaf79d95dca5f6b6a070152906bfb5b026e0",
+      "scripts/screen_strip3_symbolic_proofs.py": "b16b0360b1fc602dfe3359e7112f56224712500468cfe38780cbaa2b1347c0d9",
+      "scripts/screen_strip3.py": "eceb6d4096a962810e91c6df8eee90279d18990a175249baa2c1f79e5bc08554"
+    }
+  },
+  "configuration": {
+    "sizes": [
+      6,
+      8,
+      10,
+      12,
+      14
+    ],
+    "bits": 20,
+    "checker_bits": 20,
+    "gc": 1
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1,
+    "total_budget_checks": "between stages; compression and JSON writes have no separate hard interrupt"
+  },
+  "interpretation": "Exact certificates for fixed finite boards; no claim of a finite automaton valid for all lengths.",
+  "wall_s": 3.007953
+}

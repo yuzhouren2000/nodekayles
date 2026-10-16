@@ -1,0 +1,157 @@
+{
+  "format": "strip3-symbolic-kernel-screen-v1",
+  "status": "screen_stopped",
+  "samples": [
+    {
+      "n": 6,
+      "status": "verified",
+      "construction": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.021556,
+        "stdout": "3\t6\t3",
+        "stderr": "reachable_domain nodes=1010 apply_calls=2013\npartial round=1 ceiling=0 nodes=2825 apply_calls=12341\npartial round=2 ceiling=0 nodes=6602 apply_calls=26397\npartial round=3 ceiling=0 nodes=16526 apply_calls=59611\npartial round=4 ceiling=0 nodes=22854 apply_calls=79811\npartial round=5 ceiling=0 nodes=24622 apply_calls=85563\npartial round=6 ceiling=0 nodes=24659 apply_calls=85863\npartial round=7 ceiling=1 nodes=27107 apply_calls=102149\npartial round=8 ceiling=1 nodes=33224 apply_calls=120357\npartial round=9 ceiling=1 nodes=34928 apply_calls=125987\npartial round=10 ceiling=1 nodes=34991 apply_calls=126401\npartial round=11 ceiling=2 nodes=38325 apply_calls=138775\npartial round=12 ceiling=2 nodes=43386 apply_calls=155279\npartial round=13 ceiling=2 nodes=47956 apply_calls=170329\npartial round=14 ceiling=2 nodes=49139 apply_calls=174455\npartial round=15 ceiling=2 nodes=49252 apply_calls=175101\npartial round=16 ceiling=3 k=3 nodes=51727 apply_calls=185379\nkernel_certificate nodes=1457 roots=4\nreachable_stats created_nodes=51726 peak_nodes=51727 retained_nodes=51727 gc=0 apply_calls=185379"
+      },
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.017831,
+        "stdout": "{\"n\":6,\"SG\":3,\"certificate_nodes\":1457,\"checker_nodes\":27534,\"complete_lower_kernels\":3,\"predecessor_calls\":5,\"apply_calls\":84984}",
+        "stderr": ""
+      },
+      "SG": 3,
+      "checked": {
+        "n": 6,
+        "SG": 3,
+        "certificate_nodes": 1457,
+        "checker_nodes": 27534,
+        "complete_lower_kernels": 3,
+        "predecessor_calls": 5,
+        "apply_calls": 84984
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_partial0_kernels/strip3_partial_kernel_6.txt.gz",
+        "bytes": 14850,
+        "gzip_bytes": 5667,
+        "sha256": "1282b1cd586ca23ac91ddba267b0616203ea808088eb7ef74aee123f6aec11dd",
+        "gzip_sha256": "f5b73a9867ea8970d091789068ada70cc80b30163b22bb6fbd1b1da46619c4a2"
+      }
+    },
+    {
+      "n": 8,
+      "status": "verified",
+      "construction": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.082786,
+        "stdout": "3\t8\t2",
+        "stderr": "reachable_domain nodes=1531 apply_calls=3309\npartial round=1 ceiling=0 nodes=6181 apply_calls=27255\npartial round=2 ceiling=0 nodes=15766 apply_calls=63183\npartial round=3 ceiling=0 nodes=55607 apply_calls=185481\npartial round=4 ceiling=0 nodes=102402 apply_calls=321855\npartial round=5 ceiling=0 nodes=131918 apply_calls=407641\npartial round=6 ceiling=0 nodes=46603 apply_calls=548837\npartial round=7 ceiling=0 nodes=47109 apply_calls=550801\npartial round=8 ceiling=1 nodes=59898 apply_calls=631445\npartial round=9 ceiling=1 nodes=92860 apply_calls=722637\npartial round=10 ceiling=1 nodes=107702 apply_calls=767647\npartial round=11 ceiling=1 nodes=109280 apply_calls=773097\npartial round=12 ceiling=2 nodes=125152 apply_calls=825045\npartial round=13 ceiling=2 nodes=149669 apply_calls=900595\npartial round=14 ceiling=2 nodes=104193 apply_calls=1224611\npartial round=15 ceiling=2 nodes=125673 apply_calls=1291717\npartial round=16 ceiling=2 k=2 nodes=131691 apply_calls=1310331\nkernel_certificate nodes=3391 roots=3\nreachable_stats created_nodes=402093 peak_nodes=149669 retained_nodes=131691 gc=2 apply_calls=1310331"
+      },
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.025737,
+        "stdout": "{\"n\":8,\"SG\":2,\"certificate_nodes\":3391,\"checker_nodes\":83774,\"complete_lower_kernels\":2,\"predecessor_calls\":3,\"apply_calls\":249838}",
+        "stderr": ""
+      },
+      "SG": 2,
+      "checked": {
+        "n": 8,
+        "SG": 2,
+        "certificate_nodes": 3391,
+        "checker_nodes": 83774,
+        "complete_lower_kernels": 2,
+        "predecessor_calls": 3,
+        "apply_calls": 249838
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_partial0_kernels/strip3_partial_kernel_8.txt.gz",
+        "bytes": 37594,
+        "gzip_bytes": 14112,
+        "sha256": "68c48990fd9a92002562619c311403aa04803ccc56e99e20d602537fe371aeb3",
+        "gzip_sha256": "301c6cddadec9b7626a3b0975a4c231027d5fb97bc18b7ee9b9a625781af976e"
+      }
+    },
+    {
+      "n": 10,
+      "status": "verified",
+      "construction": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.583687,
+        "stdout": "3\t10\t3",
+        "stderr": "reachable_domain nodes=2053 apply_calls=4623\npartial round=1 ceiling=0 nodes=11001 apply_calls=47989\npartial round=2 ceiling=0 nodes=29177 apply_calls=115795\npartial round=3 ceiling=0 nodes=126203 apply_calls=396545\npartial round=4 ceiling=0 nodes=291047 apply_calls=865557\npartial round=5 ceiling=0 nodes=261385 apply_calls=1627971\npartial round=6 ceiling=0 nodes=205731 apply_calls=2218941\npartial round=7 ceiling=0 nodes=154273 apply_calls=2660765\npartial round=8 ceiling=0 nodes=141183 apply_calls=3074053\npartial round=9 ceiling=0 nodes=140410 apply_calls=3486371\npartial round=10 ceiling=1 nodes=180713 apply_calls=4134859\npartial round=11 ceiling=1 nodes=274338 apply_calls=4941647\npartial round=12 ceiling=1 nodes=238907 apply_calls=5636995\npartial round=13 ceiling=1 nodes=187915 apply_calls=6193097\npartial round=14 ceiling=2 nodes=231682 apply_calls=6902039\npartial round=15 ceiling=2 nodes=282535 apply_calls=7758957\npartial round=16 ceiling=2 nodes=363425 apply_calls=8855307\npartial round=17 ceiling=2 nodes=369782 apply_calls=9975453\npartial round=18 ceiling=2 nodes=311744 apply_calls=10923215\npartial round=19 ceiling=2 nodes=272691 apply_calls=11755131\npartial round=20 ceiling=2 nodes=263191 apply_calls=12562301\npartial round=21 ceiling=3 nodes=321713 apply_calls=13590319\npartial round=22 ceiling=3 nodes=332493 apply_calls=14621525\npartial round=23 ceiling=3 k=3 nodes=301877 apply_calls=15573341\nkernel_certificate nodes=7930 roots=4\nreachable_stats created_nodes=4871143 peak_nodes=369782 retained_nodes=301877 gc=19 apply_calls=15573341"
+      },
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.057425,
+        "stdout": "{\"n\":10,\"SG\":3,\"certificate_nodes\":7930,\"checker_nodes\":267062,\"complete_lower_kernels\":3,\"predecessor_calls\":4,\"apply_calls\":843478}",
+        "stderr": ""
+      },
+      "SG": 3,
+      "checked": {
+        "n": 10,
+        "SG": 3,
+        "certificate_nodes": 7930,
+        "checker_nodes": 267062,
+        "complete_lower_kernels": 3,
+        "predecessor_calls": 4,
+        "apply_calls": 843478
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_partial0_kernels/strip3_partial_kernel_10.txt.gz",
+        "bytes": 94568,
+        "gzip_bytes": 34467,
+        "sha256": "876de3c9e97427e1d54cc3dcea34b701cdfe1650d7fcb1671c5dedcd24366f2d",
+        "gzip_sha256": "b55c8d889e823f48ea42e5f7f694cb9ee5e1029120e40c54cb66636b90d607a3"
+      }
+    },
+    {
+      "n": 12,
+      "status": "incomplete",
+      "construction": {
+        "status": "failed",
+        "returncode": 3,
+        "wall_s": 1.376645,
+        "stdout": "",
+        "stderr": "reachable_domain nodes=2575 apply_calls=5937\npartial round=1 ceiling=0 nodes=17285 apply_calls=74509\npartial round=2 ceiling=0 nodes=46840 apply_calls=183957\npartial round=3 ceiling=0 nodes=227187 apply_calls=682465\npartial round=4 ceiling=0 nodes=504559 apply_calls=2095331\npartial round=5 ceiling=0 nodes=812661 apply_calls=4521299\npartial round=6 ceiling=0 nodes=877534 apply_calls=7201961\npartial round=7 ceiling=0 nodes=657074 apply_calls=9143157\npartial round=8 ceiling=0 nodes=445776 apply_calls=10419009\npartial round=9 ceiling=0 nodes=380257 apply_calls=11522639\npartial round=10 ceiling=0 nodes=375388 apply_calls=12617815\npartial round=11 ceiling=1 nodes=476634 apply_calls=14283943\npartial round=12 ceiling=1 nodes=752594 apply_calls=16550377\npartial round=13 ceiling=1 nodes=828176 apply_calls=19054619\npartial round=14 ceiling=1 nodes=582298 apply_calls=20801403\npartial round=15 ceiling=1 nodes=485682 apply_calls=22267197\npartial round=16 ceiling=2 nodes=604775 apply_calls=24129107\npartial round=17 ceiling=2 nodes=731808 apply_calls=26359799\npartial round=18 ceiling=2 nodes=1007486 apply_calls=29448141\nsymbolic: node budget reached; incomplete; nodes=1048576 apply_calls=32749738\nreachable_stats created_nodes=10370155 peak_nodes=1048576 retained_nodes=1048576 gc=16 apply_calls=32749738"
+      }
+    }
+  ],
+  "provenance": {
+    "commit": "a9e1e4081c0402d698fb931e4f1d3fc0a8077339",
+    "source_sha256": {
+      "src/cfast/strip3_reachable_symbolic.c": "2402114bc82ef7f2dafb31b262e3b70ae50081c8e80c17770b9fa61d31a98368",
+      "src/cfast/strip3_symbolic.c": "21975303d9a55a34bbfcd805da211cbdf9d9b8a1c9ffaa25af2c43ba463770e8",
+      "tests/verify_strip3_symbolic_kernel.c": "97b96f6c0719e3270fd2da0c39580420628829745b732596952bcdd184f17b6c",
+      "scripts/screen_strip3_symbolic_proofs.py": "7fcd9a59ba4f83a359df7faea86c9543321dcab2331cbfe5d722a8131d5fd0da",
+      "scripts/screen_strip3.py": "eceb6d4096a962810e91c6df8eee90279d18990a175249baa2c1f79e5bc08554",
+      "src/cfast/strip3_partial_symbolic.c": "b456ab52f06c06f821933697a71988aec5aedbf684dc327e8221ae48961b58cd"
+    }
+  },
+  "configuration": {
+    "sizes": [
+      6,
+      8,
+      10,
+      12,
+      14
+    ],
+    "bits": 20,
+    "checker_bits": 20,
+    "gc": 1,
+    "engine": "partial",
+    "partial_initial": 0
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1,
+    "total_budget_checks": "between stages; compression and JSON writes have no separate hard interrupt"
+  },
+  "interpretation": "Exact certificates for fixed finite boards; no claim of a finite automaton valid for all lengths.",
+  "wall_s": 2.624225
+}

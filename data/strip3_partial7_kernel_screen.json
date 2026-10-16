@@ -1,0 +1,121 @@
+{
+  "format": "strip3-symbolic-kernel-screen-v1",
+  "status": "screen_stopped",
+  "samples": [
+    {
+      "n": 8,
+      "status": "verified",
+      "construction": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.092368,
+        "stdout": "3\t8\t2",
+        "stderr": "reachable_domain nodes=1531 apply_calls=3309\npartial round=1 ceiling=7 nodes=6181 apply_calls=28319\npartial round=2 ceiling=7 nodes=16364 apply_calls=70627\npartial round=3 ceiling=7 nodes=73598 apply_calls=261181\npartial round=4 ceiling=7 nodes=174844 apply_calls=579397\npartial round=5 ceiling=7 nodes=179658 apply_calls=1143989\npartial round=6 ceiling=7 nodes=158940 apply_calls=1633715\npartial round=7 ceiling=7 nodes=132316 apply_calls=2052487\npartial round=8 ceiling=7 k=2 nodes=107094 apply_calls=2390237\nkernel_certificate nodes=3391 roots=3\nreachable_stats created_nodes=714168 peak_nodes=179658 retained_nodes=107094 gc=4 apply_calls=2390237"
+      },
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.023923,
+        "stdout": "{\"n\":8,\"SG\":2,\"certificate_nodes\":3391,\"checker_nodes\":83774,\"complete_lower_kernels\":2,\"predecessor_calls\":3,\"apply_calls\":249862}",
+        "stderr": ""
+      },
+      "SG": 2,
+      "checked": {
+        "n": 8,
+        "SG": 2,
+        "certificate_nodes": 3391,
+        "checker_nodes": 83774,
+        "complete_lower_kernels": 2,
+        "predecessor_calls": 3,
+        "apply_calls": 249862
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_partial7_kernels/strip3_partial_kernel_8.txt.gz",
+        "bytes": 37594,
+        "gzip_bytes": 14045,
+        "sha256": "0788902f3cd449223bdbc4e457f00dabeabcf0164d34bb646f658d67a9119c03",
+        "gzip_sha256": "6cb32c5f796ad722e17d2f16650100dd89f70a4a623d05f507043e4f9fe98ad2"
+      }
+    },
+    {
+      "n": 10,
+      "status": "verified",
+      "construction": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.494673,
+        "stdout": "3\t10\t3",
+        "stderr": "reachable_domain nodes=2053 apply_calls=4623\npartial round=1 ceiling=7 nodes=11001 apply_calls=49279\npartial round=2 ceiling=7 nodes=29994 apply_calls=126027\npartial round=3 ceiling=7 nodes=155534 apply_calls=524183\npartial round=4 ceiling=7 nodes=372270 apply_calls=1680593\npartial round=5 ceiling=7 nodes=658322 apply_calls=3770611\npartial round=6 ceiling=7 nodes=772509 apply_calls=6193303\npartial round=7 ceiling=7 nodes=671279 apply_calls=8241059\npartial round=8 ceiling=7 nodes=517857 apply_calls=9782035\npartial round=9 ceiling=7 k=3 nodes=386103 apply_calls=10939239\nkernel_certificate nodes=7930 roots=4\nreachable_stats created_nodes=3386392 peak_nodes=772509 retained_nodes=386103 gc=6 apply_calls=10939239"
+      },
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.04391,
+        "stdout": "{\"n\":10,\"SG\":3,\"certificate_nodes\":7930,\"checker_nodes\":267062,\"complete_lower_kernels\":3,\"predecessor_calls\":4,\"apply_calls\":843818}",
+        "stderr": ""
+      },
+      "SG": 3,
+      "checked": {
+        "n": 10,
+        "SG": 3,
+        "certificate_nodes": 7930,
+        "checker_nodes": 267062,
+        "complete_lower_kernels": 3,
+        "predecessor_calls": 4,
+        "apply_calls": 843818
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_partial7_kernels/strip3_partial_kernel_10.txt.gz",
+        "bytes": 94550,
+        "gzip_bytes": 34381,
+        "sha256": "3e5517be663fa05bd3c45278463fce6c3a6d4350db762228a532f715ef66ab73",
+        "gzip_sha256": "5bf556a8d64e9783e434186b967be11e3a80a2421b3b80791dc702b1fd251577"
+      }
+    },
+    {
+      "n": 12,
+      "status": "incomplete",
+      "construction": {
+        "status": "failed",
+        "returncode": 3,
+        "wall_s": 0.312874,
+        "stdout": "",
+        "stderr": "reachable_domain nodes=2575 apply_calls=5937\npartial round=1 ceiling=7 nodes=17285 apply_calls=76049\npartial round=2 ceiling=7 nodes=47912 apply_calls=197071\npartial round=3 ceiling=7 nodes=268910 apply_calls=874125\npartial round=4 ceiling=7 nodes=744708 apply_calls=3137985\nsymbolic: node budget reached; incomplete; nodes=1048576 apply_calls=6315212\nreachable_stats created_nodes=2028978 peak_nodes=1048576 retained_nodes=1048576 gc=2 apply_calls=6315212"
+      }
+    }
+  ],
+  "provenance": {
+    "commit": "a9e1e4081c0402d698fb931e4f1d3fc0a8077339",
+    "source_sha256": {
+      "src/cfast/strip3_reachable_symbolic.c": "2402114bc82ef7f2dafb31b262e3b70ae50081c8e80c17770b9fa61d31a98368",
+      "src/cfast/strip3_symbolic.c": "21975303d9a55a34bbfcd805da211cbdf9d9b8a1c9ffaa25af2c43ba463770e8",
+      "tests/verify_strip3_symbolic_kernel.c": "97b96f6c0719e3270fd2da0c39580420628829745b732596952bcdd184f17b6c",
+      "scripts/screen_strip3_symbolic_proofs.py": "7fcd9a59ba4f83a359df7faea86c9543321dcab2331cbfe5d722a8131d5fd0da",
+      "scripts/screen_strip3.py": "eceb6d4096a962810e91c6df8eee90279d18990a175249baa2c1f79e5bc08554",
+      "src/cfast/strip3_partial_symbolic.c": "b456ab52f06c06f821933697a71988aec5aedbf684dc327e8221ae48961b58cd"
+    }
+  },
+  "configuration": {
+    "sizes": [
+      8,
+      10,
+      12,
+      14
+    ],
+    "bits": 20,
+    "checker_bits": 20,
+    "gc": 1,
+    "engine": "partial",
+    "partial_initial": 7
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1,
+    "total_budget_checks": "between stages; compression and JSON writes have no separate hard interrupt"
+  },
+  "interpretation": "Exact certificates for fixed finite boards; no claim of a finite automaton valid for all lengths.",
+  "wall_s": 1.417788
+}

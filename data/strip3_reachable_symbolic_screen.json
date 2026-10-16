@@ -1,0 +1,138 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 6,
+      "status": "complete",
+      "wall_s": 0.018212,
+      "returncode": 0,
+      "stdout": "3\t6\t3",
+      "stderr": "reachable_domain nodes=1010 apply_calls=2013\nsymbolic k=0 steps=5 nodes=24659 apply_calls=87324\nsymbolic k=1 steps=3 nodes=34239 apply_calls=125488\nsymbolic k=2 steps=4 nodes=48528 apply_calls=173335\nsymbolic k=3 steps=1 nodes=52738 apply_calls=189514\nreachable_stats created_nodes=52737 peak_nodes=52738 retained_nodes=52738 gc=0 apply_calls=189514",
+      "counts": {
+        "nodes": 52738,
+        "apply_calls": 189514,
+        "k": 3,
+        "steps": 1,
+        "created_nodes": 52737,
+        "peak_nodes": 52738,
+        "retained_nodes": 52738,
+        "gc": 0
+      },
+      "SG": 3,
+      "solver": "candidate"
+    },
+    {
+      "n": 8,
+      "status": "complete",
+      "wall_s": 0.054714,
+      "returncode": 0,
+      "stdout": "3\t8\t2",
+      "stderr": "reachable_domain nodes=1531 apply_calls=3309\nsymbolic k=0 steps=6 nodes=44877 apply_calls=572407\nsymbolic k=1 steps=3 nodes=104143 apply_calls=785777\nsymbolic k=2 steps=5 nodes=74768 apply_calls=1202410\nreachable_stats created_nodes=366295 peak_nodes=162614 retained_nodes=74768 gc=2 apply_calls=1202410",
+      "counts": {
+        "nodes": 74768,
+        "apply_calls": 1202410,
+        "k": 2,
+        "steps": 5,
+        "created_nodes": 366295,
+        "peak_nodes": 162614,
+        "retained_nodes": 74768,
+        "gc": 2
+      },
+      "SG": 2,
+      "solver": "candidate"
+    },
+    {
+      "n": 10,
+      "status": "complete",
+      "wall_s": 0.320545,
+      "returncode": 0,
+      "stdout": "3\t10\t3",
+      "stderr": "reachable_domain nodes=2053 apply_calls=4623\nsymbolic k=0 steps=8 nodes=140458 apply_calls=3440653\nsymbolic k=1 steps=4 nodes=141752 apply_calls=5406934\nsymbolic k=2 steps=7 nodes=139802 apply_calls=8863632\nsymbolic k=3 steps=3 nodes=140233 apply_calls=10336753\nreachable_stats created_nodes=3221493 peak_nodes=261631 retained_nodes=140233 gc=18 apply_calls=10336753",
+      "counts": {
+        "nodes": 140233,
+        "apply_calls": 10336753,
+        "k": 3,
+        "steps": 3,
+        "created_nodes": 3221493,
+        "peak_nodes": 261631,
+        "retained_nodes": 140233,
+        "gc": 18
+      },
+      "SG": 3,
+      "solver": "candidate"
+    },
+    {
+      "n": 12,
+      "status": "complete",
+      "wall_s": 1.660598,
+      "returncode": 0,
+      "stdout": "3\t12\t5",
+      "stderr": "reachable_domain nodes=2575 apply_calls=5937\nsymbolic k=0 steps=9 nodes=376243 apply_calls=12066442\nsymbolic k=1 steps=5 nodes=377458 apply_calls=18909672\nsymbolic k=2 steps=8 nodes=379213 apply_calls=31772227\nsymbolic k=3 steps=4 nodes=382781 apply_calls=37253098\nsymbolic k=4 steps=7 nodes=266002 apply_calls=42987122\nsymbolic k=5 steps=3 nodes=271876 apply_calls=45629025\nreachable_stats created_nodes=14592291 peak_nodes=896774 retained_nodes=271876 gc=33 apply_calls=45629025",
+      "counts": {
+        "nodes": 271876,
+        "apply_calls": 45629025,
+        "k": 5,
+        "steps": 3,
+        "created_nodes": 14592291,
+        "peak_nodes": 896774,
+        "retained_nodes": 271876,
+        "gc": 33
+      },
+      "SG": 5,
+      "solver": "candidate"
+    },
+    {
+      "n": 14,
+      "status": "failed",
+      "wall_s": 0.181143,
+      "returncode": 3,
+      "stdout": "",
+      "stderr": "reachable_domain nodes=3097 apply_calls=7251\nsymbolic: node budget reached; incomplete; nodes=1048576 apply_calls=4823370\nreachable_stats created_nodes=1700301 peak_nodes=1048576 retained_nodes=1048576 gc=2 apply_calls=4823370",
+      "counts": {
+        "nodes": 1048576,
+        "apply_calls": 4823370,
+        "created_nodes": 1700301,
+        "peak_nodes": 1048576,
+        "retained_nodes": 1048576,
+        "gc": 2
+      },
+      "solver": "candidate"
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      6,
+      8,
+      10,
+      12,
+      14,
+      16
+    ],
+    "skip_reference": true,
+    "extra_env": {}
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "commit": "5f62d6c77f4aa18917052e03696d19dd1a831385",
+    "source_sha256": {
+      "src/cfast/strip3_reachable_symbolic.c": "2402114bc82ef7f2dafb31b262e3b70ae50081c8e80c17770b9fa61d31a98368",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_target.c": "65efef79cff768a388dcd1d9ece6788bb071308dd51addc04e0c3d25e5f2fddb",
+      "src/cfast/strip3_symbolic.c": "7edf4c1e9ff5d26475138079b2b5e46d8a271a724b2a8c7947315cd157856662",
+      "scripts/screen_strip3.py": "eceb6d4096a962810e91c6df8eee90279d18990a175249baa2c1f79e5bc08554",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa"
+    }
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 2.412128
+}
