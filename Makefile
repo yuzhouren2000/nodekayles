@@ -3,7 +3,7 @@ PY ?= python3
 CC ?= gcc
 CFLAGS ?= -O2 -march=native
 
-.PHONY: build build-strip3 build-strip3-language export-strip3-comb test-strip3-comb benchmark-strip3-comb test-protected-strip-search test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-strip3-language-33 test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge test-connected-comb-core test-three-comb-chain test-interface-classes analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
+.PHONY: build build-strip3 build-strip3-language export-strip3-comb test-strip3-comb benchmark-strip3-comb test-protected-strip-search test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-strip3-language-33 test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge test-connected-comb-core test-three-comb-chain test-interface-classes test-strip3-screen-cache analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
 
 help:
 	@echo "make test-strip3-demand-symbolic - independently check demand kernels over availability and histories"
@@ -15,6 +15,7 @@ help:
 	@echo "make test-strip3-search-experiments - check coupled, symbolic and proof-number prototypes on independent small graphs"
 	@echo "make test-strip3-target-search - independently verify the target-nimber prototype (seconds)"
 	@echo "make screen-strip3 - bounded local screening: 2 s/process, 20 s total, 512 MiB"
+	@echo "make test-strip3-screen-cache - check validated incremental screen reuse (seconds)"
 	@echo "make build    - compile the C solver"
 	@echo "make build-strip3 - compile the specialised three-row solver"
 	@echo "make export-strip3-comb - independently verify and export bounded comb tables"
@@ -103,6 +104,9 @@ test-strip3-search-experiments:
 
 screen-strip3:
 	$(PY) scripts/screen_strip3.py --output data/strip3_target_screen.json
+
+test-strip3-screen-cache:
+	$(PY) tests/test_strip3_screen_cache.py
 
 test-strip3:
 	$(PY) tests/test_strip3.py --survey data/strip3_survey.jsonl

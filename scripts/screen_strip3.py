@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Fast local screening of a board-N CLI against established exact SG values.
 
-Hard wall/CPU/address-space limits; one CPU; fresh processes; stop at the first
-candidate failure. This is a screening experiment, not a scaling proof or a
-repeated timing benchmark. No server, SSH, or long background job is involved.
+Hard wall/CPU/address-space limits; one CPU; fresh processes for uncached jobs;
+stop at the first candidate failure. Checked completed jobs are reused unless
+--fresh is supplied. Cache lookup time is not solver time or scaling evidence.
 """
 import argparse
 import hashlib
@@ -13,16 +13,128 @@ import os
 from pathlib import Path
 import re
 import resource
+import shutil
 import signal
 import subprocess
 import tempfile
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
+BUILD_FLAGS = ["-O3", "-march=native", "-Wall", "-Wextra", "-pthread"]
+CACHE_FORMAT = "strip3-target100-cache-v1"
 
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def atomic_write_json(path, payload):
+    """Write a report so an interrupted run cannot leave a partial cache."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    handle, temporary = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    try:
+        with os.fdopen(handle, "w") as stream:
+            json.dump(payload, stream, indent=2)
+            stream.write("\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    finally:
+        try:
+            os.unlink(temporary)
+        except FileNotFoundError:
+            pass
+
+
+def relative_or_absolute(path):
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
+def source_provenance(candidate_source, skip_reference):
+    # Follow local includes recursively: several candidates include another .c
+    # file which in turn includes strip3.c and its generated tables.
+    pending = [candidate_source.resolve()]
+    if not skip_reference:
+        pending.append(ROOT / "src/cfast/strip3.c")
+    paths = {Path(__file__).resolve()}
+    while pending:
+        path = pending.pop().resolve()
+        if path in paths:
+            continue
+        paths.add(path)
+        for include in re.findall(r'^\s*#\s*include\s*"([^"\n]+)"', path.read_text(), re.M):
+            dependency = path.parent / include
+            if not dependency.is_file():
+                raise ValueError(f"cannot fingerprint local include {include} in {path}")
+            pending.append(dependency)
+    compiler = Path(shutil.which("gcc")).resolve()
+    # CPU model/flags affect -march=native; MHz and other volatile fields do not.
+    cpu = "\n".join(sorted(set(re.findall(r'^(?:model name|flags|Features)\s*:.*$',
+                                            Path("/proc/cpuinfo").read_text(), re.M))))
+    build_environment = {key: os.environ[key] for key in
+                         ("CPATH", "C_INCLUDE_PATH", "LIBRARY_PATH", "COMPILER_PATH",
+                          "GCC_EXEC_PREFIX", "LD_LIBRARY_PATH", "LD_PRELOAD", "SOURCE_DATE_EPOCH")
+                         if key in os.environ}
+    return {"candidate_source": relative_or_absolute(candidate_source.resolve()),
+            "source_sha256": {relative_or_absolute(path): sha(path) for path in sorted(paths)},
+            "build": {"compiler": str(compiler), "compiler_sha256": sha(compiler),
+                      "flags": BUILD_FLAGS, "cpu_sha256": hashlib.sha256(cpu.encode()).hexdigest(),
+                      "environment_sha256": hashlib.sha256(json.dumps(build_environment, sort_keys=True).encode()).hexdigest()},
+            "commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT,
+                                               text=True).strip()}
+
+
+def cache_fingerprint(provenance, configuration, memory_mib, per_run):
+    """Append sizes without invalidating old rows; commits are provenance only."""
+    return {"format": CACHE_FORMAT,
+            "provenance": {key: value for key, value in provenance.items() if key != "commit"},
+            "configuration": {key: value for key, value in configuration.items()
+                               if key != "sizes"},
+            "limits": {"address_space_mib": memory_mib, "threads": 1,
+                       "per_process_wall_s": per_run}}
+
+
+def load_cached_rows(path, fingerprint, known):
+    """Return only checked complete rows compatible with this experiment."""
+    if path is None:
+        return {}, {"enabled": False}
+    metadata = {"enabled": True, "path": str(path), "hits": 0}
+    try:
+        cached = json.loads(path.read_text())
+    except FileNotFoundError:
+        metadata["state"] = "missing"
+        return {}, metadata
+    except (OSError, ValueError) as error:
+        metadata.update(state="invalid", reason=str(error))
+        return {}, metadata
+    if not isinstance(cached, dict) or cached.get("cache_fingerprint") != fingerprint:
+        metadata.update(state="incompatible")
+        return {}, metadata
+    if not isinstance(cached.get("completed_samples"), list):
+        metadata.update(state="invalid", reason="completed_samples must be an array")
+        return {}, metadata
+    rows = {}
+    for row in cached["completed_samples"]:
+        if not isinstance(row, dict) or row.get("status") != "complete":
+            continue
+        solver, n, sg = row.get("solver"), row.get("n"), row.get("SG")
+        if solver not in ("candidate", "reference") or type(n) is not int or type(sg) is not int:
+            continue
+        if known.get(n) != sg or row.get("returncode") != 0:
+            continue
+        if str(row.get("stdout", "")).split() != ["3", str(n), str(sg)]:
+            continue
+        key = (solver, n)
+        if key not in rows:
+            checked = dict(row)
+            rows[key] = checked
+    metadata["state"] = "usable"
+    metadata["available_rows"] = len(rows)
+    return rows, metadata
 
 
 def limits(memory_mib, seconds):
@@ -88,6 +200,10 @@ def main():
     parser.add_argument("--total", type=float, default=20)
     parser.add_argument("--memory-mib", type=int, default=512)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--cache", type=Path,
+                        help="incremental JSON cache; defaults to --output")
+    parser.add_argument("--fresh", action="store_true",
+                        help="ignore existing completed rows but still write a new cache")
     args = parser.parse_args()
     extra_env = {}
     for setting in args.env:
@@ -103,32 +219,58 @@ def main():
     cpu = min(os.sched_getaffinity(0))
     os.sched_setaffinity(0, {cpu})
     start = time.monotonic()
+    cache_path = args.cache or args.output
+    configuration = {"order": args.order, "low_first": args.low_first,
+                     "sizes": args.sizes, "skip_reference": args.skip_reference,
+                     "extra_env": extra_env}
+    provenance = source_provenance(args.candidate_source, args.skip_reference)
+    fingerprint = cache_fingerprint(provenance, configuration, args.memory_mib, args.per_run)
+    if args.fresh:
+        # A fresh request remeasures the requested keys, while preserving other
+        # compatible completed sizes so a narrow refresh cannot erase progress.
+        previous_rows, _ = load_cached_rows(cache_path, fingerprint, known)
+        cached_rows, cache_info = {}, {"enabled": True, "path": str(cache_path),
+                                      "state": "forced_fresh", "hits": 0}
+        completed_rows = dict(previous_rows)
+    else:
+        cached_rows, cache_info = load_cached_rows(cache_path, fingerprint, known)
+        completed_rows = dict(cached_rows)
     result = {"format": "strip3-target100-screen-v1", "status": "running", "samples": [],
-              "configuration": {"order": args.order, "low_first": args.low_first,
-                                "sizes": args.sizes, "skip_reference": args.skip_reference,
-                                "extra_env": extra_env},
+              "configuration": configuration,
               "limits": {"per_process_wall_s": args.per_run, "total_wall_s": args.total,
                          "address_space_mib": args.memory_mib, "cpu": cpu, "threads": 1},
-              "provenance": {"commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
-                             "source_sha256": {str(p.relative_to(ROOT)): sha(p) for p in
-                                               (args.candidate_source.resolve(), ROOT / "src/cfast/strip3.c",
-                                                ROOT / "src/cfast/strip3_target.c",
-                                                ROOT / "src/cfast/strip3_symbolic.c",
-                                                ROOT / "scripts/screen_strip3.py",
-                                                ROOT / "src/cfast/strip3_comb_tables.h")}},
+              "provenance": provenance,
+              "cache_fingerprint": fingerprint,
+              "cache": cache_info,
+              "work": {"builds": 0, "solver_processes": 0},
               "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
               "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios."}
 
     def save():
         result["wall_s"] = round(time.monotonic()-start, 6)
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(json.dumps(result, indent=2) + "\n")
+        # Preserve completed sizes outside this invocation's request, including
+        # rows beyond its first failure. samples contains only current requests.
+        result["completed_samples"] = sorted(completed_rows.values(),
+                                             key=lambda row: (row["n"], row["solver"]))
+        atomic_write_json(args.output, result)
+        if cache_path.resolve() != args.output.resolve():
+            atomic_write_json(cache_path, result)
+
+    def record(row):
+        result["samples"].append(row)
+        if row["status"] == "complete":
+            completed_rows[row["solver"], row["n"]] = row
+    save()
 
     reference_active = not args.skip_reference
+    needed = {name: any((name, n) not in cached_rows for n in args.sizes)
+              for name in ("candidate", "reference")}
     with tempfile.TemporaryDirectory(prefix="strip3-screen-") as folder:
         binaries = {}
-        sources = [("candidate", args.candidate_source)]
-        if not args.skip_reference:
+        sources = []
+        if needed["candidate"]:
+            sources.append(("candidate", args.candidate_source))
+        if not args.skip_reference and needed["reference"]:
             sources.append(("reference", ROOT / "src/cfast/strip3.c"))
         for name, source in sources:
             binary = Path(folder) / name
@@ -136,7 +278,8 @@ def main():
             if remaining <= 0:
                 result["status"] = "total_budget"; save(); return
             try:
-                subprocess.run(["gcc", "-O3", "-march=native", "-Wall", "-Wextra", "-pthread", "-o", str(binary),
+                result["work"]["builds"] += 1
+                subprocess.run([provenance["build"]["compiler"], *BUILD_FLAGS, "-o", str(binary),
                                 str(source)], check=True, capture_output=True, text=True, timeout=remaining)
             except (subprocess.TimeoutExpired, subprocess.CalledProcessError) as error:
                 result["status"] = "build_failed"; result["error"] = str(error); save(); return
@@ -145,6 +288,12 @@ def main():
             for name in ("candidate", "reference"):
                 if name == "reference" and not reference_active:
                     continue  # do not repeatedly spend the timeout on the old algorithm
+                if (name, n) in cached_rows:
+                    cached = dict(cached_rows[name, n], cached=True)
+                    result["cache"]["hits"] += 1
+                    record(cached)
+                    print(json.dumps(cached), flush=True)
+                    continue
                 remaining = args.total - (time.monotonic()-start)
                 if remaining <= 0:
                     result["status"] = "total_budget"; save(); return
@@ -153,11 +302,16 @@ def main():
                        "STRIP3_THREADS": "1", "STRIP3_HT_BITS": "24", "STRIP3_HT_PREALLOC": "1",
                        "STRIP3_REDUCTIONS": "7", "STRIP3_PROGRESS": "0"}
                 env.update(extra_env)
-                row = measure(binaries[name], n, min(args.per_run, remaining), args.memory_mib, env)
+                timeout = min(args.per_run, remaining)
+                result["work"]["solver_processes"] += 1
+                row = measure(binaries[name], n, timeout, args.memory_mib, env)
                 row["solver"] = name
+                row["cached"] = False
+                row["measured_at_commit"] = provenance["commit"]
+                row["measurement_limits"] = dict(result["limits"], per_process_wall_s=timeout)
                 if row["status"] == "complete" and row["SG"] != known[n]:
                     row["status"] = "wrong_value"
-                result["samples"].append(row)
+                record(row)
                 print(json.dumps(row), flush=True)
                 save()
                 if name == "candidate" and row["status"] != "complete":
