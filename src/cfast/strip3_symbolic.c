@@ -29,6 +29,9 @@ static size_t peak_nodes;
 static uint32_t *compact_map;
 static unsigned char *marked;
 static int gc_enabled = 1;
+static Ref certificate_sets[301];
+static unsigned certificate_count;
+static const char *certificate_path;
 #endif
 
 static uint64_t mix(uint64_t h) {
@@ -153,6 +156,7 @@ static void collect_live(Ref *excluded, Ref *losing, Ref *winning) {
     memset(marked, 0, node_count);
     mark_live(domain); mark_live(*excluded); mark_live(*losing); mark_live(*winning);
     for (unsigned v = 0; v < variables; v++) mark_live(xvars[v]);
+    for (unsigned k = 0; k < certificate_count; k++) mark_live(certificate_sets[k]);
     size_t next = 1;
     /* Children are older than parents; in-place compaction is safe. */
     for (size_t id = 1; id < node_count; id++) if (marked[id]) {
@@ -165,6 +169,7 @@ static void collect_live(Ref *excluded, Ref *losing, Ref *winning) {
     domain = remap_live(domain); *excluded = remap_live(*excluded);
     *losing = remap_live(*losing); *winning = remap_live(*winning);
     for (unsigned v = 0; v < variables; v++) xvars[v] = remap_live(xvars[v]);
+    for (unsigned k = 0; k < certificate_count; k++) certificate_sets[k] = remap_live(certificate_sets[k]);
     node_count = next;
     memset(unique, 0, unique_cap*sizeof *unique);
     memset(cache, 0, cache_cap*sizeof *cache);
@@ -217,11 +222,41 @@ static Ref reachable_domain(unsigned n) {
     for (unsigned i = 0; i < 5; i++) result = bdd_or(result, history_image(0, 0, choices[i]));
     return result;
 }
+
+/* The checker only needs the final kernels, not any iteration history.
+ * Complete lower kernels partition their complement with winning witnesses;
+ * the last kernel may be partial and must contain the full board. */
+static int write_kernel_certificate(unsigned n, unsigned k, Ref last) {
+    if (!certificate_path) return 1;
+    if (!compact_map) compact_map = calloc(node_limit, sizeof *compact_map);
+    if (!marked) marked = calloc(node_limit, sizeof *marked);
+    if (!compact_map || !marked) return 0;
+    memset(marked, 0, node_count);
+    mark_live(domain); mark_live(last);
+    for (unsigned j = 0; j < k; j++) mark_live(certificate_sets[j]);
+    size_t next = 1;
+    for (size_t id = 1; id < node_count; id++) if (marked[id]) compact_map[id] = (uint32_t)next++;
+    FILE *file = fopen(certificate_path, "w");
+    if (!file) return 0;
+    fprintf(file, "node-kayles-symbolic-kernel-v1\n%u %u %zu\n%u\n", n, k, next, remap_live(domain));
+    for (unsigned j = 0; j <= k; j++) fprintf(file, "%u%c", remap_live(j == k ? last : certificate_sets[j]), j == k ? '\n' : ' ');
+    for (size_t id = 1; id < node_count; id++) if (marked[id]) {
+        struct node node = nodes[id];
+        fprintf(file, "%u %u %u\n", node.var, remap_live(node.lo), remap_live(node.hi));
+    }
+    int okay = !ferror(file);
+    if (fclose(file)) okay = 0;
+    fprintf(stderr, "kernel_certificate nodes=%zu roots=%u\n", next-1, k+1);
+    return okay;
+}
 #endif
 
 int main(int argc, char **argv) {
     int domain_only = 0;
 #ifdef STRIP3_REACHABLE_SYMBOLIC
+    if (argc == 5 && !strcmp(argv[1], "board") && !strcmp(argv[3], "--certificate")) {
+        certificate_path = argv[4]; argc = 3;
+    }
     domain_only = argc == 3 && !strcmp(argv[1], "domain");
 #endif
     if (argc != 3 || (!domain_only && strcmp(argv[1], "board") && strcmp(argv[1], "table"))) return 2;
@@ -289,6 +324,11 @@ int main(int argc, char **argv) {
             if (!table && evaluate(losing, 0, 1)) {
                 fprintf(stderr, "symbolic k=%d steps=%u nodes=%zu apply_calls=%llu\n", g, steps, node_count,
                         (unsigned long long)apply_calls);
+#ifdef STRIP3_REACHABLE_SYMBOLIC
+                if (!write_kernel_certificate((unsigned)n, (unsigned)g, losing)) {
+                    fprintf(stderr, "symbolic: certificate write failed; incomplete\n"); return 3;
+                }
+#endif
                 printf("3\t%ld\t%d\n", n, g);
                 goto done;
             }
@@ -300,6 +340,9 @@ int main(int argc, char **argv) {
             values[m] = g; assigned++;
         }
         excluded = bdd_or(excluded, losing);
+#ifdef STRIP3_REACHABLE_SYMBOLIC
+        if (certificate_path) certificate_sets[certificate_count++] = losing;
+#endif
         if (table && assigned == wanted) break;
     }
     if (table && assigned == wanted) for (size_t m = 0; m < masks; m++) printf("%d\n", values[m]);
