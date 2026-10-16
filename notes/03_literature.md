@@ -74,6 +74,20 @@ Games", Journal of Integer Sequences 23 (2020), Article 20.3.5.**
 * Y. Kobayashi, "On Structural Parameterizations of Node Kayles",
   arXiv:2003.11775：以点覆盖/模块宽度为参数、邻域多样性核化等 FPT 结果。
 
+## 2026 年的毛毛虫与路径/环幂算法
+
+**M. F. Medeiros-de-Souza, F. E. Hanada, F. Protti, "Impartial Games on
+Graphs: Solving Kayles via Dynamic Programming and Periodicity Properties",
+Journal of the Brazilian Computer Society 32(1) (2026), 1951–1960.**
+[DOI:10.5753/jbcs.2026.7462](https://doi.org/10.5753/jbcs.2026.7462)，
+出版日2026-07-31。（已核对出版页面、摘要，未在本轮全文核实PDF。）
+
+* 摘要明确指出：毛毛虫属于区间图，任意毛毛虫上的O(n³)算法已见
+  Bodlaender–Kratsch 2002；新工作研究叶子约简和部分毛毛虫族的周期34。
+* 另给路径幂、环幂的O(n²)算法。它不是完整三行格盘的求解定理。
+* 本工坊独立证明所有三行可达树分量均为毛毛虫，并实现逐手可检查的
+  区间递推；2.53秒筛选确认该结构单独没有主线规模收益，见[notes/38](38_caterpillar_components.md)。
+
 ## 配对引理的文献形态
 
 * Brown et al. 2020, Theorem 4（原文全文核实）。

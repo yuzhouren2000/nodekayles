@@ -1,0 +1,392 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 18,
+      "status": "complete",
+      "wall_s": 0.010283,
+      "returncode": 0,
+      "stdout": "3\t18\t2",
+      "stderr": "stage k=0 equal=0 time=0.005959 memo=1510 queries=28786 moves=11070\nstage k=1 equal=0 time=0.006834 memo=1723 queries=31574 moves=12067\nstage k=2 equal=1 time=0.007590 memo=1915 queries=34128 moves=13131\ntarget time=0.007602 memo=1915 exact=592 queries=34128 moves=13131 refutations=207 bytes_per_slot=48 order=2 low_first=0 option_probes=24290 frontier=4 share_options=1 cache_first=1\ncaterpillar enabled=1 cat_checks=2897 cat_squares=2818 cat_scanned=1649 cat_hits=79 cat_max_spine=16 cat_intervals=3828 cat_options=20304",
+      "counts": {
+        "k": 2,
+        "equal": 1,
+        "memo": 1915,
+        "queries": 34128,
+        "moves": 13131,
+        "exact": 592,
+        "refutations": 207,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 24290,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 1,
+        "enabled": 1,
+        "cat_checks": 2897,
+        "cat_squares": 2818,
+        "cat_scanned": 1649,
+        "cat_hits": 79,
+        "cat_max_spine": 16,
+        "cat_intervals": 3828,
+        "cat_options": 20304
+      },
+      "SG": 2,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "4d2faf06e2174473c85167065acfb5d731a9b54b",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    },
+    {
+      "n": 24,
+      "status": "complete",
+      "wall_s": 0.028903,
+      "returncode": 0,
+      "stdout": "3\t24\t1",
+      "stderr": "stage k=0 equal=0 time=0.003180 memo=672 queries=10284 moves=4219\nstage k=1 equal=1 time=0.025966 memo=5532 queries=140840 moves=48350\ntarget time=0.026002 memo=5532 exact=2010 queries=140840 moves=48350 refutations=508 bytes_per_slot=48 order=2 low_first=0 option_probes=90868 frontier=4 share_options=1 cache_first=1\ncaterpillar enabled=1 cat_checks=10730 cat_squares=10566 cat_scanned=4147 cat_hits=164 cat_max_spine=20 cat_intervals=11333 cat_options=68586",
+      "counts": {
+        "k": 1,
+        "equal": 1,
+        "memo": 5532,
+        "queries": 140840,
+        "moves": 48350,
+        "exact": 2010,
+        "refutations": 508,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 90868,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 1,
+        "enabled": 1,
+        "cat_checks": 10730,
+        "cat_squares": 10566,
+        "cat_scanned": 4147,
+        "cat_hits": 164,
+        "cat_max_spine": 20,
+        "cat_intervals": 11333,
+        "cat_options": 68586
+      },
+      "SG": 1,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "4d2faf06e2174473c85167065acfb5d731a9b54b",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    },
+    {
+      "n": 26,
+      "status": "complete",
+      "wall_s": 0.067635,
+      "returncode": 0,
+      "stdout": "3\t26\t0",
+      "stderr": "stage k=0 equal=1 time=0.064168 memo=11836 queries=394411 moves=126416\ntarget time=0.064239 memo=11836 exact=4852 queries=394411 moves=126416 refutations=1217 bytes_per_slot=48 order=2 low_first=0 option_probes=235904 frontier=4 share_options=1 cache_first=1\ncaterpillar enabled=1 cat_checks=26169 cat_squares=25923 cat_scanned=6913 cat_hits=246 cat_max_spine=21 cat_intervals=20964 cat_options=133715",
+      "counts": {
+        "k": 0,
+        "equal": 1,
+        "memo": 11836,
+        "queries": 394411,
+        "moves": 126416,
+        "exact": 4852,
+        "refutations": 1217,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 235904,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 1,
+        "enabled": 1,
+        "cat_checks": 26169,
+        "cat_squares": 25923,
+        "cat_scanned": 6913,
+        "cat_hits": 246,
+        "cat_max_spine": 21,
+        "cat_intervals": 20964,
+        "cat_options": 133715
+      },
+      "SG": 0,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "4d2faf06e2174473c85167065acfb5d731a9b54b",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    },
+    {
+      "n": 28,
+      "status": "timeout",
+      "wall_s": 2.008307,
+      "returncode": -9,
+      "stdout": "",
+      "stderr": "stage k=0 equal=0 time=0.010991 memo=2583 queries=47623 moves=17746\nstage k=1 equal=0 time=0.207841 memo=37301 queries=1267297 moves=395512\nstage k=2 equal=0 time=0.207915 memo=37301 queries=1267298 moves=395512\nstage k=3 equal=0 time=0.210438 memo=37902 queries=1278150 moves=399310",
+      "counts": {
+        "k": 3,
+        "equal": 0,
+        "memo": 37902,
+        "queries": 1278150,
+        "moves": 399310
+      },
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "4d2faf06e2174473c85167065acfb5d731a9b54b",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      18,
+      24,
+      26,
+      28
+    ],
+    "skip_reference": true,
+    "extra_env": {
+      "STRIP3_TARGET_FRONTIER": "4",
+      "STRIP3_TARGET_SHARE_OPTIONS": "1",
+      "STRIP3_TARGET_CACHE_FIRST": "1"
+    }
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "candidate_source": "src/cfast/strip3_caterpillar.c",
+    "source_sha256": {
+      "scripts/screen_strip3.py": "0f7fdcb0f72db3aeacbe7a20acd87cba868f2443613e9101959842570fb206b6",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_caterpillar.c": "9c30df619c8fd63e0e990e0e7cf62838fbc556066070d47f16ef34545848c0d0",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa",
+      "src/cfast/strip3_target.c": "acb5d07ffbe2b7768be4471fb4e3ed68a4c119d5d3201913cbba02e3ba2b45e1"
+    },
+    "build": {
+      "compiler": "/usr/bin/x86_64-linux-gnu-gcc-13",
+      "compiler_sha256": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+      "flags": [
+        "-O3",
+        "-march=native",
+        "-Wall",
+        "-Wextra",
+        "-pthread"
+      ],
+      "cpu_sha256": "e2598d56c905cd0aa3a6a11286a8bae77ccc09c04795b64884d1caa269144ffb",
+      "environment_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    "commit": "4d2faf06e2174473c85167065acfb5d731a9b54b"
+  },
+  "cache_fingerprint": {
+    "format": "strip3-target100-cache-v1",
+    "provenance": {
+      "candidate_source": "src/cfast/strip3_caterpillar.c",
+      "source_sha256": {
+        "scripts/screen_strip3.py": "0f7fdcb0f72db3aeacbe7a20acd87cba868f2443613e9101959842570fb206b6",
+        "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+        "src/cfast/strip3_caterpillar.c": "9c30df619c8fd63e0e990e0e7cf62838fbc556066070d47f16ef34545848c0d0",
+        "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa",
+        "src/cfast/strip3_target.c": "acb5d07ffbe2b7768be4471fb4e3ed68a4c119d5d3201913cbba02e3ba2b45e1"
+      },
+      "build": {
+        "compiler": "/usr/bin/x86_64-linux-gnu-gcc-13",
+        "compiler_sha256": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+        "flags": [
+          "-O3",
+          "-march=native",
+          "-Wall",
+          "-Wextra",
+          "-pthread"
+        ],
+        "cpu_sha256": "e2598d56c905cd0aa3a6a11286a8bae77ccc09c04795b64884d1caa269144ffb",
+        "environment_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      }
+    },
+    "configuration": {
+      "order": 2,
+      "low_first": 0,
+      "skip_reference": true,
+      "extra_env": {
+        "STRIP3_TARGET_FRONTIER": "4",
+        "STRIP3_TARGET_SHARE_OPTIONS": "1",
+        "STRIP3_TARGET_CACHE_FIRST": "1"
+      }
+    },
+    "limits": {
+      "address_space_mib": 512,
+      "threads": 1,
+      "per_process_wall_s": 2
+    }
+  },
+  "cache": {
+    "enabled": true,
+    "path": "data/strip3_caterpillar_screen.json",
+    "hits": 0,
+    "state": "missing"
+  },
+  "work": {
+    "builds": 1,
+    "solver_processes": 4
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 2.532745,
+  "completed_samples": [
+    {
+      "n": 18,
+      "status": "complete",
+      "wall_s": 0.010283,
+      "returncode": 0,
+      "stdout": "3\t18\t2",
+      "stderr": "stage k=0 equal=0 time=0.005959 memo=1510 queries=28786 moves=11070\nstage k=1 equal=0 time=0.006834 memo=1723 queries=31574 moves=12067\nstage k=2 equal=1 time=0.007590 memo=1915 queries=34128 moves=13131\ntarget time=0.007602 memo=1915 exact=592 queries=34128 moves=13131 refutations=207 bytes_per_slot=48 order=2 low_first=0 option_probes=24290 frontier=4 share_options=1 cache_first=1\ncaterpillar enabled=1 cat_checks=2897 cat_squares=2818 cat_scanned=1649 cat_hits=79 cat_max_spine=16 cat_intervals=3828 cat_options=20304",
+      "counts": {
+        "k": 2,
+        "equal": 1,
+        "memo": 1915,
+        "queries": 34128,
+        "moves": 13131,
+        "exact": 592,
+        "refutations": 207,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 24290,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 1,
+        "enabled": 1,
+        "cat_checks": 2897,
+        "cat_squares": 2818,
+        "cat_scanned": 1649,
+        "cat_hits": 79,
+        "cat_max_spine": 16,
+        "cat_intervals": 3828,
+        "cat_options": 20304
+      },
+      "SG": 2,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "4d2faf06e2174473c85167065acfb5d731a9b54b",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    },
+    {
+      "n": 24,
+      "status": "complete",
+      "wall_s": 0.028903,
+      "returncode": 0,
+      "stdout": "3\t24\t1",
+      "stderr": "stage k=0 equal=0 time=0.003180 memo=672 queries=10284 moves=4219\nstage k=1 equal=1 time=0.025966 memo=5532 queries=140840 moves=48350\ntarget time=0.026002 memo=5532 exact=2010 queries=140840 moves=48350 refutations=508 bytes_per_slot=48 order=2 low_first=0 option_probes=90868 frontier=4 share_options=1 cache_first=1\ncaterpillar enabled=1 cat_checks=10730 cat_squares=10566 cat_scanned=4147 cat_hits=164 cat_max_spine=20 cat_intervals=11333 cat_options=68586",
+      "counts": {
+        "k": 1,
+        "equal": 1,
+        "memo": 5532,
+        "queries": 140840,
+        "moves": 48350,
+        "exact": 2010,
+        "refutations": 508,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 90868,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 1,
+        "enabled": 1,
+        "cat_checks": 10730,
+        "cat_squares": 10566,
+        "cat_scanned": 4147,
+        "cat_hits": 164,
+        "cat_max_spine": 20,
+        "cat_intervals": 11333,
+        "cat_options": 68586
+      },
+      "SG": 1,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "4d2faf06e2174473c85167065acfb5d731a9b54b",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    },
+    {
+      "n": 26,
+      "status": "complete",
+      "wall_s": 0.067635,
+      "returncode": 0,
+      "stdout": "3\t26\t0",
+      "stderr": "stage k=0 equal=1 time=0.064168 memo=11836 queries=394411 moves=126416\ntarget time=0.064239 memo=11836 exact=4852 queries=394411 moves=126416 refutations=1217 bytes_per_slot=48 order=2 low_first=0 option_probes=235904 frontier=4 share_options=1 cache_first=1\ncaterpillar enabled=1 cat_checks=26169 cat_squares=25923 cat_scanned=6913 cat_hits=246 cat_max_spine=21 cat_intervals=20964 cat_options=133715",
+      "counts": {
+        "k": 0,
+        "equal": 1,
+        "memo": 11836,
+        "queries": 394411,
+        "moves": 126416,
+        "exact": 4852,
+        "refutations": 1217,
+        "bytes_per_slot": 48,
+        "order": 2,
+        "low_first": 0,
+        "option_probes": 235904,
+        "frontier": 4,
+        "share_options": 1,
+        "cache_first": 1,
+        "enabled": 1,
+        "cat_checks": 26169,
+        "cat_squares": 25923,
+        "cat_scanned": 6913,
+        "cat_hits": 246,
+        "cat_max_spine": 21,
+        "cat_intervals": 20964,
+        "cat_options": 133715
+      },
+      "SG": 0,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "4d2faf06e2174473c85167065acfb5d731a9b54b",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    }
+  ]
+}

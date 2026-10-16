@@ -17,6 +17,7 @@ help:
 	@echo "make screen-strip3 - bounded local screening: 2 s/process, 20 s total, 512 MiB"
 	@echo "make test-strip3-screen-cache - check validated incremental screen reuse (seconds)"
 	@echo "make test-strip3-cube - independently check history-cube rigidity and local inference certificates"
+	@echo "make test-strip3-caterpillar - check reachable tree classification and interval SG evaluation"
 	@echo "make build    - compile the C solver"
 	@echo "make build-strip3 - compile the specialised three-row solver"
 	@echo "make export-strip3-comb - independently verify and export bounded comb tables"
@@ -111,6 +112,10 @@ test-strip3-screen-cache:
 
 test-strip3-cube:
 	$(PY) tests/test_strip3_cube.py
+
+.PHONY: test-strip3-caterpillar
+test-strip3-caterpillar:
+	$(PY) tests/test_strip3_caterpillar.py
 
 test-strip3:
 	$(PY) tests/test_strip3.py --survey data/strip3_survey.jsonl

@@ -30,6 +30,8 @@ static struct query_frame *active_query;
 /* Experimental variants may keep a disjoint sum as one outcome query. */
 static int (*sum_equality_hook)(Mask *, int, int);
 static int (*component_equality_hook)(Mask, int);
+/* A pure structural evaluator may return an exact nimber, or -1 if unknown. */
+static int (*component_value_hook)(Mask);
 static void (*completed_board_hook)(Mask, int);
 
 static struct query_entry *query_slot(Mask m) {
@@ -140,6 +142,10 @@ static int equality_component_impl(Mask m, int k) {
         int g = endpoints || nodes == 1 ? path_g[nodes] : (path_g[nodes-3] == 0);
         set_exact(e, g);
         return g == k;
+    }
+    if (component_value_hook) {
+        int g = component_value_hook(m);
+        if (g >= 0) { set_exact(e, g); return g == k; }
     }
 
     /* Optional Nim move ordering: try the zero target before graph moves.

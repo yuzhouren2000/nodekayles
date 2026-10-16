@@ -1,0 +1,29 @@
+{
+  "format": "strip3-caterpillar-audit-v1",
+  "local": {
+    "local_histories": 20512,
+    "live_centres": 14880,
+    "three_nonleaf_centres": 849
+  },
+  "corpus": {
+    "geometries": 3155,
+    "trees": 150,
+    "branching_trees": 103,
+    "branching_queries": 376,
+    "max_vertices": 23,
+    "max_spine": 17,
+    "maximum_replaced_tree_cost": 3071
+  },
+  "provenance": {
+    "commit": "4d2faf06e2174473c85167065acfb5d731a9b54b",
+    "sha256": {
+      "tests/verify_strip3_caterpillar.py": "6551311bf1d0ad21c553d7d23ed718f5d0dd9e2517ea6498c07f29306e38528e",
+      "tests/test_strip3_caterpillar.py": "4f04b591c62c764c6e411ceb4ae6fb9a2048ca9067bd72a2516049be0d4174cf",
+      "src/cfast/strip3_caterpillar.c": "9c30df619c8fd63e0e990e0e7cf62838fbc556066070d47f16ef34545848c0d0",
+      "src/cfast/strip3_target.c": "acb5d07ffbe2b7768be4471fb4e3ed68a4c119d5d3201913cbba02e3ba2b45e1",
+      "data/proofs/strip3_equality/strip3_equality_target_tree_min_26.json.gz": "33829a5cc3c4ca4f02db10aa6a6fe18fe4de4f99c3b3dd049650ac133eb1dd53"
+    }
+  },
+  "solver_processes": 0,
+  "wall_s": 0.215754
+}
