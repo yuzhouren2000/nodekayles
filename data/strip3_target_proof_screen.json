@@ -1,0 +1,297 @@
+{
+  "format": "strip3-offline-proof-screen-v1",
+  "status": "screened_requested_policies",
+  "samples": [
+    {
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.053395,
+      "stdout": "3\t18\t2\n{\"n\":18,\"SG\":2,\"policy\":\"available_tree_min\",\"tree_cost\":\"132495\",\"search_states\":1915,\"proof_states\":2908,\"certificate_queries\":1915,\"sum_rules\":4596,\"edges\":7904,\"considered_moves\":49219,\"sum_evaluations\":15520,\"oracle_calls\":0,\"search_s\":0.015122,\"export_s\":0.033054,\"total_s\":0.048917}",
+      "stderr": "stage k=0 equal=0 time=0.011868 memo=1510 queries=29974 moves=11544\nstage k=1 equal=0 time=0.013596 memo=1723 queries=32808 moves=12557\nstage k=2 equal=1 time=0.015064 memo=1915 queries=35362 moves=13621\ntarget time=0.048149 memo=1915 exact=551 queries=35362 moves=13621 refutations=217 bytes_per_slot=48 order=2 low_first=0 option_probes=25093 frontier=4 share_options=1 cache_first=1",
+      "n": 18,
+      "policy": "tree_min",
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.240336,
+        "stdout": "{\"file\": \"/tmp/strip3-proof-screen-_mqhu7gc/certificate.json\", \"n\": 18, \"SG\": 2, \"queries\": 1915, \"component_masks\": 952, \"sum_rules\": 4596, \"edges\": 7904, \"tree_cost\": \"132495\"}",
+        "stderr": ""
+      },
+      "metrics": {
+        "n": 18,
+        "SG": 2,
+        "policy": "available_tree_min",
+        "tree_cost": "132495",
+        "search_states": 1915,
+        "proof_states": 2908,
+        "certificate_queries": 1915,
+        "sum_rules": 4596,
+        "edges": 7904,
+        "considered_moves": 49219,
+        "sum_evaluations": 15520,
+        "oracle_calls": 0,
+        "search_s": 0.015122,
+        "export_s": 0.033054,
+        "total_s": 0.048917
+      },
+      "checked": {
+        "file": "/tmp/strip3-proof-screen-_mqhu7gc/certificate.json",
+        "n": 18,
+        "SG": 2,
+        "queries": 1915,
+        "component_masks": 952,
+        "sum_rules": 4596,
+        "edges": 7904,
+        "tree_cost": "132495"
+      },
+      "certificate": "data/proofs/strip3_equality/strip3_equality_target_tree_min_18.json.gz",
+      "certificate_sha256": "c0b115080a5a5b763602446c09fcb5c0b539c248f8ff9242c20823c8c4d3e40e",
+      "certificate_bytes": 493942,
+      "compressed_bytes": 51495
+    },
+    {
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.110285,
+      "stdout": "3\t20\t1\n{\"n\":20,\"SG\":1,\"policy\":\"available_tree_min\",\"tree_cost\":\"346280\",\"search_states\":6583,\"proof_states\":6548,\"certificate_queries\":2479,\"sum_rules\":6203,\"edges\":10997,\"considered_moves\":116160,\"sum_evaluations\":41937,\"oracle_calls\":0,\"search_s\":0.052569,\"export_s\":0.053908,\"total_s\":0.107576}",
+      "stderr": "stage k=0 equal=0 time=0.008205 memo=915 queries=14254 moves=5628\nstage k=1 equal=1 time=0.052477 memo=6583 queries=157489 moves=53922\ntarget time=0.106460 memo=6583 exact=1739 queries=157489 moves=53922 refutations=627 bytes_per_slot=48 order=2 low_first=0 option_probes=99423 frontier=4 share_options=1 cache_first=1",
+      "n": 20,
+      "policy": "tree_min",
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.332384,
+        "stdout": "{\"file\": \"/tmp/strip3-proof-screen-_mqhu7gc/certificate.json\", \"n\": 20, \"SG\": 1, \"queries\": 2479, \"component_masks\": 1145, \"sum_rules\": 6203, \"edges\": 10997, \"tree_cost\": \"346280\"}",
+        "stderr": ""
+      },
+      "metrics": {
+        "n": 20,
+        "SG": 1,
+        "policy": "available_tree_min",
+        "tree_cost": "346280",
+        "search_states": 6583,
+        "proof_states": 6548,
+        "certificate_queries": 2479,
+        "sum_rules": 6203,
+        "edges": 10997,
+        "considered_moves": 116160,
+        "sum_evaluations": 41937,
+        "oracle_calls": 0,
+        "search_s": 0.052569,
+        "export_s": 0.053908,
+        "total_s": 0.107576
+      },
+      "checked": {
+        "file": "/tmp/strip3-proof-screen-_mqhu7gc/certificate.json",
+        "n": 20,
+        "SG": 1,
+        "queries": 2479,
+        "component_masks": 1145,
+        "sum_rules": 6203,
+        "edges": 10997,
+        "tree_cost": "346280"
+      },
+      "certificate": "data/proofs/strip3_equality/strip3_equality_target_tree_min_20.json.gz",
+      "certificate_sha256": "5a8184a622036afe0b9b3c7f23938434e12c627c26d037c60b18e6663d2b6a4d",
+      "certificate_bytes": 664667,
+      "compressed_bytes": 69774
+    },
+    {
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.075294,
+      "stdout": "3\t22\t0\n{\"n\":22,\"SG\":0,\"policy\":\"available_tree_min\",\"tree_cost\":\"380591\",\"search_states\":2688,\"proof_states\":5454,\"certificate_queries\":2514,\"sum_rules\":6166,\"edges\":10798,\"considered_moves\":94633,\"sum_evaluations\":31569,\"oracle_calls\":0,\"search_s\":0.018959,\"export_s\":0.051536,\"total_s\":0.071215}",
+      "stderr": "stage k=0 equal=1 time=0.018845 memo=2688 queries=75739 moves=26613\ntarget time=0.070478 memo=2688 exact=1214 queries=75739 moves=26613 refutations=321 bytes_per_slot=48 order=2 low_first=0 option_probes=47311 frontier=4 share_options=1 cache_first=1",
+      "n": 22,
+      "policy": "tree_min",
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.349534,
+        "stdout": "{\"file\": \"/tmp/strip3-proof-screen-_mqhu7gc/certificate.json\", \"n\": 22, \"SG\": 0, \"queries\": 2514, \"component_masks\": 1175, \"sum_rules\": 6166, \"edges\": 10798, \"tree_cost\": \"380591\"}",
+        "stderr": ""
+      },
+      "metrics": {
+        "n": 22,
+        "SG": 0,
+        "policy": "available_tree_min",
+        "tree_cost": "380591",
+        "search_states": 2688,
+        "proof_states": 5454,
+        "certificate_queries": 2514,
+        "sum_rules": 6166,
+        "edges": 10798,
+        "considered_moves": 94633,
+        "sum_evaluations": 31569,
+        "oracle_calls": 0,
+        "search_s": 0.018959,
+        "export_s": 0.051536,
+        "total_s": 0.071215
+      },
+      "checked": {
+        "file": "/tmp/strip3-proof-screen-_mqhu7gc/certificate.json",
+        "n": 22,
+        "SG": 0,
+        "queries": 2514,
+        "component_masks": 1175,
+        "sum_rules": 6166,
+        "edges": 10798,
+        "tree_cost": "380591"
+      },
+      "certificate": "data/proofs/strip3_equality/strip3_equality_target_tree_min_22.json.gz",
+      "certificate_sha256": "05538795b43d819d91ee399291fa6844f23c363ab4ea4663ee72e1fe6af99f7f",
+      "certificate_bytes": 662880,
+      "compressed_bytes": 69526
+    },
+    {
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.164854,
+      "stdout": "3\t24\t1\n{\"n\":24,\"SG\":1,\"policy\":\"available_tree_min\",\"tree_cost\":\"1166871\",\"search_states\":5544,\"proof_states\":10336,\"certificate_queries\":4250,\"sum_rules\":11313,\"edges\":20601,\"considered_moves\":206181,\"sum_evaluations\":65862,\"oracle_calls\":0,\"search_s\":0.043133,\"export_s\":0.116285,\"total_s\":0.160364}",
+      "stderr": "stage k=0 equal=0 time=0.004608 memo=675 queries=11059 moves=4547\nstage k=1 equal=1 time=0.043038 memo=5544 queries=146470 moves=50220\ntarget time=0.159399 memo=5544 exact=1958 queries=146470 moves=50220 refutations=536 bytes_per_slot=48 order=2 low_first=0 option_probes=93987 frontier=4 share_options=1 cache_first=1",
+      "n": 24,
+      "policy": "tree_min",
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.657508,
+        "stdout": "{\"file\": \"/tmp/strip3-proof-screen-_mqhu7gc/certificate.json\", \"n\": 24, \"SG\": 1, \"queries\": 4250, \"component_masks\": 2061, \"sum_rules\": 11313, \"edges\": 20601, \"tree_cost\": \"1166871\"}",
+        "stderr": ""
+      },
+      "metrics": {
+        "n": 24,
+        "SG": 1,
+        "policy": "available_tree_min",
+        "tree_cost": "1166871",
+        "search_states": 5544,
+        "proof_states": 10336,
+        "certificate_queries": 4250,
+        "sum_rules": 11313,
+        "edges": 20601,
+        "considered_moves": 206181,
+        "sum_evaluations": 65862,
+        "oracle_calls": 0,
+        "search_s": 0.043133,
+        "export_s": 0.116285,
+        "total_s": 0.160364
+      },
+      "checked": {
+        "file": "/tmp/strip3-proof-screen-_mqhu7gc/certificate.json",
+        "n": 24,
+        "SG": 1,
+        "queries": 4250,
+        "component_masks": 2061,
+        "sum_rules": 11313,
+        "edges": 20601,
+        "tree_cost": "1166871"
+      },
+      "certificate": "data/proofs/strip3_equality/strip3_equality_target_tree_min_24.json.gz",
+      "certificate_sha256": "103863dce848b8252a356b1dd6b37fe8953e4297433e11f5426d6fb9a55d3c0f",
+      "certificate_bytes": 1208099,
+      "compressed_bytes": 130052
+    },
+    {
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.336852,
+      "stdout": "3\t26\t0\n{\"n\":26,\"SG\":0,\"policy\":\"available_tree_min\",\"tree_cost\":\"5286375\",\"search_states\":11848,\"proof_states\":22057,\"certificate_queries\":8052,\"sum_rules\":22866,\"edges\":43541,\"considered_moves\":462547,\"sum_evaluations\":155625,\"oracle_calls\":0,\"search_s\":0.119830,\"export_s\":0.210338,\"total_s\":0.331646}",
+      "stderr": "stage k=0 equal=1 time=0.119711 memo=11848 queries=403111 moves=129229\ntarget time=0.330151 memo=11848 exact=4754 queries=403111 moves=129229 refutations=1270 bytes_per_slot=48 order=2 low_first=0 option_probes=240360 frontier=4 share_options=1 cache_first=1",
+      "n": 26,
+      "policy": "tree_min",
+      "verification": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 1.086386,
+        "stdout": "{\"file\": \"/tmp/strip3-proof-screen-_mqhu7gc/certificate.json\", \"n\": 26, \"SG\": 0, \"queries\": 8052, \"component_masks\": 3155, \"sum_rules\": 22866, \"edges\": 43541, \"tree_cost\": \"5286375\"}",
+        "stderr": ""
+      },
+      "metrics": {
+        "n": 26,
+        "SG": 0,
+        "policy": "available_tree_min",
+        "tree_cost": "5286375",
+        "search_states": 11848,
+        "proof_states": 22057,
+        "certificate_queries": 8052,
+        "sum_rules": 22866,
+        "edges": 43541,
+        "considered_moves": 462547,
+        "sum_evaluations": 155625,
+        "oracle_calls": 0,
+        "search_s": 0.11983,
+        "export_s": 0.210338,
+        "total_s": 0.331646
+      },
+      "checked": {
+        "file": "/tmp/strip3-proof-screen-_mqhu7gc/certificate.json",
+        "n": 26,
+        "SG": 0,
+        "queries": 8052,
+        "component_masks": 3155,
+        "sum_rules": 22866,
+        "edges": 43541,
+        "tree_cost": "5286375"
+      },
+      "certificate": "data/proofs/strip3_equality/strip3_equality_target_tree_min_26.json.gz",
+      "certificate_sha256": "bf9b6890aaad707361d391a7197173efa67958b36893656abd67d371506fb9b5",
+      "certificate_bytes": 2423000,
+      "compressed_bytes": 267746
+    },
+    {
+      "status": "timeout",
+      "returncode": -9,
+      "wall_s": 2.014572,
+      "stdout": "",
+      "stderr": "stage k=0 equal=0 time=0.016047 memo=2587 queries=50111 moves=18648\nstage k=1 equal=0 time=0.350914 memo=37340 queries=1286630 moves=401567\nstage k=2 equal=0 time=0.350984 memo=37340 queries=1286631 moves=401567\nstage k=3 equal=0 time=0.356977 memo=37941 queries=1297628 moves=405412",
+      "n": 28,
+      "policy": "tree_min"
+    }
+  ],
+  "configuration": {
+    "sizes": [
+      18,
+      20,
+      22,
+      24,
+      26,
+      28
+    ],
+    "policies": [
+      "tree_min"
+    ],
+    "engine": "target",
+    "environment": {
+      "STRIP3_HT_BITS": "22",
+      "STRIP3_HT_PREALLOC": "1",
+      "STRIP3_THREADS": "1",
+      "STRIP3_PROOF_BITS": "20",
+      "STRIP3_TARGET_BITS": "22",
+      "STRIP3_TARGET_FRONTIER": "4",
+      "STRIP3_TARGET_CACHE_FIRST": "1",
+      "STRIP3_TARGET_SHARE_OPTIONS": "1",
+      "STRIP3_TARGET_ORDER": "2"
+    }
+  },
+  "limits": {
+    "per_process_s": 2,
+    "total_s": 12.254208980011754,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1,
+    "oracle_included": false
+  },
+  "interpretation": "Full-SG-guided offline or available-proof tree optimisation; selected DAGs are not minimum DAGs.",
+  "provenance": {
+    "commit": "5c2fe9d451c82262757016b874acbda2f786d36b",
+    "source_sha256": {
+      "src/cfast/strip3_target_proof.c": "643f1e622da2178111269e87d4ededdff6678fd8050b176983cdf661f69540b9",
+      "src/cfast/strip3_proof_cost.c": "f8020a2cc526e92e3304f87d7a47bf1c65d7ff9629701c3c5cfd7ca1ab129616",
+      "src/cfast/strip3_target.c": "65efef79cff768a388dcd1d9ece6788bb071308dd51addc04e0c3d25e5f2fddb",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa",
+      "tests/verify_strip3_equality_proof.py": "86631c5e67a4d2c912a0b9573914abf54ba249ae871bf77793d5415f38c9fb89",
+      "scripts/screen_strip3_proofs.py": "8f65576580dfd82284ce3eb04c00dd2e398f98ec7dd231f0e7eae65cce5001c6"
+    }
+  },
+  "wall_s": 6.631722
+}

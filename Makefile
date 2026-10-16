@@ -82,6 +82,7 @@ test-strip3-absence:
 test-strip3-proof-cost:
 	$(PY) tests/test_strip3_proof_cost.py
 	$(PY) tests/test_strip3_target_proof.py
+	$(PY) tests/verify_strip3_equality_proof.py data/proofs/strip3_equality/strip3_equality_target_tree_min_26.json.gz
 
 test-strip3-search-experiments:
 	$(PY) tests/test_strip3_coupled.py
