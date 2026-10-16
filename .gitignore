@@ -2,6 +2,7 @@
 src/cfast/kayles
 src/cfast/strip3
 src/cfast/strip3_language
+src/cfast/strip3_target
 
 # 运行期标记与日志
 logs/
