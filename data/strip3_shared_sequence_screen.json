@@ -1,0 +1,2239 @@
+{
+  "format": "strip3-sequence-screen-v1",
+  "status": "screened_requested_orders",
+  "samples": [
+    {
+      "status": "timeout",
+      "returncode": -9,
+      "wall_s": 2.009613,
+      "requested_jobs": 34,
+      "completed": [
+        {
+          "kind": "F",
+          "n": 1,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 2,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 3,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 4,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 5,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 6,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 7,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 8,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 9,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 10,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 11,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 12,
+          "SG": 5,
+          "expected": 5
+        },
+        {
+          "kind": "F",
+          "n": 13,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 14,
+          "SG": 4,
+          "expected": 4
+        },
+        {
+          "kind": "F",
+          "n": 15,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 16,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 17,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 18,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 19,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 20,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 21,
+          "SG": 5,
+          "expected": 5
+        },
+        {
+          "kind": "F",
+          "n": 22,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 23,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 24,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 25,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 26,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 27,
+          "SG": 2,
+          "expected": 2
+        }
+      ],
+      "stages": [
+        {
+          "n": 1,
+          "time": 5.5e-05,
+          "memo": 1,
+          "queries": 3,
+          "moves": 0,
+          "option_probes": 0
+        },
+        {
+          "n": 2,
+          "time": 9.3e-05,
+          "memo": 3,
+          "queries": 7,
+          "moves": 2,
+          "option_probes": 4
+        },
+        {
+          "n": 3,
+          "time": 0.000135,
+          "memo": 8,
+          "queries": 14,
+          "moves": 7,
+          "option_probes": 16
+        },
+        {
+          "n": 4,
+          "time": 0.000183,
+          "memo": 14,
+          "queries": 27,
+          "moves": 17,
+          "option_probes": 36
+        },
+        {
+          "n": 5,
+          "time": 0.000356,
+          "memo": 45,
+          "queries": 249,
+          "moves": 177,
+          "option_probes": 248
+        },
+        {
+          "n": 6,
+          "time": 0.000467,
+          "memo": 66,
+          "queries": 350,
+          "moves": 234,
+          "option_probes": 344
+        },
+        {
+          "n": 7,
+          "time": 0.000878,
+          "memo": 129,
+          "queries": 1389,
+          "moves": 727,
+          "option_probes": 1078
+        },
+        {
+          "n": 8,
+          "time": 0.00096,
+          "memo": 143,
+          "queries": 1466,
+          "moves": 766,
+          "option_probes": 1156
+        },
+        {
+          "n": 9,
+          "time": 0.001451,
+          "memo": 215,
+          "queries": 2459,
+          "moves": 1210,
+          "option_probes": 1911
+        },
+        {
+          "n": 10,
+          "time": 0.002768,
+          "memo": 418,
+          "queries": 6071,
+          "moves": 2655,
+          "option_probes": 4404
+        },
+        {
+          "n": 11,
+          "time": 0.003799,
+          "memo": 559,
+          "queries": 8644,
+          "moves": 3649,
+          "option_probes": 6258
+        },
+        {
+          "n": 12,
+          "time": 0.013395,
+          "memo": 1785,
+          "queries": 42879,
+          "moves": 15832,
+          "option_probes": 28189
+        },
+        {
+          "n": 13,
+          "time": 0.013844,
+          "memo": 1843,
+          "queries": 44203,
+          "moves": 16327,
+          "option_probes": 29022
+        },
+        {
+          "n": 14,
+          "time": 0.02535,
+          "memo": 3143,
+          "queries": 73371,
+          "moves": 26483,
+          "option_probes": 48474
+        },
+        {
+          "n": 15,
+          "time": 0.026781,
+          "memo": 3343,
+          "queries": 75617,
+          "moves": 27215,
+          "option_probes": 50449
+        },
+        {
+          "n": 16,
+          "time": 0.027655,
+          "memo": 3442,
+          "queries": 76920,
+          "moves": 27690,
+          "option_probes": 51716
+        },
+        {
+          "n": 17,
+          "time": 0.027769,
+          "memo": 3453,
+          "queries": 76955,
+          "moves": 27708,
+          "option_probes": 51828
+        },
+        {
+          "n": 18,
+          "time": 0.027947,
+          "memo": 3471,
+          "queries": 77086,
+          "moves": 27764,
+          "option_probes": 52089
+        },
+        {
+          "n": 19,
+          "time": 0.047697,
+          "memo": 5844,
+          "queries": 135885,
+          "moves": 46242,
+          "option_probes": 91718
+        },
+        {
+          "n": 20,
+          "time": 0.077703,
+          "memo": 9367,
+          "queries": 221521,
+          "moves": 75016,
+          "option_probes": 145478
+        },
+        {
+          "n": 21,
+          "time": 0.873349,
+          "memo": 108812,
+          "queries": 3277293,
+          "moves": 982350,
+          "option_probes": 2068518
+        },
+        {
+          "n": 22,
+          "time": 0.873559,
+          "memo": 108835,
+          "queries": 3277746,
+          "moves": 982511,
+          "option_probes": 2068930
+        },
+        {
+          "n": 23,
+          "time": 0.873986,
+          "memo": 108898,
+          "queries": 3278203,
+          "moves": 982718,
+          "option_probes": 2070080
+        },
+        {
+          "n": 24,
+          "time": 0.874411,
+          "memo": 108955,
+          "queries": 3279100,
+          "moves": 983062,
+          "option_probes": 2071131
+        },
+        {
+          "n": 25,
+          "time": 0.875111,
+          "memo": 109066,
+          "queries": 3280367,
+          "moves": 983561,
+          "option_probes": 2072818
+        },
+        {
+          "n": 26,
+          "time": 0.875174,
+          "memo": 109081,
+          "queries": 3280431,
+          "moves": 983587,
+          "option_probes": 2072920
+        },
+        {
+          "n": 27,
+          "time": 0.875487,
+          "memo": 109130,
+          "queries": 3280872,
+          "moves": 983761,
+          "option_probes": 2073687
+        }
+      ],
+      "next_job": [
+        "F",
+        28
+      ],
+      "stdout": "2\n1\n1\n0\n3\n3\n2\n2\n2\n3\n3\n5\n2\n4\n1\n3\n2\n2\n1\n1\n5\n0\n1\n1\n3\n0\n2",
+      "stderr": "batch n=1 time=0.000055 memo=1 queries=3 moves=0 option_probes=0\nbatch n=2 time=0.000093 memo=3 queries=7 moves=2 option_probes=4\nbatch n=3 time=0.000135 memo=8 queries=14 moves=7 option_probes=16\nbatch n=4 time=0.000183 memo=14 queries=27 moves=17 option_probes=36\nbatch n=5 time=0.000356 memo=45 queries=249 moves=177 option_probes=248\nbatch n=6 time=0.000467 memo=66 queries=350 moves=234 option_probes=344\nbatch n=7 time=0.000878 memo=129 queries=1389 moves=727 option_probes=1078\nbatch n=8 time=0.000960 memo=143 queries=1466 moves=766 option_probes=1156\nbatch n=9 time=0.001451 memo=215 queries=2459 moves=1210 option_probes=1911\nbatch n=10 time=0.002768 memo=418 queries=6071 moves=2655 option_probes=4404\nbatch n=11 time=0.003799 memo=559 queries=8644 moves=3649 option_probes=6258\nbatch n=12 time=0.013395 memo=1785 queries=42879 moves=15832 option_probes=28189\nbatch n=13 time=0.013844 memo=1843 queries=44203 moves=16327 option_probes=29022\nbatch n=14 time=0.025350 memo=3143 queries=73371 moves=26483 option_probes=48474\nbatch n=15 time=0.026781 memo=3343 queries=75617 moves=27215 option_probes=50449\nbatch n=16 time=0.027655 memo=3442 queries=76920 moves=27690 option_probes=51716\nbatch n=17 time=0.027769 memo=3453 queries=76955 moves=27708 option_probes=51828\nbatch n=18 time=0.027947 memo=3471 queries=77086 moves=27764 option_probes=52089\nbatch n=19 time=0.047697 memo=5844 queries=135885 moves=46242 option_probes=91718\nbatch n=20 time=0.077703 memo=9367 queries=221521 moves=75016 option_probes=145478\nbatch n=21 time=0.873349 memo=108812 queries=3277293 moves=982350 option_probes=2068518\nbatch n=22 time=0.873559 memo=108835 queries=3277746 moves=982511 option_probes=2068930\nbatch n=23 time=0.873986 memo=108898 queries=3278203 moves=982718 option_probes=2070080\nbatch n=24 time=0.874411 memo=108955 queries=3279100 moves=983062 option_probes=2071131\nbatch n=25 time=0.875111 memo=109066 queries=3280367 moves=983561 option_probes=2072818\nbatch n=26 time=0.875174 memo=109081 queries=3280431 moves=983587 option_probes=2072920\nbatch n=27 time=0.875487 memo=109130 queries=3280872 moves=983761 option_probes=2073687",
+      "order": "F"
+    },
+    {
+      "status": "timeout",
+      "returncode": -9,
+      "wall_s": 2.009663,
+      "requested_jobs": 96,
+      "completed": [
+        {
+          "kind": "A",
+          "n": 1,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "D",
+          "n": 1,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 1,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "A",
+          "n": 2,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "D",
+          "n": 2,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 2,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "A",
+          "n": 3,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "D",
+          "n": 3,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 3,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "A",
+          "n": 4,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 4,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 4,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "A",
+          "n": 5,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "D",
+          "n": 5,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 5,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "A",
+          "n": 6,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "D",
+          "n": 6,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 6,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "A",
+          "n": 7,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "D",
+          "n": 7,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 7,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "A",
+          "n": 8,
+          "SG": 5,
+          "expected": 5
+        },
+        {
+          "kind": "D",
+          "n": 8,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 8,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "A",
+          "n": 9,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 9,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 9,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "A",
+          "n": 10,
+          "SG": 6,
+          "expected": 6
+        },
+        {
+          "kind": "D",
+          "n": 10,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 10,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "A",
+          "n": 11,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "D",
+          "n": 11,
+          "SG": 5,
+          "expected": 5
+        },
+        {
+          "kind": "F",
+          "n": 11,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "A",
+          "n": 12,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "D",
+          "n": 12,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 12,
+          "SG": 5,
+          "expected": 5
+        },
+        {
+          "kind": "A",
+          "n": 13,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 13,
+          "SG": 4,
+          "expected": 4
+        },
+        {
+          "kind": "F",
+          "n": 13,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "A",
+          "n": 14,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "D",
+          "n": 14,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 14,
+          "SG": 4,
+          "expected": 4
+        },
+        {
+          "kind": "A",
+          "n": 15,
+          "SG": 9,
+          "expected": 9
+        },
+        {
+          "kind": "D",
+          "n": 15,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 15,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "A",
+          "n": 16,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "D",
+          "n": 16,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 16,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "A",
+          "n": 17,
+          "SG": 7,
+          "expected": 7
+        },
+        {
+          "kind": "D",
+          "n": 17,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 17,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "A",
+          "n": 18,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 18,
+          "SG": 4,
+          "expected": 4
+        },
+        {
+          "kind": "F",
+          "n": 18,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "A",
+          "n": 19,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 19,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 19,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "A",
+          "n": 20,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "D",
+          "n": 20,
+          "SG": 5,
+          "expected": 5
+        },
+        {
+          "kind": "F",
+          "n": 20,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "A",
+          "n": 21,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "D",
+          "n": 21,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 21,
+          "SG": 5,
+          "expected": 5
+        }
+      ],
+      "stages": [
+        {
+          "n": 1,
+          "time": 3.8e-05,
+          "memo": 0,
+          "queries": 0,
+          "moves": 0,
+          "option_probes": 0
+        },
+        {
+          "n": 1,
+          "time": 5.4e-05,
+          "memo": 0,
+          "queries": 0,
+          "moves": 0,
+          "option_probes": 0
+        },
+        {
+          "n": 1,
+          "time": 7e-05,
+          "memo": 1,
+          "queries": 3,
+          "moves": 0,
+          "option_probes": 0
+        },
+        {
+          "n": 2,
+          "time": 8.6e-05,
+          "memo": 2,
+          "queries": 7,
+          "moves": 0,
+          "option_probes": 0
+        },
+        {
+          "n": 2,
+          "time": 9.2e-05,
+          "memo": 2,
+          "queries": 7,
+          "moves": 0,
+          "option_probes": 0
+        },
+        {
+          "n": 2,
+          "time": 0.000104,
+          "memo": 4,
+          "queries": 11,
+          "moves": 2,
+          "option_probes": 4
+        },
+        {
+          "n": 3,
+          "time": 0.000126,
+          "memo": 9,
+          "queries": 19,
+          "moves": 7,
+          "option_probes": 14
+        },
+        {
+          "n": 3,
+          "time": 0.000136,
+          "memo": 11,
+          "queries": 26,
+          "moves": 10,
+          "option_probes": 19
+        },
+        {
+          "n": 3,
+          "time": 0.000147,
+          "memo": 13,
+          "queries": 32,
+          "moves": 14,
+          "option_probes": 25
+        },
+        {
+          "n": 4,
+          "time": 0.000201,
+          "memo": 24,
+          "queries": 88,
+          "moves": 51,
+          "option_probes": 87
+        },
+        {
+          "n": 4,
+          "time": 0.000209,
+          "memo": 25,
+          "queries": 95,
+          "moves": 54,
+          "option_probes": 92
+        },
+        {
+          "n": 4,
+          "time": 0.000221,
+          "memo": 27,
+          "queries": 108,
+          "moves": 64,
+          "option_probes": 110
+        },
+        {
+          "n": 5,
+          "time": 0.000275,
+          "memo": 41,
+          "queries": 152,
+          "moves": 91,
+          "option_probes": 165
+        },
+        {
+          "n": 5,
+          "time": 0.000303,
+          "memo": 45,
+          "queries": 205,
+          "moves": 118,
+          "option_probes": 210
+        },
+        {
+          "n": 5,
+          "time": 0.000361,
+          "memo": 56,
+          "queries": 336,
+          "moves": 210,
+          "option_probes": 340
+        },
+        {
+          "n": 6,
+          "time": 0.000388,
+          "memo": 63,
+          "queries": 354,
+          "moves": 221,
+          "option_probes": 363
+        },
+        {
+          "n": 6,
+          "time": 0.000407,
+          "memo": 66,
+          "queries": 362,
+          "moves": 226,
+          "option_probes": 371
+        },
+        {
+          "n": 6,
+          "time": 0.000454,
+          "memo": 77,
+          "queries": 413,
+          "moves": 253,
+          "option_probes": 426
+        },
+        {
+          "n": 7,
+          "time": 0.000516,
+          "memo": 89,
+          "queries": 489,
+          "moves": 289,
+          "option_probes": 507
+        },
+        {
+          "n": 7,
+          "time": 0.00061,
+          "memo": 102,
+          "queries": 714,
+          "moves": 397,
+          "option_probes": 663
+        },
+        {
+          "n": 7,
+          "time": 0.000913,
+          "memo": 154,
+          "queries": 1728,
+          "moves": 878,
+          "option_probes": 1350
+        },
+        {
+          "n": 8,
+          "time": 0.001529,
+          "memo": 257,
+          "queries": 3790,
+          "moves": 1736,
+          "option_probes": 2839
+        },
+        {
+          "n": 8,
+          "time": 0.001549,
+          "memo": 260,
+          "queries": 3804,
+          "moves": 1743,
+          "option_probes": 2865
+        },
+        {
+          "n": 8,
+          "time": 0.001567,
+          "memo": 264,
+          "queries": 3823,
+          "moves": 1751,
+          "option_probes": 2895
+        },
+        {
+          "n": 9,
+          "time": 0.001617,
+          "memo": 274,
+          "queries": 3857,
+          "moves": 1768,
+          "option_probes": 2960
+        },
+        {
+          "n": 9,
+          "time": 0.001645,
+          "memo": 279,
+          "queries": 3872,
+          "moves": 1777,
+          "option_probes": 2993
+        },
+        {
+          "n": 9,
+          "time": 0.001749,
+          "memo": 298,
+          "queries": 4177,
+          "moves": 1906,
+          "option_probes": 3218
+        },
+        {
+          "n": 10,
+          "time": 0.006729,
+          "memo": 832,
+          "queries": 18765,
+          "moves": 7340,
+          "option_probes": 12071
+        },
+        {
+          "n": 10,
+          "time": 0.00677,
+          "memo": 836,
+          "queries": 18781,
+          "moves": 7349,
+          "option_probes": 12092
+        },
+        {
+          "n": 10,
+          "time": 0.006942,
+          "memo": 857,
+          "queries": 19322,
+          "moves": 7534,
+          "option_probes": 12379
+        },
+        {
+          "n": 11,
+          "time": 0.007018,
+          "memo": 869,
+          "queries": 19368,
+          "moves": 7555,
+          "option_probes": 12460
+        },
+        {
+          "n": 11,
+          "time": 0.009969,
+          "memo": 1210,
+          "queries": 33317,
+          "moves": 12292,
+          "option_probes": 20671
+        },
+        {
+          "n": 11,
+          "time": 0.010162,
+          "memo": 1240,
+          "queries": 33730,
+          "moves": 12457,
+          "option_probes": 21017
+        },
+        {
+          "n": 12,
+          "time": 0.010597,
+          "memo": 1314,
+          "queries": 34794,
+          "moves": 12901,
+          "option_probes": 21906
+        },
+        {
+          "n": 12,
+          "time": 0.010637,
+          "memo": 1320,
+          "queries": 34821,
+          "moves": 12912,
+          "option_probes": 21945
+        },
+        {
+          "n": 12,
+          "time": 0.014584,
+          "memo": 1921,
+          "queries": 47949,
+          "moves": 17525,
+          "option_probes": 31417
+        },
+        {
+          "n": 13,
+          "time": 0.016722,
+          "memo": 2263,
+          "queries": 54766,
+          "moves": 20044,
+          "option_probes": 35985
+        },
+        {
+          "n": 13,
+          "time": 0.019322,
+          "memo": 2622,
+          "queries": 61487,
+          "moves": 22485,
+          "option_probes": 40953
+        },
+        {
+          "n": 13,
+          "time": 0.019781,
+          "memo": 2662,
+          "queries": 62338,
+          "moves": 22811,
+          "option_probes": 41525
+        },
+        {
+          "n": 14,
+          "time": 0.020279,
+          "memo": 2720,
+          "queries": 62778,
+          "moves": 22977,
+          "option_probes": 42179
+        },
+        {
+          "n": 14,
+          "time": 0.020338,
+          "memo": 2727,
+          "queries": 62806,
+          "moves": 22990,
+          "option_probes": 42215
+        },
+        {
+          "n": 14,
+          "time": 0.027446,
+          "memo": 3512,
+          "queries": 80988,
+          "moves": 29058,
+          "option_probes": 54454
+        },
+        {
+          "n": 15,
+          "time": 0.201862,
+          "memo": 16844,
+          "queries": 757008,
+          "moves": 237939,
+          "option_probes": 422890
+        },
+        {
+          "n": 15,
+          "time": 0.201955,
+          "memo": 16858,
+          "queries": 757118,
+          "moves": 237994,
+          "option_probes": 423032
+        },
+        {
+          "n": 15,
+          "time": 0.202393,
+          "memo": 16938,
+          "queries": 758450,
+          "moves": 238430,
+          "option_probes": 423976
+        },
+        {
+          "n": 16,
+          "time": 0.203404,
+          "memo": 17125,
+          "queries": 761163,
+          "moves": 239400,
+          "option_probes": 426134
+        },
+        {
+          "n": 16,
+          "time": 0.203468,
+          "memo": 17133,
+          "queries": 761193,
+          "moves": 239415,
+          "option_probes": 426201
+        },
+        {
+          "n": 16,
+          "time": 0.20353,
+          "memo": 17141,
+          "queries": 761229,
+          "moves": 239431,
+          "option_probes": 426289
+        },
+        {
+          "n": 17,
+          "time": 0.403437,
+          "memo": 38098,
+          "queries": 1423552,
+          "moves": 443578,
+          "option_probes": 839228
+        },
+        {
+          "n": 17,
+          "time": 0.40368,
+          "memo": 38135,
+          "queries": 1423983,
+          "moves": 443729,
+          "option_probes": 839678
+        },
+        {
+          "n": 17,
+          "time": 0.403731,
+          "memo": 38144,
+          "queries": 1424018,
+          "moves": 443747,
+          "option_probes": 839752
+        },
+        {
+          "n": 18,
+          "time": 0.403825,
+          "memo": 38163,
+          "queries": 1424093,
+          "moves": 443782,
+          "option_probes": 839922
+        },
+        {
+          "n": 18,
+          "time": 0.404403,
+          "memo": 38287,
+          "queries": 1424716,
+          "moves": 444050,
+          "option_probes": 841322
+        },
+        {
+          "n": 18,
+          "time": 0.404463,
+          "memo": 38296,
+          "queries": 1424758,
+          "moves": 444068,
+          "option_probes": 841446
+        },
+        {
+          "n": 19,
+          "time": 0.406605,
+          "memo": 38683,
+          "queries": 1431851,
+          "moves": 446489,
+          "option_probes": 847003
+        },
+        {
+          "n": 19,
+          "time": 0.407216,
+          "memo": 38832,
+          "queries": 1433344,
+          "moves": 447082,
+          "option_probes": 848652
+        },
+        {
+          "n": 19,
+          "time": 0.408471,
+          "memo": 39037,
+          "queries": 1435642,
+          "moves": 447859,
+          "option_probes": 850928
+        },
+        {
+          "n": 20,
+          "time": 0.408588,
+          "memo": 39058,
+          "queries": 1435728,
+          "moves": 447898,
+          "option_probes": 851166
+        },
+        {
+          "n": 20,
+          "time": 0.439276,
+          "memo": 43544,
+          "queries": 1531722,
+          "moves": 477052,
+          "option_probes": 921481
+        },
+        {
+          "n": 20,
+          "time": 0.440122,
+          "memo": 43689,
+          "queries": 1532547,
+          "moves": 477367,
+          "option_probes": 923115
+        },
+        {
+          "n": 21,
+          "time": 0.441428,
+          "memo": 43877,
+          "queries": 1535415,
+          "moves": 478467,
+          "option_probes": 925857
+        },
+        {
+          "n": 21,
+          "time": 0.44152,
+          "memo": 43888,
+          "queries": 1535460,
+          "moves": 478488,
+          "option_probes": 925974
+        },
+        {
+          "n": 21,
+          "time": 0.970901,
+          "memo": 112991,
+          "queries": 3520343,
+          "moves": 1058381,
+          "option_probes": 2202686
+        }
+      ],
+      "next_job": [
+        "A",
+        22
+      ],
+      "stdout": "0\n0\n2\n3\n0\n1\n1\n1\n1\n2\n1\n0\n0\n2\n3\n0\n0\n3\n1\n3\n2\n5\n1\n2\n2\n1\n2\n6\n0\n3\n3\n5\n3\n3\n3\n5\n2\n4\n2\n0\n2\n4\n9\n2\n1\n3\n0\n3\n7\n1\n2\n2\n4\n2\n2\n2\n1\n3\n5\n1\n3\n3\n5",
+      "stderr": "batch n=1 time=0.000038 memo=0 queries=0 moves=0 option_probes=0\nbatch n=1 time=0.000054 memo=0 queries=0 moves=0 option_probes=0\nbatch n=1 time=0.000070 memo=1 queries=3 moves=0 option_probes=0\nbatch n=2 time=0.000086 memo=2 queries=7 moves=0 option_probes=0\nbatch n=2 time=0.000092 memo=2 queries=7 moves=0 option_probes=0\nbatch n=2 time=0.000104 memo=4 queries=11 moves=2 option_probes=4\nbatch n=3 time=0.000126 memo=9 queries=19 moves=7 option_probes=14\nbatch n=3 time=0.000136 memo=11 queries=26 moves=10 option_probes=19\nbatch n=3 time=0.000147 memo=13 queries=32 moves=14 option_probes=25\nbatch n=4 time=0.000201 memo=24 queries=88 moves=51 option_probes=87\nbatch n=4 time=0.000209 memo=25 queries=95 moves=54 option_probes=92\nbatch n=4 time=0.000221 memo=27 queries=108 moves=64 option_probes=110\nbatch n=5 time=0.000275 memo=41 queries=152 moves=91 option_probes=165\nbatch n=5 time=0.000303 memo=45 queries=205 moves=118 option_probes=210\nbatch n=5 time=0.000361 memo=56 queries=336 moves=210 option_probes=340\nbatch n=6 time=0.000388 memo=63 queries=354 moves=221 option_probes=363\nbatch n=6 time=0.000407 memo=66 queries=362 moves=226 option_probes=371\nbatch n=6 time=0.000454 memo=77 queries=413 moves=253 option_probes=426\nbatch n=7 time=0.000516 memo=89 queries=489 moves=289 option_probes=507\nbatch n=7 time=0.000610 memo=102 queries=714 moves=397 option_probes=663\nbatch n=7 time=0.000913 memo=154 queries=1728 moves=878 option_probes=1350\nbatch n=8 time=0.001529 memo=257 queries=3790 moves=1736 option_probes=2839\nbatch n=8 time=0.001549 memo=260 queries=3804 moves=1743 option_probes=2865\nbatch n=8 time=0.001567 memo=264 queries=3823 moves=1751 option_probes=2895\nbatch n=9 time=0.001617 memo=274 queries=3857 moves=1768 option_probes=2960\nbatch n=9 time=0.001645 memo=279 queries=3872 moves=1777 option_probes=2993\nbatch n=9 time=0.001749 memo=298 queries=4177 moves=1906 option_probes=3218\nbatch n=10 time=0.006729 memo=832 queries=18765 moves=7340 option_probes=12071\nbatch n=10 time=0.006770 memo=836 queries=18781 moves=7349 option_probes=12092\nbatch n=10 time=0.006942 memo=857 queries=19322 moves=7534 option_probes=12379\nbatch n=11 time=0.007018 memo=869 queries=19368 moves=7555 option_probes=12460\nbatch n=11 time=0.009969 memo=1210 queries=33317 moves=12292 option_probes=20671\nbatch n=11 time=0.010162 memo=1240 queries=33730 moves=12457 option_probes=21017\nbatch n=12 time=0.010597 memo=1314 queries=34794 moves=12901 option_probes=21906\nbatch n=12 time=0.010637 memo=1320 queries=34821 moves=12912 option_probes=21945\nbatch n=12 time=0.014584 memo=1921 queries=47949 moves=17525 option_probes=31417\nbatch n=13 time=0.016722 memo=2263 queries=54766 moves=20044 option_probes=35985\nbatch n=13 time=0.019322 memo=2622 queries=61487 moves=22485 option_probes=40953\nbatch n=13 time=0.019781 memo=2662 queries=62338 moves=22811 option_probes=41525\nbatch n=14 time=0.020279 memo=2720 queries=62778 moves=22977 option_probes=42179\nbatch n=14 time=0.020338 memo=2727 queries=62806 moves=22990 option_probes=42215\nbatch n=14 time=0.027446 memo=3512 queries=80988 moves=29058 option_probes=54454\nbatch n=15 time=0.201862 memo=16844 queries=757008 moves=237939 option_probes=422890\nbatch n=15 time=0.201955 memo=16858 queries=757118 moves=237994 option_probes=423032\nbatch n=15 time=0.202393 memo=16938 queries=758450 moves=238430 option_probes=423976\nbatch n=16 time=0.203404 memo=17125 queries=761163 moves=239400 option_probes=426134\nbatch n=16 time=0.203468 memo=17133 queries=761193 moves=239415 option_probes=426201\nbatch n=16 time=0.203530 memo=17141 queries=761229 moves=239431 option_probes=426289\nbatch n=17 time=0.403437 memo=38098 queries=1423552 moves=443578 option_probes=839228\nbatch n=17 time=0.403680 memo=38135 queries=1423983 moves=443729 option_probes=839678\nbatch n=17 time=0.403731 memo=38144 queries=1424018 moves=443747 option_probes=839752\nbatch n=18 time=0.403825 memo=38163 queries=1424093 moves=443782 option_probes=839922\nbatch n=18 time=0.404403 memo=38287 queries=1424716 moves=444050 option_probes=841322\nbatch n=18 time=0.404463 memo=38296 queries=1424758 moves=444068 option_probes=841446\nbatch n=19 time=0.406605 memo=38683 queries=1431851 moves=446489 option_probes=847003\nbatch n=19 time=0.407216 memo=38832 queries=1433344 moves=447082 option_probes=848652\nbatch n=19 time=0.408471 memo=39037 queries=1435642 moves=447859 option_probes=850928\nbatch n=20 time=0.408588 memo=39058 queries=1435728 moves=447898 option_probes=851166\nbatch n=20 time=0.439276 memo=43544 queries=1531722 moves=477052 option_probes=921481\nbatch n=20 time=0.440122 memo=43689 queries=1532547 moves=477367 option_probes=923115\nbatch n=21 time=0.441428 memo=43877 queries=1535415 moves=478467 option_probes=925857\nbatch n=21 time=0.441520 memo=43888 queries=1535460 moves=478488 option_probes=925974\nbatch n=21 time=0.970901 memo=112991 queries=3520343 moves=1058381 option_probes=2202686",
+      "order": "ADF"
+    },
+    {
+      "status": "timeout",
+      "returncode": -9,
+      "wall_s": 2.010863,
+      "requested_jobs": 96,
+      "completed": [
+        {
+          "kind": "D",
+          "n": 1,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "A",
+          "n": 1,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 1,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 2,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "A",
+          "n": 2,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 2,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "D",
+          "n": 3,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "A",
+          "n": 3,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 3,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "D",
+          "n": 4,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "A",
+          "n": 4,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 4,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "D",
+          "n": 5,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "A",
+          "n": 5,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 5,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "D",
+          "n": 6,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "A",
+          "n": 6,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 6,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "D",
+          "n": 7,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "A",
+          "n": 7,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "F",
+          "n": 7,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 8,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "A",
+          "n": 8,
+          "SG": 5,
+          "expected": 5
+        },
+        {
+          "kind": "F",
+          "n": 8,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 9,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "A",
+          "n": 9,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 9,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 10,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "A",
+          "n": 10,
+          "SG": 6,
+          "expected": 6
+        },
+        {
+          "kind": "F",
+          "n": 10,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "D",
+          "n": 11,
+          "SG": 5,
+          "expected": 5
+        },
+        {
+          "kind": "A",
+          "n": 11,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 11,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "D",
+          "n": 12,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "A",
+          "n": 12,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 12,
+          "SG": 5,
+          "expected": 5
+        },
+        {
+          "kind": "D",
+          "n": 13,
+          "SG": 4,
+          "expected": 4
+        },
+        {
+          "kind": "A",
+          "n": 13,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 13,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 14,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "A",
+          "n": 14,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "F",
+          "n": 14,
+          "SG": 4,
+          "expected": 4
+        },
+        {
+          "kind": "D",
+          "n": 15,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "A",
+          "n": 15,
+          "SG": 9,
+          "expected": 9
+        },
+        {
+          "kind": "F",
+          "n": 15,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "D",
+          "n": 16,
+          "SG": 0,
+          "expected": 0
+        },
+        {
+          "kind": "A",
+          "n": 16,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 16,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "D",
+          "n": 17,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "A",
+          "n": 17,
+          "SG": 7,
+          "expected": 7
+        },
+        {
+          "kind": "F",
+          "n": 17,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 18,
+          "SG": 4,
+          "expected": 4
+        },
+        {
+          "kind": "A",
+          "n": 18,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 18,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "D",
+          "n": 19,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "A",
+          "n": 19,
+          "SG": 2,
+          "expected": 2
+        },
+        {
+          "kind": "F",
+          "n": 19,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "D",
+          "n": 20,
+          "SG": 5,
+          "expected": 5
+        },
+        {
+          "kind": "A",
+          "n": 20,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 20,
+          "SG": 1,
+          "expected": 1
+        },
+        {
+          "kind": "D",
+          "n": 21,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "A",
+          "n": 21,
+          "SG": 3,
+          "expected": 3
+        },
+        {
+          "kind": "F",
+          "n": 21,
+          "SG": 5,
+          "expected": 5
+        },
+        {
+          "kind": "D",
+          "n": 22,
+          "SG": 3,
+          "expected": 3
+        }
+      ],
+      "stages": [
+        {
+          "n": 1,
+          "time": 3.7e-05,
+          "memo": 0,
+          "queries": 0,
+          "moves": 0,
+          "option_probes": 0
+        },
+        {
+          "n": 1,
+          "time": 6.1e-05,
+          "memo": 0,
+          "queries": 0,
+          "moves": 0,
+          "option_probes": 0
+        },
+        {
+          "n": 1,
+          "time": 7.7e-05,
+          "memo": 1,
+          "queries": 3,
+          "moves": 0,
+          "option_probes": 0
+        },
+        {
+          "n": 2,
+          "time": 8.7e-05,
+          "memo": 1,
+          "queries": 3,
+          "moves": 0,
+          "option_probes": 0
+        },
+        {
+          "n": 2,
+          "time": 0.000107,
+          "memo": 2,
+          "queries": 7,
+          "moves": 0,
+          "option_probes": 0
+        },
+        {
+          "n": 2,
+          "time": 0.00013,
+          "memo": 4,
+          "queries": 11,
+          "moves": 2,
+          "option_probes": 4
+        },
+        {
+          "n": 3,
+          "time": 0.000163,
+          "memo": 8,
+          "queries": 18,
+          "moves": 5,
+          "option_probes": 10
+        },
+        {
+          "n": 3,
+          "time": 0.000188,
+          "memo": 11,
+          "queries": 26,
+          "moves": 10,
+          "option_probes": 19
+        },
+        {
+          "n": 3,
+          "time": 0.000207,
+          "memo": 13,
+          "queries": 32,
+          "moves": 14,
+          "option_probes": 25
+        },
+        {
+          "n": 4,
+          "time": 0.00023,
+          "memo": 16,
+          "queries": 39,
+          "moves": 17,
+          "option_probes": 33
+        },
+        {
+          "n": 4,
+          "time": 0.000288,
+          "memo": 25,
+          "queries": 95,
+          "moves": 54,
+          "option_probes": 95
+        },
+        {
+          "n": 4,
+          "time": 0.000311,
+          "memo": 27,
+          "queries": 108,
+          "moves": 64,
+          "option_probes": 113
+        },
+        {
+          "n": 5,
+          "time": 0.000362,
+          "memo": 35,
+          "queries": 161,
+          "moves": 91,
+          "option_probes": 158
+        },
+        {
+          "n": 5,
+          "time": 0.000411,
+          "memo": 45,
+          "queries": 205,
+          "moves": 118,
+          "option_probes": 208
+        },
+        {
+          "n": 5,
+          "time": 0.000478,
+          "memo": 56,
+          "queries": 336,
+          "moves": 210,
+          "option_probes": 338
+        },
+        {
+          "n": 6,
+          "time": 0.000506,
+          "memo": 60,
+          "queries": 344,
+          "moves": 215,
+          "option_probes": 347
+        },
+        {
+          "n": 6,
+          "time": 0.000539,
+          "memo": 66,
+          "queries": 362,
+          "moves": 226,
+          "option_probes": 369
+        },
+        {
+          "n": 6,
+          "time": 0.000593,
+          "memo": 77,
+          "queries": 413,
+          "moves": 253,
+          "option_probes": 424
+        },
+        {
+          "n": 7,
+          "time": 0.000687,
+          "memo": 92,
+          "queries": 638,
+          "moves": 361,
+          "option_probes": 580
+        },
+        {
+          "n": 7,
+          "time": 0.00075,
+          "memo": 102,
+          "queries": 714,
+          "moves": 397,
+          "option_probes": 657
+        },
+        {
+          "n": 7,
+          "time": 0.001072,
+          "memo": 154,
+          "queries": 1728,
+          "moves": 878,
+          "option_probes": 1344
+        },
+        {
+          "n": 8,
+          "time": 0.001123,
+          "memo": 161,
+          "queries": 1781,
+          "moves": 902,
+          "option_probes": 1391
+        },
+        {
+          "n": 8,
+          "time": 0.001734,
+          "memo": 260,
+          "queries": 3807,
+          "moves": 1743,
+          "option_probes": 2857
+        },
+        {
+          "n": 8,
+          "time": 0.001768,
+          "memo": 264,
+          "queries": 3826,
+          "moves": 1751,
+          "option_probes": 2887
+        },
+        {
+          "n": 9,
+          "time": 0.001798,
+          "memo": 270,
+          "queries": 3841,
+          "moves": 1760,
+          "option_probes": 2922
+        },
+        {
+          "n": 9,
+          "time": 0.001845,
+          "memo": 279,
+          "queries": 3875,
+          "moves": 1777,
+          "option_probes": 2987
+        },
+        {
+          "n": 9,
+          "time": 0.001948,
+          "memo": 298,
+          "queries": 4180,
+          "moves": 1906,
+          "option_probes": 3212
+        },
+        {
+          "n": 10,
+          "time": 0.001979,
+          "memo": 304,
+          "queries": 4196,
+          "moves": 1915,
+          "option_probes": 3242
+        },
+        {
+          "n": 10,
+          "time": 0.00544,
+          "memo": 836,
+          "queries": 18784,
+          "moves": 7349,
+          "option_probes": 12086
+        },
+        {
+          "n": 10,
+          "time": 0.0056,
+          "memo": 857,
+          "queries": 19325,
+          "moves": 7534,
+          "option_probes": 12373
+        },
+        {
+          "n": 11,
+          "time": 0.008391,
+          "memo": 1199,
+          "queries": 33274,
+          "moves": 12271,
+          "option_probes": 20589
+        },
+        {
+          "n": 11,
+          "time": 0.008465,
+          "memo": 1210,
+          "queries": 33320,
+          "moves": 12292,
+          "option_probes": 20657
+        },
+        {
+          "n": 11,
+          "time": 0.00872,
+          "memo": 1240,
+          "queries": 33733,
+          "moves": 12457,
+          "option_probes": 21003
+        },
+        {
+          "n": 12,
+          "time": 0.008775,
+          "memo": 1247,
+          "queries": 33760,
+          "moves": 12468,
+          "option_probes": 21044
+        },
+        {
+          "n": 12,
+          "time": 0.009272,
+          "memo": 1320,
+          "queries": 34824,
+          "moves": 12912,
+          "option_probes": 21931
+        },
+        {
+          "n": 12,
+          "time": 0.014239,
+          "memo": 1921,
+          "queries": 47952,
+          "moves": 17525,
+          "option_probes": 31403
+        },
+        {
+          "n": 13,
+          "time": 0.019303,
+          "memo": 2538,
+          "queries": 59504,
+          "moves": 21794,
+          "option_probes": 39857
+        },
+        {
+          "n": 13,
+          "time": 0.019508,
+          "memo": 2567,
+          "queries": 59668,
+          "moves": 21866,
+          "option_probes": 40100
+        },
+        {
+          "n": 13,
+          "time": 0.019887,
+          "memo": 2607,
+          "queries": 60519,
+          "moves": 22192,
+          "option_probes": 40672
+        },
+        {
+          "n": 14,
+          "time": 0.019947,
+          "memo": 2615,
+          "queries": 60547,
+          "moves": 22205,
+          "option_probes": 40710
+        },
+        {
+          "n": 14,
+          "time": 0.020424,
+          "memo": 2672,
+          "queries": 60987,
+          "moves": 22371,
+          "option_probes": 41364
+        },
+        {
+          "n": 14,
+          "time": 0.026855,
+          "memo": 3460,
+          "queries": 79325,
+          "moves": 28485,
+          "option_probes": 53638
+        },
+        {
+          "n": 15,
+          "time": 0.027642,
+          "memo": 3590,
+          "queries": 81579,
+          "moves": 29377,
+          "option_probes": 55167
+        },
+        {
+          "n": 15,
+          "time": 0.16474,
+          "memo": 16869,
+          "queries": 757446,
+          "moves": 238152,
+          "option_probes": 423244
+        },
+        {
+          "n": 15,
+          "time": 0.165224,
+          "memo": 16949,
+          "queries": 758778,
+          "moves": 238588,
+          "option_probes": 424188
+        },
+        {
+          "n": 16,
+          "time": 0.165281,
+          "memo": 16958,
+          "queries": 758808,
+          "moves": 238603,
+          "option_probes": 424255
+        },
+        {
+          "n": 16,
+          "time": 0.166255,
+          "memo": 17144,
+          "queries": 761521,
+          "moves": 239573,
+          "option_probes": 426411
+        },
+        {
+          "n": 16,
+          "time": 0.166315,
+          "memo": 17152,
+          "queries": 761557,
+          "moves": 239589,
+          "option_probes": 426499
+        },
+        {
+          "n": 17,
+          "time": 0.166624,
+          "memo": 17212,
+          "queries": 762144,
+          "moves": 239791,
+          "option_probes": 427103
+        },
+        {
+          "n": 17,
+          "time": 0.344822,
+          "memo": 38135,
+          "queries": 1423652,
+          "moves": 443663,
+          "option_probes": 839506
+        },
+        {
+          "n": 17,
+          "time": 0.344891,
+          "memo": 38144,
+          "queries": 1423687,
+          "moves": 443681,
+          "option_probes": 839580
+        },
+        {
+          "n": 18,
+          "time": 0.345457,
+          "memo": 38269,
+          "queries": 1424310,
+          "moves": 443949,
+          "option_probes": 840980
+        },
+        {
+          "n": 18,
+          "time": 0.345543,
+          "memo": 38287,
+          "queries": 1424385,
+          "moves": 443984,
+          "option_probes": 841142
+        },
+        {
+          "n": 18,
+          "time": 0.345596,
+          "memo": 38296,
+          "queries": 1424427,
+          "moves": 444002,
+          "option_probes": 841266
+        },
+        {
+          "n": 19,
+          "time": 0.346239,
+          "memo": 38451,
+          "queries": 1425920,
+          "moves": 444595,
+          "option_probes": 842959
+        },
+        {
+          "n": 19,
+          "time": 0.348538,
+          "memo": 38832,
+          "queries": 1433013,
+          "moves": 447016,
+          "option_probes": 848482
+        },
+        {
+          "n": 19,
+          "time": 0.349567,
+          "memo": 39037,
+          "queries": 1435311,
+          "moves": 447793,
+          "option_probes": 850758
+        },
+        {
+          "n": 20,
+          "time": 0.411554,
+          "memo": 47513,
+          "queries": 1613559,
+          "moves": 504128,
+          "option_probes": 981488
+        },
+        {
+          "n": 20,
+          "time": 0.411693,
+          "memo": 47533,
+          "queries": 1613645,
+          "moves": 504167,
+          "option_probes": 981703
+        },
+        {
+          "n": 20,
+          "time": 0.412437,
+          "memo": 47676,
+          "queries": 1614470,
+          "moves": 504482,
+          "option_probes": 983291
+        },
+        {
+          "n": 21,
+          "time": 0.412521,
+          "memo": 47688,
+          "queries": 1614515,
+          "moves": 504503,
+          "option_probes": 983419
+        },
+        {
+          "n": 21,
+          "time": 0.413736,
+          "memo": 47874,
+          "queries": 1617383,
+          "moves": 505603,
+          "option_probes": 986144
+        },
+        {
+          "n": 21,
+          "time": 0.887018,
+          "memo": 113648,
+          "queries": 3527497,
+          "moves": 1061530,
+          "option_probes": 2213060
+        },
+        {
+          "n": 22,
+          "time": 0.887094,
+          "memo": 113660,
+          "queries": 3527544,
+          "moves": 1061551,
+          "option_probes": 2213243
+        }
+      ],
+      "next_job": [
+        "A",
+        22
+      ],
+      "stdout": "0\n0\n2\n0\n3\n1\n1\n1\n1\n1\n2\n0\n2\n0\n3\n0\n0\n3\n3\n1\n2\n1\n5\n2\n1\n2\n2\n0\n6\n3\n5\n3\n3\n3\n3\n5\n4\n2\n2\n2\n0\n4\n2\n9\n1\n0\n3\n3\n1\n7\n2\n4\n2\n2\n2\n2\n1\n5\n3\n1\n3\n3\n5\n3",
+      "stderr": "batch n=1 time=0.000037 memo=0 queries=0 moves=0 option_probes=0\nbatch n=1 time=0.000061 memo=0 queries=0 moves=0 option_probes=0\nbatch n=1 time=0.000077 memo=1 queries=3 moves=0 option_probes=0\nbatch n=2 time=0.000087 memo=1 queries=3 moves=0 option_probes=0\nbatch n=2 time=0.000107 memo=2 queries=7 moves=0 option_probes=0\nbatch n=2 time=0.000130 memo=4 queries=11 moves=2 option_probes=4\nbatch n=3 time=0.000163 memo=8 queries=18 moves=5 option_probes=10\nbatch n=3 time=0.000188 memo=11 queries=26 moves=10 option_probes=19\nbatch n=3 time=0.000207 memo=13 queries=32 moves=14 option_probes=25\nbatch n=4 time=0.000230 memo=16 queries=39 moves=17 option_probes=33\nbatch n=4 time=0.000288 memo=25 queries=95 moves=54 option_probes=95\nbatch n=4 time=0.000311 memo=27 queries=108 moves=64 option_probes=113\nbatch n=5 time=0.000362 memo=35 queries=161 moves=91 option_probes=158\nbatch n=5 time=0.000411 memo=45 queries=205 moves=118 option_probes=208\nbatch n=5 time=0.000478 memo=56 queries=336 moves=210 option_probes=338\nbatch n=6 time=0.000506 memo=60 queries=344 moves=215 option_probes=347\nbatch n=6 time=0.000539 memo=66 queries=362 moves=226 option_probes=369\nbatch n=6 time=0.000593 memo=77 queries=413 moves=253 option_probes=424\nbatch n=7 time=0.000687 memo=92 queries=638 moves=361 option_probes=580\nbatch n=7 time=0.000750 memo=102 queries=714 moves=397 option_probes=657\nbatch n=7 time=0.001072 memo=154 queries=1728 moves=878 option_probes=1344\nbatch n=8 time=0.001123 memo=161 queries=1781 moves=902 option_probes=1391\nbatch n=8 time=0.001734 memo=260 queries=3807 moves=1743 option_probes=2857\nbatch n=8 time=0.001768 memo=264 queries=3826 moves=1751 option_probes=2887\nbatch n=9 time=0.001798 memo=270 queries=3841 moves=1760 option_probes=2922\nbatch n=9 time=0.001845 memo=279 queries=3875 moves=1777 option_probes=2987\nbatch n=9 time=0.001948 memo=298 queries=4180 moves=1906 option_probes=3212\nbatch n=10 time=0.001979 memo=304 queries=4196 moves=1915 option_probes=3242\nbatch n=10 time=0.005440 memo=836 queries=18784 moves=7349 option_probes=12086\nbatch n=10 time=0.005600 memo=857 queries=19325 moves=7534 option_probes=12373\nbatch n=11 time=0.008391 memo=1199 queries=33274 moves=12271 option_probes=20589\nbatch n=11 time=0.008465 memo=1210 queries=33320 moves=12292 option_probes=20657\nbatch n=11 time=0.008720 memo=1240 queries=33733 moves=12457 option_probes=21003\nbatch n=12 time=0.008775 memo=1247 queries=33760 moves=12468 option_probes=21044\nbatch n=12 time=0.009272 memo=1320 queries=34824 moves=12912 option_probes=21931\nbatch n=12 time=0.014239 memo=1921 queries=47952 moves=17525 option_probes=31403\nbatch n=13 time=0.019303 memo=2538 queries=59504 moves=21794 option_probes=39857\nbatch n=13 time=0.019508 memo=2567 queries=59668 moves=21866 option_probes=40100\nbatch n=13 time=0.019887 memo=2607 queries=60519 moves=22192 option_probes=40672\nbatch n=14 time=0.019947 memo=2615 queries=60547 moves=22205 option_probes=40710\nbatch n=14 time=0.020424 memo=2672 queries=60987 moves=22371 option_probes=41364\nbatch n=14 time=0.026855 memo=3460 queries=79325 moves=28485 option_probes=53638\nbatch n=15 time=0.027642 memo=3590 queries=81579 moves=29377 option_probes=55167\nbatch n=15 time=0.164740 memo=16869 queries=757446 moves=238152 option_probes=423244\nbatch n=15 time=0.165224 memo=16949 queries=758778 moves=238588 option_probes=424188\nbatch n=16 time=0.165281 memo=16958 queries=758808 moves=238603 option_probes=424255\nbatch n=16 time=0.166255 memo=17144 queries=761521 moves=239573 option_probes=426411\nbatch n=16 time=0.166315 memo=17152 queries=761557 moves=239589 option_probes=426499\nbatch n=17 time=0.166624 memo=17212 queries=762144 moves=239791 option_probes=427103\nbatch n=17 time=0.344822 memo=38135 queries=1423652 moves=443663 option_probes=839506\nbatch n=17 time=0.344891 memo=38144 queries=1423687 moves=443681 option_probes=839580\nbatch n=18 time=0.345457 memo=38269 queries=1424310 moves=443949 option_probes=840980\nbatch n=18 time=0.345543 memo=38287 queries=1424385 moves=443984 option_probes=841142\nbatch n=18 time=0.345596 memo=38296 queries=1424427 moves=444002 option_probes=841266\nbatch n=19 time=0.346239 memo=38451 queries=1425920 moves=444595 option_probes=842959\nbatch n=19 time=0.348538 memo=38832 queries=1433013 moves=447016 option_probes=848482\nbatch n=19 time=0.349567 memo=39037 queries=1435311 moves=447793 option_probes=850758\nbatch n=20 time=0.411554 memo=47513 queries=1613559 moves=504128 option_probes=981488\nbatch n=20 time=0.411693 memo=47533 queries=1613645 moves=504167 option_probes=981703\nbatch n=20 time=0.412437 memo=47676 queries=1614470 moves=504482 option_probes=983291\nbatch n=21 time=0.412521 memo=47688 queries=1614515 moves=504503 option_probes=983419\nbatch n=21 time=0.413736 memo=47874 queries=1617383 moves=505603 option_probes=986144\nbatch n=21 time=0.887018 memo=113648 queries=3527497 moves=1061530 option_probes=2213060\nbatch n=22 time=0.887094 memo=113660 queries=3527544 moves=1061551 option_probes=2213243",
+      "order": "DAF"
+    }
+  ],
+  "configuration": {
+    "orders": [
+      "F",
+      "ADF",
+      "DAF"
+    ],
+    "max_n": 34,
+    "extra_env": {}
+  },
+  "limits": {
+    "per_process_s": 2,
+    "total_s": 10.42518986700452,
+    "cpu": 0,
+    "threads": 1,
+    "address_space_mib": 512
+  },
+  "provenance": {
+    "commit": "47bd0a09aa03f15e2286540e22b2457073af3b5c",
+    "source_sha256": {
+      "scripts/screen_strip3_sequence.py": "dea998f7f319332d72d01aa00b2910585c8aaa4907212d80c3c98f1fc27844d6",
+      "src/cfast/strip3_comb_tables.h": "10e43590e63deebca136b0b2128a4e894f4807c9ed1881eae5d5a16cbaec05aa",
+      "src/cfast/strip3_target.c": "2e4f18da39d12388d35c8abf7204f6123949365aa14f41f37f1b7206710ba656",
+      "src/cfast/strip3.c": "3aa76bd34ccfdb8e963047c2a92b86d4634985430311d4880000dd4c3275612e"
+    }
+  },
+  "wall_s": 6.648263
+}

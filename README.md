@@ -48,6 +48,8 @@ python3 scripts/play.py 5 5    # 与最优对手交互对弈
 [notes/30](notes/30_search_obligations.md)；当前尚未快速复现全部已有前缀。
 连接矩阵秩的短筛选见 [notes/31](notes/31_connection_rank.md)：真实可达拼接族
 在已测范围没有明显共同线性压缩，仍未带来搜索规模突破。
+上界证明共享与跨宽度缓存调度见 [notes/32](notes/32_absent_option_bounds.md)：
+两者都未越过28，四批正式实验合计约16秒，未延长失败任务。
 
 * **已解决的家族**：偶数×偶数（P）、奇数×奇数（N，天元制胜）、`2 × n`、
   `4 × n`（恒 P）、`1 × n`（即 Dawson's chess），以及一般配对引理。

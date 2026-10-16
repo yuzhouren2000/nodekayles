@@ -41,7 +41,9 @@ def main():
                         str(ROOT / "src/cfast/strip3_absence.c")], check=True, timeout=2)
         configs = [dict(STRIP3_ABSENCE_PROBE=str(probe)) for probe in range(3)]
         configs += [dict(STRIP3_ABSENCE_PROBE="1", STRIP3_TARGET_CACHE_FIRST="1"),
-                    dict(STRIP3_ABSENCE_PROBE="2", STRIP3_TARGET_ORDER="3", STRIP3_TARGET_FRONTIER="3")]
+                    dict(STRIP3_ABSENCE_PROBE="2", STRIP3_TARGET_ORDER="3", STRIP3_TARGET_FRONTIER="3"),
+                    dict(STRIP3_ABSENCE_PROBE="0", STRIP3_TARGET_CACHE_FIRST="1"),
+                    dict(STRIP3_ABSENCE_PROBE="2", STRIP3_TARGET_CACHE_FIRST="1")]
         for config in configs:
             result = run(binary, "queries", text, **config)
             assert result.returncode == 0, result.stderr
