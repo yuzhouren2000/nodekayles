@@ -1,0 +1,117 @@
+{
+  "format": "strip3-demand-screen-v1",
+  "backend": "availability",
+  "generalise": 2,
+  "revision": "e326b7b4bc74b9b6b95d2298f3bc5a6453cb3b6b",
+  "source_sha256": {
+    "src/cfast/strip3_demand_symbolic.c": "7732a5e01b261ba1d497b1db56561b9c6198a63741015234a099f034dfe8383a",
+    "src/cfast/strip3_symbolic.c": "668f486bd1071c3b0cea93e7ccd68f0c558150395f6df07ec2d54e1d34e57781",
+    "tests/verify_strip3_symbolic_kernel.c": "6a91c95d07a8cd2d7b16a65a1344a1613606e366b69788e2cb959b4794f88616",
+    "scripts/screen_strip3_demand.py": "838a79a4f6af8bb25c3b9fb34003c80706ba7e54829efad39b6c1b67652bd2f8"
+  },
+  "samples": [
+    {
+      "n": 6,
+      "solve": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.0143,
+        "stdout": "3\t6\t3",
+        "stderr": "demand queries=256 moves=255 hits=141 p_facts=38 w_facts=72 created_nodes=1748 peak_nodes=1749 retained_nodes=1749 gc=0 apply_calls=2280 generalise=2\ndemand queries=512 moves=511 hits=289 p_facts=74 w_facts=143 created_nodes=4198 peak_nodes=4199 retained_nodes=4199 gc=0 apply_calls=6087 generalise=2\ndemand queries=1024 moves=1007 hits=635 p_facts=133 w_facts=251 created_nodes=7563 peak_nodes=7564 retained_nodes=7564 gc=0 apply_calls=11516 generalise=2\ndemand queries=2048 moves=1922 hits=1335 p_facts=245 w_facts=464 created_nodes=14011 peak_nodes=14012 retained_nodes=14012 gc=0 apply_calls=22957 generalise=2\ndemand queries=4096 moves=3711 hits=2815 p_facts=428 w_facts=862 created_nodes=25883 peak_nodes=25884 retained_nodes=25884 gc=0 apply_calls=50382 generalise=2\nkernel_certificate nodes=982 roots=4\ndemand queries=6185 moves=5394 hits=4441 p_facts=605 w_facts=1183 created_nodes=34697 peak_nodes=34698 retained_nodes=34698 gc=0 apply_calls=75241 generalise=2"
+      },
+      "check": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.017229,
+        "stdout": "{\"n\":6,\"SG\":3,\"certificate_nodes\":982,\"checker_nodes\":42397,\"complete_lower_kernels\":0,\"predecessor_calls\":8,\"apply_calls\":128554}",
+        "stderr": ""
+      },
+      "checked": {
+        "n": 6,
+        "SG": 3,
+        "certificate_nodes": 982,
+        "checker_nodes": 42397,
+        "complete_lower_kernels": 0,
+        "predecessor_calls": 8,
+        "apply_calls": 128554
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_availability_demand_kernels/strip3_kernel_6.txt.gz",
+        "bytes": 9622,
+        "gzip_bytes": 3758,
+        "sha256": "f198539fe097a03d914adb59076b78e451dac792cddf3a5e6214853e72aefd61",
+        "file_sha256": "5ee3d843a230f54de1645e63040dec8e9f10793db20c13bc02b1d5374e710aae"
+      }
+    },
+    {
+      "n": 8,
+      "solve": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.075351,
+        "stdout": "3\t8\t2",
+        "stderr": "demand queries=256 moves=255 hits=137 p_facts=42 w_facts=69 created_nodes=2823 peak_nodes=2824 retained_nodes=2824 gc=0 apply_calls=3185 generalise=2\ndemand queries=512 moves=511 hits=290 p_facts=68 w_facts=148 created_nodes=4777 peak_nodes=4778 retained_nodes=4778 gc=0 apply_calls=5990 generalise=2\ndemand queries=1024 moves=1023 hits=632 p_facts=130 w_facts=256 created_nodes=8457 peak_nodes=8458 retained_nodes=8458 gc=0 apply_calls=11320 generalise=2\ndemand queries=2048 moves=2047 hits=1243 p_facts=265 w_facts=534 created_nodes=16942 peak_nodes=16943 retained_nodes=16943 gc=0 apply_calls=23919 generalise=2\ndemand queries=4096 moves=4095 hits=2616 p_facts=462 w_facts=1011 created_nodes=35266 peak_nodes=35267 retained_nodes=35267 gc=0 apply_calls=55601 generalise=2\ndemand queries=8192 moves=7970 hits=5487 p_facts=897 w_facts=1802 created_nodes=68023 peak_nodes=68024 retained_nodes=68024 gc=0 apply_calls=114489 generalise=2\ndemand queries=16384 moves=15489 hits=11454 p_facts=1574 w_facts=3351 created_nodes=132665 peak_nodes=132666 retained_nodes=132666 gc=0 apply_calls=248009 generalise=2\ndemand queries=32768 moves=29396 hits=24646 p_facts=2794 w_facts=5516 created_nodes=198155 peak_nodes=198156 retained_nodes=198156 gc=0 apply_calls=424888 generalise=2\ndemand queries=65536 moves=57605 hits=51301 p_facts=5160 w_facts=9652 created_nodes=336477 peak_nodes=336478 retained_nodes=336478 gc=0 apply_calls=777202 generalise=2\nkernel_certificate nodes=2751 roots=3\ndemand queries=104774 moves=92418 hits=84167 p_facts=7501 w_facts=14073 created_nodes=489638 peak_nodes=489639 retained_nodes=489639 gc=0 apply_calls=1168992 generalise=2"
+      },
+      "check": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.030852,
+        "stdout": "{\"n\":8,\"SG\":2,\"certificate_nodes\":2751,\"checker_nodes\":171716,\"complete_lower_kernels\":0,\"predecessor_calls\":6,\"apply_calls\":504890}",
+        "stderr": ""
+      },
+      "checked": {
+        "n": 8,
+        "SG": 2,
+        "certificate_nodes": 2751,
+        "checker_nodes": 171716,
+        "complete_lower_kernels": 0,
+        "predecessor_calls": 6,
+        "apply_calls": 504890
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_availability_demand_kernels/strip3_kernel_8.txt.gz",
+        "bytes": 29320,
+        "gzip_bytes": 11001,
+        "sha256": "5f2765169642ecf4ccc4615d9fa9d177ab02b6e81ca71b8741f188afd4e84056",
+        "file_sha256": "c4ca22e9e80ef949d61a7bc8bcaf9eb8da025b9b853177efb85bada5118d4bb6"
+      }
+    },
+    {
+      "n": 10,
+      "solve": {
+        "status": "timeout",
+        "returncode": -9,
+        "wall_s": 2.003066,
+        "stdout": "",
+        "stderr": "demand queries=256 moves=255 hits=129 p_facts=37 w_facts=79 created_nodes=2454 peak_nodes=2455 retained_nodes=2455 gc=0 apply_calls=2712 generalise=2\ndemand queries=512 moves=511 hits=289 p_facts=78 w_facts=134 created_nodes=4011 peak_nodes=4012 retained_nodes=4012 gc=0 apply_calls=4590 generalise=2\ndemand queries=1024 moves=1023 hits=610 p_facts=144 w_facts=261 created_nodes=7724 peak_nodes=7725 retained_nodes=7725 gc=0 apply_calls=9449 generalise=2\ndemand queries=2048 moves=2047 hits=1280 p_facts=274 w_facts=487 created_nodes=14837 peak_nodes=14838 retained_nodes=14838 gc=0 apply_calls=19421 generalise=2\ndemand queries=4096 moves=4095 hits=2638 p_facts=529 w_facts=919 created_nodes=29453 peak_nodes=29454 retained_nodes=29454 gc=0 apply_calls=40626 generalise=2\ndemand queries=8192 moves=8191 hits=5535 p_facts=873 w_facts=1772 created_nodes=62732 peak_nodes=62733 retained_nodes=62733 gc=0 apply_calls=97595 generalise=2\ndemand queries=16384 moves=16383 hits=11213 p_facts=1692 w_facts=3470 created_nodes=138062 peak_nodes=138063 retained_nodes=138063 gc=0 apply_calls=218974 generalise=2\ndemand queries=32768 moves=32767 hits=22908 p_facts=3027 w_facts=6824 created_nodes=273077 peak_nodes=273078 retained_nodes=273078 gc=0 apply_calls=435555 generalise=2\ndemand queries=65536 moves=65535 hits=47600 p_facts=5179 w_facts=12748 created_nodes=571890 peak_nodes=571891 retained_nodes=571891 gc=0 apply_calls=985873 generalise=2\ndemand queries=131072 moves=131071 hits=96642 p_facts=9819 w_facts=24603 created_nodes=1299940 peak_nodes=786450 retained_nodes=535444 gc=1 apply_calls=2302688 generalise=2\ndemand queries=262144 moves=252302 hits=201552 p_facts=19224 w_facts=41822 created_nodes=2219367 peak_nodes=786549 retained_nodes=706415 gc=2 apply_calls=4188094 generalise=2\ndemand queries=524288 moves=482748 hits=424590 p_facts=34481 w_facts=68186 created_nodes=3346650 peak_nodes=786549 retained_nodes=383806 gc=4 apply_calls=7332399 generalise=2\ndemand queries=1048576 moves=941067 hits=866261 p_facts=64420 w_facts=125056 created_nodes=6045153 peak_nodes=786549 retained_nodes=283233 gc=8 apply_calls=14408410 generalise=2\ndemand queries=2097152 moves=1874486 hits=1748521 p_facts=117215 w_facts=245825 created_nodes=11935887 peak_nodes=786549 retained_nodes=450623 gc=17 apply_calls=31158800 generalise=2"
+      }
+    }
+  ],
+  "limits": {
+    "per_process_wall_s": 2,
+    "per_process_cpu_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1,
+    "total_budget_checks": "between stages; file I/O has no separate hard interrupt"
+  },
+  "builds": [
+    {
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.361486,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.273526,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "status": "stopped_at_first_failure",
+  "wall_s": 2.781916
+}

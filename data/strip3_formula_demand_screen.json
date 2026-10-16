@@ -1,0 +1,84 @@
+{
+  "format": "strip3-demand-screen-v1",
+  "backend": "availability",
+  "generalise": 1,
+  "revision": "e326b7b4bc74b9b6b95d2298f3bc5a6453cb3b6b",
+  "source_sha256": {
+    "src/cfast/strip3_demand_symbolic.c": "7732a5e01b261ba1d497b1db56561b9c6198a63741015234a099f034dfe8383a",
+    "src/cfast/strip3_symbolic.c": "668f486bd1071c3b0cea93e7ccd68f0c558150395f6df07ec2d54e1d34e57781",
+    "tests/verify_strip3_symbolic_kernel.c": "6a91c95d07a8cd2d7b16a65a1344a1613606e366b69788e2cb959b4794f88616",
+    "scripts/screen_strip3_demand.py": "838a79a4f6af8bb25c3b9fb34003c80706ba7e54829efad39b6c1b67652bd2f8"
+  },
+  "samples": [
+    {
+      "n": 6,
+      "solve": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.100341,
+        "stdout": "3\t6\t3",
+        "stderr": "demand queries=256 moves=251 hits=183 p_facts=20 w_facts=51 created_nodes=202545 peak_nodes=202546 retained_nodes=202546 gc=0 apply_calls=825796 generalise=1\ndemand queries=512 moves=468 hits=389 p_facts=36 w_facts=87 created_nodes=445756 peak_nodes=445757 retained_nodes=445757 gc=0 apply_calls=1850257 generalise=1\nkernel_certificate nodes=1449 roots=4\ndemand queries=614 moves=551 hits=478 p_facts=44 w_facts=98 created_nodes=552982 peak_nodes=552983 retained_nodes=552983 gc=0 apply_calls=2324572 generalise=1"
+      },
+      "check": {
+        "status": "complete",
+        "returncode": 0,
+        "wall_s": 0.016796,
+        "stdout": "{\"n\":6,\"SG\":3,\"certificate_nodes\":1449,\"checker_nodes\":32832,\"complete_lower_kernels\":0,\"predecessor_calls\":8,\"apply_calls\":98364}",
+        "stderr": ""
+      },
+      "checked": {
+        "n": 6,
+        "SG": 3,
+        "certificate_nodes": 1449,
+        "checker_nodes": 32832,
+        "complete_lower_kernels": 0,
+        "predecessor_calls": 8,
+        "apply_calls": 98364
+      },
+      "certificate": {
+        "path": "data/proofs/strip3_formula_demand_kernels/strip3_kernel_6.txt.gz",
+        "bytes": 14626,
+        "gzip_bytes": 5611,
+        "sha256": "f3fd512534fd95aaba4df98cee6a1ffe8ecbd21e8b579214d36b3fb9f763fcb4",
+        "file_sha256": "adf1f53c68a789e15c3851e7759d713d8a3a4e074dd7d30b51637fc38e3778db"
+      }
+    },
+    {
+      "n": 8,
+      "solve": {
+        "status": "failed",
+        "returncode": 3,
+        "wall_s": 0.633019,
+        "stdout": "",
+        "stderr": "demand queries=256 moves=255 hits=183 p_facts=20 w_facts=47 created_nodes=545889 peak_nodes=545890 retained_nodes=545890 gc=0 apply_calls=2129384 generalise=1\nsymbolic: node budget reached; incomplete; nodes=1048576 apply_calls=14457395\nreachable_stats created_nodes=2762022 peak_nodes=1048576 retained_nodes=1048576 gc=2 apply_calls=14457395\ndemand queries=444 moves=443 hits=343 p_facts=27 w_facts=68 created_nodes=2762022 peak_nodes=1048576 retained_nodes=1048576 gc=2 apply_calls=14457395 generalise=1"
+      }
+    }
+  ],
+  "limits": {
+    "per_process_wall_s": 2,
+    "per_process_cpu_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1,
+    "total_budget_checks": "between stages; file I/O has no separate hard interrupt"
+  },
+  "builds": [
+    {
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.313015,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "status": "complete",
+      "returncode": 0,
+      "wall_s": 0.275489,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "status": "stopped_at_first_failure",
+  "wall_s": 1.341864
+}

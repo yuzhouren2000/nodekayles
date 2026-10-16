@@ -351,7 +351,8 @@ int main(int argc, char **argv) {
                 fprintf(stderr, "demand: certificate write failed; incomplete\n"); return 3;
             }
         }
-        printf("3\t%ld\t%d\n", n, g);
+        if (position_query) printf("position\t%ld\t%s\t%d\n", n, argv[3], g);
+        else printf("3\t%ld\t%d\n", n, g);
     }
     return 0;
 }

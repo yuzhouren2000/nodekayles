@@ -1,0 +1,210 @@
+{
+  "format": "strip3-demand-kernel-coverage-v1",
+  "script_sha256": "b18acb3b0c5cee35305810b29492439c39fd53fa24226d4d7f8cd552a6983531",
+  "method": "exact BDD model counts, with independent width-six vertex enumeration",
+  "semantics": "verified separately in data/proofs/strip3_demand_kernel_audit.json",
+  "samples": [
+    {
+      "n": 6,
+      "SG": 3,
+      "domain": "reachable_masks",
+      "domain_size": 2037,
+      "kernel_sizes": [
+        676,
+        659,
+        203,
+        216
+      ],
+      "covered_size": 1754,
+      "covered_fraction": 0.8610702,
+      "small_domain_independent_enumeration": 2037,
+      "certificate": "data/proofs/strip3_formula_demand_kernels/strip3_kernel_6.txt.gz",
+      "certificate_sha256": "f3fd512534fd95aaba4df98cee6a1ffe8ecbd21e8b579214d36b3fb9f763fcb4",
+      "screen": "data/strip3_formula_demand_screen.json",
+      "screen_sha256": "4a8e09b8f80a8c83ab884c5e77e2514dbaaa2eebabff01dafd3f55775a7173b5",
+      "solve_counts": {
+        "queries": 614,
+        "moves": 551,
+        "hits": 478,
+        "p_facts": 44,
+        "w_facts": 98,
+        "created_nodes": 552982,
+        "peak_nodes": 552983,
+        "retained_nodes": 552983,
+        "gc": 0,
+        "apply_calls": 2324572,
+        "generalise": 1,
+        "nodes": 1449,
+        "roots": 4
+      }
+    },
+    {
+      "n": 6,
+      "SG": 3,
+      "domain": "reachable_masks",
+      "domain_size": 2037,
+      "kernel_sizes": [
+        228,
+        293,
+        32,
+        59
+      ],
+      "covered_size": 612,
+      "covered_fraction": 0.30044183,
+      "small_domain_independent_enumeration": 2037,
+      "certificate": "data/proofs/strip3_availability_demand_kernels/strip3_kernel_6.txt.gz",
+      "certificate_sha256": "f198539fe097a03d914adb59076b78e451dac792cddf3a5e6214853e72aefd61",
+      "screen": "data/strip3_availability_demand_screen.json",
+      "screen_sha256": "c4f3372dfb03591eacd81b3b5099f0d1604dd1ba57eb6a100eb1deffeb5f7fd2",
+      "solve_counts": {
+        "queries": 6185,
+        "moves": 5394,
+        "hits": 4441,
+        "p_facts": 605,
+        "w_facts": 1183,
+        "created_nodes": 34697,
+        "peak_nodes": 34698,
+        "retained_nodes": 34698,
+        "gc": 0,
+        "apply_calls": 75241,
+        "generalise": 2,
+        "nodes": 982,
+        "roots": 4
+      }
+    },
+    {
+      "n": 8,
+      "SG": 2,
+      "domain": "reachable_masks",
+      "domain_size": 23860,
+      "kernel_sizes": [
+        3633,
+        3438,
+        763
+      ],
+      "covered_size": 7834,
+      "covered_fraction": 0.32833194,
+      "small_domain_independent_enumeration": null,
+      "certificate": "data/proofs/strip3_availability_demand_kernels/strip3_kernel_8.txt.gz",
+      "certificate_sha256": "5f2765169642ecf4ccc4615d9fa9d177ab02b6e81ca71b8741f188afd4e84056",
+      "screen": "data/strip3_availability_demand_screen.json",
+      "screen_sha256": "c4f3372dfb03591eacd81b3b5099f0d1604dd1ba57eb6a100eb1deffeb5f7fd2",
+      "solve_counts": {
+        "queries": 104774,
+        "moves": 92418,
+        "hits": 84167,
+        "p_facts": 7501,
+        "w_facts": 14073,
+        "created_nodes": 489638,
+        "peak_nodes": 489639,
+        "retained_nodes": 489639,
+        "gc": 0,
+        "apply_calls": 1168992,
+        "generalise": 2,
+        "nodes": 2751,
+        "roots": 3
+      }
+    },
+    {
+      "n": 6,
+      "SG": 3,
+      "domain": "independent_histories",
+      "domain_size": 2999,
+      "kernel_sizes": [
+        1094,
+        1089,
+        252,
+        270
+      ],
+      "covered_size": 2705,
+      "covered_fraction": 0.90196732,
+      "small_domain_independent_enumeration": 2999,
+      "certificate": "data/proofs/strip3_history_demand_kernels/strip3_kernel_6.txt.gz",
+      "certificate_sha256": "5e2cf0370cbda9c65cf9366be3f87a294459f7bd3cf4333891a292e54c8e86d9",
+      "screen": "data/strip3_history_demand_screen.json",
+      "screen_sha256": "04e9a6d38b14f39ca72fae72a55962c4ddeae1c72e9b6644fbbf1f5f54bdd934",
+      "solve_counts": {
+        "queries": 614,
+        "moves": 551,
+        "hits": 478,
+        "p_facts": 44,
+        "w_facts": 98,
+        "created_nodes": 69618,
+        "peak_nodes": 69619,
+        "retained_nodes": 69619,
+        "gc": 0,
+        "apply_calls": 212163,
+        "generalise": 1,
+        "nodes": 919,
+        "roots": 4
+      }
+    },
+    {
+      "n": 8,
+      "SG": 2,
+      "domain": "independent_histories",
+      "domain_size": 39561,
+      "kernel_sizes": [
+        13597,
+        13807,
+        4651
+      ],
+      "covered_size": 32055,
+      "covered_fraction": 0.81026769,
+      "small_domain_independent_enumeration": null,
+      "certificate": "data/proofs/strip3_history_demand_kernels/strip3_kernel_8.txt.gz",
+      "certificate_sha256": "e86bd475dc9b90b15307c44d2356e66633a3b0fc040736121124c01eac8468e9",
+      "screen": "data/strip3_history_demand_screen.json",
+      "screen_sha256": "04e9a6d38b14f39ca72fae72a55962c4ddeae1c72e9b6644fbbf1f5f54bdd934",
+      "solve_counts": {
+        "queries": 1231,
+        "moves": 1166,
+        "hits": 1005,
+        "p_facts": 68,
+        "w_facts": 161,
+        "created_nodes": 464348,
+        "peak_nodes": 464349,
+        "retained_nodes": 464349,
+        "gc": 0,
+        "apply_calls": 1423583,
+        "generalise": 1,
+        "nodes": 2842,
+        "roots": 3
+      }
+    },
+    {
+      "n": 10,
+      "SG": 3,
+      "domain": "independent_histories",
+      "domain_size": 521721,
+      "kernel_sizes": [
+        177817,
+        177361,
+        75684,
+        76058
+      ],
+      "covered_size": 506920,
+      "covered_fraction": 0.97163043,
+      "small_domain_independent_enumeration": null,
+      "certificate": "data/proofs/strip3_history_demand_kernels/strip3_kernel_10.txt.gz",
+      "certificate_sha256": "824283326c6d4779371b6be9a28cc31b20b87fbc9ea62cb8a20ffca1258ab3e2",
+      "screen": "data/strip3_history_demand_screen.json",
+      "screen_sha256": "04e9a6d38b14f39ca72fae72a55962c4ddeae1c72e9b6644fbbf1f5f54bdd934",
+      "solve_counts": {
+        "queries": 5354,
+        "moves": 5045,
+        "hits": 4680,
+        "p_facts": 215,
+        "w_facts": 471,
+        "created_nodes": 5330298,
+        "peak_nodes": 827219,
+        "retained_nodes": 620715,
+        "gc": 6,
+        "apply_calls": 18056209,
+        "generalise": 1,
+        "nodes": 9560,
+        "roots": 4
+      }
+    }
+  ]
+}

@@ -114,6 +114,7 @@ def main():
         available = sum(1 << v for v in (0, 63, 64, 127, 128, 191, 192, 255, 256, 299))
         result = run([paths["availability"], "position", n, f"{available:x}"])
         assert result.returncode == 0 and int(result.stdout.split()[-1]) == sparse_sg(available), result.stderr
+        assert result.stdout.split()[:2] == ["position", "100"]
         history = sum(1 << v for v in range(3*n) if (v//3+v%3) % 2 == 0)
         for removed in ((), (0, 64, 128, 192, 256, 298)):
             s = history
@@ -126,6 +127,7 @@ def main():
             assert mask.bit_count() <= 10
             result = run([paths["history"], "position", n, f"{s:x}"])
             assert result.returncode == 0 and int(result.stdout.split()[-1]) == sparse_sg(mask), result.stderr
+            assert result.stdout.split()[:2] == ["position", "100"]
         result = run([paths["history"], "position", 2, "3"])
         assert result.returncode == 2 and not result.stdout
         # History certificates have a different domain, transition and root.
