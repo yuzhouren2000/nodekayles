@@ -1,0 +1,787 @@
+{
+  "format": "strip3-history-cube-audit-v1",
+  "provenance": {
+    "candidate_source": "src/cfast/strip3_cube.c",
+    "source_sha256": {
+      "scripts/screen_strip3.py": "0f7fdcb0f72db3aeacbe7a20acd87cba868f2443613e9101959842570fb206b6",
+      "src/cfast/strip3_cube.c": "8c2e48212bb0d006df92871a1c0958a29efb69f98b1dc22d2d70bdd37047be1d",
+      "scripts/analyze_strip3_cube.py": "b5cab736a8518011f8e475960a86295a9537751108cd0ae51c2dd36b5060bb38",
+      "scripts/history_cube_geometry.py": "6b51b5235ef4d034f33f9eff504dd12d2bfe6a6e33d6429b06d6a54d87e1b615",
+      "tests/verify_strip3_cube_proof.py": "3c93285e6fdb0b54fa3c80c51eb111a13db3f5c78b5c360485ffa3b5418e4039",
+      "tests/test_strip3_cube.py": "9b2364741e7f8a80cb304d7cd5abc7567f0d1fa9076c7684b54608291d2930ac"
+    },
+    "build": {
+      "compiler": "/usr/bin/x86_64-linux-gnu-gcc-13",
+      "compiler_sha256": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+      "flags": [
+        "-O3",
+        "-march=native",
+        "-Wall",
+        "-Wextra",
+        "-pthread"
+      ],
+      "cpu_sha256": "e2598d56c905cd0aa3a6a11286a8bae77ccc09c04795b64884d1caa269144ffb",
+      "environment_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    "commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52"
+  },
+  "limits": {
+    "cpu": 0,
+    "threads": 1,
+    "process_wall_s": 2,
+    "address_space_mib": 512
+  },
+  "work": {
+    "builds": 1,
+    "solver_processes": 1
+  },
+  "build": {
+    "command": [
+      "/usr/bin/x86_64-linux-gnu-gcc-13",
+      "-O3",
+      "-march=native",
+      "-Wall",
+      "-Wextra",
+      "-pthread",
+      "-o",
+      "/tmp/strip3-cube-proof-mzpmo54d/cube",
+      "/root/bjcq/src/cfast/strip3_cube.c"
+    ],
+    "wall_s": 0.179085,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "generation": {
+    "command": [
+      "/tmp/strip3-cube-proof-mzpmo54d/cube",
+      "board",
+      "6",
+      "--certificate",
+      "/tmp/strip3-cube-proof-mzpmo54d/proof.txt"
+    ],
+    "wall_s": 0.012515,
+    "returncode": 0,
+    "stdout": "3\t6\t3",
+    "stderr": "cube time=0.009606 queries=9020 moves=7608 facts=3953 p_facts=1106 edges=20771 literals=34839 exact_hits=5067 region_hits=0 cube_tests=0 trie_visits=354515 trie_nodes=22398 memo=3953 lookup=1"
+  },
+  "independent_check": {
+    "command": [
+      "/usr/bin/python3",
+      "/root/bjcq/tests/verify_strip3_cube_proof.py",
+      "/root/bjcq/data/proofs/strip3_history_cubes_6.txt.gz"
+    ],
+    "wall_s": 0.033652,
+    "returncode": 0,
+    "stdout": "/root/bjcq/data/proofs/strip3_history_cubes_6.txt.gz {'n': 6, 'SG': 3, 'facts': 3953, 'p_facts': 1106, 'premise_edges': 7591, 'literals': 34839}",
+    "stderr": ""
+  },
+  "proof": {
+    "path": "data/proofs/strip3_history_cubes_6.txt.gz",
+    "sha256": "fa752e4c1d113b20c18e7a7dd9e85794c8e2da8b5add29664fb7656d3441b725",
+    "raw_sha256": "dc3195bc1970693c09623c3ff2763b23ac91e3b3e7d0b22b1364c284ebf94734",
+    "raw_bytes": 176818,
+    "gzip_bytes": 48889,
+    "non_singleton_facts": 0,
+    "n": 6,
+    "SG": 3,
+    "facts": 3953,
+    "p_facts": 1106,
+    "premise_edges": 7591,
+    "literals": 34839
+  },
+  "full_strip_parity_test": [
+    {
+      "n": 1,
+      "independent_histories": 5,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 2,
+      "independent_histories": 17,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 3,
+      "independent_histories": 63,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 4,
+      "independent_histories": 227,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 5,
+      "independent_histories": 827,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 6,
+      "independent_histories": 2999,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 7,
+      "independent_histories": 10897,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 8,
+      "independent_histories": 39561,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 9,
+      "independent_histories": 143677,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 10,
+      "independent_histories": 521721,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 11,
+      "independent_histories": 1894607,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 12,
+      "independent_histories": 6879979,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 13,
+      "independent_histories": 24983923,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 14,
+      "independent_histories": 90725999,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 15,
+      "independent_histories": 329460929,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 16,
+      "independent_histories": 1196397873,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 17,
+      "independent_histories": 4344577397,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 18,
+      "independent_histories": 15776816033,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 19,
+      "independent_histories": 57291635519,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 20,
+      "independent_histories": 208047769363,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 21,
+      "independent_histories": 755500774443,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 22,
+      "independent_histories": 2743511349031,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 23,
+      "independent_histories": 9962735709201,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 24,
+      "independent_histories": 36178491743225,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 25,
+      "independent_histories": 131377896967213,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 26,
+      "independent_histories": 477083233044745,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 27,
+      "independent_histories": 1732471112183567,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 28,
+      "independent_histories": 6291263130892379,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 29,
+      "independent_histories": 22845975037918947,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 30,
+      "independent_histories": 82962445628147423,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 31,
+      "independent_histories": 301268270371624961,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 32,
+      "independent_histories": 1094019951381242081,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 33,
+      "independent_histories": 3972803549954314981,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 34,
+      "independent_histories": 14426764362567935025,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 35,
+      "independent_histories": 52389081754490134975,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 36,
+      "independent_histories": 190244729733006638019,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 37,
+      "independent_histories": 690851146442999770907,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 38,
+      "independent_histories": 2508743906921471434903,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 39,
+      "independent_histories": 9110205610746451360273,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 40,
+      "independent_histories": 33082629933288724691945,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 41,
+      "independent_histories": 120135642384613157774621,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 42,
+      "independent_histories": 436258320462037192266009,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 43,
+      "independent_histories": 1584220289621006879819471,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 44,
+      "independent_histories": 5752907872080948188543051,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 45,
+      "independent_histories": 20891001839503324498228307,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 46,
+      "independent_histories": 75863192591030300935448911,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 47,
+      "independent_histories": 275488175929459541980448193,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 48,
+      "independent_histories": 1000402599533019941385046801,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 49,
+      "independent_histories": 3632843252803293810154554453,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 50,
+      "independent_histories": 13192238910213676967683940801,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 51,
+      "independent_histories": 47906049161317657254314760127,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 52,
+      "independent_histories": 173965129184384356373348118259,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 53,
+      "independent_histories": 631733710083871362462430242827,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 54,
+      "independent_histories": 2294065956363835186197265254407,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 55,
+      "independent_histories": 8330628124069580889914797205649,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 56,
+      "independent_histories": 30251686857137788540639837819481,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 57,
+      "independent_histories": 109855408748609191058306028630029,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 58,
+      "independent_histories": 398926872683681278174253818922537,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 59,
+      "independent_histories": 1448655569734948121808429012419599,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 60,
+      "independent_histories": 5260620688714846124121741100554939,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 61,
+      "independent_histories": 19103319387090771788035750246997443,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 62,
+      "independent_histories": 69371436033786939042627693278401983,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 63,
+      "independent_histories": 251914132820383560691661459026369025,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 64,
+      "independent_histories": 914796261154773909514967336622595009,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 65,
+      "independent_histories": 3321973999844758411391867677156406725,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 66,
+      "independent_histories": 12063354130584373340830911680769981521,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 67,
+      "independent_histories": 43806638127416913589321367965452034367,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 68,
+      "independent_histories": 159078604777185293314113238678901362851,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 69,
+      "independent_histories": 577675064319027309752762817473358525179,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 70,
+      "independent_histories": 2097758403170582006049374155339355245943,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 71,
+      "independent_histories": 7617760554127910957026003847553409608593,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 72,
+      "independent_histories": 27662992922502128657034139388464049329993,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 73,
+      "independent_histories": 100454874105452695746471539044775197786365,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 74,
+      "independent_histories": 364789947342747581429098540264995336306745,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 75,
+      "independent_histories": 1324691378764083426380000310951088449723087,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 76,
+      "independent_histories": 4810459448662150212677557724103684867956651,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 77,
+      "independent_histories": 17468612295803348287888645774869125236465459,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 78,
+      "independent_histories": 63435191336236850270413539354095364344364079,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 79,
+      "independent_histories": 230357365068529706841778953046454391657797825,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 80,
+      "independent_histories": 836515418705818365093361584493377284513823473,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 81,
+      "independent_histories": 3037706415527011622949508241490611793737968437,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 82,
+      "independent_histories": 11031070151952696586188772450587391930214513633,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 83,
+      "independent_histories": 40058021431998933203232815397072000231199040063,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 84,
+      "independent_histories": 145465948357008227558504903913174974759171338451,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 85,
+      "independent_histories": 528242318890483042713457191967291339111798948843,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 86,
+      "independent_histories": 1918249257771062754191755034963045134848411414759,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 87,
+      "independent_histories": 6965894407453024831461020406332766304136417482513,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 88,
+      "independent_histories": 25295818413175417960514066118530628442604132115129,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 89,
+      "independent_histories": 91858760952178501867080797483090563370914970176493,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 90,
+      "independent_histories": 333574183125638448743054236642401852262606321629001,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 91,
+      "independent_histories": 1211335037556894883857132237777014318446566046834447,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 92,
+      "independent_histories": 4398819355454445042212075829289909122026165891327771,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 93,
+      "independent_histories": 15973790175298080885699864287758813591360813093485731,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 94,
+      "independent_histories": 58006922300197193575929129314614680062616015213309087,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 95,
+      "independent_histories": 210645250614625977582200312118005227354950342940698113,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 96,
+      "independent_histories": 764933215674980671577763324294408625963570611269922977,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 97,
+      "independent_histories": 2777764144862419127763028657009089802465482467090548901,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 98,
+      "independent_histories": 10087120661474525091416708130470016680649772586587326577,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 99,
+      "independent_histories": 36630180941508938971829387890876566948737489632777248447,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    },
+    {
+      "n": 100,
+      "independent_histories": 133018152636190047820581261240278825355410044173808533379,
+      "maximal_history_parity_support": 3,
+      "SG_from_parity": null
+    }
+  ],
+  "saved_geometry_parity_test": {
+    "corpus": "data/proofs/strip3_equality/strip3_equality_target_tree_min_26.json.gz",
+    "corpus_sha256": "33829a5cc3c4ca4f02db10aa6a6fe18fe4de4f99c3b3dd049650ac133eb1dd53",
+    "geometries": 3155,
+    "hits": 16,
+    "maximum_hit_vertices": 8,
+    "hit_masks": [
+      {
+        "mask": "1",
+        "SG": 1
+      },
+      {
+        "mask": "3",
+        "SG": 1
+      },
+      {
+        "mask": "9",
+        "SG": 1
+      },
+      {
+        "mask": "f",
+        "SG": 0
+      },
+      {
+        "mask": "17",
+        "SG": 1
+      },
+      {
+        "mask": "1b",
+        "SG": 0
+      },
+      {
+        "mask": "1e",
+        "SG": 0
+      },
+      {
+        "mask": "4b",
+        "SG": 0
+      },
+      {
+        "mask": "59",
+        "SG": 1
+      },
+      {
+        "mask": "5a",
+        "SG": 0
+      },
+      {
+        "mask": "5f",
+        "SG": 0
+      },
+      {
+        "mask": "bd",
+        "SG": 1
+      },
+      {
+        "mask": "17f",
+        "SG": 1
+      },
+      {
+        "mask": "2d9",
+        "SG": 1
+      },
+      {
+        "mask": "5fa",
+        "SG": 0
+      },
+      {
+        "mask": "12c9",
+        "SG": 1
+      }
+    ]
+  },
+  "single_affine_class_counterexample": {
+    "n": 4,
+    "target": 0,
+    "histories": [
+      "0",
+      "a",
+      "82",
+      "88"
+    ],
+    "values": [
+      0,
+      0,
+      0,
+      2
+    ],
+    "validation": "tests/test_strip3_cube.py independent subset mex; 0xa xor 0x82 = 0x88"
+  },
+  "conclusion": "Equality cubes on independent histories are singletons. The tested local rules also leave all negative cubes singleton. Tries cannot generalise these facts. Uniform maximal-history parity is sufficient for SG 0/1 but solves no complete strip through 100 and only tiny geometries in the saved DAG. No new full-board SG value is proved.",
+  "wall_s": 0.463552
+}

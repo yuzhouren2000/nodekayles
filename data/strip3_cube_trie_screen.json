@@ -1,0 +1,269 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 6,
+      "status": "complete",
+      "wall_s": 0.011198,
+      "returncode": 0,
+      "stdout": "3\t6\t3",
+      "stderr": "cube time=0.001307 queries=1024 moves=1023 facts=533 p_facts=190 edges=3420 literals=4650 exact_hits=486 region_hits=0 cube_tests=0 trie_visits=26030 trie_nodes=3464 memo=533 lookup=1\ncube time=0.002565 queries=2048 moves=1943 facts=1082 p_facts=335 edges=6130 literals=9436 exact_hits=962 region_hits=0 cube_tests=0 trie_visits=64957 trie_nodes=7521 memo=1082 lookup=1\ncube time=0.004586 queries=4096 moves=3702 facts=1962 p_facts=635 edges=11796 literals=17147 exact_hits=2127 region_hits=0 cube_tests=0 trie_visits=150617 trie_nodes=12261 memo=1962 lookup=1\ncube time=0.007719 queries=8192 moves=6961 facts=3638 p_facts=1031 edges=19318 literals=32040 exact_hits=4546 region_hits=0 cube_tests=0 trie_visits=319783 trie_nodes=21045 memo=3638 lookup=1\ncube time=0.008283 queries=9020 moves=7608 facts=3953 p_facts=1106 edges=20771 literals=34839 exact_hits=5067 region_hits=0 cube_tests=0 trie_visits=354515 trie_nodes=22398 memo=3953 lookup=1",
+      "counts": {
+        "queries": 9020,
+        "moves": 7608,
+        "facts": 3953,
+        "p_facts": 1106,
+        "edges": 20771,
+        "literals": 34839,
+        "exact_hits": 5067,
+        "region_hits": 0,
+        "cube_tests": 0,
+        "trie_visits": 354515,
+        "trie_nodes": 22398,
+        "memo": 3953,
+        "lookup": 1
+      },
+      "SG": 3,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    },
+    {
+      "n": 8,
+      "status": "complete",
+      "wall_s": 0.08595,
+      "returncode": 0,
+      "stdout": "3\t8\t2",
+      "stderr": "cube time=0.001359 queries=1024 moves=1023 facts=478 p_facts=160 edges=3840 literals=5601 exact_hits=537 region_hits=0 cube_tests=0 trie_visits=18759 trie_nodes=3242 memo=478 lookup=1\ncube time=0.002708 queries=2048 moves=2047 facts=935 p_facts=336 edges=8064 literals=10715 exact_hits=1105 region_hits=0 cube_tests=0 trie_visits=42513 trie_nodes=6243 memo=935 lookup=1\ncube time=0.005251 queries=4096 moves=4095 facts=1944 p_facts=708 edges=16992 literals=22048 exact_hits=2143 region_hits=0 cube_tests=0 trie_visits=111018 trie_nodes=13445 memo=1944 lookup=1\ncube time=0.009398 queries=8192 moves=8191 facts=3807 p_facts=1231 edges=29544 literals=42549 exact_hits=4376 region_hits=0 cube_tests=0 trie_visits=267381 trie_nodes=25595 memo=3807 lookup=1\ncube time=0.016466 queries=16384 moves=15654 facts=7470 p_facts=2346 edges=57014 literals=84338 exact_hits=8906 region_hits=0 cube_tests=0 trie_visits=657634 trie_nodes=50621 memo=7470 lookup=1\ncube time=0.026657 queries=32768 moves=29929 facts=13699 p_facts=4142 edges=101557 literals=154270 exact_hits=19057 region_hits=0 cube_tests=0 trie_visits=1480113 trie_nodes=87573 memo=13699 lookup=1\ncube time=0.040504 queries=65536 moves=56793 facts=23592 p_facts=7063 edges=173468 literals=265903 exact_hits=41934 region_hits=0 cube_tests=0 trie_visits=2861958 trie_nodes=138916 memo=23592 lookup=1\ncube time=0.064571 queries=131072 moves=111495 facts=42096 p_facts=12676 edges=311593 literals=476232 exact_hits=88966 region_hits=0 cube_tests=0 trie_visits=5556240 trie_nodes=226613 memo=42096 lookup=1\ncube time=0.083073 queries=188620 moves=161252 facts=55053 p_facts=16701 edges=410653 literals=629776 exact_hits=133567 region_hits=0 cube_tests=0 trie_visits=7566822 trie_nodes=288612 memo=55053 lookup=1",
+      "counts": {
+        "queries": 188620,
+        "moves": 161252,
+        "facts": 55053,
+        "p_facts": 16701,
+        "edges": 410653,
+        "literals": 629776,
+        "exact_hits": 133567,
+        "region_hits": 0,
+        "cube_tests": 0,
+        "trie_visits": 7566822,
+        "trie_nodes": 288612,
+        "memo": 55053,
+        "lookup": 1
+      },
+      "SG": 2,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    },
+    {
+      "n": 10,
+      "status": "failed",
+      "wall_s": 0.474554,
+      "returncode": 3,
+      "stdout": "",
+      "stderr": "cube time=0.001208 queries=1024 moves=1023 facts=439 p_facts=163 edges=4890 literals=6401 exact_hits=571 region_hits=0 cube_tests=0 trie_visits=21162 trie_nodes=4345 memo=439 lookup=1\ncube time=0.002360 queries=2048 moves=2047 facts=855 p_facts=285 edges=8550 literals=12610 exact_hits=1180 region_hits=0 cube_tests=0 trie_visits=43553 trie_nodes=7789 memo=855 lookup=1\ncube time=0.004670 queries=4096 moves=4095 facts=1671 p_facts=623 edges=18690 literals=24160 exact_hits=2413 region_hits=0 cube_tests=0 trie_visits=97853 trie_nodes=13099 memo=1671 lookup=1\ncube time=0.010604 queries=8192 moves=8191 facts=3470 p_facts=1168 edges=35040 literals=48789 exact_hits=4713 region_hits=0 cube_tests=0 trie_visits=245636 trie_nodes=26646 memo=3470 lookup=1\ncube time=0.017778 queries=16384 moves=16383 facts=6800 p_facts=2216 edges=66480 literals=93801 exact_hits=9572 region_hits=0 cube_tests=0 trie_visits=556516 trie_nodes=48389 memo=6800 lookup=1\ncube time=0.029238 queries=32768 moves=32767 facts=13424 p_facts=4451 edges=133530 literals=185692 exact_hits=19335 region_hits=0 cube_tests=0 trie_visits=1236693 trie_nodes=92194 memo=13424 lookup=1\ncube time=0.050272 queries=65536 moves=65535 facts=26514 p_facts=8476 edges=254280 literals=367683 exact_hits=39015 region_hits=0 cube_tests=0 trie_visits=2734558 trie_nodes=177590 memo=26514 lookup=1\ncube time=0.084143 queries=131072 moves=131071 facts=49187 p_facts=14663 edges=439890 literals=681453 exact_hits=81876 region_hits=0 cube_tests=0 trie_visits=5430488 trie_nodes=312588 memo=49187 lookup=1\ncube time=0.151630 queries=262144 moves=262143 facts=93902 p_facts=26738 edges=802140 literals=1327546 exact_hits=168235 region_hits=0 cube_tests=0 trie_visits=11553374 trie_nodes=568097 memo=93902 lookup=1\ncube time=0.288980 queries=524288 moves=497525 facts=177613 p_facts=49410 edges=1495540 literals=2533205 exact_hits=346665 region_hits=0 cube_tests=0 trie_visits=25169775 trie_nodes=1067196 memo=177613 lookup=1\ncube: proof fact budget; incomplete\ncube time=0.469283 queries=881873 moves=800702 facts=262143 p_facts=75249 edges=2288303 literals=3726674 exact_hits=619719 region_hits=0 cube_tests=0 trie_visits=41442808 trie_nodes=1511539 memo=262143 lookup=1",
+      "counts": {
+        "queries": 881873,
+        "moves": 800702,
+        "facts": 262143,
+        "p_facts": 75249,
+        "edges": 2288303,
+        "literals": 3726674,
+        "exact_hits": 619719,
+        "region_hits": 0,
+        "cube_tests": 0,
+        "trie_visits": 41442808,
+        "trie_nodes": 1511539,
+        "memo": 262143,
+        "lookup": 1
+      },
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      6,
+      8,
+      10
+    ],
+    "skip_reference": true,
+    "extra_env": {
+      "STRIP3_CUBE_LOOKUP": "1",
+      "STRIP3_CUBE_TRACE": "1"
+    }
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "candidate_source": "src/cfast/strip3_cube.c",
+    "source_sha256": {
+      "scripts/screen_strip3.py": "0f7fdcb0f72db3aeacbe7a20acd87cba868f2443613e9101959842570fb206b6",
+      "src/cfast/strip3_cube.c": "8c2e48212bb0d006df92871a1c0958a29efb69f98b1dc22d2d70bdd37047be1d"
+    },
+    "build": {
+      "compiler": "/usr/bin/x86_64-linux-gnu-gcc-13",
+      "compiler_sha256": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+      "flags": [
+        "-O3",
+        "-march=native",
+        "-Wall",
+        "-Wextra",
+        "-pthread"
+      ],
+      "cpu_sha256": "e2598d56c905cd0aa3a6a11286a8bae77ccc09c04795b64884d1caa269144ffb",
+      "environment_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    "commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52"
+  },
+  "cache_fingerprint": {
+    "format": "strip3-target100-cache-v1",
+    "provenance": {
+      "candidate_source": "src/cfast/strip3_cube.c",
+      "source_sha256": {
+        "scripts/screen_strip3.py": "0f7fdcb0f72db3aeacbe7a20acd87cba868f2443613e9101959842570fb206b6",
+        "src/cfast/strip3_cube.c": "8c2e48212bb0d006df92871a1c0958a29efb69f98b1dc22d2d70bdd37047be1d"
+      },
+      "build": {
+        "compiler": "/usr/bin/x86_64-linux-gnu-gcc-13",
+        "compiler_sha256": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+        "flags": [
+          "-O3",
+          "-march=native",
+          "-Wall",
+          "-Wextra",
+          "-pthread"
+        ],
+        "cpu_sha256": "e2598d56c905cd0aa3a6a11286a8bae77ccc09c04795b64884d1caa269144ffb",
+        "environment_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      }
+    },
+    "configuration": {
+      "order": 2,
+      "low_first": 0,
+      "skip_reference": true,
+      "extra_env": {
+        "STRIP3_CUBE_LOOKUP": "1",
+        "STRIP3_CUBE_TRACE": "1"
+      }
+    },
+    "limits": {
+      "address_space_mib": 512,
+      "threads": 1,
+      "per_process_wall_s": 2
+    }
+  },
+  "cache": {
+    "enabled": true,
+    "path": "data/strip3_cube_trie_screen.json",
+    "hits": 0,
+    "state": "missing"
+  },
+  "work": {
+    "builds": 1,
+    "solver_processes": 3
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 0.766333,
+  "completed_samples": [
+    {
+      "n": 6,
+      "status": "complete",
+      "wall_s": 0.011198,
+      "returncode": 0,
+      "stdout": "3\t6\t3",
+      "stderr": "cube time=0.001307 queries=1024 moves=1023 facts=533 p_facts=190 edges=3420 literals=4650 exact_hits=486 region_hits=0 cube_tests=0 trie_visits=26030 trie_nodes=3464 memo=533 lookup=1\ncube time=0.002565 queries=2048 moves=1943 facts=1082 p_facts=335 edges=6130 literals=9436 exact_hits=962 region_hits=0 cube_tests=0 trie_visits=64957 trie_nodes=7521 memo=1082 lookup=1\ncube time=0.004586 queries=4096 moves=3702 facts=1962 p_facts=635 edges=11796 literals=17147 exact_hits=2127 region_hits=0 cube_tests=0 trie_visits=150617 trie_nodes=12261 memo=1962 lookup=1\ncube time=0.007719 queries=8192 moves=6961 facts=3638 p_facts=1031 edges=19318 literals=32040 exact_hits=4546 region_hits=0 cube_tests=0 trie_visits=319783 trie_nodes=21045 memo=3638 lookup=1\ncube time=0.008283 queries=9020 moves=7608 facts=3953 p_facts=1106 edges=20771 literals=34839 exact_hits=5067 region_hits=0 cube_tests=0 trie_visits=354515 trie_nodes=22398 memo=3953 lookup=1",
+      "counts": {
+        "queries": 9020,
+        "moves": 7608,
+        "facts": 3953,
+        "p_facts": 1106,
+        "edges": 20771,
+        "literals": 34839,
+        "exact_hits": 5067,
+        "region_hits": 0,
+        "cube_tests": 0,
+        "trie_visits": 354515,
+        "trie_nodes": 22398,
+        "memo": 3953,
+        "lookup": 1
+      },
+      "SG": 3,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    },
+    {
+      "n": 8,
+      "status": "complete",
+      "wall_s": 0.08595,
+      "returncode": 0,
+      "stdout": "3\t8\t2",
+      "stderr": "cube time=0.001359 queries=1024 moves=1023 facts=478 p_facts=160 edges=3840 literals=5601 exact_hits=537 region_hits=0 cube_tests=0 trie_visits=18759 trie_nodes=3242 memo=478 lookup=1\ncube time=0.002708 queries=2048 moves=2047 facts=935 p_facts=336 edges=8064 literals=10715 exact_hits=1105 region_hits=0 cube_tests=0 trie_visits=42513 trie_nodes=6243 memo=935 lookup=1\ncube time=0.005251 queries=4096 moves=4095 facts=1944 p_facts=708 edges=16992 literals=22048 exact_hits=2143 region_hits=0 cube_tests=0 trie_visits=111018 trie_nodes=13445 memo=1944 lookup=1\ncube time=0.009398 queries=8192 moves=8191 facts=3807 p_facts=1231 edges=29544 literals=42549 exact_hits=4376 region_hits=0 cube_tests=0 trie_visits=267381 trie_nodes=25595 memo=3807 lookup=1\ncube time=0.016466 queries=16384 moves=15654 facts=7470 p_facts=2346 edges=57014 literals=84338 exact_hits=8906 region_hits=0 cube_tests=0 trie_visits=657634 trie_nodes=50621 memo=7470 lookup=1\ncube time=0.026657 queries=32768 moves=29929 facts=13699 p_facts=4142 edges=101557 literals=154270 exact_hits=19057 region_hits=0 cube_tests=0 trie_visits=1480113 trie_nodes=87573 memo=13699 lookup=1\ncube time=0.040504 queries=65536 moves=56793 facts=23592 p_facts=7063 edges=173468 literals=265903 exact_hits=41934 region_hits=0 cube_tests=0 trie_visits=2861958 trie_nodes=138916 memo=23592 lookup=1\ncube time=0.064571 queries=131072 moves=111495 facts=42096 p_facts=12676 edges=311593 literals=476232 exact_hits=88966 region_hits=0 cube_tests=0 trie_visits=5556240 trie_nodes=226613 memo=42096 lookup=1\ncube time=0.083073 queries=188620 moves=161252 facts=55053 p_facts=16701 edges=410653 literals=629776 exact_hits=133567 region_hits=0 cube_tests=0 trie_visits=7566822 trie_nodes=288612 memo=55053 lookup=1",
+      "counts": {
+        "queries": 188620,
+        "moves": 161252,
+        "facts": 55053,
+        "p_facts": 16701,
+        "edges": 410653,
+        "literals": 629776,
+        "exact_hits": 133567,
+        "region_hits": 0,
+        "cube_tests": 0,
+        "trie_visits": 7566822,
+        "trie_nodes": 288612,
+        "memo": 55053,
+        "lookup": 1
+      },
+      "SG": 2,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    }
+  ]
+}

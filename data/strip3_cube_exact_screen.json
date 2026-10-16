@@ -1,0 +1,269 @@
+{
+  "format": "strip3-target100-screen-v1",
+  "status": "candidate_stopped",
+  "samples": [
+    {
+      "n": 6,
+      "status": "complete",
+      "wall_s": 0.009704,
+      "returncode": 0,
+      "stdout": "3\t6\t3",
+      "stderr": "cube time=0.001012 queries=1024 moves=1023 facts=533 p_facts=190 edges=3420 literals=4650 exact_hits=486 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=533 lookup=0\ncube time=0.001784 queries=2048 moves=1891 facts=1029 p_facts=356 edges=6533 literals=8905 exact_hits=1011 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=1029 lookup=0\ncube time=0.003168 queries=4096 moves=3676 facts=1874 p_facts=612 edges=11364 literals=16326 exact_hits=2214 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=1874 lookup=0\ncube time=0.004546 queries=8192 moves=6869 facts=3034 p_facts=933 edges=17339 literals=26407 exact_hits=5152 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=3034 lookup=0\ncube time=0.007017 queries=16254 moves=12704 facts=4991 p_facts=1285 edges=24083 literals=43677 exact_hits=11263 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=4991 lookup=0",
+      "counts": {
+        "queries": 16254,
+        "moves": 12704,
+        "facts": 4991,
+        "p_facts": 1285,
+        "edges": 24083,
+        "literals": 43677,
+        "exact_hits": 11263,
+        "region_hits": 0,
+        "cube_tests": 0,
+        "trie_visits": 0,
+        "trie_nodes": 1,
+        "memo": 4991,
+        "lookup": 0
+      },
+      "SG": 3,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    },
+    {
+      "n": 8,
+      "status": "complete",
+      "wall_s": 0.050794,
+      "returncode": 0,
+      "stdout": "3\t8\t2",
+      "stderr": "cube time=0.001260 queries=1024 moves=1023 facts=478 p_facts=160 edges=3840 literals=5601 exact_hits=537 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=478 lookup=0\ncube time=0.002461 queries=2048 moves=2047 facts=935 p_facts=336 edges=8064 literals=10715 exact_hits=1105 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=935 lookup=0\ncube time=0.004399 queries=4096 moves=4095 facts=1944 p_facts=708 edges=16992 literals=22048 exact_hits=2143 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=1944 lookup=0\ncube time=0.007454 queries=8192 moves=8191 facts=3807 p_facts=1231 edges=29544 literals=42549 exact_hits=4376 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=3807 lookup=0\ncube time=0.011636 queries=16384 moves=15511 facts=7221 p_facts=2381 edges=57909 literals=81314 exact_hits=9155 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=7221 lookup=0\ncube time=0.017369 queries=32768 moves=29856 facts=13044 p_facts=4024 edges=98703 literals=146626 exact_hits=19712 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=13044 lookup=0\ncube time=0.023180 queries=65536 moves=56499 facts=20640 p_facts=6331 edges=155300 literals=234291 exact_hits=44888 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=20640 lookup=0\ncube time=0.033120 queries=131072 moves=110966 facts=35801 p_facts=11080 edges=271942 literals=408786 exact_hits=95262 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=35801 lookup=0\ncube time=0.047238 queries=221238 moves=187457 facts=57276 p_facts=17393 edges=427650 literals=656759 exact_hits=163962 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=57276 lookup=0",
+      "counts": {
+        "queries": 221238,
+        "moves": 187457,
+        "facts": 57276,
+        "p_facts": 17393,
+        "edges": 427650,
+        "literals": 656759,
+        "exact_hits": 163962,
+        "region_hits": 0,
+        "cube_tests": 0,
+        "trie_visits": 0,
+        "trie_nodes": 1,
+        "memo": 57276,
+        "lookup": 0
+      },
+      "SG": 2,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    },
+    {
+      "n": 10,
+      "status": "failed",
+      "wall_s": 0.214032,
+      "returncode": 3,
+      "stdout": "",
+      "stderr": "cube time=0.000985 queries=1024 moves=1023 facts=439 p_facts=163 edges=4890 literals=6401 exact_hits=571 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=439 lookup=0\ncube time=0.001873 queries=2048 moves=2047 facts=855 p_facts=285 edges=8550 literals=12610 exact_hits=1180 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=855 lookup=0\ncube time=0.003482 queries=4096 moves=4095 facts=1671 p_facts=623 edges=18690 literals=24160 exact_hits=2413 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=1671 lookup=0\ncube time=0.006657 queries=8192 moves=8191 facts=3470 p_facts=1168 edges=35040 literals=48789 exact_hits=4713 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=3470 lookup=0\ncube time=0.011455 queries=16384 moves=16383 facts=6800 p_facts=2216 edges=66480 literals=93801 exact_hits=9572 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=6800 lookup=0\ncube time=0.017996 queries=32768 moves=32767 facts=13424 p_facts=4451 edges=133530 literals=185692 exact_hits=19335 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=13424 lookup=0\ncube time=0.027482 queries=65536 moves=65535 facts=26514 p_facts=8476 edges=254280 literals=367683 exact_hits=39015 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=26514 lookup=0\ncube time=0.042844 queries=131072 moves=131071 facts=49187 p_facts=14663 edges=439890 literals=681453 exact_hits=81876 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=49187 lookup=0\ncube time=0.072809 queries=262144 moves=262143 facts=93902 p_facts=26738 edges=802140 literals=1327546 exact_hits=168235 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=93902 lookup=0\ncube time=0.130550 queries=524288 moves=500450 facts=172289 p_facts=49489 edges=1500005 literals=2446419 exact_hits=351990 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=172289 lookup=0\ncube: proof fact budget; incomplete\ncube time=0.209368 queries=974849 moves=880574 facts=262143 p_facts=76994 edges=2343204 literals=3724296 exact_hits=712696 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=262143 lookup=0",
+      "counts": {
+        "queries": 974849,
+        "moves": 880574,
+        "facts": 262143,
+        "p_facts": 76994,
+        "edges": 2343204,
+        "literals": 3724296,
+        "exact_hits": 712696,
+        "region_hits": 0,
+        "cube_tests": 0,
+        "trie_visits": 0,
+        "trie_nodes": 1,
+        "memo": 262143,
+        "lookup": 0
+      },
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    }
+  ],
+  "configuration": {
+    "order": 2,
+    "low_first": 0,
+    "sizes": [
+      6,
+      8,
+      10
+    ],
+    "skip_reference": true,
+    "extra_env": {
+      "STRIP3_CUBE_LOOKUP": "0",
+      "STRIP3_CUBE_TRACE": "1"
+    }
+  },
+  "limits": {
+    "per_process_wall_s": 2,
+    "total_wall_s": 20,
+    "address_space_mib": 512,
+    "cpu": 0,
+    "threads": 1
+  },
+  "provenance": {
+    "candidate_source": "src/cfast/strip3_cube.c",
+    "source_sha256": {
+      "scripts/screen_strip3.py": "0f7fdcb0f72db3aeacbe7a20acd87cba868f2443613e9101959842570fb206b6",
+      "src/cfast/strip3_cube.c": "8c2e48212bb0d006df92871a1c0958a29efb69f98b1dc22d2d70bdd37047be1d"
+    },
+    "build": {
+      "compiler": "/usr/bin/x86_64-linux-gnu-gcc-13",
+      "compiler_sha256": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+      "flags": [
+        "-O3",
+        "-march=native",
+        "-Wall",
+        "-Wextra",
+        "-pthread"
+      ],
+      "cpu_sha256": "e2598d56c905cd0aa3a6a11286a8bae77ccc09c04795b64884d1caa269144ffb",
+      "environment_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    "commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52"
+  },
+  "cache_fingerprint": {
+    "format": "strip3-target100-cache-v1",
+    "provenance": {
+      "candidate_source": "src/cfast/strip3_cube.c",
+      "source_sha256": {
+        "scripts/screen_strip3.py": "0f7fdcb0f72db3aeacbe7a20acd87cba868f2443613e9101959842570fb206b6",
+        "src/cfast/strip3_cube.c": "8c2e48212bb0d006df92871a1c0958a29efb69f98b1dc22d2d70bdd37047be1d"
+      },
+      "build": {
+        "compiler": "/usr/bin/x86_64-linux-gnu-gcc-13",
+        "compiler_sha256": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+        "flags": [
+          "-O3",
+          "-march=native",
+          "-Wall",
+          "-Wextra",
+          "-pthread"
+        ],
+        "cpu_sha256": "e2598d56c905cd0aa3a6a11286a8bae77ccc09c04795b64884d1caa269144ffb",
+        "environment_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      }
+    },
+    "configuration": {
+      "order": 2,
+      "low_first": 0,
+      "skip_reference": true,
+      "extra_env": {
+        "STRIP3_CUBE_LOOKUP": "0",
+        "STRIP3_CUBE_TRACE": "1"
+      }
+    },
+    "limits": {
+      "address_space_mib": 512,
+      "threads": 1,
+      "per_process_wall_s": 2
+    }
+  },
+  "cache": {
+    "enabled": true,
+    "path": "data/strip3_cube_exact_screen.json",
+    "hits": 0,
+    "state": "missing"
+  },
+  "work": {
+    "builds": 1,
+    "solver_processes": 3
+  },
+  "interpretation": "One sample per size; finite measurements do not establish asymptotic complexity.",
+  "timing_caveat": "Other local work may run concurrently; compare operation counts before timing ratios.",
+  "wall_s": 0.454312,
+  "completed_samples": [
+    {
+      "n": 6,
+      "status": "complete",
+      "wall_s": 0.009704,
+      "returncode": 0,
+      "stdout": "3\t6\t3",
+      "stderr": "cube time=0.001012 queries=1024 moves=1023 facts=533 p_facts=190 edges=3420 literals=4650 exact_hits=486 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=533 lookup=0\ncube time=0.001784 queries=2048 moves=1891 facts=1029 p_facts=356 edges=6533 literals=8905 exact_hits=1011 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=1029 lookup=0\ncube time=0.003168 queries=4096 moves=3676 facts=1874 p_facts=612 edges=11364 literals=16326 exact_hits=2214 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=1874 lookup=0\ncube time=0.004546 queries=8192 moves=6869 facts=3034 p_facts=933 edges=17339 literals=26407 exact_hits=5152 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=3034 lookup=0\ncube time=0.007017 queries=16254 moves=12704 facts=4991 p_facts=1285 edges=24083 literals=43677 exact_hits=11263 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=4991 lookup=0",
+      "counts": {
+        "queries": 16254,
+        "moves": 12704,
+        "facts": 4991,
+        "p_facts": 1285,
+        "edges": 24083,
+        "literals": 43677,
+        "exact_hits": 11263,
+        "region_hits": 0,
+        "cube_tests": 0,
+        "trie_visits": 0,
+        "trie_nodes": 1,
+        "memo": 4991,
+        "lookup": 0
+      },
+      "SG": 3,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    },
+    {
+      "n": 8,
+      "status": "complete",
+      "wall_s": 0.050794,
+      "returncode": 0,
+      "stdout": "3\t8\t2",
+      "stderr": "cube time=0.001260 queries=1024 moves=1023 facts=478 p_facts=160 edges=3840 literals=5601 exact_hits=537 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=478 lookup=0\ncube time=0.002461 queries=2048 moves=2047 facts=935 p_facts=336 edges=8064 literals=10715 exact_hits=1105 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=935 lookup=0\ncube time=0.004399 queries=4096 moves=4095 facts=1944 p_facts=708 edges=16992 literals=22048 exact_hits=2143 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=1944 lookup=0\ncube time=0.007454 queries=8192 moves=8191 facts=3807 p_facts=1231 edges=29544 literals=42549 exact_hits=4376 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=3807 lookup=0\ncube time=0.011636 queries=16384 moves=15511 facts=7221 p_facts=2381 edges=57909 literals=81314 exact_hits=9155 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=7221 lookup=0\ncube time=0.017369 queries=32768 moves=29856 facts=13044 p_facts=4024 edges=98703 literals=146626 exact_hits=19712 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=13044 lookup=0\ncube time=0.023180 queries=65536 moves=56499 facts=20640 p_facts=6331 edges=155300 literals=234291 exact_hits=44888 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=20640 lookup=0\ncube time=0.033120 queries=131072 moves=110966 facts=35801 p_facts=11080 edges=271942 literals=408786 exact_hits=95262 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=35801 lookup=0\ncube time=0.047238 queries=221238 moves=187457 facts=57276 p_facts=17393 edges=427650 literals=656759 exact_hits=163962 region_hits=0 cube_tests=0 trie_visits=0 trie_nodes=1 memo=57276 lookup=0",
+      "counts": {
+        "queries": 221238,
+        "moves": 187457,
+        "facts": 57276,
+        "p_facts": 17393,
+        "edges": 427650,
+        "literals": 656759,
+        "exact_hits": 163962,
+        "region_hits": 0,
+        "cube_tests": 0,
+        "trie_visits": 0,
+        "trie_nodes": 1,
+        "memo": 57276,
+        "lookup": 0
+      },
+      "SG": 2,
+      "solver": "candidate",
+      "cached": false,
+      "measured_at_commit": "92f4ba3c51dfec9124432b9ba5e56ad9d7d24b52",
+      "measurement_limits": {
+        "per_process_wall_s": 2,
+        "total_wall_s": 20,
+        "address_space_mib": 512,
+        "cpu": 0,
+        "threads": 1
+      }
+    }
+  ]
+}

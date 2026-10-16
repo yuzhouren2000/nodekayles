@@ -56,6 +56,8 @@ python3 scripts/play.py 5 5    # 与最优对手交互对弈
 当前调度未获净规模收益，继续使用原默认引擎。
 真实可达域与部分SG核的符号证书见 [notes/35](notes/35_symbolic_kernels.md)：
 12列证书可约0.17秒独立核验，当前符号生成仍在14失败，没有主线规模突破。
+历史条件组的刚性障碍及无BDD的局部证书见 [notes/37](notes/37_history_cube_rigidity.md)：
+单个精确SG条件组只能覆盖一个独立历史，不能用DNF替换BDD来获得泛化。
 
 * **已解决的家族**：偶数×偶数（P）、奇数×奇数（N，天元制胜）、`2 × n`、
   `4 × n`（恒 P）、`1 × n`（即 Dawson's chess），以及一般配对引理。

@@ -147,7 +147,7 @@ def main():
                 row = line.split()
                 yes, no = int(row[4], 16), int(row[5], 16)
                 # In this inference system even the negative facts remain
-                # singleton histories. The checker itself permits broad N.
+                # singleton histories. The checker does not assume rigidity.
                 assert cube_witness(neighbourhoods(n), yes, no) is None
         text = path.read_text()
 
