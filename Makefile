@@ -3,7 +3,7 @@ PY ?= python3
 CC ?= gcc
 CFLAGS ?= -O2 -march=native
 
-.PHONY: build build-strip3 build-strip3-language export-strip3-comb test-strip3-comb benchmark-strip3-comb test-protected-strip-search test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-strip3-language-33 test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge test-connected-comb-core test-three-comb-chain test-interface-classes test-strip3-screen-cache analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
+.PHONY: build build-strip3 build-strip3-language export-strip3-comb test-strip3-comb benchmark-strip3-comb test-protected-strip-search test test-all test-ci test-strip3 test-strip3-ports test-strip3-target test-strip3-exact test-strip3-two-move test-strip3-interface test-strip3-defect test-comb-stabilization test-clique-strips test-strip3-language test-strip3-language-33 test-kayles-boundary test-kayles-transfer test-guarded-symmetry test-neutral-core test-comb-bridge test-two-comb-core test-parametric-bridge test-connected-comb-core test-three-comb-chain test-interface-classes test-strip3-screen-cache analyze analyze-strip3 analyze-strip3-ports data wmoves clean help
 
 help:
 	@echo "make test-strip3-demand-symbolic - independently check demand kernels over availability and histories"
@@ -50,6 +50,7 @@ help:
 	@echo "make analyze-strip3 - structural analysis and constructive first moves"
 	@echo "make analyze-strip3-ports - regenerate the port-family survey/closure data"
 	@echo "make test     - Python reference checks vs literature (~1 min)"
+	@echo "make test-all - build every solver, then run every verification target (slow)"
 	@echo "make analyze  - sequences, periodicity, conjecture monitors, all checks"
 	@echo "make data     - run/continue the full data campaign (background, resumable)"
 	@echo "make wmoves   - winning first moves for small boards"
@@ -232,6 +233,40 @@ test:
 	$(PY) tests/verify_certificates.py
 	$(PY) tests/test_pairing_classification.py
 	$(PY) tests/test_fixed_pairing.py
+
+# Complete verification suite: build all solvers, then run every test-* target
+# once (sequentially, do not pass -j). Slow and memory-heavy on purpose; the
+# fast subset used by CI lives in .github/workflows/ci.yml.
+test-all: build build-strip3 build-strip3-language build-strip3-target \
+	  test test-strip3 test-strip3-ports test-strip3-target test-strip3-exact \
+	  test-strip3-two-move test-strip3-interface test-strip3-defect \
+	  test-comb-stabilization test-clique-strips test-strip3-language \
+	  test-strip3-language-33 test-interface-classes test-kayles-boundary \
+	  test-kayles-transfer test-guarded-symmetry test-neutral-core \
+	  test-comb-bridge test-two-comb-core test-parametric-bridge \
+	  test-connected-comb-core test-three-comb-chain test-reachable-boundary-search \
+	  test-strip3-comb test-protected-strip-search test-strip3-target-search \
+	  test-strip3-absence test-strip3-proof-cost test-strip3-lazy \
+	  test-strip3-reachable-symbolic test-strip3-demand-symbolic \
+	  test-strip3-search-experiments test-strip3-screen-cache test-strip3-cube \
+	  test-strip3-caterpillar test-kayles-response test-strip3-connection-rank
+	@echo "== test-all: every verification target passed =="
+
+# Fast, dependency-free subset used by CI: builds all solvers and runs the
+# quick verification targets (a couple of minutes). `make test-all` is the
+# complete suite for local use.
+test-ci: build build-strip3 build-strip3-language build-strip3-target \
+	 test test-strip3 test-strip3-target test-strip3-exact \
+	 test-strip3-interface test-strip3-defect test-comb-stabilization \
+	 test-clique-strips test-kayles-boundary test-kayles-transfer \
+	 test-guarded-symmetry test-neutral-core test-kayles-response \
+	 test-strip3-absence test-strip3-proof-cost test-strip3-lazy \
+	 test-strip3-reachable-symbolic test-strip3-demand-symbolic \
+	 test-strip3-search-experiments test-strip3-screen-cache test-strip3-cube \
+	 test-strip3-caterpillar test-strip3-target-search test-interface-classes \
+	 test-strip3-connection-rank test-strip3-language-33 test-strip3-comb \
+	 test-protected-strip-search test-reachable-boundary-search
+	@echo "== test-ci: fast verification subset passed =="
 
 analyze:
 	$(PY) scripts/analyze.py

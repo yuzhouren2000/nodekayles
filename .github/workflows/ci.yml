@@ -1,0 +1,32 @@
+name: CI
+
+# Fast verification: builds every solver and runs the quick test subset
+# (`make test-ci`). The complete suite is `make test-all`, meant for local use.
+#
+# Note: this workflow runs on GitHub Actions. If the repository is mirrored to
+# GitCode, that platform does not execute .github/workflows; run `make test-ci`
+# manually there or wire up its own pipeline.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show toolchain
+        run: |
+          gcc --version | head -n1
+          python3 --version
+
+      - name: Build solvers and run the fast verification subset
+        run: make test-ci
